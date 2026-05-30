@@ -3184,7 +3184,7 @@ textarea {
   padding: 6rem 1.25rem;
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(180deg, #000 0%, #050a14 100%);
+  background: transparent;
 }
 
 .cta-gradient {
@@ -3232,6 +3232,7 @@ textarea {
   position: relative;
   padding: 6rem 1.25rem 4rem;
   overflow: hidden;
+  background-color: var(--bg-beige);
 }
 
 .multistep-container {
@@ -3276,15 +3277,13 @@ textarea {
   line-height: 1.6;
 }
 
-/* Glassmorphic Form Card */
+/* Solid White Form Card */
 .multistep-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 24px;
   padding: 2.5rem 2rem;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
@@ -3557,13 +3556,14 @@ textarea {
 .success-screen h3 {
   font-size: 26px;
   font-weight: 600;
+  color: #0f172a;
   margin: 0 0 12px;
 }
 
 .success-screen p {
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  color: #475569;
   max-width: 28rem;
   margin: 0 0 2.5rem;
 }
@@ -3572,7 +3572,7 @@ textarea {
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.3);
+  color: #94a3b8;
   margin-bottom: 1.25rem;
 }
 
@@ -3603,7 +3603,7 @@ textarea {
 /* Gradient progress bar */
 .simple-progress {
   height: 6px;
-  background: rgba(255,255,255,0.06);
+  background: rgba(0, 0, 0, 0.06);
   border-radius: 99px;
   overflow: hidden;
   margin-bottom: 2rem;
@@ -3637,20 +3637,20 @@ textarea {
   border: none;
   cursor: pointer;
   transition: all 0.35s ease;
-  background: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.35);
+  background: rgba(0, 0, 0, 0.04);
+  color: #64748b;
 }
 
 .simple-step-num.active {
   background: var(--accent);
-  color: #050505;
-  box-shadow: 0 0 16px rgba(13,163,226,0.35);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(13, 163, 226, 0.2);
 }
 
 .simple-step-num.completed {
-  background: rgba(13,163,226,0.15);
+  background: rgba(13,163,226,0.1);
   color: var(--accent);
-  border: 1px solid rgba(13,163,226,0.3);
+  border: 1px solid rgba(13,163,226,0.2);
 }
 
 .simple-step-num.completed::after {
@@ -3673,7 +3673,7 @@ textarea {
 .simple-step-title {
   font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2rem);
   font-weight: 500;
-  color: #ffffff;
+  color: #0f172a;
   text-align: center;
   margin: 0 0 0.75rem;
   line-height: 1.25;
@@ -3682,7 +3682,7 @@ textarea {
 .simple-step-subtitle {
   font-size: 15px;
   font-weight: 300;
-  color: rgba(255,255,255,0.55);
+  color: #64748b;
   text-align: center;
   margin: 0 0 2.5rem;
 }
@@ -3695,16 +3695,16 @@ textarea {
 .simple-input {
   display: block;
   width: 100%;
-  background: rgba(255,255,255,0.03);
+  background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 2px solid #e2e8f0;
   border-radius: 0;
   padding: 16px 0;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 300;
   font-style: italic;
-  color: #ffffff;
+  color: #0f172a;
   outline: none;
   transition: border-color 0.3s ease;
 }
@@ -3714,7 +3714,7 @@ textarea {
 }
 
 .simple-input::placeholder {
-  color: rgba(255,255,255,0.25);
+  color: #94a3b8;
   font-style: italic;
 }
 
@@ -3761,21 +3761,21 @@ textarea {
   align-items: flex-start;
   gap: 12px;
   padding: 20px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   transition: all 0.3s ease;
 }
 
 .ptc-inner:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.15);
+  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
 
 .property-type-card input[type="radio"]:checked + .ptc-inner {
   background: rgba(13,163,226,0.08);
   border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(13,163,226,0.15);
+  box-shadow: 0 0 20px rgba(13,163,226,0.1);
 }
 
 .ptc-icon {
@@ -3786,7 +3786,12 @@ textarea {
 .ptc-label {
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  color: #475569;
+}
+
+.property-type-card input[type="radio"]:checked + .ptc-inner .ptc-label {
+  color: #0f172a;
+  font-weight: 600;
 }
 
 #property-error {
@@ -3809,7 +3814,7 @@ textarea {
 .btn-simple-prev {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.5);
+  color: #64748b;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -3819,13 +3824,13 @@ textarea {
 }
 
 .btn-simple-prev:hover {
-  color: #ffffff;
+  color: #0f172a;
 }
 
 .btn-simple-next {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.45);
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #475569;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -3836,20 +3841,20 @@ textarea {
 }
 
 .btn-simple-next:hover {
-  background: rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.7);
+  background: #e2e8f0;
+  border-color: #94a3b8;
+  color: #0f172a;
 }
 
 .btn-simple-submit {
   background: var(--accent) !important;
   border-color: var(--accent) !important;
-  color: #050505 !important;
+  color: #ffffff !important;
 }
 
 .btn-simple-submit:hover {
-  filter: brightness(1.1);
-  color: #050505 !important;
+  filter: brightness(1.15);
+  color: #ffffff !important;
 }
 
 /* APP BADGES IN FOOTER */

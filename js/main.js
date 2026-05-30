@@ -909,6 +909,22 @@ function initMultistepForm() {
     });
   });
 
+  // Prevent Enter key from submitting prematurely, advance steps instead
+  form.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const target = e.target;
+      if (target.tagName === 'INPUT') {
+        if (currentStep < totalSteps) {
+          e.preventDefault();
+          if (validateStep(currentStep)) {
+            goToStep(currentStep + 1);
+          }
+        }
+        // If currentStep === totalSteps, let it bubble and trigger the submit handler below
+      }
+    }
+  });
+
   // Form submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
