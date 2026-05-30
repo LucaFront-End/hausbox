@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initCounters();
   initMobileFeatures();
-  initHighlightsScroller();
+  initHighlightsLateralScroll();
   initPrivacySpotlight();
   initWeeklyPhoneReveal();
   initCardAnimations();
   initFloatingWhatsApp();
-  initReviewsLateralScroll();
+  // initReviewsLateralScroll();
   initRolesTabs();
   initMultistepForm();
 });
@@ -385,44 +385,53 @@ document.addEventListener('click', (e) => {
 
 
 /* ============================================================
-   HIGHLIGHTS SCROLLER — desktop controls + snap behavior
+   HIGHLIGHTS SCROLLER — sticky horizontal scroll
    ============================================================ */
-function initHighlightsScroller() {
-  const scroller = document.querySelector('[data-highlights-scroller="true"]');
-  const prevBtn = document.querySelector('button[aria-label="Previous card"]');
-  const nextBtn = document.querySelector('button[aria-label="Next card"]');
+function initHighlightsLateralScroll() {
+  const section = document.getElementById('highlights');
+  const inner = document.querySelector('.highlights-scroller-inner');
+  if (!section || !inner) return;
 
-  if (!scroller) return;
-
-  function updateButtonStates() {
-    if (!prevBtn || !nextBtn) return;
-    const scrollLeft = scroller.scrollLeft;
-    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-
-    prevBtn.disabled = scrollLeft <= 5;
-    nextBtn.disabled = scrollLeft >= maxScroll - 5;
+  function setHeight() {
+    // Reset to measure natural inner width
+    inner.style.transform = '';
+    const scrollableRange = inner.scrollWidth - window.innerWidth;
+    // Section height = viewport height + the horizontal overflow we need to scroll through
+    section.style.height = (window.innerHeight + Math.max(0, scrollableRange)) + 'px';
   }
 
-  // Scroll handler to check button states
-  scroller.addEventListener('scroll', updateButtonStates);
+  function handleScroll() {
+    const rect = section.getBoundingClientRect();
 
-  // Setup click handlers for prev/next buttons
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      const cardWidth = scroller.querySelector('.highlight-card-wrapper')?.clientWidth || scroller.clientWidth;
-      scroller.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-    });
+    // Progress: 0 when section top reaches viewport top, 1 when section bottom reaches viewport bottom
+    const scrollableRange = inner.scrollWidth - window.innerWidth;
+    const totalVertical = section.offsetHeight - window.innerHeight;
+
+    if (totalVertical <= 0) {
+      inner.style.transform = 'translate3d(0, 0, 0)';
+      return;
+    }
+
+    // How far we've scrolled past the section top
+    const scrolled = -rect.top;
+    const progress = Math.max(0, Math.min(1, scrolled / totalVertical));
+
+    const tx = -progress * Math.max(0, scrollableRange);
+    inner.style.transform = `translate3d(${tx}px, 0, 0)`;
   }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      const cardWidth = scroller.querySelector('.highlight-card-wrapper')?.clientWidth || scroller.clientWidth;
-      scroller.scrollBy({ left: cardWidth, behavior: 'smooth' });
-    });
-  }
+  // Set initial height and recalculate on resize
+  setHeight();
+  window.addEventListener('resize', () => {
+    setHeight();
+    handleScroll();
+  });
 
-  // Initial check
-  setTimeout(updateButtonStates, 100);
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(handleScroll);
+  }, { passive: true });
+
+  handleScroll();
 }
 
 /* ============================================================
