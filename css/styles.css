@@ -3230,19 +3230,19 @@ textarea {
    ============================================================ */
 .multistep-section {
   position: relative;
-  padding: 6rem 1.25rem 4rem;
+  padding: 8rem 1.25rem 9rem; /* Increased padding to separate from CTA */
   overflow: hidden;
   background-color: var(--bg-beige);
 }
 
 .multistep-container {
-  max-width: 44rem;
+  max-width: 60rem; /* Made wider for split pane */
   margin: 0 auto;
 }
 
 .multistep-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 4rem;
 }
 
 .multistep-label {
@@ -3260,6 +3260,7 @@ textarea {
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 1.25rem;
+  color: #0f172a; /* Dark text for light section */
 }
 
 .multistep-section h2 .serif {
@@ -3271,25 +3272,152 @@ textarea {
 .multistep-subtitle {
   font-size: 16px;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.65);
-  max-width: 32rem;
+  color: #475569; /* Slate-600 for light section */
+  max-width: 34rem;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-/* Solid White Form Card */
-.multistep-card {
+/* Split Layout Form Card */
+.multistep-card.split-layout {
+  display: flex;
+  flex-direction: column;
   background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 24px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
   position: relative;
 }
 
+@media (min-width: 768px) {
+  .multistep-card.split-layout {
+    flex-direction: row;
+    min-height: 560px;
+  }
+}
+
+/* Left Sidebar Pane */
+.multistep-sidebar {
+  background: linear-gradient(135deg, #091e3a 0%, #050d1a 100%);
+  color: #ffffff;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .multistep-sidebar {
+    width: 42%;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+.sidebar-brand {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.benefit-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(13, 163, 226, 0.15);
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 13px;
+  flex-shrink: 0;
+  border: 1px solid rgba(13, 163, 226, 0.3);
+}
+
+.benefit-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.benefit-text strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.benefit-text span {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.4;
+}
+
+.sidebar-quote {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin-top: auto;
+}
+
+.sidebar-quote p {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 12px;
+}
+
+.quote-author {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-author strong {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.quote-author span {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Right Content Pane */
+.multistep-content {
+  padding: 3rem 2.5rem;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .multistep-content {
+    width: 58%;
+  }
+}
+
 @media (max-width: 575px) {
-  .multistep-card {
-    padding: 1.5rem;
+  .multistep-sidebar,
+  .multistep-content {
+    padding: 2rem 1.5rem;
   }
 }
 
