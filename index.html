@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#000000"/>
+
+  <title>HausBox — El Software Todo en Uno para tu Condominio</title>
+  <meta name="description" content="Administra tu condominio, residencial o edificio con HausBox. Controla pagos, comunicación y contabilidad desde un solo lugar."/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=1.0.7"/>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="site-nav" data-theme="dark">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a class="nav-logo" aria-label="HausBox" href="#">
+        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" class="logo-light"/><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-dark.png" alt="HausBox" style="height:28px;width:auto;display:none" class="logo-dark"/>
+      </a>
+
+      <!-- Desktop nav pills -->
+      <div class="nav-pills">
+        <!-- Nosotros Dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Nosotros
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#nosotros">Nosotros</a>
+            <a href="#casos-exito">Casos de éxito</a>
+          </div>
+        </div>
+
+        <!-- Categorías Dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Categorías
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#condominios">Condominios</a>
+            <a href="#rentas-vacacionales">Rentas Vacacionales</a>
+            <a href="#desarrolladores">Desarrolladores Inmobiliarios</a>
+          </div>
+        </div>
+
+        <!-- Funcionalidades Dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Funcionalidades
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#acceso-qr">Aplicación de QR para acceso</a>
+            <a href="#cuotas-mantenimiento">Pago de Cuotas</a>
+            <a href="#reservas">Reserva de Amenidades</a>
+            <a href="#comunicacion">Comunicación interna</a>
+          </div>
+        </div>
+
+        <!-- Comunidad Dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Comunidad
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="#blog">Blogs</a>
+            <a href="#eventos">Eventos</a>
+          </div>
+        </div>
+
+        <a href="#faq">FAQ</a>
+
+        <span class="nav-divider"></span>
+
+        <!-- Iniciar Sesión / Ingresar -->
+        <a href="https://app.hausbox.com" class="btn-login-nav">Ingresar</a>
+
+        <!-- Solicitar Demo -->
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"></path></svg>
+          <span class="rolling-text">
+            <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:22ms">o</span><span class="char-bottom" style="transition-delay:22ms">o</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:44ms">l</span><span class="char-bottom" style="transition-delay:44ms">l</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:66ms">i</span><span class="char-bottom" style="transition-delay:66ms">i</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:88ms">c</span><span class="char-bottom" style="transition-delay:88ms">c</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:110ms">i</span><span class="char-bottom" style="transition-delay:110ms">i</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:132ms">t</span><span class="char-bottom" style="transition-delay:132ms">t</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:154ms">a</span><span class="char-bottom" style="transition-delay:154ms">a</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:176ms">r</span><span class="char-bottom" style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:198ms">&nbsp;</span><span class="char-bottom" style="transition-delay:198ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:220ms">D</span><span class="char-bottom" style="transition-delay:220ms">D</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:242ms">e</span><span class="char-bottom" style="transition-delay:242ms">e</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:264ms">m</span><span class="char-bottom" style="transition-delay:264ms">m</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:286ms">o</span><span class="char-bottom" style="transition-delay:286ms">o</span></span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Mobile CTA -->
+      <div class="nav-mobile-cta">
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"></path></svg>
+          <span class="rolling-text">
+            <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:22ms">o</span><span class="char-bottom" style="transition-delay:22ms">o</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:44ms">l</span><span class="char-bottom" style="transition-delay:44ms">l</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:66ms">i</span><span class="char-bottom" style="transition-delay:66ms">i</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:88ms">c</span><span class="char-bottom" style="transition-delay:88ms">c</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:110ms">i</span><span class="char-bottom" style="transition-delay:110ms">i</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:132ms">t</span><span class="char-bottom" style="transition-delay:132ms">t</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:154ms">a</span><span class="char-bottom" style="transition-delay:154ms">a</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:176ms">r</span><span class="char-bottom" style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:198ms">&nbsp;</span><span class="char-bottom" style="transition-delay:198ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:220ms">D</span><span class="char-bottom" style="transition-delay:220ms">D</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:242ms">e</span><span class="char-bottom" style="transition-delay:242ms">e</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:264ms">m</span><span class="char-bottom" style="transition-delay:264ms">m</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:286ms">o</span><span class="char-bottom" style="transition-delay:286ms">o</span></span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Spacer for grid balance -->
+      <div class="nav-spacer" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main style="flex:1">
+
+    <!-- ========== HERO ========== -->
+    <section id="top" data-nav-theme="dark" class="hero">
+      <!-- Background -->
+      <div class="hero-bg">
+        <div class="hero-bg-zoom" style="transform:scale(1.08)">
+          <div class="hero-bg-kenburns animate-kenburns">
+            <img src="assets/images/hero-bg-app.png?v=1.0.2" alt="" loading="eager"/>
+          </div>
+        </div>
+        <div class="hero-gradient" style="background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.92) 100%)"></div>
+        <div class="noise" style="position:absolute;inset:0"></div>
+      </div>
+
+      <!-- Hero text -->
+      <div class="hero-content">
+        <h1 class="text-display" style="font-weight:300;color:#fff;max-width:22ch;margin:0 auto">
+          <span class="text-reveal-wrap">
+            <span class="text-reveal-inner hero-line-1">Administra tu <span class="serif">condominio.</span></span>
+          </span>
+          <span class="text-reveal-wrap">
+            <span class="text-reveal-inner hero-line-2">De manera <span class="serif">inteligente.</span></span>
+          </span>
+        </h1>
+
+        <div class="hero-fade hero-subtitle" style="transition-delay:1100ms">
+          <p style="margin-top:1.5rem;max-width:42rem;font-size:clamp(1rem,1.4vw,1.25rem);font-weight:300;line-height:1.625;color:rgba(255,255,255,0.8)">
+            Comunicación con tus residentes, cobra a tiempo y mantén todo en orden. Así de simple es HausBox.
+          </p>
+        </div>
+
+        <div class="hero-fade hero-cta" style="margin-top:2.5rem;transition-delay:1280ms">
+          <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-hero group" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:24px;height:24px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"></path></svg>
+            <span class="rolling-text">
+              <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">P</span><span class="char-bottom" style="transition-delay:0ms">P</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:22ms">r</span><span class="char-bottom" style="transition-delay:22ms">r</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:44ms">u</span><span class="char-bottom" style="transition-delay:44ms">u</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:66ms">e</span><span class="char-bottom" style="transition-delay:66ms">e</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:88ms">b</span><span class="char-bottom" style="transition-delay:88ms">b</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:110ms">a</span><span class="char-bottom" style="transition-delay:110ms">a</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:132ms">&nbsp;</span><span class="char-bottom" style="transition-delay:132ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:154ms">G</span><span class="char-bottom" style="transition-delay:154ms">G</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:176ms">r</span><span class="char-bottom" style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:198ms">a</span><span class="char-bottom" style="transition-delay:198ms">a</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:220ms">t</span><span class="char-bottom" style="transition-delay:220ms">t</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:242ms">i</span><span class="char-bottom" style="transition-delay:242ms">i</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:264ms">s</span><span class="char-bottom" style="transition-delay:264ms">s</span></span>
+            </span>
+          </a>
+          <a href="#precios" class="btn-secondary-hero">Ver planes y precios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES (Desktop: scroll-driven with sticky phone) ========== -->
+    <section id="features" data-nav-theme="light" class="features">
+
+      <!-- Desktop layout -->
+      <div class="features-desktop">
+        <div class="features-grid">
+
+          <!-- Left column text -->
+          <div class="features-col">
+            <div class="feature-slot" data-slide="0">
+              <div class="feature-text">
+                <div class="reveal">
+                  <h2>Cobra a tiempo. <br/>Sin <span class="serif">complicaciones.</span></h2>
+                  <p>Reduce la morosidad hasta un 80% con recordatorios automáticos y seguimiento inteligente de cuotas de mantenimiento.</p>
+                  <a href="#cuotas-mantenimiento" class="subtle-link">Ver pasarelas de pago <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="feature-slot"></div>
+            <div class="feature-slot" data-slide="2">
+              <div class="feature-text">
+                <div class="reveal">
+                  <h2>Contabilidad <br/><span class="serif">transparente.</span></h2>
+                  <p>Ingresos, egresos, cuentas contables, auxiliar bancario y balanza de comprobación. Todo en un solo lugar.</p>
+                  <a href="#contabilidad" class="subtle-link">Explorar reportes financieros <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="feature-slot"></div>
+          </div>
+
+          <!-- Center column: sticky phone -->
+          <div class="features-phone-col">
+            <div class="features-phone-sticky">
+              <div class="features-gradient-bg" aria-hidden="true"></div>
+              <div class="phone-wrapper">
+                <div class="phone-shadow" aria-hidden="true"></div>
+                <div class="phone-device">
+                  <div class="phone-body" aria-hidden="true"></div>
+                  <div class="phone-screen">
+                    <div class="phone-screen-slide active">
+                      <video src="videos/Alex-cut.mp4" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                    </div>
+                    <div class="phone-screen-slide">
+                      <video src="videos/Focus-cut.mp4" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                    </div>
+                    <div class="phone-screen-slide">
+                      <video src="videos/list.mp4" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                    </div>
+                    <div class="phone-screen-slide">
+                      <video src="videos/Wrap-up.mp4" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                    </div>
+                    <div class="phone-glare" aria-hidden="true"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column text -->
+          <div class="features-col">
+            <div class="feature-slot"></div>
+            <div class="feature-slot" data-slide="1">
+              <div class="feature-text">
+                <div class="reveal">
+                  <h2>Todo el control. <br/>En un solo <span class="serif">lugar.</span></h2>
+                  <p>Proveedores, facturas, adeudos y gastos organizados. Administra pagos de forma ágil y profesional.</p>
+                  <a href="#proveedores" class="subtle-link">Ver gestión de proveedores <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="feature-slot"></div>
+            <div class="feature-slot" data-slide="3">
+              <div class="feature-text">
+                <div class="reveal">
+                  <h2>Tu condominio <br/>en tu <span class="serif">mano.</span></h2>
+                  <p>App para residentes: consulta pagos, genera códigos QR, reserva amenidades y recibe avisos al instante.</p>
+                  <a href="#app-residentes" class="subtle-link">Conocer funciones de la App <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile layout -->
+      <div class="features-mobile">
+        <div class="features-mobile-sticky">
+          <div class="features-mobile-phone">
+            <div class="phone-device">
+              <div class="phone-body" aria-hidden="true"></div>
+              <div class="phone-screen">
+                <div class="phone-screen-slide active">
+                  <video src="videos/Alex-cut.mp4" class="absolute inset-0 h-full w-full select-none object-cover" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                </div>
+                <div class="phone-screen-slide">
+                  <video src="videos/Focus-cut.mp4" class="absolute inset-0 h-full w-full select-none object-cover" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                </div>
+                <div class="phone-screen-slide">
+                  <video src="videos/list.mp4" class="absolute inset-0 h-full w-full select-none object-cover" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                </div>
+                <div class="phone-screen-slide">
+                  <video src="videos/Wrap-up.mp4" class="absolute inset-0 h-full w-full select-none object-cover" muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                </div>
+                <div class="phone-glare" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+          <div class="features-mobile-text">
+            <h2>Cobra a tiempo. <br/>Sin <span class="serif">complicaciones.</span></h2>
+            <p>Reduce la morosidad hasta un 80% con recordatorios automáticos y seguimiento inteligente de cuotas de mantenimiento.</p>
+            <a href="#cuotas-mantenimiento" class="subtle-link mobile-feature-link">Ver pasarelas de pago <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========== HIGHLIGHTS SCROLLER ========== -->
+    <section id="highlights" data-nav-theme="light">
+      <div data-highlights-scroller="true" class="highlights-scroller-container scrollbar-hide">
+
+        <!-- Card 1: Cobra sin esfuerzo — Payment notifications -->
+        <div class="highlight-card-wrapper">
+          <article>
+            <div class="highlight-card" style="background:linear-gradient(135deg, rgba(10,22,40,0.85) 0%, rgba(13,40,71,0.85) 50%, rgba(10,22,40,0.85) 100%), url('images/highlights/payments.png'); background-size: cover; background-position: center; color:#fff">
+              <div aria-hidden="true" style="position:absolute;inset:0;border-radius:20px;opacity:0.06;background-image:linear-gradient(rgba(255,255,255,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.1) 1px,transparent 1px);background-size:40px 40px"></div>
+              <div style="position:relative;z-index:20;display:flex;flex-direction:column;gap:12px;padding:25px">
+                <h3>Cobra sin <em>esfuerzo</em></h3>
+                <p style="max-width:320px;color:rgba(255,255,255,0.7)">Recordatorios automáticos, seguimiento de morosidad y conciliación bancaria.</p>
+              </div>
+              <div data-card-anim="payments" style="pointer-events:none;position:absolute;left:0;right:0;top:38%;z-index:10;display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 20px">
+                <div class="pay-notif" style="opacity:0;transform:translateY(30px) scale(0.92)">
+                  <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:14px 20px;width:300px;box-shadow:0 8px 32px rgba(0,0,0,0.3)">
+                    <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0DA3E2,#06d6a0);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 16px rgba(13,163,226,0.4)">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div style="flex:1;line-height:1.3"><div style="font-size:15px;font-weight:600;color:#fff">Pago recibido</div><div style="font-size:12px;color:rgba(255,255,255,0.55)">Departamento 4B</div></div>
+                    <div style="font-size:16px;font-weight:700;color:#06d6a0">$2,850</div>
+                  </div>
+                </div>
+                <div class="pay-notif" style="opacity:0;transform:translateY(30px) scale(0.92)">
+                  <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:14px 20px;width:300px;box-shadow:0 8px 32px rgba(0,0,0,0.3)">
+                    <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0DA3E2,#06d6a0);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 16px rgba(13,163,226,0.4)">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div style="flex:1;line-height:1.3"><div style="font-size:15px;font-weight:600;color:#fff">Pago recibido</div><div style="font-size:12px;color:rgba(255,255,255,0.55)">Departamento 12A</div></div>
+                    <div style="font-size:16px;font-weight:700;color:#06d6a0">$3,200</div>
+                  </div>
+                </div>
+                <div class="pay-notif" style="opacity:0;transform:translateY(30px) scale(0.92)">
+                  <div style="display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:14px 20px;width:300px;box-shadow:0 8px 32px rgba(0,0,0,0.3)">
+                    <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#0DA3E2,#06d6a0);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 16px rgba(13,163,226,0.4)">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <div style="flex:1;line-height:1.3"><div style="font-size:15px;font-weight:600;color:#fff">Pago recibido</div><div style="font-size:12px;color:rgba(255,255,255,0.55)">Departamento 7C</div></div>
+                    <div style="font-size:16px;font-weight:700;color:#06d6a0">$2,850</div>
+                  </div>
+                </div>
+                <div class="pay-notif" style="opacity:0;transform:translateY(30px) scale(0.92)">
+                  <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;padding:12px 28px;background:linear-gradient(135deg,#0DA3E2,#06d6a0);border-radius:99px;box-shadow:0 8px 32px rgba(13,163,226,0.35)">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                    <span style="font-size:16px;font-weight:700;color:#fff">Total: $8,900 MXN</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 2: Gestión integral — Dashboard -->
+        <div class="highlight-card-wrapper">
+          <article>
+            <div class="highlight-card" style="background:#fff;color:#010703">
+              <div style="position:relative;z-index:20;display:flex;flex-direction:column;gap:12px;padding:25px">
+                <h3>Gestión <em>integral</em></h3>
+                <p style="max-width:320px;color:rgba(0,0,0,0.65)">Residentes, proveedores, contabilidad y comunicación en una sola plataforma.</p>
+              </div>
+              <div data-card-anim="dashboard" style="position:absolute;z-index:0;left:0;right:0;top:30%;display:flex;justify-content:center;padding:0 16px">
+                <div style="width:92%;max-width:380px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:20px;padding:22px;box-shadow:0 8px 40px rgba(0,0,0,0.08)">
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+                    <div style="font-size:13px;font-weight:700;color:#1e293b">Resumen del mes</div>
+                    <div style="font-size:11px;color:#94a3b8;background:#f1f5f9;padding:3px 10px;border-radius:99px">Junio 2025</div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:18px">
+                    <div style="background:#fff;border-radius:14px;padding:14px 10px;text-align:center;border:1px solid #f1f5f9">
+                      <div class="dash-counter" data-target="156" style="font-size:26px;font-weight:800;color:#0DA3E2;line-height:1">0</div>
+                      <div style="font-size:10px;color:#94a3b8;margin-top:6px;font-weight:500">Pagos</div>
+                    </div>
+                    <div style="background:#fff;border-radius:14px;padding:14px 10px;text-align:center;border:1px solid #f1f5f9">
+                      <div class="dash-counter" data-target="92" data-suffix="%" style="font-size:26px;font-weight:800;color:#10b981;line-height:1">0</div>
+                      <div style="font-size:10px;color:#94a3b8;margin-top:6px;font-weight:500">Cobranza</div>
+                    </div>
+                    <div style="background:#fff;border-radius:14px;padding:14px 10px;text-align:center;border:1px solid #f1f5f9">
+                      <div class="dash-counter" data-target="24" style="font-size:26px;font-weight:800;color:#f59e0b;line-height:1">0</div>
+                      <div style="font-size:10px;color:#94a3b8;margin-top:6px;font-weight:500">Pendientes</div>
+                    </div>
+                  </div>
+                  <div style="display:flex;align-items:flex-end;gap:6px;height:60px;margin-bottom:12px">
+                    <div class="dash-bar" style="flex:1;background:#0DA3E2;border-radius:6px 6px 0 0;height:0%;transition:height 1s cubic-bezier(0.22,1,0.36,1) 0.2s;opacity:0.7" data-h="65%"></div>
+                    <div class="dash-bar" style="flex:1;background:#0DA3E2;border-radius:6px 6px 0 0;height:0%;transition:height 1s cubic-bezier(0.22,1,0.36,1) 0.35s;opacity:0.8" data-h="80%"></div>
+                    <div class="dash-bar" style="flex:1;background:#0DA3E2;border-radius:6px 6px 0 0;height:0%;transition:height 1s cubic-bezier(0.22,1,0.36,1) 0.5s;opacity:0.85" data-h="55%"></div>
+                    <div class="dash-bar" style="flex:1;background:#10b981;border-radius:6px 6px 0 0;height:0%;transition:height 1s cubic-bezier(0.22,1,0.36,1) 0.65s" data-h="92%"></div>
+                    <div class="dash-bar" style="flex:1;background:#0DA3E2;border-radius:6px 6px 0 0;height:0%;transition:height 1s cubic-bezier(0.22,1,0.36,1) 0.8s;opacity:0.75" data-h="70%"></div>
+                    <div class="dash-bar" style="flex:1;background:#0DA3E2;border-radius:6px 6px 0 0;height:0%;transition:height 1s cubic-bezier(0.22,1,0.36,1) 0.95s;opacity:0.6" data-h="45%"></div>
+                  </div>
+                  <div style="background:#e2e8f0;border-radius:99px;height:10px;overflow:hidden">
+                    <div class="dash-progress" style="background:linear-gradient(90deg,#0DA3E2,#10b981);height:100%;width:0%;border-radius:99px;transition:width 1.8s cubic-bezier(0.22,1,0.36,1)"></div>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:#94a3b8">
+                    <span>Meta de cobranza</span>
+                    <span class="dash-counter" data-target="92" data-suffix="%" style="font-weight:700;color:#0DA3E2">0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 3: App para residentes — Checklist -->
+        <div class="highlight-card-wrapper">
+          <article>
+            <div class="highlight-card" style="background:linear-gradient(135deg, rgba(15,23,42,0.85) 0%, rgba(30,41,59,0.85) 100%), url('images/highlights/access.png'); background-size: cover; background-position: center; color:#fff">
+              <div aria-hidden="true" style="position:absolute;inset:0;border-radius:20px;background:radial-gradient(ellipse at 50% 60%, rgba(13,163,226,0.12) 0%, transparent 70%)"></div>
+              <div style="position:relative;z-index:20;display:flex;flex-direction:column;gap:12px;padding:25px">
+                <h3>App para <em>residentes</em></h3>
+                <p style="max-width:320px;color:rgba(255,255,255,0.65)">QR de acceso, reservas, avisos push y estados de cuenta.</p>
+              </div>
+              <div style="position:absolute;z-index:10;display:flex;width:100%;justify-content:center;left:0;top:40%">
+                <div style="position:relative;width:85%;max-width:340px">
+                  <ul class="priority-list" style="background:rgba(255,255,255,0.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);border-radius:18px;padding:16px;box-shadow:0 12px 40px rgba(0,0,0,0.3)">
+                    <li class="priority-item">
+                      <span aria-hidden="true" class="priority-checkbox">
+                        <svg viewBox="0 0 16 16"><polyline points="4,8.6 7.4,11.4 12.6,5" fill="none" stroke="#06d6a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                      </span>
+                      <span class="priority-text">Pagar mantenimiento</span>
+                      <span class="priority-badge" style="background:rgba(13,163,226,0.2);color:#5cc8f0"><span aria-hidden="true" style="background:#0DA3E2"></span>Finanzas</span>
+                    </li>
+                    <li class="priority-item">
+                      <span aria-hidden="true" class="priority-checkbox">
+                        <svg viewBox="0 0 16 16"><polyline points="4,8.6 7.4,11.4 12.6,5" fill="none" stroke="#06d6a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                      </span>
+                      <span class="priority-text">Reservar salón</span>
+                      <span class="priority-badge" style="background:rgba(249,115,22,0.2);color:#fb923c"><span aria-hidden="true" style="background:#f97316"></span>Amenidades</span>
+                    </li>
+                    <li class="priority-item">
+                      <span aria-hidden="true" class="priority-checkbox">
+                        <svg viewBox="0 0 16 16"><polyline points="4,8.6 7.4,11.4 12.6,5" fill="none" stroke="#06d6a0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                      </span>
+                      <span class="priority-text">Registrar visita QR</span>
+                      <span class="priority-badge" style="background:rgba(6,214,160,0.15);color:#06d6a0"><span aria-hidden="true" style="background:#06d6a0"></span>Accesos</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 4: Soporte directo — WhatsApp chat -->
+        <div class="highlight-card-wrapper">
+          <article>
+            <div class="highlight-card" style="background:linear-gradient(135deg, rgba(6,78,59,0.85) 0%, rgba(6,95,70,0.85) 40%, rgba(4,120,87,0.85) 100%), url('images/highlights/support.png'); background-size: cover; background-position: center; color:#fff">
+              <div aria-hidden="true" style="position:absolute;inset:0;border-radius:20px;opacity:0.04;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='2' fill='white'/%3E%3C/svg%3E&quot;);background-size:30px 30px"></div>
+              <div style="position:relative;z-index:20;display:flex;flex-direction:column;gap:12px;padding:25px">
+                <h3>Soporte <em>directo</em></h3>
+                <p style="max-width:320px;color:rgba(255,255,255,0.7)">Atención inmediata por WhatsApp. Sin correos, sin tickets.</p>
+              </div>
+              <div data-card-anim="chat" style="position:absolute;z-index:10;left:0;right:0;top:38%;display:flex;justify-content:center;padding:0 16px;pointer-events:none">
+                <div style="width:88%;max-width:340px;display:flex;flex-direction:column;gap:12px">
+                  <div class="chat-bubble" style="opacity:0;transform:translateY(24px) scale(0.9)">
+                    <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:18px 18px 18px 4px;padding:14px 18px;font-size:14px;color:#fff;line-height:1.5;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+                      Hola, necesito ayuda con un pago no identificado &#x1F64F;
+                      <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px">10:32 am</div>
+                    </div>
+                  </div>
+                  <div class="chat-bubble" style="opacity:0;transform:translateY(24px) scale(0.9);align-self:flex-end">
+                    <div style="background:#25D366;border-radius:18px 18px 4px 18px;padding:14px 18px;font-size:14px;color:#fff;line-height:1.5;box-shadow:0 4px 20px rgba(37,211,102,0.3)">
+                      ¡Hola! Ya lo localicé. Era del Depto 8A. Queda aplicado &#x2705;
+                      <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:6px;text-align:right">10:33 am</div>
+                    </div>
+                  </div>
+                  <div class="chat-bubble" style="opacity:0;transform:translateY(24px) scale(0.9)">
+                    <div style="background:rgba(255,255,255,0.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:18px 18px 18px 4px;padding:14px 18px;font-size:14px;color:#fff;line-height:1.5;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
+                      ¡Increíble, súper rápido! Muchas gracias &#x1F680;
+                      <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px">10:33 am</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Card 5: Reportes de confianza — Phone slide up -->
+        <div class="highlight-card-wrapper">
+          <article>
+            <div class="highlight-card" style="background:#fff;color:#010703">
+              <div style="position:relative;z-index:20;display:flex;flex-direction:column;gap:12px;padding:25px">
+                <h3>Reportes de <em>confianza</em></h3>
+                <p style="max-width:320px;color:rgba(0,0,0,0.65)">Estados de cuenta, balanza de comprobación y reportes contables transparentes.</p>
+              </div>
+              <div style="position:absolute;z-index:0;display:flex;width:100%;justify-content:center;left:0;top:32%;bottom:0">
+                <div style="display:flex;width:100%;justify-content:center;height:100%">
+                  <div data-weekly-phone="true" class="phone-device" style="height:100%;min-height:0;max-height:none;transform:translateY(110%);transition:transform 1100ms cubic-bezier(0.32, 0.72, 0, 1);will-change:transform">
+                    <div class="phone-body" aria-hidden="true"></div>
+                    <div class="phone-screen">
+                      <div class="phone-screen-slide active">
+                        <img alt="Reportes HausBox" src="assets/images/weekly-insights.jpg" style="position:absolute;height:100%;width:100%;left:0;top:0;object-fit:cover;user-select:none" draggable="false"/>
+                      </div>
+                      <div class="phone-glare" aria-hidden="true"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        </div>
+
+        <!-- Scroller controls -->
+      <div style="display:flex;justify-content:center;margin-top:-16px;padding:0 20px">
+        <div class="scroller-controls">
+          <button type="button" disabled aria-label="Previous card" class="scroller-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button type="button" aria-label="Next card" class="scroller-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ========== PRIVACY SECTION ========== -->
+    <section id="privacy" data-nav-theme="light">
+      <div style="padding:4rem 1.25rem">
+        <div data-nav-theme="dark" class="privacy-card" style="position:relative;display:flex;min-height:580px;align-items:center;overflow:hidden;border-radius:20px;background:#000;color:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,0.55);--mx:50%;--my:-50%;--spotlight:0">
+          <!-- Dot grid glow -->
+          <div aria-hidden="true" class="privacy-dot-grid" style="pointer-events:none;position:absolute;inset:0"></div>
+          <!-- Lock icon SVG -->
+          <svg aria-hidden="true" viewBox="0 0 200 280" style="pointer-events:none;position:absolute;right:8%;top:50%;height:65%;width:auto;transform:translateY(-50%);opacity:0.09">
+            <defs>
+              <linearGradient id="lockBody" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="1"></stop>
+                <stop offset="55%" stop-color="#ffffff" stop-opacity="0.78"></stop>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0.42"></stop>
+              </linearGradient>
+              <linearGradient id="lockShackle" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"></stop>
+                <stop offset="50%" stop-color="#ffffff" stop-opacity="1"></stop>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0.55"></stop>
+              </linearGradient>
+              <linearGradient id="lockShine" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"></stop>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+              </linearGradient>
+              <radialGradient id="lockBaseShade" cx="0.5" cy="1" r="0.6" fx="0.5" fy="1">
+                <stop offset="0%" stop-color="#000000" stop-opacity="0.45"></stop>
+                <stop offset="100%" stop-color="#000000" stop-opacity="0"></stop>
+              </radialGradient>
+            </defs>
+            <path d="M100 22c-31 0-56 25-56 56v52h20V78c0-20 16-36 36-36s36 16 36 36v52h20V78c0-31-25-56-56-56z" fill="url(#lockShackle)"></path>
+            <rect x="18" y="114" width="164" height="150" rx="16" ry="16" fill="url(#lockBody)"></rect>
+            <rect x="18" y="114" width="164" height="44" rx="16" ry="16" fill="url(#lockShine)"></rect>
+            <rect x="18" y="174" width="164" height="90" rx="16" ry="16" fill="url(#lockBaseShade)"></rect>
+            <circle cx="100" cy="180" r="9" fill="rgba(0,0,0,0.35)"></circle>
+            <path d="M96 180 h8 l-2 24 h-4 z" fill="rgba(0,0,0,0.35)"></path>
+          </svg>
+          <!-- Spotlight effect -->
+          <div aria-hidden="true" class="privacy-spotlight" style="position:absolute;inset:0;transition:opacity 500ms ease-out"></div>
+          <!-- Text content -->
+          <div style="position:relative;z-index:10;width:100%;padding:6rem 2rem;text-align:left">
+            <div style="max-width:460px;margin-left:6%">
+              <h2>Construido para la <span class="serif">seguridad.</span></h2>
+              <p>Tus datos están protegidos con los más altos estándares de seguridad. Respaldos automáticos diarios y 99.9% de disponibilidad garantizada en todo momento.</p>
+              <a href="#politicas-seguridad" class="subtle-link" style="color:#ffffff;margin-top:1.25rem">Leer políticas de seguridad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ========== CRAFTED / MOSAIC + REVIEWS SECTION (Bevel-style exact replica) ========== -->
+    <section id="reviews" data-nav-theme="light" class="crafted-section">
+      <!-- Photo Mosaic Grid -->
+      <div class="craft_container">
+        <div class="bevel-row bevel-row-center">
+          <div class="bevel-col bevel-col-lg-11 bevel-col-md-12">
+            <div class="bevel-hflex-center-stretch bevel-hgap-16">
+              <!-- Col 1: 2 medium -->
+              <div craft-col="2" class="bevel-vflex-center bevel-vgap-16 bevel-flex-grow">
+                <div class="crafted_frame cc-medium">
+                  <img loading="lazy" src="images/mosaic/condo-1.png" alt=""/>
+                </div>
+                <div class="crafted_frame cc-medium">
+                  <img loading="lazy" src="images/mosaic/condo-2.png" alt=""/>
+                </div>
+              </div>
+              <!-- Col 2: 3 small -->
+              <div craft-col="3" class="bevel-vflex-center bevel-vgap-16 bevel-flex-grow">
+                <div class="crafted_frame cc-small">
+                  <img loading="lazy" src="images/mosaic/condo-3.png" alt=""/>
+                </div>
+                <div class="crafted_frame cc-small">
+                  <img loading="lazy" src="images/mosaic/condo-4.png" alt=""/>
+                </div>
+                <div class="crafted_frame cc-small">
+                  <img loading="lazy" src="images/mosaic/condo-5.png" alt=""/>
+                </div>
+              </div>
+              <!-- Col 3: 1 large -->
+              <div craft-col="1" class="bevel-hflex-center bevel-flex-grow">
+                <div class="crafted_frame cc-large bevel-flex-grow">
+                  <img loading="lazy" src="images/mosaic/condo-6.png" alt=""/>
+                </div>
+              </div>
+              <!-- Col 4: 1 large (mid) -->
+              <div craft-col="mid" class="bevel-hflex-top bevel-flex-grow">
+                <div class="crafted_frame cc-large bevel-flex-grow">
+                  <img loading="lazy" src="images/mosaic/condo-7.png" alt=""/>
+                </div>
+              </div>
+              <!-- Col 5: 1 large (mid) -->
+              <div craft-col="mid" class="bevel-hflex-top bevel-flex-grow">
+                <div class="crafted_frame cc-large bevel-flex-grow">
+                  <img loading="lazy" src="images/mosaic/condo-8.png" alt=""/>
+                </div>
+              </div>
+              <!-- Col 6: 1 large -->
+              <div craft-col="1" class="bevel-hflex-center bevel-flex-grow">
+                <div class="crafted_frame cc-large bevel-flex-grow">
+                  <img loading="lazy" src="images/mosaic/condo-3.png" alt=""/>
+                </div>
+              </div>
+              <!-- Col 7: 3 small -->
+              <div craft-col="3" class="bevel-vflex-center bevel-vgap-16 bevel-flex-grow">
+                <div class="crafted_frame cc-small">
+                  <img loading="lazy" src="images/mosaic/condo-5.png" alt=""/>
+                </div>
+                <div class="crafted_frame cc-small">
+                  <img loading="lazy" src="images/mosaic/condo-1.png" alt=""/>
+                </div>
+                <div class="crafted_frame cc-small">
+                  <img loading="lazy" src="images/mosaic/condo-4.png" alt=""/>
+                </div>
+              </div>
+              <!-- Col 8: 2 medium -->
+              <div craft-col="2" class="bevel-vflex-center bevel-vgap-16 bevel-flex-grow">
+                <div class="crafted_frame cc-medium">
+                  <img loading="lazy" src="images/mosaic/condo-6.png" alt=""/>
+                </div>
+                <div class="crafted_frame cc-medium">
+                  <img loading="lazy" src="images/mosaic/condo-8.png" alt=""/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <div class="bevel-container">
+        <div class="bevel-vflex-stretch bevel-vgap-80-40">
+          <div>
+            <div class="bevel-row bevel-row-center">
+              <div class="bevel-col bevel-col-lg-6 bevel-col-md-8 bevel-col-sm-10 bevel-col-xs-12">
+                <div class="bevel-vflex-center-top bevel-vgap-16 bevel-align-center">
+                  <h2 class="bevel-h2">Hecho con <span class="serif">dedicación,</span><br/>amado por <span class="serif">todos.</span></h2>
+                  <p class="bevel-p-md bevel-color-secondary">Administradores y residentes que ya confían en HausBox para transformar la gestión de sus condominios.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marquee reviews -->
+      <div class="bevel-marquee cc-cards">
+        <div class="bevel-marquee_row">
+              <div class="bevel-marquee-track">
+                <!-- Card 1 -->
+                <div class="bevel-marquee_card">
+                  <div class="bevel-vflex-left bevel-vgap-16">
+                    <div class="bevel-vflex-left bevel-vgap-12">
+                      <div class="bevel-hflex-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                      </div>
+                      <div class="bevel-card-title">Increíble plataforma</div>
+                    </div>
+                    <p class="bevel-card-body">HausBox transformó la forma en que administramos nuestro condominio. La morosidad bajó un 70% en los primeros tres meses.</p>
+                    <div class="bevel-card-author">— Cliente Verificado</div>
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bevel-marquee_card">
+                  <div class="bevel-vflex-left bevel-vgap-16">
+                    <div class="bevel-vflex-left bevel-vgap-12">
+                      <div class="bevel-hflex-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                      </div>
+                      <div class="bevel-card-title">Todo en un solo lugar</div>
+                    </div>
+                    <p class="bevel-card-body">Antes usaba Excel y WhatsApp para todo. Con HausBox tengo cuotas, proveedores y contabilidad en un solo lugar. Increíble.</p>
+                    <div class="bevel-card-author">— Cliente Verificado</div>
+                  </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bevel-marquee_card">
+                  <div class="bevel-vflex-left bevel-vgap-16">
+                    <div class="bevel-vflex-left bevel-vgap-12">
+                      <div class="bevel-hflex-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                      </div>
+                      <div class="bevel-card-title">App muy práctica</div>
+                    </div>
+                    <p class="bevel-card-body">La app para residentes es muy práctica. Puedo ver mis pagos, generar QR para visitas y reservar amenidades desde mi celular.</p>
+                    <div class="bevel-card-author">— Cliente Verificado</div>
+                  </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bevel-marquee_card">
+                  <div class="bevel-vflex-left bevel-vgap-16">
+                    <div class="bevel-vflex-left bevel-vgap-12">
+                      <div class="bevel-hflex-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                      </div>
+                      <div class="bevel-card-title">Soporte increíble</div>
+                    </div>
+                    <p class="bevel-card-body">El soporte por WhatsApp es instantáneo. Cualquier duda la resuelven rápido y sin complicaciones. Se nota que les importa.</p>
+                    <div class="bevel-card-author">— Cliente Verificado</div>
+                  </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="bevel-marquee_card">
+                  <div class="bevel-vflex-left bevel-vgap-16">
+                    <div class="bevel-vflex-left bevel-vgap-12">
+                      <div class="bevel-hflex-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                      </div>
+                      <div class="bevel-card-title">Transparencia total</div>
+                    </div>
+                    <p class="bevel-card-body">Los reportes contables que genera HausBox nos dieron la transparencia que los residentes pedían. Ahora confían más en la administración.</p>
+                    <div class="bevel-card-author">— Cliente Verificado</div>
+                  </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="bevel-marquee_card">
+                  <div class="bevel-vflex-left bevel-vgap-16">
+                    <div class="bevel-vflex-left bevel-vgap-12">
+                      <div class="bevel-hflex-left">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg>
+                      </div>
+                      <div class="bevel-card-title">No volveríamos atrás</div>
+                    </div>
+                    <p class="bevel-card-body">Llevamos dos años con HausBox y no volveríamos atrás. La plataforma se actualiza constantemente y cada vez es mejor.</p>
+                    <div class="bevel-card-author">— Cliente Verificado</div>
+                  </div>
+                </div>
+              </div>
+              <!-- Duplicate track for seamless loop -->
+              <div class="bevel-marquee-track" aria-hidden="true">
+                <div class="bevel-marquee_card"><div class="bevel-vflex-left bevel-vgap-16"><div class="bevel-vflex-left bevel-vgap-12"><div class="bevel-hflex-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg></div><div class="bevel-card-title">Increíble plataforma</div></div><p class="bevel-card-body">HausBox transformó la forma en que administramos nuestro condominio. La morosidad bajó un 70% en los primeros tres meses.</p><div class="bevel-card-author">— Cliente Verificado</div></div></div>
+                <div class="bevel-marquee_card"><div class="bevel-vflex-left bevel-vgap-16"><div class="bevel-vflex-left bevel-vgap-12"><div class="bevel-hflex-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg></div><div class="bevel-card-title">Todo en un solo lugar</div></div><p class="bevel-card-body">Antes usaba Excel y WhatsApp para todo. Con HausBox tengo cuotas, proveedores y contabilidad en un solo lugar. Increíble.</p><div class="bevel-card-author">— Cliente Verificado</div></div></div>
+                <div class="bevel-marquee_card"><div class="bevel-vflex-left bevel-vgap-16"><div class="bevel-vflex-left bevel-vgap-12"><div class="bevel-hflex-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg></div><div class="bevel-card-title">App muy práctica</div></div><p class="bevel-card-body">La app para residentes es muy práctica. Puedo ver mis pagos, generar QR para visitas y reservar amenidades desde mi celular.</p><div class="bevel-card-author">— Cliente Verificado</div></div></div>
+                <div class="bevel-marquee_card"><div class="bevel-vflex-left bevel-vgap-16"><div class="bevel-vflex-left bevel-vgap-12"><div class="bevel-hflex-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg></div><div class="bevel-card-title">Soporte increíble</div></div><p class="bevel-card-body">El soporte por WhatsApp es instantáneo. Cualquier duda la resuelven rápido y sin complicaciones. Se nota que les importa.</p><div class="bevel-card-author">— Cliente Verificado</div></div></div>
+                <div class="bevel-marquee_card"><div class="bevel-vflex-left bevel-vgap-16"><div class="bevel-vflex-left bevel-vgap-12"><div class="bevel-hflex-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg></div><div class="bevel-card-title">Transparencia total</div></div><p class="bevel-card-body">Los reportes contables que genera HausBox nos dieron la transparencia que los residentes pedían. Ahora confían más en la administración.</p><div class="bevel-card-author">— Cliente Verificado</div></div></div>
+                <div class="bevel-marquee_card"><div class="bevel-vflex-left bevel-vgap-16"><div class="bevel-vflex-left bevel-vgap-12"><div class="bevel-hflex-left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M11.3343 2.04894C11.5438 1.40402 12.4562 1.40402 12.6657 2.04894L14.537 7.80811C14.6307 8.09652 14.8995 8.2918 15.2027 8.2918H21.2583C21.9364 8.2918 22.2183 9.15953 21.6697 9.55811L16.7707 13.1175C16.5254 13.2957 16.4227 13.6117 16.5164 13.9001L18.3877 19.6593C18.5972 20.3042 17.8591 20.8405 17.3105 20.4419L12.4115 16.8825C12.1661 16.7043 11.8339 16.7043 11.5886 16.8825L6.68951 20.4419C6.14091 20.8405 5.40277 20.3042 5.61232 19.6593L7.48358 13.9001C7.5773 13.6117 7.47464 13.2957 7.2293 13.1175L2.33025 9.55811C1.78165 9.15953 2.06359 8.2918 2.7417 8.2918H8.79725C9.10051 8.2918 9.36928 8.09652 9.46299 7.80811L11.3343 2.04894Z" fill="#FF9500"/></svg></div><div class="bevel-card-title">No volveríamos atrás</div></div><p class="bevel-card-body">Llevamos dos años con HausBox y no volveríamos atrás. La plataforma se actualiza constantemente y cada vez es mejor.</p><div class="bevel-card-author">— Cliente Verificado</div></div></div>
+              </div>
+            </div>
+            <!-- Subtle link to case studies -->
+            <a href="#casos-exito" class="subtle-link" style="margin: 2.5rem auto 0; display: flex; width: fit-content; justify-content: center; color: #000; font-size: 15px;">Ver todos los casos de éxito <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+          </div>
+    </section>
+
+
+    <section id="faq" data-nav-theme="light" class="faq-section">
+      <div class="faq-container">
+        <div class="faq-header reveal">
+          <p class="label">FAQ</p>
+          <h2>Preguntas <span class="serif">frecuentes.</span></h2>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Qué diferencia a HausBox de otros sistemas de administración?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>HausBox integra cobro de cuotas, comunicación con residentes, contabilidad y control de accesos en una sola plataforma. No necesitas múltiples herramientas ni hojas de cálculo. Todo está centralizado, automatizado y disponible desde web y app móvil.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cómo funciona el cobro automático de cuotas?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>HausBox envía recordatorios automáticos a los residentes antes del vencimiento de sus cuotas. Puedes configurar la frecuencia, montos y recargos por mora. El sistema concilia pagos automáticamente con tu banco, reduciendo la morosidad hasta un 80%.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Mis datos están seguros?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Absolutamente. Usamos encriptación de nivel bancario, servidores seguros con respaldos automáticos diarios y 99.9% de disponibilidad garantizada. Tu información está protegida en todo momento.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Qué incluye la app para residentes?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>La app permite a los residentes consultar pagos y adeudos, generar códigos QR para visitas, reservar amenidades, recibir avisos y comunicarse con la administración. Todo desde su celular, disponible para iOS y Android.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Funciona en celulares y computadoras?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Sí. La plataforma web funciona en cualquier navegador para los administradores, y la app móvil está disponible para iOS y Android para los residentes. Todo se sincroniza en tiempo real.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Ofrecen soporte y capacitación?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Sí. Contamos con soporte por WhatsApp de lunes a viernes de 9am a 6pm, capacitación personalizada para tu equipo y asesoría continua. Además, la plataforma se actualiza constantemente con nuevas funciones.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cuánto cuesta HausBox?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>Ofrecemos una prueba gratuita de 30 días con acceso completo. Después, los planes se adaptan al tamaño de tu condominio. Contáctanos por WhatsApp para una cotización personalizada.</p>
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cómo empiezo a usar HausBox?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer"><div class="faq-answer-inner">
+            <p>¡Es muy fácil! Escríbenos por WhatsApp o déjanos tus datos en el formulario de contacto. Te configuramos la plataforma, capacitamos a tu equipo y en menos de una semana estarás operando con HausBox.</p>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== CTA FINAL & FOOTER WRAPPER ========== -->
+  <div class="cta-footer-wrap">
+    <!-- ========== CTA FINAL ========== -->
+    <section data-nav-theme="dark" class="cta-section">
+      <div class="cta-gradient" aria-hidden="true"></div>
+      <div class="cta-content reveal">
+        <h2>Tu condominio merece <span class="serif">más.</span></h2>
+        <p>Deja de complicarte. Empieza a administrar de verdad. Prueba HausBox 30 días gratis y transforma la gestión de tu condominio.</p>
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-hero group" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:24px;height:24px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"></path></svg>
+            <span class="rolling-text">
+              <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">P</span><span class="char-bottom" style="transition-delay:0ms">P</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:22ms">r</span><span class="char-bottom" style="transition-delay:22ms">r</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:44ms">u</span><span class="char-bottom" style="transition-delay:44ms">u</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:66ms">e</span><span class="char-bottom" style="transition-delay:66ms">e</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:88ms">b</span><span class="char-bottom" style="transition-delay:88ms">b</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:110ms">a</span><span class="char-bottom" style="transition-delay:110ms">a</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:132ms">&nbsp;</span><span class="char-bottom" style="transition-delay:132ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:154ms">G</span><span class="char-bottom" style="transition-delay:154ms">G</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:176ms">r</span><span class="char-bottom" style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:198ms">a</span><span class="char-bottom" style="transition-delay:198ms">a</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:220ms">t</span><span class="char-bottom" style="transition-delay:220ms">t</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:242ms">i</span><span class="char-bottom" style="transition-delay:242ms">i</span></span><span class="rolling-char"><span class="char-top" style="transition-delay:264ms">s</span><span class="char-bottom" style="transition-delay:264ms">s</span></span>
+            </span>
+          </a>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <a href="#" class="footer-logo" aria-label="HausBox"><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto"/></a>
+
+          <div class="footer-links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+            <a href="mailto:contacto@hausbox.com">contacto@hausbox.com</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 HausBox. Todos los derechos reservados.</p>
+          <div class="footer-social">
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.81.12v-3.49a6.37 6.37 0 0 0-.81-.05A6.34 6.34 0 0 0 3.15 15.4a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.16a8.18 8.18 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.59z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
