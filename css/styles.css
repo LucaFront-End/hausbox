@@ -3177,6 +3177,55 @@ textarea {
 }
 
 /* ============================================================
+   CTA FINAL SECTION
+   ============================================================ */
+.cta-section {
+  position: relative;
+  padding: 6rem 1.25rem;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, #000 0%, #050a14 100%);
+}
+
+.cta-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(13,163,226,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.cta-section h2 {
+  font-size: clamp(2rem, 3.5vw + 1rem, 3.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.cta-section h2 .serif {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.cta-section p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.65);
+  max-width: 34rem;
+  margin: 0 auto 2.5rem;
+}
+
+/* ============================================================
    MULTI-STEP FORM SECTION
    ============================================================ */
 .multistep-section {
@@ -3545,6 +3594,262 @@ textarea {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
   color: #ffffff;
+}
+
+/* ============================================================
+   SIMPLE JOSEPJA-STYLE FORM COMPONENTS
+   ============================================================ */
+
+/* Gradient progress bar */
+.simple-progress {
+  height: 6px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.simple-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #06d6a0);
+  border-radius: 99px;
+  transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+
+/* Step number nav */
+.simple-steps-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.simple-step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.35);
+}
+
+.simple-step-num.active {
+  background: var(--accent);
+  color: #050505;
+  box-shadow: 0 0 16px rgba(13,163,226,0.35);
+}
+
+.simple-step-num.completed {
+  background: rgba(13,163,226,0.15);
+  color: var(--accent);
+  border: 1px solid rgba(13,163,226,0.3);
+}
+
+.simple-step-num.completed::after {
+  content: '✓';
+  font-size: 13px;
+}
+
+.simple-step-num.completed span { display: none; }
+
+/* Step accent line */
+.simple-step-accent {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #06d6a0);
+  border-radius: 4px;
+  margin: 0 auto 2rem;
+}
+
+/* Step titles */
+.simple-step-title {
+  font-size: clamp(1.5rem, 2.5vw + 0.5rem, 2rem);
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+}
+
+.simple-step-subtitle {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  margin: 0 0 2.5rem;
+}
+
+/* Single clean input */
+.simple-input-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.simple-input {
+  display: block;
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-radius: 0;
+  padding: 16px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.simple-input:focus {
+  border-bottom-color: var(--accent);
+}
+
+.simple-input::placeholder {
+  color: rgba(255,255,255,0.25);
+  font-style: italic;
+}
+
+.simple-input-wrap .error-msg {
+  display: none;
+  margin-top: 6px;
+}
+
+.simple-input-wrap.error .error-msg {
+  display: block;
+}
+
+.simple-input-wrap.error .simple-input {
+  border-bottom-color: #f43f5e;
+}
+
+/* Property type grid */
+.property-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 600px) {
+  .property-type-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.property-type-card {
+  cursor: pointer;
+}
+
+.property-type-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ptc-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.ptc-inner:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.15);
+}
+
+.property-type-card input[type="radio"]:checked + .ptc-inner {
+  background: rgba(13,163,226,0.08);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(13,163,226,0.15);
+}
+
+.ptc-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.ptc-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
+
+#property-error {
+  display: none;
+  margin-bottom: 1rem;
+}
+
+#property-error.visible {
+  display: block;
+}
+
+/* Simple form navigation */
+.simple-form-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.btn-simple-prev {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 12px 0;
+  transition: color 0.3s ease;
+}
+
+.btn-simple-prev:hover {
+  color: #ffffff;
+}
+
+.btn-simple-next {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.45);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 14px 32px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.btn-simple-next:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7);
+}
+
+.btn-simple-submit {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #050505 !important;
+}
+
+.btn-simple-submit:hover {
+  filter: brightness(1.1);
+  color: #050505 !important;
 }
 
 /* APP BADGES IN FOOTER */

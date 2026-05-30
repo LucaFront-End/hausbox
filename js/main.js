@@ -776,149 +776,152 @@ function initRolesTabs() {
 }
 
 /* ============================================================
-   MULTI-STEP FORM — Wizard steps and validation
+   SIMPLE MULTI-STEP FORM — Wizard steps and validation
    ============================================================ */
 function initMultistepForm() {
   const form = document.getElementById('multistep-form');
   if (!form) return;
 
   const steps = form.querySelectorAll('.form-step');
-  const indicators = document.querySelectorAll('.step-indicator .indicator-step');
-  const lines = document.querySelectorAll('.step-indicator .indicator-line');
-  const nextBtns = form.querySelectorAll('.btn-step-next');
-  const prevBtns = form.querySelectorAll('.btn-step-prev');
+  const progressBar = document.getElementById('formProgressBar');
+  const stepNums = document.querySelectorAll('.simple-step-num');
+  const nextBtns = form.querySelectorAll('.btn-simple-next');
+  const prevBtns = form.querySelectorAll('.btn-simple-prev');
+  const propertyError = document.getElementById('property-error');
 
+  const totalSteps = 3; // exclude success
   let currentStep = 1;
 
-  // Helper to change step
-  function showStep(stepNum) {
-    steps.forEach((step, i) => {
-      const isCurrent = i + 1 === stepNum;
-      step.classList.toggle('active', isCurrent);
-      if (isCurrent) {
-        step.style.display = 'block';
-      } else {
-        // Only hide if it's not the success step, or let transition finish
-        if (i + 1 !== 4) {
-          step.style.display = 'none';
-        }
+  function goToStep(stepNum) {
+    // Hide all steps
+    steps.forEach(s => {
+      s.classList.remove('active');
+      s.style.display = 'none';
+    });
+
+    // Show the target step
+    let targetId;
+    if (stepNum > totalSteps) {
+      targetId = 'step-success';
+    } else {
+      targetId = 'step-' + stepNum;
+    }
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.style.display = 'block';
+      // Small delay to trigger CSS transition
+      requestAnimationFrame(() => target.classList.add('active'));
+    }
+
+    // Update progress bar
+    const progress = stepNum > totalSteps ? 100 : (stepNum / totalSteps) * 100;
+    if (progressBar) progressBar.style.width = progress + '%';
+
+    // Update step number nav
+    stepNums.forEach(btn => {
+      const num = parseInt(btn.dataset.goto);
+      btn.classList.remove('active', 'completed');
+      if (num === stepNum && stepNum <= totalSteps) {
+        btn.classList.add('active');
+      } else if (num < stepNum) {
+        btn.classList.add('completed');
+        btn.textContent = '';
       }
-    });
-
-    // Update Indicators
-    indicators.forEach((ind, i) => {
-      const stepIdx = i + 1;
-      ind.classList.toggle('active', stepIdx === stepNum);
-      ind.classList.toggle('completed', stepIdx < stepNum);
-    });
-
-    // Update progress lines
-    lines.forEach((line, i) => {
-      const lineIdx = i + 1;
-      line.classList.toggle('completed', lineIdx < stepNum);
+      if (stepNum > totalSteps) {
+        btn.classList.add('completed');
+        btn.textContent = '';
+      }
     });
 
     currentStep = stepNum;
   }
 
-  // Input Validation
-  function validateField(field) {
-    const input = field.querySelector('input, textarea');
-    if (!input) return true;
-
+  // Validate individual field
+  function validateField(input) {
+    const wrap = input.closest('.simple-input-wrap');
+    if (!wrap) return true;
     let isValid = true;
 
-    if (input.required) {
-      if (!input.value.trim()) {
-        isValid = false;
-      }
+    if (input.required && !input.value.trim()) {
+      isValid = false;
     }
 
     if (isValid && input.type === 'email') {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(input.value.trim())) {
-        isValid = false;
-      }
+      if (!emailRegex.test(input.value.trim())) isValid = false;
     }
 
     if (isValid && input.id === 'form-phone') {
       const phoneDigits = input.value.replace(/\D/g, '');
-      if (phoneDigits.length < 10) {
-        isValid = false;
-      }
+      if (phoneDigits.length < 10) isValid = false;
     }
 
-    if (isValid && input.type === 'number') {
-      const val = parseInt(input.value, 10);
-      if (isNaN(val) || val < 1) {
-        isValid = false;
-      }
-    }
-
-    field.classList.toggle('error', !isValid);
+    wrap.classList.toggle('error', !isValid);
     return isValid;
   }
 
-  // Step Validation
   function validateStep(stepNum) {
-    const stepDiv = document.getElementById(`step-${stepNum}`);
-    if (!stepDiv) return true;
-
-    const fields = stepDiv.querySelectorAll('.form-field');
-    let stepValid = true;
-
-    fields.forEach(field => {
-      const fieldValid = validateField(field);
-      if (!fieldValid) {
-        stepValid = false;
-      }
-    });
-
-    return stepValid;
+    if (stepNum === 1) {
+      const name = document.getElementById('form-name');
+      return validateField(name);
+    }
+    if (stepNum === 2) {
+      const checked = form.querySelector('input[name="property-type"]:checked');
+      const hasSelection = !!checked;
+      if (propertyError) propertyError.classList.toggle('visible', !hasSelection);
+      return hasSelection;
+    }
+    if (stepNum === 3) {
+      const phone = document.getElementById('form-phone');
+      const email = document.getElementById('form-email');
+      const phoneValid = validateField(phone);
+      const emailValid = validateField(email);
+      return phoneValid && emailValid;
+    }
+    return true;
   }
 
-  // Clear error on input
-  form.querySelectorAll('input, textarea').forEach(input => {
-    input.addEventListener('input', () => {
-      const field = input.closest('.form-field');
-      if (field && field.classList.contains('error')) {
-        field.classList.remove('error');
-      }
-    });
-  });
-
-  // Next Buttons
+  // Next buttons
   nextBtns.forEach(btn => {
     btn.addEventListener('click', () => {
+      const nextStep = parseInt(btn.dataset.next);
       if (validateStep(currentStep)) {
-        showStep(currentStep + 1);
+        goToStep(nextStep);
       }
     });
   });
 
-  // Prev Buttons
+  // Prev buttons
   prevBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      showStep(currentStep - 1);
+      const prevStep = parseInt(btn.dataset.prev);
+      goToStep(prevStep);
     });
   });
 
-  // Form Submit
+  // Step num nav (click to go back to completed steps)
+  stepNums.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = parseInt(btn.dataset.goto);
+      if (target < currentStep) {
+        goToStep(target);
+      }
+    });
+  });
+
+  // Form submit
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (validateStep(currentStep)) {
-      // Simulate API submit and show success screen
-      showStep(4); // step-success
-      
-      // Update success indicator
-      indicators.forEach(ind => ind.classList.add('completed'));
-      lines.forEach(line => line.classList.add('completed'));
-      
-      const successStep = document.getElementById('step-success');
-      if (successStep) {
-        successStep.classList.add('active');
-        successStep.style.display = 'block';
-      }
+      goToStep(totalSteps + 1); // show success
     }
+  });
+
+  // Clear property error on selection
+  const radios = form.querySelectorAll('input[name="property-type"]');
+  radios.forEach(r => {
+    r.addEventListener('change', () => {
+      if (propertyError) propertyError.classList.remove('visible');
+    });
   });
 }

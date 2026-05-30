@@ -1874,199 +1874,135 @@
   <!-- ========== CTA FINAL & FOOTER WRAPPER ========== -->
   <div class="cta-footer-wrap">
     <!-- ========== CTA FINAL ========== -->
+    <section data-nav-theme="dark" class="cta-section">
+      <div class="cta-gradient" aria-hidden="true"></div>
+      <div class="cta-content reveal">
+        <h2>Tu condominio merece <span class="serif">más.</span></h2>
+        <p>Deja de complicarte. Empieza a administrar de verdad. Prueba HausBox 30 días gratis y transforma la gestión
+          de tu condominio.</p>
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0"
+          class="btn-cta-hero group" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:24px;height:24px">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z">
+            </path>
+          </svg>
+          <span>Prueba Gratis</span>
+        </a>
+      </div>
+    </section>
 
-    <!-- ========== MULTI-STEP FORM SECTION ========== -->
+    <!-- ========== SIMPLE CONTACT FORM ========== -->
     <section id="contacto-multistep" data-nav-theme="dark" class="multistep-section">
       <div class="multistep-container">
 
-        <div class="multistep-header reveal">
-          <p class="multistep-label">Agenda una Demostración</p>
-          <h2>¿Listo para digitalizar tu <span class="serif">condominio?</span></h2>
-          <p class="multistep-subtitle">Completa nuestro breve formulario de solicitud y un asesor se pondrá en contacto
-            contigo.</p>
-        </div>
-
         <div class="multistep-card reveal">
-          <!-- Step Indicator -->
-          <div class="step-indicator">
-            <div class="indicator-step active" data-indicator="1">
-              <div class="indicator-num">1</div>
-              <span class="indicator-text">Contacto</span>
-            </div>
-            <div class="indicator-line"></div>
-            <div class="indicator-step" data-indicator="2">
-              <div class="indicator-num">2</div>
-              <span class="indicator-text">Condominio</span>
-            </div>
-            <div class="indicator-line"></div>
-            <div class="indicator-step" data-indicator="3">
-              <div class="indicator-num">3</div>
-              <span class="indicator-text">Confirmar</span>
-            </div>
+          <!-- Progress bar -->
+          <div class="simple-progress">
+            <div class="simple-progress-bar" id="formProgressBar" style="width:25%"></div>
           </div>
 
-          <!-- Form Element -->
+          <!-- Step numbers -->
+          <div class="simple-steps-nav" id="simpleStepsNav">
+            <button class="simple-step-num active" data-goto="1">1</button>
+            <button class="simple-step-num" data-goto="2">2</button>
+            <button class="simple-step-num" data-goto="3">3</button>
+            <button class="simple-step-num" data-goto="4">4</button>
+          </div>
+
           <form id="multistep-form" novalidate>
 
-            <!-- STEP 1: CONTACT INFO -->
+            <!-- STEP 1: NAME -->
             <div class="form-step active" id="step-1">
-              <div class="form-group-row">
-                <div class="form-field">
-                  <label for="form-name">Nombre Completo *</label>
-                  <input type="text" id="form-name" placeholder="Ej. Juan Pérez" required>
-                  <span class="error-msg">Por favor ingresa tu nombre</span>
-                </div>
+              <div class="simple-step-accent"></div>
+              <h3 class="simple-step-title">¿Cuál es tu nombre?</h3>
+              <p class="simple-step-subtitle">Queremos conocerte personalmente</p>
+              <div class="simple-input-wrap">
+                <input type="text" id="form-name" class="simple-input" placeholder="Escribe tu nombre..." required>
+                <span class="error-msg">Por favor ingresa tu nombre</span>
               </div>
-              <div class="form-group-row col-2">
-                <div class="form-field">
-                  <label for="form-email">Correo Electrónico *</label>
-                  <input type="email" id="form-email" placeholder="juan@correo.com" required>
-                  <span class="error-msg">Ingresa un correo electrónico válido</span>
-                </div>
-                <div class="form-field">
-                  <label for="form-phone">Teléfono de Contacto *</label>
-                  <input type="tel" id="form-phone" placeholder="55 1234 5678" required>
-                  <span class="error-msg">Ingresa un número telefónico de 10 dígitos</span>
-                </div>
-              </div>
-              <div class="form-navigation">
-                <div></div> <!-- spacer -->
-                <button type="button" class="btn-step-next btn-cta-hero group">
-                  <span class="rolling-text">
-                    <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span
-                        class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span
-                        class="char-top" style="transition-delay:22ms">i</span><span class="char-bottom"
-                        style="transition-delay:22ms">i</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:44ms">g</span><span class="char-bottom"
-                        style="transition-delay:44ms">g</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:66ms">u</span><span class="char-bottom"
-                        style="transition-delay:66ms">u</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:88ms">i</span><span class="char-bottom"
-                        style="transition-delay:88ms">i</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:110ms">e</span><span class="char-bottom"
-                        style="transition-delay:110ms">e</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:132ms">n</span><span class="char-bottom"
-                        style="transition-delay:132ms">n</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:154ms">t</span><span class="char-bottom"
-                        style="transition-delay:154ms">t</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:176ms">e</span><span class="char-bottom"
-                        style="transition-delay:176ms">e</span></span>
-                  </span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" width="16" height="16">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </button>
+              <div class="simple-form-nav">
+                <div></div>
+                <button type="button" class="btn-simple-next" data-next="2">Continuar →</button>
               </div>
             </div>
 
-            <!-- STEP 2: CONDO INFO -->
+            <!-- STEP 2: PROPERTY TYPE -->
             <div class="form-step" id="step-2">
-              <div class="form-group-row">
-                <div class="form-field">
-                  <label for="form-condo-name">Nombre del Condominio / Residencial *</label>
-                  <input type="text" id="form-condo-name" placeholder="Ej. Akumal Residencial" required>
-                  <span class="error-msg">Por favor ingresa el nombre de tu condominio</span>
-                </div>
+              <div class="simple-step-accent"></div>
+              <h3 class="simple-step-title">¿Qué tipo de inmueble administras?</h3>
+              <p class="simple-step-subtitle">Selecciona la categoría que mejor describe tu espacio</p>
+              <div class="property-type-grid" id="propertyTypeGrid">
+                <label class="property-type-card">
+                  <input type="radio" name="property-type" value="Condominio" required>
+                  <div class="ptc-inner">
+                    <span class="ptc-icon">🏢</span>
+                    <span class="ptc-label">Condominio</span>
+                  </div>
+                </label>
+                <label class="property-type-card">
+                  <input type="radio" name="property-type" value="Residencial">
+                  <div class="ptc-inner">
+                    <span class="ptc-icon">🏘️</span>
+                    <span class="ptc-label">Residencial</span>
+                  </div>
+                </label>
+                <label class="property-type-card">
+                  <input type="radio" name="property-type" value="Edificio">
+                  <div class="ptc-inner">
+                    <span class="ptc-icon">🏬</span>
+                    <span class="ptc-label">Edificio</span>
+                  </div>
+                </label>
+                <label class="property-type-card">
+                  <input type="radio" name="property-type" value="Fraccionamiento">
+                  <div class="ptc-inner">
+                    <span class="ptc-icon">🏡</span>
+                    <span class="ptc-label">Fraccionamiento</span>
+                  </div>
+                </label>
+                <label class="property-type-card">
+                  <input type="radio" name="property-type" value="Oficinas">
+                  <div class="ptc-inner">
+                    <span class="ptc-icon">🏛️</span>
+                    <span class="ptc-label">Oficinas</span>
+                  </div>
+                </label>
+                <label class="property-type-card">
+                  <input type="radio" name="property-type" value="Otro">
+                  <div class="ptc-inner">
+                    <span class="ptc-icon">🎯</span>
+                    <span class="ptc-label">Otro</span>
+                  </div>
+                </label>
               </div>
-              <div class="form-group-row col-2">
-                <div class="form-field">
-                  <label for="form-units">Número de Unidades / Viviendas *</label>
-                  <input type="number" id="form-units" placeholder="Ej. 120" min="1" required>
-                  <span class="error-msg">Ingresa un número válido de viviendas</span>
-                </div>
-                <div class="form-field">
-                  <label for="form-city">Ciudad *</label>
-                  <input type="text" id="form-city" placeholder="Ej. CDMX" required>
-                  <span class="error-msg">Por favor ingresa tu ciudad</span>
-                </div>
-              </div>
-              <div class="form-navigation">
-                <button type="button" class="btn-step-prev btn-secondary-hero">Atrás</button>
-                <button type="button" class="btn-step-next btn-cta-hero group">
-                  <span class="rolling-text">
-                    <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span
-                        class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span
-                        class="char-top" style="transition-delay:22ms">i</span><span class="char-bottom"
-                        style="transition-delay:22ms">i</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:44ms">g</span><span class="char-bottom"
-                        style="transition-delay:44ms">g</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:66ms">u</span><span class="char-bottom"
-                        style="transition-delay:66ms">u</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:88ms">i</span><span class="char-bottom"
-                        style="transition-delay:88ms">i</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:110ms">e</span><span class="char-bottom"
-                        style="transition-delay:110ms">e</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:132ms">n</span><span class="char-bottom"
-                        style="transition-delay:132ms">n</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:154ms">t</span><span class="char-bottom"
-                        style="transition-delay:154ms">t</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:176ms">e</span><span class="char-bottom"
-                        style="transition-delay:176ms">e</span></span>
-                  </span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                    stroke-linejoin="round" width="16" height="16">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                </button>
+              <span class="error-msg" id="property-error">Selecciona un tipo de inmueble</span>
+              <div class="simple-form-nav">
+                <button type="button" class="btn-simple-prev" data-prev="1">← Anterior</button>
+                <button type="button" class="btn-simple-next" data-next="3">Continuar →</button>
               </div>
             </div>
 
-            <!-- STEP 3: MESSAGE & SEND -->
+            <!-- STEP 3: CONTACT INFO -->
             <div class="form-step" id="step-3">
-              <div class="form-group-row">
-                <div class="form-field">
-                  <label for="form-message">¿Tienes algún requerimiento especial o duda? (Opcional)</label>
-                  <textarea id="form-message" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
-                </div>
+              <div class="simple-step-accent"></div>
+              <h3 class="simple-step-title">¿Cómo te contactamos?</h3>
+              <p class="simple-step-subtitle">Te enviaremos información y acceso a tu prueba gratis</p>
+              <div class="simple-input-wrap">
+                <input type="tel" id="form-phone" class="simple-input" placeholder="Tu teléfono (10 dígitos)" required>
+                <span class="error-msg">Ingresa un número de 10 dígitos</span>
               </div>
-              <div class="form-navigation">
-                <button type="button" class="btn-step-prev btn-secondary-hero">Atrás</button>
-                <button type="submit" class="btn-step-submit btn-cta-hero group">
-                  <span class="rolling-text">
-                    <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">E</span><span
-                        class="char-bottom" style="transition-delay:0ms">E</span></span><span class="rolling-char"><span
-                        class="char-top" style="transition-delay:22ms">n</span><span class="char-bottom"
-                        style="transition-delay:22ms">n</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:44ms">v</span><span class="char-bottom"
-                        style="transition-delay:44ms">v</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:66ms">i</span><span class="char-bottom"
-                        style="transition-delay:66ms">i</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:88ms">a</span><span class="char-bottom"
-                        style="transition-delay:88ms">a</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:110ms">r</span><span class="char-bottom"
-                        style="transition-delay:110ms">r</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:132ms">&nbsp;</span><span class="char-bottom"
-                        style="transition-delay:132ms">&nbsp;</span></span><span class="rolling-char"><span
-                        class="char-top" style="transition-delay:154ms">S</span><span class="char-bottom"
-                        style="transition-delay:154ms">S</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:176ms">o</span><span class="char-bottom"
-                        style="transition-delay:176ms">o</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:198ms">l</span><span class="char-bottom"
-                        style="transition-delay:198ms">l</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:220ms">i</span><span class="char-bottom"
-                        style="transition-delay:220ms">i</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:242ms">c</span><span class="char-bottom"
-                        style="transition-delay:242ms">c</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:264ms">i</span><span class="char-bottom"
-                        style="transition-delay:264ms">i</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:286ms">t</span><span class="char-bottom"
-                        style="transition-delay:286ms">t</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:308ms">u</span><span class="char-bottom"
-                        style="transition-delay:308ms">u</span></span><span class="rolling-char"><span class="char-top"
-                        style="transition-delay:330ms">d</span><span class="char-bottom"
-                        style="transition-delay:330ms">d</span></span>
-                  </span>
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                    <path d="M2 21a1 1 0 0 0 1.254.965l19-6a1 1 0 0 0 0-1.93l-19-6A1 1 0 0 0 2 9v4l12 1.5L2 16z"></path>
-                  </svg>
-                </button>
+              <div class="simple-input-wrap">
+                <input type="email" id="form-email" class="simple-input" placeholder="Tu correo electrónico" required>
+                <span class="error-msg">Ingresa un correo válido</span>
+              </div>
+              <div class="simple-form-nav">
+                <button type="button" class="btn-simple-prev" data-prev="2">← Anterior</button>
+                <button type="submit" class="btn-simple-next btn-simple-submit">Enviar Solicitud →</button>
               </div>
             </div>
 
-            <!-- SUCCESS STATE SCREEN -->
+            <!-- STEP 4: SUCCESS -->
             <div class="form-step" id="step-success">
               <div class="success-screen">
                 <div class="success-icon-box">
@@ -2076,8 +2012,7 @@
                   </svg>
                 </div>
                 <h3>¡Solicitud Enviada!</h3>
-                <p>Tu solicitud ha sido registrada correctamente. Un especialista de HausBox te contactará en las
-                  próximas 24 horas.</p>
+                <p>Un especialista de HausBox te contactará en las próximas 24 horas.</p>
                 <div class="success-action-divider">o también puedes</div>
                 <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+He+llenado+el+formulario+y+quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0"
                   class="btn-success-whatsapp" target="_blank" rel="noopener noreferrer">
