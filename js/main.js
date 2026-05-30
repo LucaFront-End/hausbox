@@ -15,6 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initPrivacySpotlight();
   initWeeklyPhoneReveal();
   initCardAnimations();
+  initFloatingWhatsApp();
+  initReviewsLateralScroll();
+  initRolesTabs();
+  initMultistepForm();
 });
 
 /* ============================================================
@@ -654,4 +658,258 @@ function initCardAnimations() {
     }, { threshold: [0.25, 0.75] });
     chatObs.observe(chatCard.closest('.highlight-card') || chatCard);
   }
+}
+
+/* ============================================================
+   FLOATING WHATSAPP BUTTON — tooltip control
+   ============================================================ */
+function initFloatingWhatsApp() {
+  const container = document.querySelector('.floating-whatsapp-container');
+  if (!container) return;
+
+  const tooltip = container.querySelector('.whatsapp-tooltip');
+  if (!tooltip) return;
+
+  // Show tooltip after 2.5 seconds
+  setTimeout(() => {
+    tooltip.classList.add('visible');
+  }, 2500);
+
+  // Hide tooltip after 8.5 seconds
+  setTimeout(() => {
+    tooltip.classList.remove('visible');
+  }, 8500);
+
+  // Also hide tooltip on scroll
+  const handleScroll = () => {
+    if (window.scrollY > 150) {
+      tooltip.classList.remove('visible');
+      window.removeEventListener('scroll', handleScroll);
+    }
+  };
+  window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+/* ============================================================
+   REVIEWS LATERAL SCROLL — scroll-driven horizontal translate
+   ============================================================ */
+function initReviewsLateralScroll() {
+  const container = document.querySelector('.bevel-marquee');
+  const row = document.querySelector('.bevel-marquee_row');
+  if (!container || !row) return;
+
+  // Stop infinite CSS marquee
+  row.classList.add('lateral-scroll');
+
+  const handleScroll = () => {
+    const rect = container.getBoundingClientRect();
+    const windowH = window.innerHeight;
+
+    // Only update if visible in viewport
+    if (rect.top < windowH && rect.bottom > 0) {
+      const totalDist = windowH + container.offsetHeight;
+      const currentScroll = windowH - rect.top;
+      const progress = Math.max(0, Math.min(1, currentScroll / totalDist));
+
+      // Calculate horizontal translation limit
+      // We want to translate from 0 (left-aligned) to -scrollableRange (right-aligned)
+      const scrollableRange = row.scrollWidth - container.clientWidth;
+      
+      // Let's slide from 0 to -scrollableRange * 0.7 for nice bounding and margin
+      const tx = -progress * Math.max(0, scrollableRange) * 0.75;
+      row.style.transform = `translate3d(${tx}px, 0px, 0px)`;
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  // Set initial position
+  handleScroll();
+}
+
+/* ============================================================
+   ROLE TABS SWITCHER — Para Residente y Para Administrador
+   ============================================================ */
+function initRolesTabs() {
+  const container = document.querySelector('.tabs-selector');
+  if (!container) return;
+
+  const buttons = container.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.roles-tabs-section .tab-panel');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabName = btn.dataset.tab;
+      
+      // Update active data attribute for CSS pill move
+      container.setAttribute('data-active', tabName);
+      
+      // Toggle button active classes
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+
+      // Show and hide panels with CSS class transitions
+      panels.forEach(panel => {
+        const isActive = panel.id === `panel-${tabName}`;
+        if (isActive) {
+          panel.style.display = 'block';
+          panel.offsetHeight; // force reflow
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+          setTimeout(() => {
+            if (!panel.classList.contains('active')) {
+              panel.style.display = 'none';
+            }
+          }, 400);
+        }
+      });
+    });
+  });
+}
+
+/* ============================================================
+   MULTI-STEP FORM — Wizard steps and validation
+   ============================================================ */
+function initMultistepForm() {
+  const form = document.getElementById('multistep-form');
+  if (!form) return;
+
+  const steps = form.querySelectorAll('.form-step');
+  const indicators = document.querySelectorAll('.step-indicator .indicator-step');
+  const lines = document.querySelectorAll('.step-indicator .indicator-line');
+  const nextBtns = form.querySelectorAll('.btn-step-next');
+  const prevBtns = form.querySelectorAll('.btn-step-prev');
+
+  let currentStep = 1;
+
+  // Helper to change step
+  function showStep(stepNum) {
+    steps.forEach((step, i) => {
+      const isCurrent = i + 1 === stepNum;
+      step.classList.toggle('active', isCurrent);
+      if (isCurrent) {
+        step.style.display = 'block';
+      } else {
+        // Only hide if it's not the success step, or let transition finish
+        if (i + 1 !== 4) {
+          step.style.display = 'none';
+        }
+      }
+    });
+
+    // Update Indicators
+    indicators.forEach((ind, i) => {
+      const stepIdx = i + 1;
+      ind.classList.toggle('active', stepIdx === stepNum);
+      ind.classList.toggle('completed', stepIdx < stepNum);
+    });
+
+    // Update progress lines
+    lines.forEach((line, i) => {
+      const lineIdx = i + 1;
+      line.classList.toggle('completed', lineIdx < stepNum);
+    });
+
+    currentStep = stepNum;
+  }
+
+  // Input Validation
+  function validateField(field) {
+    const input = field.querySelector('input, textarea');
+    if (!input) return true;
+
+    let isValid = true;
+
+    if (input.required) {
+      if (!input.value.trim()) {
+        isValid = false;
+      }
+    }
+
+    if (isValid && input.type === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(input.value.trim())) {
+        isValid = false;
+      }
+    }
+
+    if (isValid && input.id === 'form-phone') {
+      const phoneDigits = input.value.replace(/\D/g, '');
+      if (phoneDigits.length < 10) {
+        isValid = false;
+      }
+    }
+
+    if (isValid && input.type === 'number') {
+      const val = parseInt(input.value, 10);
+      if (isNaN(val) || val < 1) {
+        isValid = false;
+      }
+    }
+
+    field.classList.toggle('error', !isValid);
+    return isValid;
+  }
+
+  // Step Validation
+  function validateStep(stepNum) {
+    const stepDiv = document.getElementById(`step-${stepNum}`);
+    if (!stepDiv) return true;
+
+    const fields = stepDiv.querySelectorAll('.form-field');
+    let stepValid = true;
+
+    fields.forEach(field => {
+      const fieldValid = validateField(field);
+      if (!fieldValid) {
+        stepValid = false;
+      }
+    });
+
+    return stepValid;
+  }
+
+  // Clear error on input
+  form.querySelectorAll('input, textarea').forEach(input => {
+    input.addEventListener('input', () => {
+      const field = input.closest('.form-field');
+      if (field && field.classList.contains('error')) {
+        field.classList.remove('error');
+      }
+    });
+  });
+
+  // Next Buttons
+  nextBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (validateStep(currentStep)) {
+        showStep(currentStep + 1);
+      }
+    });
+  });
+
+  // Prev Buttons
+  prevBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      showStep(currentStep - 1);
+    });
+  });
+
+  // Form Submit
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateStep(currentStep)) {
+      // Simulate API submit and show success screen
+      showStep(4); // step-success
+      
+      // Update success indicator
+      indicators.forEach(ind => ind.classList.add('completed'));
+      lines.forEach(line => line.classList.add('completed'));
+      
+      const successStep = document.getElementById('step-success');
+      if (successStep) {
+        successStep.classList.add('active');
+        successStep.style.display = 'block';
+      }
+    }
+  });
 }
