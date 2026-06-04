@@ -700,39 +700,14 @@ function initFloatingWhatsApp() {
 }
 
 /* ============================================================
-   REVIEWS LATERAL SCROLL — scroll-driven horizontal translate
+   REVIEWS MARQUEE — CSS-driven infinite loop (no JS override)
    ============================================================ */
 function initReviewsLateralScroll() {
-  const container = document.querySelector('.bevel-marquee');
-  const row = document.querySelector('.bevel-marquee_row');
-  if (!container || !row) return;
-
-  // Stop infinite CSS marquee
-  row.classList.add('lateral-scroll');
-
-  const handleScroll = () => {
-    const rect = container.getBoundingClientRect();
-    const windowH = window.innerHeight;
-
-    // Only update if visible in viewport
-    if (rect.top < windowH && rect.bottom > 0) {
-      const totalDist = windowH + container.offsetHeight;
-      const currentScroll = windowH - rect.top;
-      const progress = Math.max(0, Math.min(1, currentScroll / totalDist));
-
-      // Calculate horizontal translation limit
-      // We want to translate from 0 (left-aligned) to -scrollableRange (right-aligned)
-      const scrollableRange = row.scrollWidth - container.clientWidth;
-      
-      // Let's slide from 0 to -scrollableRange * 0.7 for nice bounding and margin
-      const tx = -progress * Math.max(0, scrollableRange) * 0.75;
-      row.style.transform = `translate3d(${tx}px, 0px, 0px)`;
-    }
-  };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  // Set initial position
-  handleScroll();
+  // Reviews section uses pure CSS marquee animation for infinite loop.
+  // Previously this function was overriding the CSS animation with
+  // a scroll-driven transform. The CSS animation in
+  // .bevel-marquee_row handles the infinite loop automatically.
+  // No JS intervention needed.
 }
 
 /* ============================================================

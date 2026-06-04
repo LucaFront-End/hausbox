@@ -69,8 +69,8 @@
           </div>
         </div>
 
-        <!-- Funcionalidades Dropdown -->
-        <div class="nav-dropdown">
+        <!-- Funcionalidades Mega Dropdown -->
+        <div class="nav-dropdown nav-dropdown--mega">
           <button class="nav-dropdown-trigger" aria-haspopup="true">
             Funcionalidades
             <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -78,11 +78,101 @@
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
-          <div class="nav-dropdown-menu">
-            <a href="#acceso-qr">Aplicación de QR para acceso</a>
-            <a href="#cuotas-mantenimiento">Pago de Cuotas</a>
-            <a href="#reservas">Reserva de Amenidades</a>
-            <a href="#comunicacion">Comunicación interna</a>
+          <div class="nav-mega-menu">
+            <!-- Column: Residentes -->
+            <div class="mega-col">
+              <div class="mega-col-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Para Residentes</span>
+              </div>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#0DA3E2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7z"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Acceso Express QR</div>
+                  <div class="mega-desc">Códigos QR para ingreso de visitas</div>
+                </div>
+              </a>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#f97316">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Reserva de Amenidades</div>
+                  <div class="mega-desc">Salones, albercas y canchas</div>
+                </div>
+              </a>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#06d6a0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Pago de Mantenimiento</div>
+                  <div class="mega-desc">Cuotas con tarjeta o SPEI</div>
+                </div>
+              </a>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#8b5cf6">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Comunicación y Avisos</div>
+                  <div class="mega-desc">Notificaciones push directas</div>
+                </div>
+              </a>
+            </div>
+            <!-- Divider -->
+            <div class="mega-divider"></div>
+            <!-- Column: Administradores -->
+            <div class="mega-col">
+              <div class="mega-col-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>Para Administradores</span>
+              </div>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#0DA3E2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Cobranza Inteligente</div>
+                  <div class="mega-desc">Recordatorios y recargos automáticos</div>
+                </div>
+              </a>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#10b981">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Conciliación Automatizada</div>
+                  <div class="mega-desc">Vincula tu banco y concilia pagos</div>
+                </div>
+              </a>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#f59e0b">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Contabilidad Profesional</div>
+                  <div class="mega-desc">Balanzas, estados de cuenta y reportes</div>
+                </div>
+              </a>
+              <a href="#roles-tabs" class="mega-item">
+                <div class="mega-icon" style="--accent:#f43f5e">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Mensajería Multicanal</div>
+                  <div class="mega-desc">Comunicados, encuestas y avisos push</div>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -654,52 +744,7 @@
             </article>
           </div>
 
-          <!-- Card 4: Soporte directo — WhatsApp chat -->
-          <div class="highlight-card-wrapper">
-            <article>
-              <div class="highlight-card"
-                style="background:linear-gradient(135deg, rgba(6,78,59,0.85) 0%, rgba(6,95,70,0.85) 40%, rgba(4,120,87,0.85) 100%), url('images/highlights/support.png'); background-size: cover; background-position: center; color:#fff">
-                <div aria-hidden="true"
-                  style="position:absolute;inset:0;border-radius:20px;opacity:0.04;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='2' fill='white'/%3E%3C/svg%3E&quot;);background-size:30px 30px">
-                </div>
-                <div style="position:relative;z-index:20;display:flex;flex-direction:column;gap:12px;padding:25px">
-                  <h3>Soporte <em>directo</em></h3>
-                  <p style="max-width:320px;color:rgba(255,255,255,0.7)">Atención inmediata por WhatsApp. Sin correos,
-                    sin tickets.</p>
-                </div>
-                <div data-card-anim="chat"
-                  style="position:absolute;z-index:10;left:0;right:0;top:38%;display:flex;justify-content:center;padding:0 16px;pointer-events:none">
-                  <div style="width:88%;max-width:340px;display:flex;flex-direction:column;gap:12px">
-                    <div class="chat-bubble" style="opacity:0;transform:translateY(24px) scale(0.9)">
-                      <div
-                        style="background:rgba(255,255,255,0.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:18px 18px 18px 4px;padding:14px 18px;font-size:14px;color:#fff;line-height:1.5;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
-                        Hola, necesito ayuda con un pago no identificado &#x1F64F;
-                        <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px">10:32 am</div>
-                      </div>
-                    </div>
-                    <div class="chat-bubble"
-                      style="opacity:0;transform:translateY(24px) scale(0.9);align-self:flex-end">
-                      <div
-                        style="background:#25D366;border-radius:18px 18px 4px 18px;padding:14px 18px;font-size:14px;color:#fff;line-height:1.5;box-shadow:0 4px 20px rgba(37,211,102,0.3)">
-                        ¡Hola! Ya lo localicé. Era del Depto 8A. Queda aplicado &#x2705;
-                        <div style="font-size:10px;color:rgba(255,255,255,0.5);margin-top:6px;text-align:right">10:33 am
-                        </div>
-                      </div>
-                    </div>
-                    <div class="chat-bubble" style="opacity:0;transform:translateY(24px) scale(0.9)">
-                      <div
-                        style="background:rgba(255,255,255,0.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:18px 18px 18px 4px;padding:14px 18px;font-size:14px;color:#fff;line-height:1.5;box-shadow:0 4px 20px rgba(0,0,0,0.15)">
-                        ¡Increíble, súper rápido! Muchas gracias &#x1F680;
-                        <div style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:6px">10:33 am</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- Card 5: Reportes de confianza — Phone slide up -->
+          <!-- Card 4: Reportes de confianza — Phone slide up -->
           <div class="highlight-card-wrapper">
             <article>
               <div class="highlight-card" style="background:#fff;color:#010703">
@@ -734,16 +779,16 @@
 
 
 
-    <!-- ========== PRIVACY SECTION ========== -->
+    <!-- ========== SECURITY SECTION ========== -->
     <section id="privacy" data-nav-theme="light">
       <div style="padding:4rem 1.25rem">
         <div data-nav-theme="dark" class="privacy-card"
-          style="position:relative;display:flex;min-height:580px;align-items:center;overflow:hidden;border-radius:20px;background:#000;color:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,0.55);--mx:50%;--my:-50%;--spotlight:0">
+          style="position:relative;display:flex;flex-direction:column;overflow:hidden;border-radius:20px;background:#000;color:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,0.55);--mx:50%;--my:-50%;--spotlight:0">
           <!-- Dot grid glow -->
           <div aria-hidden="true" class="privacy-dot-grid" style="pointer-events:none;position:absolute;inset:0"></div>
-          <!-- Lock icon SVG -->
+          <!-- Lock icon SVG (background watermark) -->
           <svg aria-hidden="true" viewBox="0 0 200 280"
-            style="pointer-events:none;position:absolute;right:8%;top:50%;height:65%;width:auto;transform:translateY(-50%);opacity:0.09">
+            style="pointer-events:none;position:absolute;right:8%;top:16%;height:45%;width:auto;transform:translateY(-50%);opacity:0.04">
             <defs>
               <linearGradient id="lockBody" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="#ffffff" stop-opacity="1"></stop>
@@ -775,13 +820,138 @@
           <!-- Spotlight effect -->
           <div aria-hidden="true" class="privacy-spotlight"
             style="position:absolute;inset:0;transition:opacity 500ms ease-out"></div>
-          <!-- Text content -->
-          <div style="position:relative;z-index:10;width:100%;padding:6rem 2rem;text-align:left">
-            <div style="max-width:460px;margin-left:6%">
+
+          <!-- Header area -->
+          <div style="position:relative;z-index:10;width:100%;padding:4rem 2rem 2rem;text-align:left">
+            <div style="max-width:680px;margin-left:6%">
+              <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:99px;background:rgba(13,163,226,0.12);border:1px solid rgba(13,163,226,0.25);margin-bottom:1.5rem">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0DA3E2" stroke-width="2.5" stroke-linecap="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                <span style="font-size:12px;font-weight:600;color:#0DA3E2;letter-spacing:0.05em;text-transform:uppercase">Seguridad empresarial</span>
+              </div>
               <h2>Construido para la <span class="serif">seguridad.</span></h2>
-              <p>Tus datos están protegidos con los más altos estándares de seguridad. Respaldos automáticos diarios y
-                99.9% de disponibilidad garantizada en todo momento.</p>
-              <a href="#politicas-seguridad" class="subtle-link" style="color:#ffffff;margin-top:1.25rem">Leer políticas
+              <p style="max-width:520px">Tu información financiera, datos de residentes y comunicaciones están protegidos con infraestructura de nivel empresarial. Sin compromisos.</p>
+            </div>
+          </div>
+
+          <!-- Security Features Grid -->
+          <div style="position:relative;z-index:10;width:100%;padding:1rem 2rem 4rem">
+            <div class="security-features-grid" style="max-width:1100px;margin:0 auto">
+
+              <!-- Feature 1: AWS -->
+              <div class="security-feature-card">
+                <div class="security-icon-wrap" style="--accent:#FF9900">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6.5 17.5c-2.5-1.5-4-4-4-7 0-4.4 3.6-8 8-8 3.3 0 6.2 2 7.4 5"/>
+                    <path d="M20 10c.6 1 1 2.2 1 3.5 0 4.4-3.6 8-8 8-1.4 0-2.8-.4-4-1"/>
+                    <polyline points="15 4 20 4 20 9"/>
+                    <polyline points="9 20 4 20 4 15"/>
+                  </svg>
+                </div>
+                <div class="security-card-content">
+                  <h4>Hospedado en AWS</h4>
+                  <p>Infraestructura Amazon Web Services con centros de datos certificados ISO 27001, SOC 2 y alta disponibilidad global.</p>
+                </div>
+              </div>
+
+              <!-- Feature 2: UpCloud -->
+              <div class="security-feature-card">
+                <div class="security-icon-wrap" style="--accent:#7B2FBE">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/>
+                    <path d="M12 12l2 2-2 2"/>
+                  </svg>
+                </div>
+                <div class="security-card-content">
+                  <h4>Respaldado por UpCloud</h4>
+                  <p>Servidores redundantes en UpCloud con SSD de alto rendimiento, garantizando velocidad y 99.99% de uptime.</p>
+                </div>
+              </div>
+
+              <!-- Feature 3: Encryption -->
+              <div class="security-feature-card">
+                <div class="security-icon-wrap" style="--accent:#06d6a0">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#06d6a0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    <circle cx="12" cy="16" r="1"/>
+                  </svg>
+                </div>
+                <div class="security-card-content">
+                  <h4>Encriptación AES-256</h4>
+                  <p>Toda la información financiera, datos personales y documentos están protegidos con encriptación de grado militar en tránsito y en reposo.</p>
+                </div>
+              </div>
+
+              <!-- Feature 4: Anti-hacking -->
+              <div class="security-feature-card">
+                <div class="security-icon-wrap" style="--accent:#f43f5e">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
+                <div class="security-card-content">
+                  <h4>Protección Anti-hackeo</h4>
+                  <p>Firewall avanzado, protección DDoS, monitoreo de intrusiones 24/7 y autenticación de dos factores para cada acceso.</p>
+                </div>
+              </div>
+
+              <!-- Feature 5: Encrypted emails -->
+              <div class="security-feature-card">
+                <div class="security-icon-wrap" style="--accent:#0DA3E2">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0DA3E2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M22 4L12 13 2 4"/>
+                    <path d="M7 15l-1 1"/>
+                    <path d="M17 15l1 1"/>
+                  </svg>
+                </div>
+                <div class="security-card-content">
+                  <h4>Correos Encriptados</h4>
+                  <p>Todas las comunicaciones por email utilizan cifrado TLS/SSL, protegiendo notificaciones de pago, avisos y reportes.</p>
+                </div>
+              </div>
+
+              <!-- Feature 6: Backups -->
+              <div class="security-feature-card">
+                <div class="security-icon-wrap" style="--accent:#f59e0b">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"/>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                    <polyline points="12 8 12 12 15 15"/>
+                  </svg>
+                </div>
+                <div class="security-card-content">
+                  <h4>Respaldos Diarios</h4>
+                  <p>Backups automáticos cada 24 horas con retención de 30 días. Tu información siempre recuperable ante cualquier eventualidad.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom trust bar -->
+          <div style="position:relative;z-index:10;width:100%;padding:0 2rem 3rem">
+            <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.08)">
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06d6a0" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>SSL/TLS Certificado</span>
+              </div>
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06d6a0" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>99.99% Uptime</span>
+              </div>
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06d6a0" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>GDPR Compliant</span>
+              </div>
+              <div class="trust-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06d6a0" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>ISO 27001</span>
+              </div>
+              <a href="#politicas-seguridad" class="subtle-link" style="color:#ffffff;margin-left:auto">Leer políticas
                 de seguridad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -1751,131 +1921,13 @@
       </div>
     </section>
 
-    <section id="faq" data-nav-theme="light" class="faq-section">
-      <div class="faq-container">
-        <div class="faq-header reveal">
-          <p class="label">FAQ</p>
-          <h2>Preguntas <span class="serif">frecuentes.</span></h2>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Qué diferencia a HausBox de otros sistemas de administración?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>HausBox integra cobro de cuotas, comunicación con residentes, contabilidad y control de accesos en una
-                sola plataforma. No necesitas múltiples herramientas ni hojas de cálculo. Todo está centralizado,
-                automatizado y disponible desde web y app móvil.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Cómo funciona el cobro automático de cuotas?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>HausBox envía recordatorios automáticos a los residentes antes del vencimiento de sus cuotas. Puedes
-                configurar la frecuencia, montos y recargos por mora. El sistema concilia pagos automáticamente con tu
-                banco, reduciendo la morosidad hasta un 80%.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Mis datos están seguros?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>Absolutamente. Usamos encriptación de nivel bancario, servidores seguros con respaldos automáticos
-                diarios y 99.9% de disponibilidad garantizada. Tu información está protegida en todo momento.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Qué incluye la app para residentes?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>La app permite a los residentes consultar pagos y adeudos, generar códigos QR para visitas, reservar
-                amenidades, recibir avisos y comunicarse con la administración. Todo desde su celular, disponible para
-                iOS y Android.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Funciona en celulares y computadoras?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>Sí. La plataforma web funciona en cualquier navegador para los administradores, y la app móvil está
-                disponible para iOS y Android para los residentes. Todo se sincroniza en tiempo real.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Ofrecen soporte y capacitación?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>Sí. Contamos con soporte por WhatsApp de lunes a viernes de 9am a 6pm, capacitación personalizada para
-                tu equipo y asesoría continua. Además, la plataforma se actualiza constantemente con nuevas funciones.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Cuánto cuesta HausBox?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>Ofrecemos una prueba gratuita de 30 días con acceso completo. Después, los planes se adaptan al tamaño
-                de tu condominio. Contáctanos por WhatsApp para una cotización personalizada.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            <span>¿Cómo empiezo a usar HausBox?</span>
-            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              <p>¡Es muy fácil! Escríbenos por WhatsApp o déjanos tus datos en el formulario de contacto. Te
-                configuramos la plataforma, capacitamos a tu equipo y en menos de una semana estarás operando con
-                HausBox.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ========== SIMPLE CONTACT FORM ========== -->
     <section id="contacto-multistep" data-nav-theme="light" class="multistep-section">
       <div class="multistep-container">
 
         <!-- Header de sección -->
         <div class="multistep-header reveal">
-          <span class="multistep-label">Demo Personalizada</span>
+          <span class="multistep-label">Escríbenos ahora</span>
           <h2>El cambio que tu condominio merece <span class="serif">empieza hoy.</span></h2>
           <p class="multistep-subtitle">Completa este breve formulario y configuramos tu cuenta gratuita por 30 días. Sin compromisos ni tarjetas.</p>
         </div>
@@ -2054,6 +2106,125 @@
             </form>
           </div>
 
+      </div>
+    </section>
+
+    <!-- ========== FAQ SECTION ========== -->
+    <section id="faq" data-nav-theme="light" class="faq-section">
+      <div class="faq-container">
+        <div class="faq-header reveal">
+          <p class="label">FAQ</p>
+          <h2>Preguntas <span class="serif">frecuentes.</span></h2>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Qué diferencia a HausBox de otros sistemas de administración?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>HausBox integra cobro de cuotas, comunicación con residentes, contabilidad y control de accesos en una
+                sola plataforma. No necesitas múltiples herramientas ni hojas de cálculo. Todo está centralizado,
+                automatizado y disponible desde web y app móvil.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cómo funciona el cobro automático de cuotas?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>HausBox envía recordatorios automáticos a los residentes antes del vencimiento de sus cuotas. Puedes
+                configurar la frecuencia, montos y recargos por mora. El sistema concilia pagos automáticamente con tu
+                banco, reduciendo la morosidad hasta un 80%.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Mis datos están seguros?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Absolutamente. Usamos encriptación de nivel bancario, servidores seguros con respaldos automáticos
+                diarios y 99.9% de disponibilidad garantizada. Tu información está protegida en todo momento.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Qué incluye la app para residentes?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>La app permite a los residentes consultar pagos y adeudos, generar códigos QR para visitas, reservar
+                amenidades, recibir avisos y comunicarse con la administración. Todo desde su celular, disponible para
+                iOS y Android.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Funciona en celulares y computadoras?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Sí. La plataforma web funciona en cualquier navegador para los administradores, y la app móvil está
+                disponible para iOS y Android para los residentes. Todo se sincroniza en tiempo real.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Ofrecen soporte y capacitación?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Sí. Contamos con soporte por WhatsApp de lunes a viernes de 9am a 6pm, capacitación personalizada para
+                tu equipo y asesoría continua. Además, la plataforma se actualiza constantemente con nuevas funciones.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cuánto cuesta HausBox?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Ofrecemos una prueba gratuita de 30 días con acceso completo. Después, los planes se adaptan al tamaño
+                de tu condominio. Contáctanos por WhatsApp para una cotización personalizada.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>¿Cómo empiezo a usar HausBox?</span>
+            <div class="faq-icon"><span class="icon-h"></span><span class="icon-v"></span></div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>¡Es muy fácil! Escríbenos por WhatsApp o déjanos tus datos en el formulario de contacto. Te
+                configuramos la plataforma, capacitamos a tu equipo y en menos de una semana estarás operando con
+                HausBox.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
