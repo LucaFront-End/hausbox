@@ -19,8 +19,12 @@
 
   <main style="flex:1">
 
-    <!-- HERO — Community vibes with floating avatars -->
-    <section class="page-hero" data-nav-theme="dark" style="min-height:75vh; background:linear-gradient(135deg, #1a0a2e 0%, #0a0a2e 40%, #065f84 100%); text-align:center; align-items:center;">
+    <!-- HERO — Network layout -->
+    <section class="page-hero" data-nav-theme="dark" style="min-height:75vh; text-align:center; align-items:center;">
+      <div class="page-hero__bg">
+        <img src="images/pages/comunidad-hero.png" alt="Comunidad HausBox" class="animate-kenburns" />
+      </div>
+      <div class="page-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
       <div class="floating-avatars">
         <div class="floating-avatar"></div>
         <div class="floating-avatar"></div>
@@ -102,7 +106,7 @@
           <p>Templates, guías y checklists descargables creados por nuestro equipo de expertos.</p>
         </div>
         <div class="cases-grid" data-stagger>
-          <div class="resource-card page-reveal">
+          <div class="resource-card page-reveal" onclick="simulateDownload(this)">
             <div class="resource-card__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
@@ -111,7 +115,7 @@
               <p>Documento editable con estructura profesional</p>
             </div>
           </div>
-          <div class="resource-card page-reveal">
+          <div class="resource-card page-reveal" onclick="simulateDownload(this)">
             <div class="resource-card__icon" style="background:rgba(6,214,160,0.08);color:#06d6a0;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
@@ -120,7 +124,7 @@
               <p>PDF de 25 páginas con framework paso a paso</p>
             </div>
           </div>
-          <div class="resource-card page-reveal">
+          <div class="resource-card page-reveal" onclick="simulateDownload(this)">
             <div class="resource-card__icon" style="background:rgba(123,47,190,0.08);color:#7B2FBE;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
@@ -129,7 +133,7 @@
               <p>Lista verificable para nuevos propietarios</p>
             </div>
           </div>
-          <div class="resource-card page-reveal">
+          <div class="resource-card page-reveal" onclick="simulateDownload(this)">
             <div class="resource-card__icon" style="background:rgba(249,115,22,0.08);color:#f97316;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
@@ -138,7 +142,7 @@
               <p>Modelo adaptable a cualquier tipo de comunidad</p>
             </div>
           </div>
-          <div class="resource-card page-reveal">
+          <div class="resource-card page-reveal" onclick="simulateDownload(this)">
             <div class="resource-card__icon" style="background:rgba(244,63,94,0.08);color:#f43f5e;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
@@ -147,7 +151,7 @@
               <p>Excel con fórmulas pre-configuradas</p>
             </div>
           </div>
-          <div class="resource-card page-reveal">
+          <div class="resource-card page-reveal" onclick="simulateDownload(this)">
             <div class="resource-card__icon" style="background:rgba(245,158,11,0.08);color:#f59e0b;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
@@ -217,6 +221,68 @@
 
   <div class="floating-whatsapp-container"><div class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</div><a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="floating-whatsapp" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a></div>
 
+  <!-- ========== REGISTRATION MODAL ========== -->
+  <div class="modal-overlay">
+    <div class="modal-content glass-card bg-gradient-shift">
+      <button class="modal-close" aria-label="Cerrar modal">✕</button>
+      
+      <div id="modal-normal-content">
+        <h3 style="font-size:22px; font-weight:600; color:#fff;">Registrarse al Evento</h3>
+        <p style="font-size:14px; opacity:0.75; color:#fff; margin-top:8px;">Ingresa tus datos para asegurar tu lugar. Te enviaremos el enlace de acceso por correo electrónico.</p>
+        
+        <form class="modal-form">
+          <input type="text" placeholder="Nombre completo" required />
+          <input type="email" placeholder="Correo electrónico" required />
+          <input type="text" placeholder="Nombre de tu Condominio" required />
+          <button type="submit">Reservar mi lugar</button>
+        </form>
+      </div>
+
+      <div id="modal-success-content" style="display:none; text-align:center;">
+        <div class="success-checkmark">
+          <div class="check-icon">
+            <span class="icon-line line-tip"></span>
+            <span class="icon-line line-long"></span>
+            <div class="icon-circle"></div>
+          </div>
+        </div>
+        <h4 style="font-size:20px; font-weight:600; color:#fff;">¡Registro Exitoso!</h4>
+        <p style="opacity:0.65; margin-top:8px; color:#fff;">Te hemos enviado el boleto de acceso y los detalles del evento a tu bandeja de entrada.</p>
+      </div>
+    </div>
+  </div>
+
   <script src="js/pages.js"></script>
+  
+  <script>
+    function simulateDownload(card) {
+      const info = card.querySelector('.resource-card__info p');
+      if (!info) return;
+      if (card.classList.contains('downloading')) return;
+      
+      card.classList.add('downloading');
+      let progress = 0;
+      const originalText = info.textContent;
+      
+      const interval = setInterval(() => {
+        progress += 10;
+        info.textContent = `Descargando: ${progress}%`;
+        info.style.color = 'var(--accent)';
+        
+        if (progress >= 100) {
+          clearInterval(interval);
+          info.textContent = `✓ ¡Descargado con éxito!`;
+          info.style.color = '#059669';
+          card.classList.remove('downloading');
+          
+          // Reset after 3 seconds
+          setTimeout(() => {
+            info.textContent = originalText;
+            info.style.color = '';
+          }, 3000);
+        }
+      }, 150);
+    }
+  </script>
 </body>
 </html>

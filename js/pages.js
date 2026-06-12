@@ -13,6 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initMetricBars();
   initFilterPills();
   initSmoothAnchors();
+  initFAQ();
+  initBeforeAfterSliders();
+  initRoiCalculators();
+  initWhiteLabelSimulators();
+  initDashboardSimulators();
+  initMagneticButtons();
+  initComunidadEvents();
+  initAudioPlayers();
+  initTextWordReveals();
 });
 
 /* ============================================================
@@ -318,6 +327,292 @@ function initFAQ() {
 
       btn.setAttribute('aria-expanded', !isOpen);
       answer.style.maxHeight = isOpen ? null : answer.scrollHeight + 'px';
+    });
+  });
+}
+
+/* ============================================================
+   AWWWARDS INTERACTIVE COMPONENTS LOGIC
+   ============================================================ */
+
+/* --- Word Splitting & Reveal --- */
+function initTextWordReveals() {
+  const titles = document.querySelectorAll('.animate-word-reveal');
+  titles.forEach(title => {
+    const text = title.textContent.trim();
+    // Split keeping tag words intact
+    const words = text.split(/\s+/);
+    title.innerHTML = '';
+    words.forEach((word, idx) => {
+      const wrapper = document.createElement('span');
+      wrapper.className = 'text-reveal-word';
+      const inner = document.createElement('span');
+      inner.textContent = word;
+      inner.style.setProperty('--w-index', idx);
+      wrapper.appendChild(inner);
+      title.appendChild(wrapper);
+      if (idx < words.length - 1) {
+        title.appendChild(document.createTextNode(' '));
+      }
+    });
+    title.classList.add('page-reveal');
+  });
+}
+
+/* --- Before/After Metrics Slider --- */
+function initBeforeAfterSliders() {
+  const sliders = document.querySelectorAll('.before-after-slider');
+  sliders.forEach(slider => {
+    const handle = slider.querySelector('.ba-handle');
+    const afterPanel = slider.querySelector('.ba-panel--after');
+    if (!handle || !afterPanel) return;
+
+    let isDragging = false;
+
+    function move(x) {
+      const rect = slider.getBoundingClientRect();
+      let pos = (x - rect.left) / rect.width;
+      pos = Math.max(0, Math.min(1, pos));
+      afterPanel.style.clipPath = `polygon(0 0, ${pos * 100}% 0, ${pos * 100}% 100%, 0 100%)`;
+      handle.style.left = `${pos * 100}%`;
+    }
+
+    slider.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      move(e.clientX);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      move(e.clientX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // Touch support
+    slider.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      move(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      move(e.touches[0].clientX);
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+  });
+}
+
+/* --- Dynamic ROI Calculator --- */
+function initRoiCalculators() {
+  const calc = document.querySelector('.roi-calculator');
+  if (!calc) return;
+
+  const propInput = calc.querySelector('#roi-properties');
+  const rateInput = calc.querySelector('#roi-rate');
+  const occInput = calc.querySelector('#roi-occupancy');
+
+  const propVal = calc.querySelector('#val-properties');
+  const rateVal = calc.querySelector('#val-rate');
+  const occVal = calc.querySelector('#val-occupancy');
+
+  const mainResult = calc.querySelector('#roi-result-value');
+  const hoursResult = calc.querySelector('#roi-hours-saved');
+  const conversionResult = calc.querySelector('#roi-conversion-speed');
+
+  function calculate() {
+    if (!propInput || !rateInput || !occInput) return;
+    const props = parseInt(propInput.value);
+    const rate = parseInt(rateInput.value);
+    const occupancy = parseInt(occInput.value) / 100;
+
+    // Show input values in real-time
+    if (propVal) propVal.textContent = props + (props === 100 ? '+' : '');
+    if (rateVal) rateVal.textContent = '$' + rate.toLocaleString() + ' MXN';
+    if (occVal) occVal.textContent = (occupancy * 100).toFixed(0) + '%';
+
+    // Calculate monthly savings
+    const monthlyNights = 30.4 * occupancy;
+    const grossRevenue = props * rate * monthlyNights;
+    const estimatedSavings = grossRevenue * 0.045; 
+    const finalROI = Math.max(800, estimatedSavings);
+    const hoursSaved = props * 5.5;
+
+    // Animate results
+    if (mainResult) mainResult.textContent = '$' + Math.round(finalROI).toLocaleString() + ' MXN';
+    if (hoursResult) hoursResult.textContent = Math.round(hoursSaved) + ' hrs';
+    if (conversionResult) conversionResult.textContent = (props > 10 ? '3.5x' : '5x');
+  }
+
+  [propInput, rateInput, occInput].forEach(input => {
+    if (input) input.addEventListener('input', calculate);
+  });
+
+  calculate(); // Run initial load
+}
+
+/* --- White Label Simulator --- */
+function initWhiteLabelSimulators() {
+  const sim = document.querySelector('.whitelabel-simulator');
+  if (!sim) return;
+
+  const nameInput = sim.querySelector('#wl-name-input');
+  const colorBtns = sim.querySelectorAll('.wl-color-btn');
+  const screenHeader = sim.querySelector('.phone-mockup__header');
+  const screenBtn = sim.querySelector('.phone-pill-btn');
+  const screenLogoText = sim.querySelector('.phone-mockup__logo');
+
+  if (nameInput && screenLogoText) {
+    nameInput.addEventListener('input', () => {
+      const val = nameInput.value.trim();
+      screenLogoText.textContent = val || 'Mi Condominio';
+    });
+  }
+
+  colorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      colorBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const color = btn.dataset.color;
+      if (screenHeader) screenHeader.style.backgroundColor = color;
+      if (screenBtn) screenBtn.style.backgroundColor = color;
+    });
+  });
+}
+
+/* --- Live Dashboard Simulator (Condominios) --- */
+function initDashboardSimulators() {
+  const sim = document.querySelector('.dashboard-simulator');
+  if (!sim) return;
+
+  const tabs = sim.querySelectorAll('.db-tab');
+  const screens = sim.querySelectorAll('.db-screen');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      screens.forEach(s => s.classList.remove('active'));
+
+      tab.classList.add('active');
+      const screenId = tab.dataset.tab;
+      const targetScreen = sim.querySelector(`#db-screen-${screenId}`);
+      if (targetScreen) {
+        targetScreen.classList.add('active');
+      }
+    });
+  });
+
+  // Simulated QR trigger button
+  const qrBtn = sim.querySelector('.db-qr-btn');
+  const qrStatus = sim.querySelector('.db-qr-status');
+  if (qrBtn && qrStatus) {
+    qrBtn.addEventListener('click', () => {
+      qrStatus.textContent = 'Verificando...';
+      qrStatus.classList.remove('granted');
+      setTimeout(() => {
+        qrStatus.textContent = '✓ Acceso Autorizado (Entrada A-104)';
+        qrStatus.classList.add('granted');
+      }, 1000);
+    });
+  }
+}
+
+/* --- Magnetic buttons --- */
+function initMagneticButtons() {
+  const links = document.querySelectorAll('.btn-cta-hero, .btn-cta-nav, .event-card__cta');
+  links.forEach(link => {
+    link.addEventListener('mousemove', (e) => {
+      const rect = link.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      link.style.transform = `translate3d(${x * 0.25}px, ${y * 0.25}px, 0)`;
+      link.style.transition = 'none';
+    });
+
+    link.addEventListener('mouseleave', () => {
+      link.style.transform = 'translate3d(0, 0, 0)';
+      link.style.transition = 'transform 350ms cubic-bezier(0.22, 1, 0.36, 1)';
+    });
+  });
+}
+
+/* --- Comunidad Events Modal --- */
+function initComunidadEvents() {
+  const overlay = document.querySelector('.modal-overlay');
+  if (!overlay) return;
+
+  const closeBtn = overlay.querySelector('.modal-close');
+  const form = overlay.querySelector('.modal-form');
+  const registerBtns = document.querySelectorAll('.event-card__cta');
+
+  registerBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      overlay.classList.add('active');
+      
+      // Reset form states
+      const normalContent = overlay.querySelector('#modal-normal-content');
+      const successContent = overlay.querySelector('#modal-success-content');
+      if (normalContent && successContent) {
+        normalContent.style.display = 'block';
+        successContent.style.display = 'none';
+      }
+    });
+  });
+
+  function closeModal() {
+    overlay.classList.remove('active');
+  }
+
+  closeBtn?.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Simulate submission
+    const normalContent = overlay.querySelector('#modal-normal-content');
+    const successContent = overlay.querySelector('#modal-success-content');
+    if (normalContent && successContent) {
+      normalContent.style.display = 'none';
+      successContent.style.display = 'block';
+    }
+  });
+}
+
+/* --- Audio podcast card player simulator --- */
+function initAudioPlayers() {
+  const cards = document.querySelectorAll('.audio-podcast-card');
+  cards.forEach(card => {
+    const playBtn = card.querySelector('.ap-play-btn');
+    if (!playBtn) return;
+
+    playBtn.addEventListener('click', () => {
+      const isPlaying = card.classList.contains('playing');
+      
+      // Stop all other audio cards first
+      cards.forEach(c => {
+        c.classList.remove('playing');
+        const btn = c.querySelector('.ap-play-btn');
+        if (btn) btn.textContent = '▶';
+      });
+
+      if (!isPlaying) {
+        card.classList.add('playing');
+        playBtn.textContent = '⏸';
+      } else {
+        card.classList.remove('playing');
+        playBtn.textContent = '▶';
+      }
     });
   });
 }

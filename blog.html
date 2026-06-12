@@ -41,6 +41,50 @@
           <button class="filter-pill" data-filter="tecnologia">Tecnología</button>
           <button class="filter-pill" data-filter="comunidad">Comunidad</button>
         </div>
+ 
+        <!-- ========== AUDIO BRIEFS / PODCAST ========== -->
+        <div class="page-reveal" style="margin-bottom: 3.5rem;">
+          <span class="section-label" style="text-align: center; margin-bottom: 0.75rem;">Audio Resúmenes</span>
+          <h3 style="text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 1.5rem; color: #1f2025;">Escucha sobre la marcha</h3>
+          <div style="display:grid; grid-template-columns: 1fr; gap:1.25rem;">
+            <!-- Card 1 -->
+            <div class="audio-podcast-card">
+              <button class="ap-play-btn">▶</button>
+              <div style="flex:1;">
+                <div style="font-size:14px; font-weight:600; color:#1f2025;">Audio Brief: Reducción de morosidad en 90 días</div>
+                <div style="font-size:12px; opacity:0.55; margin-top:2px;">Duración: 5:12 min · Host: Carlos Aguirre</div>
+              </div>
+              <div class="ap-wave">
+                <span class="ap-bar" style="height:35%;"></span>
+                <span class="ap-bar" style="height:60%;"></span>
+                <span class="ap-bar" style="height:45%;"></span>
+                <span class="ap-bar" style="height:80%;"></span>
+                <span class="ap-bar" style="height:50%;"></span>
+                <span class="ap-bar" style="height:70%;"></span>
+                <span class="ap-bar" style="height:30%;"></span>
+                <span class="ap-bar" style="height:55%;"></span>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="audio-podcast-card">
+              <button class="ap-play-btn">▶</button>
+              <div style="flex:1;">
+                <div style="font-size:14px; font-weight:600; color:#1f2025;">Audio Brief: Conciliación bancaria en condominios</div>
+                <div style="font-size:12px; opacity:0.55; margin-top:2px;">Duración: 3:45 min · Host: María Rodríguez</div>
+              </div>
+              <div class="ap-wave">
+                <span class="ap-bar" style="height:40%;"></span>
+                <span class="ap-bar" style="height:55%;"></span>
+                <span class="ap-bar" style="height:30%;"></span>
+                <span class="ap-bar" style="height:75%;"></span>
+                <span class="ap-bar" style="height:45%;"></span>
+                <span class="ap-bar" style="height:65%;"></span>
+                <span class="ap-bar" style="height:50%;"></span>
+                <span class="ap-bar" style="height:35%;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <!-- FEATURED POST -->
         <div class="blog-featured page-reveal" data-category="administracion">
@@ -129,16 +173,37 @@
     <!-- NEWSLETTER -->
     <section class="inner-section inner-section--beige" data-nav-theme="light">
       <div class="inner-section__container">
-        <div class="newsletter-banner page-reveal">
-          <h3>Recibe las mejores ideas en tu <span class="serif">bandeja.</span></h3>
-          <p>Un email semanal con artículos, guías y tendencias para administradores de condominios.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="tu@email.com" />
-            <button type="button">Suscribirme</button>
+        <div class="newsletter-banner page-reveal" style="padding: 4rem 2rem;">
+          <div id="modal-normal-content">
+            <h3>Recibe las mejores ideas en tu <span class="serif">bandeja.</span></h3>
+            <p style="margin-bottom:2rem; opacity:0.65;">Un email semanal con artículos, guías y tendencias para administradores de condominios.</p>
+            <form class="newsletter-form" style="max-width: 440px; margin: 0 auto; display:flex; gap:0.5rem; justify-content:center;">
+              <input type="email" placeholder="tu@email.com" required style="flex:1; height:48px; border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); color:#fff; padding:0 1rem;" />
+              <button type="submit" style="height:48px; padding:0 1.5rem; border-radius:12px; background:var(--accent); color:#fff; font-weight:600; border:none; cursor:pointer;">Suscribirme</button>
+            </form>
+          </div>
+          <div id="modal-success-content" style="display:none; text-align:center;">
+            <div class="success-checkmark">
+              <div class="check-icon">
+                <span class="icon-line line-tip"></span>
+                <span class="icon-line line-long"></span>
+                <div class="icon-circle"></div>
+              </div>
+            </div>
+            <h4 style="font-size:20px; font-weight:600; color:#fff;">¡Suscripción Completada!</h4>
+            <p style="opacity:0.65; margin-top:8px;">Te hemos enviado un correo de confirmación. Prepárate para las mejores prácticas.</p>
           </div>
         </div>
       </div>
     </section>
+    
+    <script>
+      document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.querySelector('#modal-normal-content').style.display = 'none';
+        document.querySelector('#modal-success-content').style.display = 'block';
+      });
+    </script>
   </main>
 
   <!-- FOOTER -->

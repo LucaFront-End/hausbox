@@ -20,8 +20,11 @@
   <main style="flex:1">
 
     <!-- HERO — Tropical vibe -->
-    <section class="page-hero" data-nav-theme="dark" style="min-height:75vh; background: linear-gradient(135deg, #065f84 0%, #0DA3E2 50%, #06d6a0 100%);">
-      <div class="page-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 100%);"></div>
+    <section class="page-hero" data-nav-theme="dark" style="min-height:75vh;">
+      <div class="page-hero__bg">
+        <img src="images/pages/rentas-hero.png" alt="Rentas Vacacionales Luxury" class="animate-kenburns" />
+      </div>
+      <div class="page-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
       <div class="page-hero__content">
         <div class="breadcrumbs page-reveal"><a href="index.html">Inicio</a><span class="bc-sep">›</span><a href="#">Categorías</a><span class="bc-sep">›</span><span>Rentas Vacacionales</span></div>
         <div class="page-hero__badge page-reveal" style="background:rgba(6,214,160,0.15);border-color:rgba(6,214,160,0.3);color:#06d6a0;">
@@ -122,18 +125,62 @@
       </div>
     </section>
 
-    <!-- ROI STATS -->
+    <!-- ========== DYNAMIC ROI CALCULATOR ========== -->
     <section class="inner-section inner-section--beige" data-nav-theme="light">
       <div class="inner-section__container">
         <div class="section-header page-reveal">
-          <span class="section-label">Resultados Reales</span>
-          <h2>El impacto en números <span class="serif">concretos.</span></h2>
+          <span class="section-label">Calculadora de Impacto</span>
+          <h2>Calcula tu ahorro y ROI con <span class="serif">HausBox.</span></h2>
+          <p>Ajusta los parámetros de tus propiedades de rentas vacacionales para estimar tu incremento de ingresos mensuales.</p>
         </div>
-        <div class="stats-row page-reveal" data-stagger>
-          <div class="stat-item"><div class="stat-number" data-count="40" data-suffix="%">0</div><div class="stat-label">Más eficiencia en check-in</div></div>
-          <div class="stat-item"><div class="stat-number" data-count="55" data-suffix="%">0</div><div class="stat-label">Menos carga administrativa</div></div>
-          <div class="stat-item"><div class="stat-number" data-count="100" data-suffix="%">0</div><div class="stat-label">Control remoto de accesos</div></div>
-          <div class="stat-item"><div class="stat-number" data-count="3" data-suffix="x">0</div><div class="stat-label">Más rápido en cobros</div></div>
+
+        <div class="roi-calculator page-reveal">
+          <div class="roi-grid">
+            <div class="roi-inputs">
+              <!-- Slider 1: Properties -->
+              <div class="roi-group">
+                <div class="roi-group__header">
+                  <span class="roi-group__label" style="color:#1f2025;">Número de propiedades</span>
+                  <span class="roi-group__val" id="val-properties" style="color:var(--accent);">5</span>
+                </div>
+                <input type="range" id="roi-properties" min="1" max="100" value="5" class="roi-slider" />
+              </div>
+              
+              <!-- Slider 2: Average Daily Rate -->
+              <div class="roi-group">
+                <div class="roi-group__header">
+                  <span class="roi-group__label" style="color:#1f2025;">Tarifa promedio por noche</span>
+                  <span class="roi-group__val" id="val-rate" style="color:var(--accent);">$2,500 MXN</span>
+                </div>
+                <input type="range" id="roi-rate" min="500" max="10000" step="500" value="2500" class="roi-slider" />
+              </div>
+
+              <!-- Slider 3: Occupancy -->
+              <div class="roi-group">
+                <div class="roi-group__header">
+                  <span class="roi-group__label" style="color:#1f2025;">Ocupación promedio mensual</span>
+                  <span class="roi-group__val" id="val-occupancy" style="color:var(--accent);">60%</span>
+                </div>
+                <input type="range" id="roi-occupancy" min="10" max="100" step="5" value="60" class="roi-slider" />
+              </div>
+            </div>
+
+            <div class="roi-results">
+              <div class="roi-res-val" id="roi-result-value" style="color:var(--accent); font-weight:700;">$0 MXN</div>
+              <div class="roi-res-label" style="color:rgba(0,0,0,0.65);">Ahorro y recuperación mensual estimada</div>
+              
+              <div class="roi-sub-stats">
+                <div>
+                  <div class="roi-sub-val" id="roi-hours-saved" style="color:var(--accent);">0 hrs</div>
+                  <div class="roi-sub-label">Tiempo administrativo ahorrado</div>
+                </div>
+                <div>
+                  <div class="roi-sub-val" id="roi-conversion-speed" style="color:var(--accent);">5x</div>
+                  <div class="roi-sub-label">Velocidad de cobranza</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

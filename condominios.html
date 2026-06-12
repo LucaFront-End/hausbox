@@ -21,8 +21,10 @@
 
     <!-- HERO -->
     <section class="page-hero" data-nav-theme="dark" style="min-height:75vh;">
-      <div class="page-hero__bg" style="background:linear-gradient(135deg, #0a0a2e 0%, #000 100%);"></div>
-      <div class="page-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(10,10,46,0.6) 100%);"></div>
+      <div class="page-hero__bg">
+        <img src="images/pages/condominios-hero.png" alt="Residencial Condominios" class="animate-kenburns" />
+      </div>
+      <div class="page-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
       <div class="page-hero__content">
         <div class="breadcrumbs page-reveal"><a href="index.html">Inicio</a><span class="bc-sep">›</span><a href="#">Categorías</a><span class="bc-sep">›</span><span>Condominios</span></div>
         <div class="page-hero__badge page-reveal">
@@ -118,6 +120,102 @@
             <div class="bento-item__icon" style="background:rgba(244,63,94,0.12)"><svg viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
             <h4>Contabilidad y Reportes</h4>
             <p>Balanzas de comprobación, estados de cuenta por departamento, reportes de ingresos y egresos en PDF. Todo automatizado, profesional y listo para presentar en asamblea. Transparencia total para generar confianza.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== INTERACTIVE DASHBOARD SIMULATOR ========== -->
+    <section class="inner-section inner-section--beige" data-nav-theme="light">
+      <div class="inner-section__container">
+        <div class="section-header page-reveal">
+          <span class="section-label">Demo Interactiva</span>
+          <h2>Experimenta la simplicidad de <span class="serif">HausBox.</span></h2>
+          <p>Prueba las funcionalidades principales de nuestro panel de administración directamente desde aquí.</p>
+        </div>
+
+        <div class="dashboard-simulator page-reveal">
+          <div class="db-window-header">
+            <div class="db-dots">
+              <span class="db-dot"></span>
+              <span class="db-dot"></span>
+              <span class="db-dot"></span>
+            </div>
+            <div class="db-tabs">
+              <button class="db-tab active" data-tab="visitas">Control de Visitas</button>
+              <button class="db-tab" data-tab="finanzas">Finanzas y Cuotas</button>
+              <button class="db-tab" data-tab="amenidades">Reservas de Amenidades</button>
+            </div>
+          </div>
+          
+          <div class="db-content">
+            <!-- Screen 1: Visitas -->
+            <div class="db-screen active" id="db-screen-visitas">
+              <div style="display:grid; grid-template-columns: 1fr; gap:2rem; align-items:center;">
+                <div style="max-width: 460px;">
+                  <h4 style="font-size:18px; font-weight:600; margin-bottom:0.75rem; color:#1f2025;">Acceso Express con Códigos QR</h4>
+                  <p style="font-size:14px; opacity:0.65; line-height:1.6; margin-bottom:1rem; color:rgba(31,32,37,0.7);">Genera invitaciones digitales al instante. Cuando la visita llega, la caseta escanea y se registra de inmediato.</p>
+                  <div class="db-widget" style="margin-top:1rem; flex-direction:row; justify-content:space-between; align-items:center; background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.05);">
+                    <div>
+                      <div class="db-widget__title">Registro de hoy</div>
+                      <div class="db-widget__val" style="font-size:20px; font-weight:700;">24 visitas</div>
+                    </div>
+                    <div style="font-size:12px; color:#059669; font-weight:600;">98% QR Escaneados</div>
+                  </div>
+                </div>
+                <div>
+                  <div class="db-qr-sim">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=HausBox-Acceso-Autorizado-Residente-A104" alt="Simulated QR Code" />
+                    <button class="db-qr-btn">Simular Escaneo en Caseta</button>
+                    <div class="db-qr-status">Esperando escaneo...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screen 2: Finanzas -->
+            <div class="db-screen" id="db-screen-finanzas">
+              <h4 style="font-size:18px; font-weight:600; margin-bottom:1rem; color:#1f2025;">Dashboard Financiero en Tiempo Real</h4>
+              <div class="db-grid-3" style="margin-bottom:1.5rem;">
+                <div class="db-widget" style="background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.05);">
+                  <div class="db-widget__title">Ingresos este mes</div>
+                  <div class="db-widget__val" style="font-size:24px; font-weight:700; color:#1f2025;">$184,250 MXN</div>
+                  <div class="db-widget__desc">✓ 92% Recaudado</div>
+                </div>
+                <div class="db-widget" style="background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.05);">
+                  <div class="db-widget__title">Gastos registrados</div>
+                  <div class="db-widget__val" style="font-size:24px; font-weight:700; color:#1f2025;">$64,120 MXN</div>
+                  <div class="db-widget__desc" style="color:#2563eb;">14 facturas conciliadas</div>
+                </div>
+                <div class="db-widget" style="background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.05);">
+                  <div class="db-widget__title">Morosidad Actual</div>
+                  <div class="db-widget__val" style="font-size:24px; font-weight:700; color:#dc2626;">8.2%</div>
+                  <div class="db-widget__desc" style="color:#dc2626;">↓ 12% vs mes anterior</div>
+                </div>
+              </div>
+              <p style="font-size:13px; opacity:0.65; color:rgba(31,32,37,0.7);">Todos los movimientos se concilian automáticamente al sincronizarse con tu cuenta bancaria SPEI o con tarjeta de crédito.</p>
+            </div>
+
+            <!-- Screen 3: Amenidades -->
+            <div class="db-screen" id="db-screen-amenidades">
+              <h4 style="font-size:18px; font-weight:600; margin-bottom:1rem; color:#1f2025;">Calendario e Historial de Amenidades</h4>
+              <div style="display:flex; flex-direction:column; gap:1rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem; border-radius:12px; background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.05);">
+                  <div>
+                    <div style="font-size:14px; font-weight:600; color:#1f2025;">Alberca & Asador (Área Común)</div>
+                    <div style="font-size:12px; opacity:0.55; color:rgba(31,32,37,0.7);">Sábado 15 de Octubre - 14:00 a 19:00</div>
+                  </div>
+                  <div style="font-size:12px; font-weight:600; color:#059669; padding:6px 12px; background:rgba(5,150,105,0.1); border-radius:6px;">Reservado (Depto 204)</div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; padding:1rem; border-radius:12px; background:rgba(0,0,0,0.02); border:1px solid rgba(0,0,0,0.05);">
+                  <div>
+                    <div style="font-size:14px; font-weight:600; color:#1f2025;">Salón de Eventos</div>
+                    <div style="font-size:12px; opacity:0.55; color:rgba(31,32,37,0.7);">Domingo 16 de Octubre - 10:00 a 22:00</div>
+                  </div>
+                  <div style="font-size:12px; font-weight:600; color:#2563eb; padding:6px 12px; background:rgba(37,99,235,0.1); border-radius:6px;">Disponible</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

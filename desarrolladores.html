@@ -20,8 +20,11 @@
   <main style="flex:1">
 
     <!-- HERO — Dark Enterprise -->
-    <section class="page-hero" data-nav-theme="dark" style="min-height:80vh; background:#000;">
-      <div class="page-hero__bg" style="opacity:0.35;background:radial-gradient(ellipse at 50% 30%, rgba(13,163,226,0.25) 0%, transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(123,47,190,0.15) 0%, transparent 50%);"></div>
+    <section class="page-hero" data-nav-theme="dark" style="min-height:80vh;">
+      <div class="page-hero__bg">
+        <img src="images/pages/desarrolladores-hero.png" alt="Desarrolladores Inmobiliarios Skyline" class="animate-kenburns" />
+      </div>
+      <div class="page-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
       <div class="page-hero__content">
         <div class="breadcrumbs page-reveal"><a href="index.html">Inicio</a><span class="bc-sep">›</span><a href="#">Categorías</a><span class="bc-sep">›</span><span>Desarrolladores</span></div>
         <div class="page-hero__badge page-reveal" style="background:rgba(123,47,190,0.12);border-color:rgba(123,47,190,0.25);color:#a855f7;">
@@ -45,31 +48,98 @@
       </div>
     </section>
 
-    <!-- VALUE PROP -->
+    <!-- ========== WHITE LABEL SIMULATOR ========== -->
     <section class="inner-section inner-section--white" data-nav-theme="light">
       <div class="inner-section__container">
         <div class="section-header page-reveal">
-          <span class="section-label">¿Por qué HausBox Enterprise?</span>
-          <h2>Diferénciate con tecnología que tus compradores <span class="serif">amarán.</span></h2>
-          <p>Ofrece a los compradores de tus desarrollos una experiencia digital desde el día uno. HausBox se convierte en un valor agregado real que incrementa la percepción de tu marca.</p>
+          <span class="section-label">Marca Blanca Interactiva</span>
+          <h2>Tu marca, nuestra <span class="serif">tecnología.</span></h2>
+          <p>Prueba nuestro simulador de White Label. Elige un color, escribe el nombre de tu desarrollo y mira cómo se personaliza la aplicación al instante.</p>
         </div>
 
-        <div class="split-layout page-reveal">
-          <div class="split-text">
-            <h3>Tu marca, nuestra <span class="serif">tecnología.</span></h3>
-            <p>Con el programa White Label de HausBox Enterprise, la plataforma lleva tu logo, tus colores y tu dominio. Los residentes de tus desarrollos interactúan con una app que parece 100% tuya — pero con toda la potencia de HausBox detrás.</p>
-            <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:2rem;">
-              <div style="display:flex;align-items:center;gap:10px;font-size:14px;"><span style="color:var(--accent);">✓</span> Logo y colores personalizados</div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:14px;"><span style="color:var(--accent);">✓</span> Dominio propio (tuempresa.app)</div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:14px;"><span style="color:var(--accent);">✓</span> Emails con tu marca</div>
-              <div style="display:flex;align-items:center;gap:10px;font-size:14px;"><span style="color:var(--accent);">✓</span> App Store listing personalizado</div>
+        <div class="whitelabel-simulator page-reveal bg-gradient-shift">
+          <div class="wl-grid">
+            <div class="wl-controls">
+              <div class="wl-input-group">
+                <label for="wl-name-input" style="color:#fff;">Nombre de tu Condominio/Desarrollo</label>
+                <input type="text" id="wl-name-input" placeholder="Ej: Torre Alamar" class="wl-input-field" />
+              </div>
+              
+              <div class="wl-input-group">
+                <label style="color:#fff;">Color de Marca Principal</label>
+                <div class="wl-colors">
+                  <button class="wl-color-btn active" data-color="#0DA3E2" style="background:#0DA3E2;"></button>
+                  <button class="wl-color-btn" data-color="#059669" style="background:#059669;"></button>
+                  <button class="wl-color-btn" data-color="#d97706" style="background:#d97706;"></button>
+                  <button class="wl-color-btn" data-color="#7B2FBE" style="background:#7B2FBE;"></button>
+                  <button class="wl-color-btn" data-color="#dc2626" style="background:#dc2626;"></button>
+                </div>
+              </div>
+
+              <div style="font-size:14px; opacity:0.75; color:#fff; line-height:1.6; display:flex; flex-direction:column; gap:6px;">
+                <div>✓ Dominio totalmente personalizado (ej: app.tudesarrollo.com)</div>
+                <div>✓ Listado en App Store y Google Play con el nombre e ícono de tu constructora.</div>
+              </div>
+            </div>
+
+            <div class="wl-phone-container">
+              <!-- Smartphone Frame Mockup -->
+              <div class="phone-mockup">
+                <div class="phone-mockup__notch"></div>
+                <div class="phone-mockup__screen">
+                  <div class="phone-mockup__header" style="background-color: #0DA3E2;">
+                    <div class="phone-mockup__logo">Torre Alamar</div>
+                  </div>
+                  <div class="phone-mockup__body">
+                    <div class="phone-card">
+                      <span class="phone-card__title">Estado de Mantenimiento</span>
+                      <div class="phone-card__main" style="color:#1f2025;">$2,400.00</div>
+                      <span class="phone-card__sub">Al corriente</span>
+                    </div>
+                    
+                    <div class="phone-card">
+                      <span class="phone-card__title">Próxima Visita</span>
+                      <div class="phone-card__main" style="font-size:12px; color:#1f2025;">Juan Gómez - Depto 104</div>
+                      <span class="phone-card__sub" style="color:#0DA3E2;">Acceso QR Generado</span>
+                    </div>
+
+                    <a href="#" class="phone-pill-btn" style="background-color: #0DA3E2;">Pagar Cuota Online</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="split-visual" style="background:linear-gradient(135deg, #7B2FBE 0%, #4f1b7a 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; padding:3rem;">
-            <div style="background:rgba(255,255,255,0.1);border-radius:16px;padding:2rem;text-align:center;border:1px solid rgba(255,255,255,0.1);">
-              <div style="width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,0.15);margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" width="28" height="28"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
-              <div style="font-size:18px;font-weight:600;color:#fff;margin-bottom:4px;">Tu Logo Aquí</div>
-              <div style="font-size:13px;color:rgba(255,255,255,0.5);">Powered by HausBox</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== API BLUEPRINT / DEVELOPMENT ========== -->
+    <section class="inner-section inner-section--beige" data-nav-theme="light">
+      <div class="inner-section__container">
+        <div class="split-layout page-reveal" style="align-items: center;">
+          <div class="split-text">
+            <span class="section-label">Integración API</span>
+            <h3>Conecta HausBox con tus <span class="serif">sistemas.</span></h3>
+            <p>Nuestra API RESTful completa permite automatizar la creación de proyectos y traspasar la información financiera a tu ERP (SAP, Intelisis, etc.) o CRM (Salesforce) de forma inmediata.</p>
+            <p style="margin-top:1rem;">Recibe notificaciones en tiempo real (webhooks) cuando un propietario liquida su cuota de equipamiento o solicita el acceso.</p>
+          </div>
+          
+          <div class="glass-card" style="padding:1.5rem; border-radius:16px; font-family: 'Courier New', Courier, monospace; font-size:12px; line-height:1.5; color:#fff; background:#111 !important; border:1px solid rgba(255,255,255,0.1) !important; overflow-x:auto; width:100%;">
+            <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.75rem; margin-bottom:1rem; font-family:sans-serif; font-weight:600; opacity:0.6;">
+              <span>GET /api/v1/projects</span>
+              <span style="color:#059669;">200 OK</span>
+            </div>
+            <div>
+              <span style="color:#f43f5e;">{</span><br>
+              &nbsp;&nbsp;<span style="color:#38bdf8;">"project_id"</span>: <span style="color:#a855f7;">"proj_983274"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8;">"name"</span>: <span style="color:#a855f7;">"Residencial Akumal"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8;">"units_count"</span>: <span style="color:#f59e0b;">180</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8;">"status"</span>: <span style="color:#a855f7;">"active"</span>,<br>
+              &nbsp;&nbsp;<span style="color:#38bdf8;">"integrations"</span>: <span style="color:#f43f5e;">{</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#38bdf8;">"billing"</span>: <span style="color:#a855f7;">"spei_direct"</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#38bdf8;">"whitelabel"</span>: <span style="color:#f59e0b;">true</span><br>
+              &nbsp;&nbsp;<span style="color:#f43f5e;">}</span><br>
+              <span style="color:#f43f5e;">}</span>
             </div>
           </div>
         </div>
