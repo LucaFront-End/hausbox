@@ -4,24 +4,34 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initPageNavigation();
-  initPageReveals();
-  initParallaxHero();
-  initCountUpNumbers();
-  initTeamTilt();
-  initTimelineScroll();
-  initMetricBars();
-  initFilterPills();
-  initSmoothAnchors();
-  initFAQ();
-  initBeforeAfterSliders();
-  initRoiCalculators();
-  initWhiteLabelSimulators();
-  initDashboardSimulators();
-  initMagneticButtons();
-  initComunidadEvents();
-  initAudioPlayers();
-  initTextWordReveals();
+  const initializers = [
+    { name: 'Navigation', fn: initPageNavigation },
+    { name: 'Page Reveals', fn: initPageReveals },
+    { name: 'Parallax Hero', fn: initParallaxHero },
+    { name: 'CountUp Numbers', fn: initCountUpNumbers },
+    { name: 'Team Tilt', fn: initTeamTilt },
+    { name: 'Timeline Scroll', fn: initTimelineScroll },
+    { name: 'Metric Bars', fn: initMetricBars },
+    { name: 'Filter Pills', fn: initFilterPills },
+    { name: 'Smooth Anchors', fn: initSmoothAnchors },
+    { name: 'FAQ', fn: initFAQ },
+    { name: 'Before/After Sliders', fn: initBeforeAfterSliders },
+    { name: 'ROI Calculators', fn: initRoiCalculators },
+    { name: 'White Label Simulators', fn: initWhiteLabelSimulators },
+    { name: 'Dashboard Simulators', fn: initDashboardSimulators },
+    { name: 'Magnetic Buttons', fn: initMagneticButtons },
+    { name: 'Comunidad Events', fn: initComunidadEvents },
+    { name: 'Audio Players', fn: initAudioPlayers },
+    { name: 'Text Word Reveals', fn: initTextWordReveals }
+  ];
+
+  initializers.forEach(item => {
+    try {
+      item.fn();
+    } catch (e) {
+      console.warn(`[HausBox] Failed to initialize ${item.name}:`, e);
+    }
+  });
 });
 
 /* ============================================================
@@ -89,8 +99,8 @@ function initPageReveals() {
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -60px 0px'
+    threshold: 0.02,
+    rootMargin: '0px 0px 50px 0px'
   });
 
   elements.forEach(el => observer.observe(el));
