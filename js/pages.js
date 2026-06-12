@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const initializers = [
     { name: 'Navigation', fn: initPageNavigation },
+    { name: 'Text Word Reveals', fn: initTextWordReveals },
     { name: 'Page Reveals', fn: initPageReveals },
     { name: 'Parallax Hero', fn: initParallaxHero },
     { name: 'CountUp Numbers', fn: initCountUpNumbers },
@@ -21,8 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { name: 'Dashboard Simulators', fn: initDashboardSimulators },
     { name: 'Magnetic Buttons', fn: initMagneticButtons },
     { name: 'Comunidad Events', fn: initComunidadEvents },
-    { name: 'Audio Players', fn: initAudioPlayers },
-    { name: 'Text Word Reveals', fn: initTextWordReveals }
+    { name: 'Audio Players', fn: initAudioPlayers }
   ];
 
   initializers.forEach(item => {
