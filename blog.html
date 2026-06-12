@@ -20,8 +20,9 @@
   <main style="flex:1">
 
     <!-- HERO — Clean editorial -->
-    <section class="page-hero page-hero--light page-hero--short" data-nav-theme="light" style="align-items:center; text-align:center; min-height:55vh;">
-      <div class="page-hero__content" style="display:flex;flex-direction:column;align-items:center;">
+    <section class="page-hero page-hero--light page-hero--short" data-nav-theme="light" style="align-items:center; text-align:center; min-height:55vh; position:relative; overflow:hidden;">
+      <div style="position:absolute; inset:0; z-index:0; background: radial-gradient(circle at 10% 20%, rgba(13,163,226,0.1) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(6,214,160,0.1) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(123,47,190,0.05) 0%, transparent 50%); filter: blur(40px); animation: float 15s infinite alternate ease-in-out; pointer-events:none;"></div>
+      <div class="page-hero__content" style="position:relative; z-index:1; display:flex;flex-direction:column;align-items:center;">
         <div class="page-hero__badge page-reveal" style="background:rgba(13,163,226,0.08);border-color:rgba(13,163,226,0.15);">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
           Blog HausBox
@@ -179,7 +180,7 @@
             <p style="margin-bottom:2rem; opacity:0.65;">Un email semanal con artículos, guías y tendencias para administradores de condominios.</p>
             <form class="newsletter-form" style="max-width: 440px; margin: 0 auto; display:flex; gap:0.5rem; justify-content:center;">
               <input type="email" placeholder="tu@email.com" required style="flex:1; height:48px; border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); color:#fff; padding:0 1rem;" />
-              <button type="submit" style="height:48px; padding:0 1.5rem; border-radius:12px; background:var(--accent); color:#fff; font-weight:600; border:none; cursor:pointer;">Suscribirme</button>
+              <button type="submit" class="magnetic-button" style="height:48px; padding:0 1.5rem; border-radius:12px; background:var(--accent); color:#fff; font-weight:600; border:none; cursor:pointer;"><span class="magnetic-content">Suscribirme</span></button>
             </form>
           </div>
           <div id="modal-success-content" style="display:none; text-align:center;">

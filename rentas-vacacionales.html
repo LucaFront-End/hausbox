@@ -22,7 +22,7 @@
     <!-- HERO — Tropical vibe -->
     <section class="page-hero" data-nav-theme="dark" style="min-height:75vh;">
       <div class="page-hero__bg">
-        <img src="images/pages/rentas-hero.png" alt="Rentas Vacacionales Luxury" class="animate-kenburns" />
+        <img src="images/pages/rentas-hero.png" alt="Rentas Vacacionales Luxury" class="animate-kenburns" data-parallax />
       </div>
       <div class="page-hero__overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);"></div>
       <div class="page-hero__content">
@@ -185,13 +185,41 @@
       </div>
     </section>
 
+    <!-- ========== INTEGRATION HUB ========== -->
+    <section class="inner-section inner-section--white" data-nav-theme="light">
+      <div class="inner-section__container">
+        <div class="section-header page-reveal">
+          <span class="section-label">Conectividad Total</span>
+          <h2>Se integra con tu <span class="serif">ecosistema.</span></h2>
+          <p>HausBox convive en perfecta armonía con las plataformas líderes del mercado.</p>
+        </div>
+        <div class="integration-hub page-reveal" style="display:flex; flex-wrap:wrap; gap:1.5rem; justify-content:center; padding:3rem 0;">
+          <div class="integration-pill magnetic-button" style="padding:1rem 2rem; border-radius:50px; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 10px 25px -5px rgba(0,0,0,0.05); font-weight:600; font-size:18px; color:#ff5a5f;">
+            <span class="magnetic-content">Airbnb</span>
+          </div>
+          <div class="integration-pill magnetic-button" style="padding:1rem 2rem; border-radius:50px; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 10px 25px -5px rgba(0,0,0,0.05); font-weight:600; font-size:18px; color:#003580;">
+            <span class="magnetic-content">Booking.com</span>
+          </div>
+          <div class="integration-pill magnetic-button" style="padding:1rem 2rem; border-radius:50px; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 10px 25px -5px rgba(0,0,0,0.05); font-weight:600; font-size:18px; color:#00005e;">
+            <span class="magnetic-content">Expedia</span>
+          </div>
+          <div class="integration-pill magnetic-button" style="padding:1rem 2rem; border-radius:50px; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 10px 25px -5px rgba(0,0,0,0.05); font-weight:600; font-size:18px; color:#635bff;">
+            <span class="magnetic-content">Stripe</span>
+          </div>
+          <div class="integration-pill magnetic-button" style="padding:1rem 2rem; border-radius:50px; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 10px 25px -5px rgba(0,0,0,0.05); font-weight:600; font-size:18px; color:#1f2025;">
+            <span class="magnetic-content">SPEI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="inner-section inner-section--white" data-nav-theme="light">
       <div class="inner-section__container">
         <div class="inner-cta page-reveal" style="background: linear-gradient(135deg, #065f84, #06d6a0);">
           <h2>Empieza a administrar desde <span class="serif">cualquier lugar.</span></h2>
           <p style="opacity:0.8;">30 días gratis. Configuramos tu cuenta contigo. Sin tarjeta, sin compromiso.</p>
-          <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+HausBox+para+mi+renta+vacacional&type=phone_number&app_absent=0" class="btn-cta-hero" target="_blank" style="background:#fff;color:#065f84;"><svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>Solicitar Demo Gratis</a>
+          <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+HausBox+para+mi+renta+vacacional&type=phone_number&app_absent=0" class="btn-cta-hero magnetic-button" target="_blank" style="background:#fff;color:#065f84;"><span class="magnetic-content" style="display:flex;align-items:center;gap:0.5rem"><svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>Solicitar Demo Gratis</span></a>
         </div>
       </div>
     </section>

@@ -1289,7 +1289,47 @@
 .floating-avatar:nth-child(4) { top: 40%; right: 25%; animation-delay: 0.5s; animation-duration: 8s; }
 .floating-avatar:nth-child(5) { top: 70%; right: 10%; animation-delay: 1.5s; animation-duration: 5.5s; width: 32px; height: 32px; }
 .floating-avatar:nth-child(6) { top: 20%; left: 40%; animation-delay: 3s; animation-duration: 7.5s; width: 28px; height: 28px; }
+.team-bio-details {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+.team-bio-details summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent, #0DA3E2);
+  list-style: none;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+.team-bio-details summary::-webkit-details-marker {
+  display: none;
+}
+.team-bio-details summary::after {
+  content: '+';
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+.team-bio-details[open] summary::after {
+  transform: rotate(45deg);
+}
+.team-bio-details summary:hover {
+  opacity: 0.8;
+}
+.team-bio-details .team-card__bio {
+  margin-top: 1rem;
+  animation: slideDown 0.3s ease forwards;
+}
 
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 /* ============================================================
    HAUSBOX AWWWARDS ADDITIONS
    Simulators, calculators, reveals, and interactive elements
