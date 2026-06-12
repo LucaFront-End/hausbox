@@ -361,6 +361,16 @@ textarea {
   margin-top: 0.5rem;
 }
 
+/* Invisible bridge to keep hover alive across the gap */
+.nav-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
 .nav-dropdown:hover .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
@@ -404,6 +414,16 @@ textarea {
   z-index: 1000;
   margin-top: 0.5rem;
   transition: all 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Invisible bridge to keep hover alive across the gap */
+.nav-mega-menu::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
 }
 
 .nav-dropdown--mega:hover .nav-mega-menu {
