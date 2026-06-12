@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Blog — HausBox | Ideas para tu comunidad</title>
+  <meta name="description" content="Artículos, guías y tendencias sobre administración de condominios, tecnología inmobiliaria y vida en comunidad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=1.0.8" />
+  <link rel="stylesheet" href="css/pages.css?v=1.0.0" />
+</head>
+<body>
+
+  <!-- NAV (compact) -->
+  <nav class="site-nav" data-theme="dark"><div class="nav-inner"><a class="nav-logo" aria-label="HausBox" href="index.html"><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" class="logo-light" /><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-dark.png" alt="HausBox" style="height:28px;width:auto;display:none" class="logo-dark" /></a><div class="nav-pills"><div class="nav-dropdown"><button class="nav-dropdown-trigger" aria-haspopup="true">Nosotros<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown-menu"><a href="nosotros.html">Nosotros</a><a href="casos-de-exito.html">Casos de éxito</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-trigger" aria-haspopup="true">Categorías<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown-menu"><a href="condominios.html">Condominios</a><a href="rentas-vacacionales.html">Rentas Vacacionales</a><a href="desarrolladores.html">Desarrolladores Inmobiliarios</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-trigger" aria-haspopup="true">Comunidad<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown-menu"><a href="blog.html">Blogs</a><a href="comunidad.html">Comunidad</a></div></div><a href="index.html#faq">FAQ</a><span class="nav-divider"></span><a href="https://app.hausbox.com" class="btn-login-nav">Ingresar</a><a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg><span>Solicitar Demo</span></a></div><div class="nav-mobile-cta"><a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg><span>Solicitar Demo</span></a></div><div class="nav-spacer" aria-hidden="true"></div></div></nav>
+
+  <main style="flex:1">
+
+    <!-- HERO — Clean editorial -->
+    <section class="page-hero page-hero--light page-hero--short" data-nav-theme="light" style="align-items:center; text-align:center; min-height:55vh;">
+      <div class="page-hero__content" style="display:flex;flex-direction:column;align-items:center;">
+        <div class="page-hero__badge page-reveal" style="background:rgba(13,163,226,0.08);border-color:rgba(13,163,226,0.15);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Blog HausBox
+        </div>
+        <h1 class="page-hero__title page-reveal" style="text-align:center; color:#000;">Ideas para tu <span class="serif">comunidad.</span></h1>
+        <p class="page-hero__subtitle page-reveal" style="text-align:center;color:rgba(0,0,0,0.55);margin:0 auto;">Guías, tendencias y mejores prácticas para administradores de condominios, propietarios y residentes.</p>
+      </div>
+    </section>
+
+    <!-- CATEGORY FILTERS -->
+    <section class="inner-section inner-section--white" data-nav-theme="light" style="padding-top:0;">
+      <div class="inner-section__container">
+        <div class="filter-pills page-reveal" style="margin-bottom:3rem;">
+          <button class="filter-pill active" data-filter="all">Todos</button>
+          <button class="filter-pill" data-filter="administracion">Administración</button>
+          <button class="filter-pill" data-filter="finanzas">Finanzas</button>
+          <button class="filter-pill" data-filter="tecnologia">Tecnología</button>
+          <button class="filter-pill" data-filter="comunidad">Comunidad</button>
+        </div>
+
+        <!-- FEATURED POST -->
+        <div class="blog-featured page-reveal" data-category="administracion">
+          <div class="blog-featured__image" style="background:linear-gradient(135deg, #0DA3E2, #065f84); display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" style="opacity:0.7;"><rect x="10" y="15" width="60" height="50" rx="6"/><path d="M10 30h60"/><circle cx="25" cy="22" r="3"/><circle cx="35" cy="22" r="3"/><rect x="18" y="38" width="20" height="10" rx="3"/><rect x="42" y="38" width="20" height="10" rx="3"/></svg>
+          </div>
+          <div class="blog-featured__body">
+            <div class="blog-card__meta" style="margin-bottom:1rem;"><span class="blog-card__category">Administración</span><span>·</span><span>Junio 2026</span><span>·</span><span>8 min lectura</span></div>
+            <h3>Guía definitiva: Cómo reducir la morosidad en tu condominio en 90 días</h3>
+            <p class="blog-card__excerpt" style="margin-top:1rem;">Un framework paso a paso que combina tecnología, comunicación y políticas claras para llevar tu morosidad del 40% al 10%. Incluye templates descargables y checklist de implementación.</p>
+            <a href="#" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.5rem;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;">Leer artículo <span>→</span></a>
+          </div>
+        </div>
+
+        <!-- BLOG GRID -->
+        <div class="blog-grid" data-stagger>
+          <div class="blog-card page-reveal" data-category="finanzas">
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #06d6a0, #048a68); display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M24 4v40M34 12H18.5a7 7 0 000 14h11a7 7 0 010 14H12"/></svg>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span class="blog-card__category">Finanzas</span><span>·</span><span>5 Jun 2026</span></div>
+              <div class="blog-card__title">Conciliación bancaria automática: qué es y por qué la necesitas</div>
+              <div class="blog-card__excerpt">Entiende cómo la conciliación automática elimina horas de trabajo manual y reduce errores en la contabilidad de tu condominio.</div>
+            </div>
+          </div>
+
+          <div class="blog-card page-reveal" data-category="tecnologia">
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #7B2FBE, #4f1b7a); display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M14 14h8v8h-8zM26 14h8v8h-8zM14 26h8v8h-8z"/></svg>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span class="blog-card__category">Tecnología</span><span>·</span><span>28 May 2026</span></div>
+              <div class="blog-card__title">Acceso QR vs llaves tradicionales: 5 razones para el cambio</div>
+              <div class="blog-card__excerpt">Comparamos seguridad, costo, practicidad y experiencia del usuario entre sistemas de acceso tradicionales y digitales.</div>
+            </div>
+          </div>
+
+          <div class="blog-card page-reveal" data-category="comunidad">
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #f97316, #ea580c); display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M34 42v-4a8 8 0 00-8-8H10a8 8 0 00-8 8v4"/><circle cx="18" cy="14" r="8"/><path d="M46 42v-4a8 8 0 00-6-7.74"/><path d="M32 6.26a8 8 0 010 15.5"/></svg>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span class="blog-card__category">Comunidad</span><span>·</span><span>20 May 2026</span></div>
+              <div class="blog-card__title">7 estrategias para mejorar la convivencia en tu condominio</div>
+              <div class="blog-card__excerpt">Desde reglas claras hasta espacios de diálogo digital: tácticas probadas para reducir conflictos y construir una comunidad más unida.</div>
+            </div>
+          </div>
+
+          <div class="blog-card page-reveal" data-category="administracion">
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #f43f5e, #be123c); display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M28 4H12a4 4 0 00-4 4v32a4 4 0 004 4h24a4 4 0 004-4V16z"/><polyline points="28 4 28 16 40 16"/></svg>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span class="blog-card__category">Administración</span><span>·</span><span>12 May 2026</span></div>
+              <div class="blog-card__title">Cómo preparar una asamblea de condóminos exitosa</div>
+              <div class="blog-card__excerpt">Checklist completa para organizar, convocar y ejecutar asambleas productivas que generen acuerdos reales.</div>
+            </div>
+          </div>
+
+          <div class="blog-card page-reveal" data-category="finanzas">
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #0DA3E2, #065f84); display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><circle cx="24" cy="24" r="20"/><path d="M24 12v12l8 4"/></svg>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span class="blog-card__category">Finanzas</span><span>·</span><span>5 May 2026</span></div>
+              <div class="blog-card__title">¿Cuánto debería cobrar de mantenimiento? Fórmula y benchmark</div>
+              <div class="blog-card__excerpt">Análisis de cuotas promedio por tipo de condominio en México y cómo calcular la cuota ideal para tu comunidad.</div>
+            </div>
+          </div>
+
+          <div class="blog-card page-reveal" data-category="tecnologia">
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #10b981, #059669); display:flex;align-items:center;justify-content:center;">
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M24 44s16-8 16-20V10L24 4 8 10v14c0 12 16 20 16 20z"/></svg>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta"><span class="blog-card__category">Tecnología</span><span>·</span><span>28 Abr 2026</span></div>
+              <div class="blog-card__title">Seguridad digital en condominios: guía de protección de datos</div>
+              <div class="blog-card__excerpt">Todo lo que un administrador necesita saber sobre LFPDPPP, encriptación y protección de información de residentes.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="inner-section inner-section--beige" data-nav-theme="light">
+      <div class="inner-section__container">
+        <div class="newsletter-banner page-reveal">
+          <h3>Recibe las mejores ideas en tu <span class="serif">bandeja.</span></h3>
+          <p>Un email semanal con artículos, guías y tendencias para administradores de condominios.</p>
+          <div class="newsletter-form">
+            <input type="email" placeholder="tu@email.com" />
+            <button type="button">Suscribirme</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer"><div class="footer-inner"><div class="footer-top"><a href="index.html" class="footer-logo" aria-label="HausBox"><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" /></a><div class="footer-links"><a href="#">Política de Privacidad</a><a href="#">Términos de Servicio</a><a href="mailto:contacto@hausbox.com">contacto@hausbox.com</a></div></div><div class="footer-bottom"><div class="footer-social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a></div><div class="footer-copy"><span>© 2026 HausBox. Todos los derechos reservados.</span></div></div></div></footer>
+
+  <div class="floating-whatsapp-container"><div class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</div><a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="floating-whatsapp" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a></div>
+
+  <script src="js/pages.js"></script>
+</body>
+</html>
