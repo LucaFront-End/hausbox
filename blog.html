@@ -3,108 +3,280 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#050c14" />
   <title>Blog — HausBox | Ideas para tu comunidad</title>
   <meta name="description" content="Artículos, guías y tendencias sobre administración de condominios, tecnología inmobiliaria y vida en comunidad." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css?v=1.0.8" />
-  <link rel="stylesheet" href="css/pages.css?v=1.0.0" />
+  <link rel="stylesheet" href="css/pages.css?v=1.1.0" />
 </head>
-<body>
+<body style="background:#f8fafc; color:#0f172a;">
 
-  <!-- NAV (compact) -->
-  <nav class="site-nav" data-theme="dark"><div class="nav-inner"><a class="nav-logo" aria-label="HausBox" href="index.html"><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" class="logo-light" /><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-dark.png" alt="HausBox" style="height:28px;width:auto;display:none" class="logo-dark" /></a><div class="nav-pills"><div class="nav-dropdown"><button class="nav-dropdown-trigger" aria-haspopup="true">Nosotros<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown-menu"><a href="nosotros.html">Nosotros</a><a href="casos-de-exito.html">Casos de éxito</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-trigger" aria-haspopup="true">Categorías<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown-menu"><a href="condominios.html">Condominios</a><a href="rentas-vacacionales.html">Rentas Vacacionales</a><a href="desarrolladores.html">Desarrolladores Inmobiliarios</a></div></div><div class="nav-dropdown"><button class="nav-dropdown-trigger" aria-haspopup="true">Comunidad<svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="nav-dropdown-menu"><a href="blog.html">Blogs</a><a href="comunidad.html">Comunidad</a></div></div><a href="index.html#faq">FAQ</a><span class="nav-divider"></span><a href="https://app.hausbox.com" class="btn-login-nav">Ingresar</a><a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg><span>Solicitar Demo</span></a></div><div class="nav-mobile-cta"><a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg><span>Solicitar Demo</span></a></div><div class="nav-spacer" aria-hidden="true"></div></div></nav>
-
-  <main style="flex:1">
-
-    <!-- HERO — Clean editorial -->
-    <section class="page-hero page-hero--light page-hero--short" data-nav-theme="light" style="align-items:center; text-align:center; min-height:55vh; position:relative; overflow:hidden;">
-      <div style="position:absolute; inset:0; z-index:0; background: radial-gradient(circle at 10% 20%, rgba(13,163,226,0.1) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(6,214,160,0.1) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(123,47,190,0.05) 0%, transparent 50%); filter: blur(40px); animation: float 15s infinite alternate ease-in-out; pointer-events:none;"></div>
-      <div class="page-hero__content" style="position:relative; z-index:1; display:flex;flex-direction:column;align-items:center;">
-        <div class="page-hero__badge page-reveal" style="background:rgba(13,163,226,0.08);border-color:rgba(13,163,226,0.15);">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-          Blog HausBox
+  <!-- NAV -->
+  <nav class="site-nav" data-theme="light">
+    <div class="nav-inner">
+      <a class="nav-logo" aria-label="HausBox" href="index.html">
+        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" class="logo-light" />
+        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-dark.png" alt="HausBox" style="height:28px;width:auto;display:none" class="logo-dark" />
+      </a>
+      <div class="nav-pills">
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Nosotros
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="casos-de-exito.html">Casos de éxito</a>
+          </div>
         </div>
-        <h1 class="page-hero__title page-reveal" style="text-align:center; color:#000;">Ideas para tu <span class="serif">comunidad.</span></h1>
-        <p class="page-hero__subtitle page-reveal" style="text-align:center;color:rgba(0,0,0,0.55);margin:0 auto;">Guías, tendencias y mejores prácticas para administradores de condominios, propietarios y residentes.</p>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Categorías
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="condominios.html">Condominios</a>
+            <a href="rentas-vacacionales.html">Rentas Vacacionales</a>
+            <a href="desarrolladores.html">Desarrolladores Inmobiliarios</a>
+          </div>
+        </div>
+        <div class="nav-dropdown nav-dropdown--mega">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Funcionalidades
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-mega-menu">
+            <div class="mega-col">
+              <div class="mega-col-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Para Residentes</span>
+              </div>
+              <a href="acceso-express.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#0DA3E2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7z"/></svg></div>
+                <div>
+                  <div class="mega-title">Acceso Express QR</div>
+                  <div class="mega-desc">Códigos QR para ingreso de visitas</div>
+                </div>
+              </a>
+              <a href="reserva-amenidades.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#f97316"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                <div>
+                  <div class="mega-title">Reserva de Amenidades</div>
+                  <div class="mega-desc">Salones, albercas y canchas</div>
+                </div>
+              </a>
+              <a href="pago-mantenimiento.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#06d6a0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+                <div>
+                  <div class="mega-title">Pago de Mantenimiento</div>
+                  <div class="mega-desc">Cuotas con tarjeta o SPEI</div>
+                </div>
+              </a>
+              <a href="comunicacion-avisos.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#8b5cf6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div>
+                  <div class="mega-title">Comunicación y Avisos</div>
+                  <div class="mega-desc">Notificaciones push directas</div>
+                </div>
+              </a>
+            </div>
+            <div class="mega-divider"></div>
+            <div class="mega-col">
+              <div class="mega-col-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Para Administradores</span>
+              </div>
+              <a href="cobranza-inteligente.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#0DA3E2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+                <div>
+                  <div class="mega-title">Cobranza Inteligente</div>
+                  <div class="mega-desc">Recordatorios y recargos automáticos</div>
+                </div>
+              </a>
+              <a href="conciliacion-automatizada.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#10b981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div>
+                  <div class="mega-title">Conciliación Automatizada</div>
+                  <div class="mega-desc">Vincula tu banco y concilia pagos</div>
+                </div>
+              </a>
+              <a href="contabilidad-profesional.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#f59e0b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                <div>
+                  <div class="mega-title">Contabilidad Profesional</div>
+                  <div class="mega-desc">Balanzas, estados de cuenta y reportes</div>
+                </div>
+              </a>
+              <a href="mensajeria-multicanal.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#f43f5e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                <div>
+                  <div class="mega-title">Mensajería Multicanal</div>
+                  <div class="mega-desc">Comunicados, encuestas y avisos push</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Comunidad
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="blog.html">Blogs</a>
+            <a href="comunidad.html">Comunidad</a>
+          </div>
+        </div>
+        <a href="index.html#faq">FAQ</a>
+        <span class="nav-divider"></span>
+        <a href="https://app.hausbox.com" class="btn-login-nav">Ingresar</a>
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          <span>Solicitar Demo</span>
+        </a>
+      </div>
+      <div class="nav-mobile-cta">
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          <span>Solicitar Demo</span>
+        </a>
+      </div>
+      <div class="nav-spacer" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <main style="flex:1; --accent: #0DA3E2;">
+
+    <!-- HERO — Editorial and animated -->
+    <section class="page-hero page-hero--light" data-nav-theme="light" style="min-height:55vh; position:relative; overflow:hidden;">
+      <div class="page-hero__glow" style="background: radial-gradient(circle at 10% 20%, rgba(13,163,226,0.08) 0%, transparent 45%), radial-gradient(circle at 90% 80%, rgba(139,92,246,0.06) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(6,214,160,0.03) 0%, transparent 50%); filter: blur(50px); pointer-events:none;"></div>
+      <div class="page-hero__content" style="position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center; max-width:800px; margin:0 auto; width:100%;">
+        <div class="page-hero__badge page-reveal" style="background:rgba(13,163,226,0.08); border-color:rgba(13,163,226,0.18); color:#0da3e2;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Editorial HausBox
+        </div>
+        <h1 class="page-hero__title page-reveal" style="text-align:center; color:#0f172a;">Ideas para tu <span class="serif text-gradient" style="background:linear-gradient(to right, #0da3e2, #a855f7); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">comunidad.</span></h1>
+        <p class="page-hero__subtitle page-reveal" style="text-align:center; color:rgba(15,23,42,0.65); margin:0 auto; max-width:600px;">Guías, tendencias y mejores prácticas para administradores de condominios, propietarios y residentes.</p>
+        
+        <!-- Live Search Bar -->
+        <div class="blog-search-bar-wrap page-reveal">
+          <div class="search-input-container">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="blog-search" placeholder="Buscar guías, artículos o tutoriales..." oninput="filterArticles()" />
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- CATEGORY FILTERS -->
+    <!-- MAIN BLOG INTERACTIVE CONTENT -->
     <section class="inner-section inner-section--white" data-nav-theme="light" style="padding-top:0;">
       <div class="inner-section__container">
-        <div class="filter-pills page-reveal" style="margin-bottom:3rem;">
-          <button class="filter-pill active" data-filter="all">Todos</button>
-          <button class="filter-pill" data-filter="administracion">Administración</button>
-          <button class="filter-pill" data-filter="finanzas">Finanzas</button>
-          <button class="filter-pill" data-filter="tecnologia">Tecnología</button>
-          <button class="filter-pill" data-filter="comunidad">Comunidad</button>
+        
+        <!-- Category Pill Filters -->
+        <div class="filter-pills page-reveal" style="margin-bottom:4rem; justify-content:center;">
+          <button class="filter-pill active" onclick="setCategoryFilter('all', this)">Todos</button>
+          <button class="filter-pill" onclick="setCategoryFilter('administracion', this)">Administración</button>
+          <button class="filter-pill" onclick="setCategoryFilter('finanzas', this)">Finanzas</button>
+          <button class="filter-pill" onclick="setCategoryFilter('tecnologia', this)">Tecnología</button>
+          <button class="filter-pill" onclick="setCategoryFilter('comunidad', this)">Comunidad</button>
         </div>
- 
-        <!-- ========== AUDIO BRIEFS / PODCAST ========== -->
-        <div class="page-reveal" style="margin-bottom: 3.5rem;">
-          <span class="section-label" style="text-align: center; margin-bottom: 0.75rem;">Audio Resúmenes</span>
-          <h3 style="text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 1.5rem; color: #1f2025;">Escucha sobre la marcha</h3>
-          <div style="display:grid; grid-template-columns: 1fr; gap:1.25rem;">
-            <!-- Card 1 -->
-            <div class="audio-podcast-card">
-              <button class="ap-play-btn">▶</button>
-              <div style="flex:1;">
-                <div style="font-size:14px; font-weight:600; color:#1f2025;">Audio Brief: Reducción de morosidad en 90 días</div>
-                <div style="font-size:12px; opacity:0.55; margin-top:2px;">Duración: 5:12 min · Host: Carlos Aguirre</div>
+
+        <!-- ========== AUDIO PODCAST DASHBOARD ========== -->
+        <div class="page-reveal" style="margin-bottom: 5rem;">
+          <span class="section-label" style="text-align: center; margin-bottom: 0.5rem; color:#8b5cf6;">Audio Resúmenes</span>
+          <h2 style="text-align: center; font-size: 28px; font-weight: 500; margin-bottom: 2.5rem;">Escucha las mejores guías <span class="serif">sobre la marcha.</span></h2>
+          
+          <div class="podcast-dashboard">
+            <!-- Left Side Playlist -->
+            <div class="podcast-playlist">
+              <div class="podcast-track active" data-track-id="1" data-duration="5:12" data-host="Carlos Aguirre" data-title="Audio Brief: Reducción de morosidad en 90 días" onclick="selectTrack(1)">
+                <div class="track-number">01</div>
+                <div class="track-info">
+                  <div class="track-title">Reducción de morosidad en 90 días</div>
+                  <div class="track-meta">Duración: 5:12 min · Host: Carlos Aguirre</div>
+                </div>
+                <div class="track-status-icon" id="track-btn-1">▶</div>
               </div>
-              <div class="ap-wave">
-                <span class="ap-bar" style="height:35%;"></span>
-                <span class="ap-bar" style="height:60%;"></span>
-                <span class="ap-bar" style="height:45%;"></span>
-                <span class="ap-bar" style="height:80%;"></span>
-                <span class="ap-bar" style="height:50%;"></span>
-                <span class="ap-bar" style="height:70%;"></span>
-                <span class="ap-bar" style="height:30%;"></span>
-                <span class="ap-bar" style="height:55%;"></span>
+              <div class="podcast-track" data-track-id="2" data-duration="3:45" data-host="María Rodríguez" data-title="Audio Brief: Conciliación bancaria en condominios" onclick="selectTrack(2)">
+                <div class="track-number">02</div>
+                <div class="track-info">
+                  <div class="track-title">Conciliación bancaria en condominios</div>
+                  <div class="track-meta">Duración: 3:45 min · Host: María Rodríguez</div>
+                </div>
+                <div class="track-status-icon" id="track-btn-2">▶</div>
               </div>
             </div>
-            <!-- Card 2 -->
-            <div class="audio-podcast-card">
-              <button class="ap-play-btn">▶</button>
-              <div style="flex:1;">
-                <div style="font-size:14px; font-weight:600; color:#1f2025;">Audio Brief: Conciliación bancaria en condominios</div>
-                <div style="font-size:12px; opacity:0.55; margin-top:2px;">Duración: 3:45 min · Host: María Rodríguez</div>
+
+            <!-- Right Side Interactive Player Deck -->
+            <div class="podcast-player-deck" id="player-deck">
+              <div class="player-glow"></div>
+              <div class="player-cover">
+                <div class="cover-disc">
+                  <div class="disc-center"></div>
+                </div>
               </div>
-              <div class="ap-wave">
-                <span class="ap-bar" style="height:40%;"></span>
-                <span class="ap-bar" style="height:55%;"></span>
-                <span class="ap-bar" style="height:30%;"></span>
-                <span class="ap-bar" style="height:75%;"></span>
-                <span class="ap-bar" style="height:45%;"></span>
-                <span class="ap-bar" style="height:65%;"></span>
-                <span class="ap-bar" style="height:50%;"></span>
-                <span class="ap-bar" style="height:35%;"></span>
+              
+              <div class="player-controls">
+                <h4 class="player-current-title" id="player-title">Reducción de morosidad en 90 días</h4>
+                <p class="player-current-meta" id="player-meta">Host: Carlos Aguirre</p>
+                
+                <!-- Time and Scrubber -->
+                <div class="player-scrubber-container">
+                  <span id="player-time-curr">0:00</span>
+                  <div class="player-scrubber-bar" onclick="scrubTrack(event)">
+                    <div class="player-scrubber-fill" id="player-progress" style="width: 0%;"></div>
+                  </div>
+                  <span id="player-time-total">5:12</span>
+                </div>
+                
+                <!-- Deck footer with playback and equalizer visualizer -->
+                <div class="player-deck-footer">
+                  <button class="player-play-btn" id="player-main-play-btn" onclick="togglePlayState()">
+                    <span id="player-btn-text">▶ Escuchar</span>
+                  </button>
+                  <div class="player-wave">
+                    <span class="ap-bar" style="height:20%;"></span>
+                    <span class="ap-bar" style="height:40%;"></span>
+                    <span class="ap-bar" style="height:30%;"></span>
+                    <span class="ap-bar" style="height:60%;"></span>
+                    <span class="ap-bar" style="height:25%;"></span>
+                    <span class="ap-bar" style="height:70%;"></span>
+                    <span class="ap-bar" style="height:35%;"></span>
+                    <span class="ap-bar" style="height:50%;"></span>
+                    <span class="ap-bar" style="height:15%;"></span>
+                    <span class="ap-bar" style="height:40%;"></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- FEATURED POST -->
-        <div class="blog-featured page-reveal" data-category="administracion">
-          <div class="blog-featured__image" style="background:linear-gradient(135deg, #0DA3E2, #065f84); display:flex; align-items:center; justify-content:center;">
-            <svg viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" style="opacity:0.7;"><rect x="10" y="15" width="60" height="50" rx="6"/><path d="M10 30h60"/><circle cx="25" cy="22" r="3"/><circle cx="35" cy="22" r="3"/><rect x="18" y="38" width="20" height="10" rx="3"/><rect x="42" y="38" width="20" height="10" rx="3"/></svg>
+        <div class="blog-featured page-reveal" data-category="administracion" id="featured-article">
+          <div class="blog-featured__image" style="background:linear-gradient(135deg, #0DA3E2 0%, #065f84 100%); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+            <div style="position:absolute; width:150px; height:150px; background:radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%); border-radius:50%; animation: float 6s infinite alternate ease-in-out;"></div>
+            <svg viewBox="0 0 80 80" width="80" height="80" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" style="opacity:0.8; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25)); transition: transform 0.4s ease;"><rect x="10" y="15" width="60" height="50" rx="6"/><path d="M10 30h60"/><circle cx="25" cy="22" r="3"/><circle cx="35" cy="22" r="3"/><rect x="18" y="38" width="20" height="10" rx="3"/><rect x="42" y="38" width="20" height="10" rx="3"/></svg>
           </div>
           <div class="blog-featured__body">
-            <div class="blog-card__meta" style="margin-bottom:1rem;"><span class="blog-card__category">Administración</span><span>·</span><span>Junio 2026</span><span>·</span><span>8 min lectura</span></div>
+            <div class="blog-featured__category">Administración</div>
+            <div class="blog-card__meta"><span style="color:#0da3e2; font-weight:600;">Destacado</span><span>·</span><span>Junio 2026</span><span>·</span><span>8 min lectura</span></div>
             <h3>Guía definitiva: Cómo reducir la morosidad en tu condominio en 90 días</h3>
-            <p class="blog-card__excerpt" style="margin-top:1rem;">Un framework paso a paso que combina tecnología, comunicación y políticas claras para llevar tu morosidad del 40% al 10%. Incluye templates descargables y checklist de implementación.</p>
-            <a href="#" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.5rem;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none;">Leer artículo <span>→</span></a>
+            <p class="blog-card__excerpt">Un framework paso a paso que combina tecnología de avisos inteligentes, pasarelas de pago y políticas de cobranza transparentes para llevar la morosidad de tu desarrollo al mínimo. Incluye templates descargables y checklist de implementación.</p>
+            <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+leer+el+articulo+de+morosidad+de+HausBox&type=phone_number&app_absent=0" target="_blank" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.5rem;font-size:14px;font-weight:600;color:#0da3e2;text-decoration:none;">Leer artículo <span>→</span></a>
           </div>
         </div>
 
         <!-- BLOG GRID -->
-        <div class="blog-grid" data-stagger>
+        <div class="blog-grid" data-stagger id="blog-articles-grid">
+          
           <div class="blog-card page-reveal" data-category="finanzas">
-            <div class="blog-card__image" style="background:linear-gradient(135deg, #06d6a0, #048a68); display:flex;align-items:center;justify-content:center;">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M24 4v40M34 12H18.5a7 7 0 000 14h11a7 7 0 010 14H12"/></svg>
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #10b981 0%, #048a68 100%); display:flex;align-items:center;justify-content:center; position:relative; overflow:hidden;">
+              <div style="position:absolute; width:100px; height:100px; background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius:50%; animation: float 5s infinite alternate ease-in-out;"></div>
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));"><path d="M24 4v40M34 12H18.5a7 7 0 000 14h11a7 7 0 010 14H12"/></svg>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta"><span class="blog-card__category">Finanzas</span><span>·</span><span>5 Jun 2026</span></div>
@@ -114,8 +286,9 @@
           </div>
 
           <div class="blog-card page-reveal" data-category="tecnologia">
-            <div class="blog-card__image" style="background:linear-gradient(135deg, #7B2FBE, #4f1b7a); display:flex;align-items:center;justify-content:center;">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M14 14h8v8h-8zM26 14h8v8h-8zM14 26h8v8h-8z"/></svg>
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #8b5cf6 0%, #4f1b7a 100%); display:flex;align-items:center;justify-content:center; position:relative; overflow:hidden;">
+              <div style="position:absolute; width:100px; height:100px; background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius:50%; animation: float 7s infinite alternate ease-in-out;"></div>
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M14 14h8v8h-8zM26 14h8v8h-8zM14 26h8v8h-8z"/></svg>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta"><span class="blog-card__category">Tecnología</span><span>·</span><span>28 May 2026</span></div>
@@ -125,8 +298,9 @@
           </div>
 
           <div class="blog-card page-reveal" data-category="comunidad">
-            <div class="blog-card__image" style="background:linear-gradient(135deg, #f97316, #ea580c); display:flex;align-items:center;justify-content:center;">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M34 42v-4a8 8 0 00-8-8H10a8 8 0 00-8 8v4"/><circle cx="18" cy="14" r="8"/><path d="M46 42v-4a8 8 0 00-6-7.74"/><path d="M32 6.26a8 8 0 010 15.5"/></svg>
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #f97316 0%, #ea580c 100%); display:flex;align-items:center;justify-content:center; position:relative; overflow:hidden;">
+              <div style="position:absolute; width:100px; height:100px; background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius:50%; animation: float 4s infinite alternate ease-in-out;"></div>
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));"><path d="M34 42v-4a8 8 0 00-8-8H10a8 8 0 00-8 8v4"/><circle cx="18" cy="14" r="8"/><path d="M46 42v-4a8 8 0 00-6-7.74"/><path d="M32 6.26a8 8 0 010 15.5"/></svg>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta"><span class="blog-card__category">Comunidad</span><span>·</span><span>20 May 2026</span></div>
@@ -136,8 +310,9 @@
           </div>
 
           <div class="blog-card page-reveal" data-category="administracion">
-            <div class="blog-card__image" style="background:linear-gradient(135deg, #f43f5e, #be123c); display:flex;align-items:center;justify-content:center;">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M28 4H12a4 4 0 00-4 4v32a4 4 0 004 4h24a4 4 0 004-4V16z"/><polyline points="28 4 28 16 40 16"/></svg>
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #f43f5e 0%, #be123c 100%); display:flex;align-items:center;justify-content:center; position:relative; overflow:hidden;">
+              <div style="position:absolute; width:100px; height:100px; background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius:50%; animation: float 6s infinite alternate ease-in-out;"></div>
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));"><path d="M28 4H12a4 4 0 00-4 4v32a4 4 0 004 4h24a4 4 0 004-4V16z"/><polyline points="28 4 28 16 40 16"/></svg>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta"><span class="blog-card__category">Administración</span><span>·</span><span>12 May 2026</span></div>
@@ -147,8 +322,9 @@
           </div>
 
           <div class="blog-card page-reveal" data-category="finanzas">
-            <div class="blog-card__image" style="background:linear-gradient(135deg, #0DA3E2, #065f84); display:flex;align-items:center;justify-content:center;">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><circle cx="24" cy="24" r="20"/><path d="M24 12v12l8 4"/></svg>
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #0DA3E2 0%, #065f84 100%); display:flex;align-items:center;justify-content:center; position:relative; overflow:hidden;">
+              <div style="position:absolute; width:100px; height:100px; background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius:50%; animation: float 5s infinite alternate ease-in-out;"></div>
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));"><circle cx="24" cy="24" r="20"/><path d="M24 12v12l8 4"/></svg>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta"><span class="blog-card__category">Finanzas</span><span>·</span><span>5 May 2026</span></div>
@@ -158,8 +334,9 @@
           </div>
 
           <div class="blog-card page-reveal" data-category="tecnologia">
-            <div class="blog-card__image" style="background:linear-gradient(135deg, #10b981, #059669); display:flex;align-items:center;justify-content:center;">
-              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.7;"><path d="M24 44s16-8 16-20V10L24 4 8 10v14c0 12 16 20 16 20z"/></svg>
+            <div class="blog-card__image" style="background:linear-gradient(135deg, #10b981 0%, #059669 100%); display:flex;align-items:center;justify-content:center; position:relative; overflow:hidden;">
+              <div style="position:absolute; width:100px; height:100px; background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%); border-radius:50%; animation: float 6s infinite alternate ease-in-out;"></div>
+              <svg viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="#fff" stroke-width="1.5" style="opacity:0.8; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));"><path d="M24 44s16-8 16-20V10L24 4 8 10v14c0 12 16 20 16 20z"/></svg>
             </div>
             <div class="blog-card__body">
               <div class="blog-card__meta"><span class="blog-card__category">Tecnología</span><span>·</span><span>28 Abr 2026</span></div>
@@ -168,50 +345,279 @@
             </div>
           </div>
         </div>
+        
+        <!-- Empty State Search Message -->
+        <div id="search-empty-state" style="display:none; text-align:center; padding:3rem 1.5rem; color:rgba(255,255,255,0.4);" class="page-reveal">
+          <div style="font-size:32px; margin-bottom:1rem;">🔍</div>
+          <h4 style="font-size:16px; font-weight:600; color:#fff;">No se encontraron artículos</h4>
+          <p style="font-size:14px; margin-top:0.25rem;">Intenta con otros términos o cambia la categoría de filtro.</p>
+        </div>
+
       </div>
     </section>
 
     <!-- NEWSLETTER -->
-    <section class="inner-section inner-section--beige" data-nav-theme="light">
+    <section class="inner-section inner-section--beige" data-nav-theme="light" style="border-top: 1px solid rgba(0,0,0,0.05);">
       <div class="inner-section__container">
-        <div class="newsletter-banner page-reveal" style="padding: 4rem 2rem;">
+        <div class="newsletter-banner page-reveal">
           <div id="modal-normal-content">
-            <h3>Recibe las mejores ideas en tu <span class="serif">bandeja.</span></h3>
-            <p style="margin-bottom:2rem; opacity:0.65;">Un email semanal con artículos, guías y tendencias para administradores de condominios.</p>
-            <form class="newsletter-form" style="max-width: 440px; margin: 0 auto; display:flex; gap:0.5rem; justify-content:center;">
-              <input type="email" placeholder="tu@email.com" required style="flex:1; height:48px; border-radius:12px; border:1px solid rgba(255,255,255,0.15); background:rgba(255,255,255,0.06); color:#fff; padding:0 1rem;" />
-              <button type="submit" class="magnetic-button" style="height:48px; padding:0 1.5rem; border-radius:12px; background:var(--accent); color:#fff; font-weight:600; border:none; cursor:pointer;"><span class="magnetic-content">Suscribirme</span></button>
+            <h3>Recibe las mejores ideas en tu <span class="serif text-gradient" style="background:linear-gradient(to right, #0da3e2, #8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">bandeja.</span></h3>
+            <p style="margin-bottom:2rem; opacity:0.65; max-width:500px; margin:0.5rem auto 2rem;">Un email semanal con artículos, guías y tendencias para administradores de condominios.</p>
+            <form class="newsletter-form" id="blog-newsletter-form" onsubmit="handleNewsletterSubmit(event)" style="max-width: 440px; margin: 0 auto; display:flex; gap:0.5rem; justify-content:center;">
+              <input type="email" placeholder="tu@email.com" required />
+              <button type="submit" class="btn-sim-action" style="height:48px; padding:0 1.5rem; border-radius:12px; font-weight:600; border:none; width:auto; cursor:pointer;">Suscribirme</button>
             </form>
           </div>
           <div id="modal-success-content" style="display:none; text-align:center;">
-            <div class="success-checkmark">
-              <div class="check-icon">
-                <span class="icon-line line-tip"></span>
-                <span class="icon-line line-long"></span>
-                <div class="icon-circle"></div>
-              </div>
+            <div class="success-checkmark" style="margin: 0 auto 1.5rem;">
+              <div class="check-icon" style="width: 48px; height: 48px; border-radius: 50%; background:rgba(16,185,129,0.1); border: 2px solid #10b981; display:flex; align-items:center; justify-content:center; color:#10b981; font-weight:700; font-size:20px; margin:0 auto;">✓</div>
             </div>
-            <h4 style="font-size:20px; font-weight:600; color:#fff;">¡Suscripción Completada!</h4>
+            <h4 style="font-size:20px; font-weight:600;">¡Suscripción Completada!</h4>
             <p style="opacity:0.65; margin-top:8px;">Te hemos enviado un correo de confirmación. Prepárate para las mejores prácticas.</p>
           </div>
         </div>
       </div>
     </section>
-    
-    <script>
-      document.querySelector('.newsletter-form')?.addEventListener('submit', function(e) {
-        e.preventDefault();
-        document.querySelector('#modal-normal-content').style.display = 'none';
-        document.querySelector('#modal-success-content').style.display = 'block';
-      });
-    </script>
   </main>
 
   <!-- FOOTER -->
-  <footer class="site-footer"><div class="footer-inner"><div class="footer-top"><a href="index.html" class="footer-logo" aria-label="HausBox"><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" /></a><div class="footer-links"><a href="#">Política de Privacidad</a><a href="#">Términos de Servicio</a><a href="mailto:contacto@hausbox.com">contacto@hausbox.com</a></div></div><div class="footer-bottom"><div class="footer-social"><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/></svg></a></div><div class="footer-copy"><span>© 2026 HausBox. Todos los derechos reservados.</span></div></div></div></footer>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo" aria-label="HausBox"><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" /></a>
+        <div class="footer-links">
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Términos de Servicio</a>
+          <a href="mailto:contacto@hausbox.com">contacto@hausbox.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+        </div>
+        <div class="footer-copy">
+          <span>© 2026 HausBox. Todos los derechos reservados.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  <div class="floating-whatsapp-container"><div class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</div><a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="floating-whatsapp" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a></div>
+  <div class="floating-whatsapp-container">
+    <div class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</div>
+    <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="floating-whatsapp" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a>
+  </div>
 
   <script src="js/pages.js"></script>
+  
+  <script>
+    // Live category filters and search logic
+    let activeCategory = 'all';
+    
+    function setCategoryFilter(category, buttonEl) {
+      activeCategory = category;
+      
+      // Update active pill button style
+      document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
+      buttonEl.classList.add('active');
+      
+      filterArticles();
+    }
+    
+    function filterArticles() {
+      const query = document.getElementById('blog-search').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.blog-card');
+      const featured = document.getElementById('featured-article');
+      
+      let visibleCount = 0;
+      
+      // 1. Filter Grid Articles
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const title = card.querySelector('.blog-card__title').textContent.toLowerCase();
+        const excerpt = card.querySelector('.blog-card__excerpt').textContent.toLowerCase();
+        
+        const matchesCategory = (activeCategory === 'all' || category === activeCategory);
+        const matchesSearch = (title.includes(query) || excerpt.includes(query));
+        
+        if (matchesCategory && matchesSearch) {
+          card.style.display = 'block';
+          // Apply sutil reveal animation style
+          card.style.opacity = '1';
+          card.style.transform = 'scale(1) translateY(0)';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      
+      // 2. Filter Featured Article
+      if (featured) {
+        const featCategory = featured.getAttribute('data-category');
+        const featTitle = featured.querySelector('h3').textContent.toLowerCase();
+        const featExcerpt = featured.querySelector('.blog-card__excerpt').textContent.toLowerCase();
+        
+        const featMatchesCategory = (activeCategory === 'all' || featCategory === activeCategory);
+        const featMatchesSearch = (featTitle.includes(query) || featExcerpt.includes(query));
+        
+        if (featMatchesCategory && featMatchesSearch) {
+          featured.style.display = 'grid';
+          visibleCount++;
+        } else {
+          featured.style.display = 'none';
+        }
+      }
+      
+      // 3. Show Empty State if no results
+      const emptyState = document.getElementById('search-empty-state');
+      if (visibleCount === 0) {
+        emptyState.style.display = 'block';
+      } else {
+        emptyState.style.display = 'none';
+      }
+    }
+    
+    // Interactive Playlist Player simulation
+    const tracksData = {
+      1: {
+        title: "Audio Brief: Reducción de morosidad en 90 días",
+        host: "Host: Carlos Aguirre",
+        duration: "5:12",
+        seconds: 312,
+        accent: "#0DA3E2"
+      },
+      2: {
+        title: "Audio Brief: Conciliación bancaria en condominios",
+        host: "Host: María Rodríguez",
+        duration: "3:45",
+        seconds: 225,
+        accent: "#10b981"
+      }
+    };
+    
+    let currentTrackId = 1;
+    let playTimer = null;
+    let elapsedSeconds = 0;
+    let isPlaying = false;
+    
+    function selectTrack(id) {
+      // Clear previous track active class
+      document.querySelectorAll('.podcast-track').forEach(t => t.classList.remove('active'));
+      // Remove loading indicator from previous track button
+      document.querySelectorAll('.track-status-icon').forEach(i => i.textContent = '▶');
+      
+      currentTrackId = id;
+      const trackEl = document.querySelector(`.podcast-track[data-track-id="${id}"]`);
+      trackEl.classList.add('active');
+      
+      // Stop timer if playing and reset scrubber
+      resetPlayer();
+      
+      // Load track metadata into the player UI
+      const data = tracksData[id];
+      document.getElementById('player-title').textContent = data.title;
+      document.getElementById('player-meta').textContent = data.host;
+      document.getElementById('player-time-total').textContent = data.duration;
+      document.getElementById('player-time-curr').textContent = "0:00";
+      document.getElementById('player-progress').style.width = "0%";
+      
+      // Set the color variables dynamically
+      document.getElementById('player-deck').style.setProperty('--accent', data.accent);
+      
+      // Auto-play the selected track
+      togglePlayState();
+    }
+    
+    function togglePlayState() {
+      const playerDeck = document.getElementById('player-deck');
+      const mainBtnText = document.getElementById('player-btn-text');
+      const trackStatusBtn = document.getElementById(`track-btn-${currentTrackId}`);
+      
+      if (!isPlaying) {
+        // Start playback
+        isPlaying = true;
+        playerDeck.classList.add('playing');
+        mainBtnText.textContent = "⏸ Pausar";
+        if (trackStatusBtn) trackStatusBtn.textContent = "⏸";
+        
+        startTimer();
+      } else {
+        // Pause playback
+        isPlaying = false;
+        playerDeck.classList.remove('playing');
+        mainBtnText.textContent = "▶ Escuchar";
+        if (trackStatusBtn) trackStatusBtn.textContent = "▶";
+        
+        clearInterval(playTimer);
+      }
+    }
+    
+    function startTimer() {
+      const totalSeconds = tracksData[currentTrackId].seconds;
+      
+      clearInterval(playTimer);
+      playTimer = setInterval(() => {
+        elapsedSeconds++;
+        if (elapsedSeconds > totalSeconds) {
+          // Track finished
+          resetPlayer();
+          // Auto advance if next track is available
+          if (currentTrackId === 1) {
+            selectTrack(2);
+          }
+          return;
+        }
+        
+        // Update Scrubber Fill
+        const percentage = (elapsedSeconds / totalSeconds) * 100;
+        document.getElementById('player-progress').style.width = `${percentage}%`;
+        
+        // Update Time display
+        const m = Math.floor(elapsedSeconds / 60);
+        const s = elapsedSeconds % 60;
+        document.getElementById('player-time-curr').textContent = `${m}:${s < 10 ? '0' + s : s}`;
+      }, 1000);
+    }
+    
+    function resetPlayer() {
+      isPlaying = false;
+      elapsedSeconds = 0;
+      clearInterval(playTimer);
+      document.getElementById('player-deck').classList.remove('playing');
+      document.getElementById('player-btn-text').textContent = "▶ Escuchar";
+      document.getElementById('player-progress').style.width = "0%";
+      document.getElementById('player-time-curr').textContent = "0:00";
+      
+      document.querySelectorAll('.track-status-icon').forEach(btn => btn.textContent = '▶');
+    }
+    
+    function scrubTrack(e) {
+      const bar = e.currentTarget;
+      const rect = bar.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const barWidth = rect.width;
+      const percentage = clickX / barWidth;
+      
+      const totalSeconds = tracksData[currentTrackId].seconds;
+      elapsedSeconds = Math.floor(percentage * totalSeconds);
+      
+      // Update UI
+      document.getElementById('player-progress').style.width = `${percentage * 100}%`;
+      const m = Math.floor(elapsedSeconds / 60);
+      const s = elapsedSeconds % 60;
+      document.getElementById('player-time-curr').textContent = `${m}:${s < 10 ? '0' + s : s}`;
+      
+      if (!isPlaying) {
+        togglePlayState();
+      }
+    }
+    
+    // Newsletter Submit
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      document.querySelector('#modal-normal-content').style.display = 'none';
+      document.querySelector('#modal-success-content').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
