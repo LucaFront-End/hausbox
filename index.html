@@ -419,21 +419,182 @@
                 <div class="phone-device">
                   <div class="phone-body" aria-hidden="true"></div>
                   <div class="phone-screen">
+                    <!-- Slide 0: Payments -->
                     <div class="phone-screen-slide active">
-                      <video src="videos/Alex-cut.mp4" muted playsinline loop preload="metadata" disableRemotePlayback
-                        disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                      <div class="app-screen app-screen--payments">
+                        <div class="app-header">
+                          <span class="app-title">HausBox Pay</span>
+                          <span class="app-signal"></span>
+                        </div>
+                        <div class="app-content">
+                          <!-- Shimmer Credit Card -->
+                          <div class="shimmer-card">
+                            <div class="shimmer-card__glow"></div>
+                            <div class="shimmer-card__chip"></div>
+                            <div class="shimmer-card__brand"></div>
+                            <div class="shimmer-card__number">••••  ••••  ••••  2040</div>
+                            <div class="shimmer-card__meta">
+                              <div>
+                                <span class="meta-lbl">Mantenimiento</span>
+                                <span class="meta-val">Apto 204</span>
+                              </div>
+                              <div class="meta-amt">$2,500<span>MXN</span></div>
+                            </div>
+                          </div>
+                          <!-- Status Badge -->
+                          <div class="payment-lifecycle">
+                            <span class="status-indicator-badge"></span>
+                            <!-- Payment CTA -->
+                            <button class="pay-lifecycle-btn">
+                              <span class="btn-text"></span>
+                              <span class="btn-spinner"></span>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <!-- Slide 1: Expenses -->
                     <div class="phone-screen-slide">
-                      <video src="videos/Focus-cut.mp4" muted playsinline loop preload="metadata" disableRemotePlayback
-                        disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                      <div class="app-screen app-screen--expenses">
+                        <div class="app-header">
+                          <span class="app-title">Gastos & Proveedores</span>
+                          <span class="app-signal"></span>
+                        </div>
+                        <div class="app-content">
+                          <!-- Wave/Spline Chart SVG -->
+                          <div class="chart-wrapper">
+                            <span class="chart-val-lbl">Egreso Mensual</span>
+                            <span class="chart-val"></span>
+                            <div class="chart-sweep-line"></div>
+                            <svg viewBox="0 0 200 80" class="chart-svg">
+                              <defs>
+                                <linearGradient id="chart-grad" x1="0" y1="0" x2="0" y2="1">
+                                  <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.25"/>
+                                  <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+                                </linearGradient>
+                              </defs>
+                              <path d="M 0 80 Q 25 35 50 65 T 100 25 T 150 55 T 200 15 L 200 80 Z" fill="url(#chart-grad)" />
+                              <path class="chart-line-path" d="M 0 80 Q 25 35 50 65 T 100 25 T 150 55 T 200 15" fill="none" stroke="#f43f5e" stroke-width="2.5" />
+                              <circle cx="200" cy="15" r="3.5" fill="#f43f5e" />
+                              <circle cx="200" cy="15" r="8" fill="#f43f5e" class="ping-node" />
+                            </svg>
+                          </div>
+                          <!-- List -->
+                          <div class="expense-list-glow">
+                            <div class="expense-row">
+                              <div class="exp-icon-box orange">🛡️</div>
+                              <div class="exp-details">
+                                <span class="exp-lbl">Seguridad Privada</span>
+                                <span class="exp-sub">Aprobado</span>
+                              </div>
+                              <span class="exp-amt font-red">-$15,000</span>
+                            </div>
+                            <div class="expense-row">
+                              <div class="exp-icon-box green">🌳</div>
+                              <div class="exp-details">
+                                <span class="exp-lbl">Jardinería</span>
+                                <span class="exp-sub">Pagado</span>
+                              </div>
+                              <span class="exp-amt font-red">-$4,200</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <!-- Slide 2: Accounting -->
                     <div class="phone-screen-slide">
-                      <video src="videos/list.mp4" muted playsinline loop preload="metadata" disableRemotePlayback
-                        disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                      <div class="app-screen app-screen--accounting">
+                        <div class="app-header">
+                          <span class="app-title">Contabilidad</span>
+                          <span class="app-signal"></span>
+                        </div>
+                        <div class="app-content">
+                          <!-- Circular Progress Ring Widget -->
+                          <div class="accounting-widget">
+                            <div class="ring-container">
+                              <svg viewBox="0 0 36 36" class="circular-chart">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                              </svg>
+                              <div class="ring-val"></div>
+                            </div>
+                            <div class="ring-info">
+                              <span class="ring-lbl">Presupuesto anual</span>
+                              <span class="ring-sub">Fondo común ejecutado</span>
+                            </div>
+                          </div>
+                          <!-- Funds List -->
+                          <div class="funds-wrapper">
+                            <div class="fund-box">
+                              <span class="fund-lbl">Fondo Reserva</span>
+                              <span class="fund-val green-glow"></span>
+                            </div>
+                            <div class="fund-box">
+                              <span class="fund-lbl">Caja Chica</span>
+                              <span class="fund-val">$12,400</span>
+                            </div>
+                          </div>
+                          <!-- Transaction list with new animated drop-in -->
+                          <div class="transaction-list">
+                            <div class="tx-item tx-item--new">
+                              <span class="tx-dot tx-dot--in"></span>
+                              <span class="tx-desc">Pago Depto 302</span>
+                              <span class="tx-val font-green">+$2,500</span>
+                            </div>
+                            <div class="tx-item">
+                              <span class="tx-dot tx-dot--in"></span>
+                              <span class="tx-desc">Pago Depto 102</span>
+                              <span class="tx-val font-green">+$2,500</span>
+                            </div>
+                            <div class="tx-item">
+                              <span class="tx-dot tx-dot--out"></span>
+                              <span class="tx-desc">Mant. Elevador</span>
+                              <span class="tx-val font-red">-$6,800</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <!-- Slide 3: Residents -->
                     <div class="phone-screen-slide">
-                      <video src="videos/Wrap-up.mp4" muted playsinline loop preload="metadata" disableRemotePlayback
-                        disablePictureInPicture controlsList="nodownload noremoteplayback" draggable="false"></video>
+                      <div class="app-screen app-screen--residents">
+                        <div class="app-header">
+                          <span class="app-title">App Residente</span>
+                          <span class="app-signal"></span>
+                        </div>
+                        <div class="app-content">
+                          <!-- 3D Card and QR -->
+                          <div class="qr-perspective-card">
+                            <div class="qr-glow-back"></div>
+                            <div class="qr-card-body">
+                              <div class="qr-scanner-line"></div>
+                              <div class="qr-success-overlay">✓ ACCESO</div>
+                              <svg viewBox="0 0 100 100" class="qr-svg-code">
+                                <rect x="10" y="10" width="25" height="25" fill="currentColor"/>
+                                <rect x="15" y="15" width="15" height="15" fill="#fff"/>
+                                <rect x="18" y="18" width="9" height="9" fill="currentColor"/>
+                                <rect x="65" y="10" width="25" height="25" fill="currentColor"/>
+                                <rect x="70" y="15" width="15" height="15" fill="#fff"/>
+                                <rect x="73" y="18" width="9" height="9" fill="currentColor"/>
+                                <rect x="10" y="65" width="25" height="25" fill="currentColor"/>
+                                <rect x="15" y="70" width="15" height="15" fill="#fff"/>
+                                <rect x="18" y="73" width="9" height="9" fill="currentColor"/>
+                                <rect x="45" y="45" width="10" height="10" fill="currentColor"/>
+                                <rect x="60" y="60" width="30" height="30" fill="currentColor"/>
+                                <rect x="65" y="65" width="20" height="20" fill="#fff"/>
+                              </svg>
+                            </div>
+                          </div>
+                          <!-- User profile info -->
+                          <div class="qr-user-profile">
+                            <div class="avatar-ring">JP</div>
+                            <div class="user-meta">
+                              <span class="user-name">Juan Pérez (A-104)</span>
+                              <span class="user-role">Acceso Express QR Autorizado</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="phone-glare" aria-hidden="true"></div>
                   </div>
@@ -488,25 +649,182 @@
             <div class="phone-device">
               <div class="phone-body" aria-hidden="true"></div>
               <div class="phone-screen">
+                <!-- Slide 0: Payments -->
                 <div class="phone-screen-slide active">
-                  <video src="videos/Alex-cut.mp4" class="absolute inset-0 h-full w-full select-none object-cover" muted
-                    playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture
-                    controlsList="nodownload noremoteplayback" draggable="false"></video>
+                  <div class="app-screen app-screen--payments">
+                    <div class="app-header">
+                      <span class="app-title">HausBox Pay</span>
+                      <span class="app-signal"></span>
+                    </div>
+                    <div class="app-content">
+                      <!-- Shimmer Credit Card -->
+                      <div class="shimmer-card">
+                        <div class="shimmer-card__glow"></div>
+                        <div class="shimmer-card__chip"></div>
+                        <div class="shimmer-card__brand"></div>
+                        <div class="shimmer-card__number">••••  ••••  ••••  2040</div>
+                        <div class="shimmer-card__meta">
+                          <div>
+                            <span class="meta-lbl">Mantenimiento</span>
+                            <span class="meta-val">Apto 204</span>
+                          </div>
+                          <div class="meta-amt">$2,500<span>MXN</span></div>
+                        </div>
+                      </div>
+                      <!-- Status Badge -->
+                      <div class="payment-lifecycle">
+                        <span class="status-indicator-badge"></span>
+                        <!-- Payment CTA -->
+                        <button class="pay-lifecycle-btn">
+                          <span class="btn-text"></span>
+                          <span class="btn-spinner"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <!-- Slide 1: Expenses -->
                 <div class="phone-screen-slide">
-                  <video src="videos/Focus-cut.mp4" class="absolute inset-0 h-full w-full select-none object-cover"
-                    muted playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture
-                    controlsList="nodownload noremoteplayback" draggable="false"></video>
+                  <div class="app-screen app-screen--expenses">
+                    <div class="app-header">
+                      <span class="app-title">Gastos & Proveedores</span>
+                      <span class="app-signal"></span>
+                    </div>
+                    <div class="app-content">
+                      <!-- Wave/Spline Chart SVG -->
+                      <div class="chart-wrapper">
+                        <span class="chart-val-lbl">Egreso Mensual</span>
+                        <span class="chart-val"></span>
+                        <div class="chart-sweep-line"></div>
+                        <svg viewBox="0 0 200 80" class="chart-svg">
+                          <defs>
+                            <linearGradient id="chart-grad-mobile" x1="0" y1="0" x2="0" y2="1">
+                              <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.25"/>
+                              <stop offset="100%" stop-color="#f43f5e" stop-opacity="0"/>
+                            </linearGradient>
+                          </defs>
+                          <path d="M 0 80 Q 25 35 50 65 T 100 25 T 150 55 T 200 15 L 200 80 Z" fill="url(#chart-grad-mobile)" />
+                          <path class="chart-line-path" d="M 0 80 Q 25 35 50 65 T 100 25 T 150 55 T 200 15" fill="none" stroke="#f43f5e" stroke-width="2.5" />
+                          <circle cx="200" cy="15" r="3.5" fill="#f43f5e" />
+                          <circle cx="200" cy="15" r="8" fill="#f43f5e" class="ping-node" />
+                        </svg>
+                      </div>
+                      <!-- List -->
+                      <div class="expense-list-glow">
+                        <div class="expense-row">
+                          <div class="exp-icon-box orange">🛡️</div>
+                          <div class="exp-details">
+                            <span class="exp-lbl">Seguridad Privada</span>
+                            <span class="exp-sub">Aprobado</span>
+                          </div>
+                          <span class="exp-amt font-red">-$15,000</span>
+                        </div>
+                        <div class="expense-row">
+                          <div class="exp-icon-box green">🌳</div>
+                          <div class="exp-details">
+                            <span class="exp-lbl">Jardinería</span>
+                            <span class="exp-sub">Pagado</span>
+                          </div>
+                          <span class="exp-amt font-red">-$4,200</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <!-- Slide 2: Accounting -->
                 <div class="phone-screen-slide">
-                  <video src="videos/list.mp4" class="absolute inset-0 h-full w-full select-none object-cover" muted
-                    playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture
-                    controlsList="nodownload noremoteplayback" draggable="false"></video>
+                  <div class="app-screen app-screen--accounting">
+                    <div class="app-header">
+                      <span class="app-title">Contabilidad</span>
+                      <span class="app-signal"></span>
+                    </div>
+                    <div class="app-content">
+                      <!-- Circular Progress Ring Widget -->
+                      <div class="accounting-widget">
+                        <div class="ring-container">
+                          <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                          </svg>
+                          <div class="ring-val"></div>
+                        </div>
+                        <div class="ring-info">
+                          <span class="ring-lbl">Presupuesto anual</span>
+                          <span class="ring-sub">Fondo común ejecutado</span>
+                        </div>
+                      </div>
+                      <!-- Funds List -->
+                      <div class="funds-wrapper">
+                        <div class="fund-box">
+                          <span class="fund-lbl">Fondo Reserva</span>
+                          <span class="fund-val green-glow"></span>
+                        </div>
+                        <div class="fund-box">
+                          <span class="fund-lbl">Caja Chica</span>
+                          <span class="fund-val">$12,400</span>
+                        </div>
+                      </div>
+                      <!-- Transaction list with new animated drop-in -->
+                      <div class="transaction-list">
+                        <div class="tx-item tx-item--new">
+                          <span class="tx-dot tx-dot--in"></span>
+                          <span class="tx-desc">Pago Depto 302</span>
+                          <span class="tx-val font-green">+$2,500</span>
+                        </div>
+                        <div class="tx-item">
+                          <span class="tx-dot tx-dot--in"></span>
+                          <span class="tx-desc">Pago Depto 102</span>
+                          <span class="tx-val font-green">+$2,500</span>
+                        </div>
+                        <div class="tx-item">
+                          <span class="tx-dot tx-dot--out"></span>
+                          <span class="tx-desc">Mant. Elevador</span>
+                          <span class="tx-val font-red">-$6,800</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <!-- Slide 3: Residents -->
                 <div class="phone-screen-slide">
-                  <video src="videos/Wrap-up.mp4" class="absolute inset-0 h-full w-full select-none object-cover" muted
-                    playsinline loop preload="metadata" disableRemotePlayback disablePictureInPicture
-                    controlsList="nodownload noremoteplayback" draggable="false"></video>
+                  <div class="app-screen app-screen--residents">
+                    <div class="app-header">
+                      <span class="app-title">App Residente</span>
+                      <span class="app-signal"></span>
+                    </div>
+                    <div class="app-content">
+                      <!-- 3D Card and QR -->
+                      <div class="qr-perspective-card">
+                        <div class="qr-glow-back"></div>
+                        <div class="qr-card-body">
+                          <div class="qr-scanner-line"></div>
+                          <div class="qr-success-overlay">✓ ACCESO</div>
+                          <svg viewBox="0 0 100 100" class="qr-svg-code">
+                            <rect x="10" y="10" width="25" height="25" fill="currentColor"/>
+                            <rect x="15" y="15" width="15" height="15" fill="#fff"/>
+                            <rect x="18" y="18" width="9" height="9" fill="currentColor"/>
+                            <rect x="65" y="10" width="25" height="25" fill="currentColor"/>
+                            <rect x="70" y="15" width="15" height="15" fill="#fff"/>
+                            <rect x="73" y="18" width="9" height="9" fill="currentColor"/>
+                            <rect x="10" y="65" width="25" height="25" fill="currentColor"/>
+                            <rect x="15" y="70" width="15" height="15" fill="#fff"/>
+                            <rect x="18" y="73" width="9" height="9" fill="currentColor"/>
+                            <rect x="45" y="45" width="10" height="10" fill="currentColor"/>
+                            <rect x="60" y="60" width="30" height="30" fill="currentColor"/>
+                            <rect x="65" y="65" width="20" height="20" fill="#fff"/>
+                          </svg>
+                        </div>
+                      </div>
+                      <!-- User profile info -->
+                      <div class="qr-user-profile">
+                        <div class="avatar-ring">JP</div>
+                        <div class="user-meta">
+                          <span class="user-name">Juan Pérez (A-104)</span>
+                          <span class="user-role">Acceso Express QR Autorizado</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div class="phone-glare" aria-hidden="true"></div>
               </div>

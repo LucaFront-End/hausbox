@@ -11,11 +11,31 @@ function initPricingCalcWidget() {
   const WA_PHONE = '5215574374431';
 
   const PROPERTY_TYPES = [
-    { id: 'condominio',   label: 'Condominio Residencial', img: 'images/pages/condominios-hero.png' },
-    { id: 'vertical',     label: 'Condominio Vertical',    img: 'images/pages/desarrolladores-hero.png' },
-    { id: 'vacacional',   label: 'Renta Vacacional',       img: 'images/pages/rentas-hero.png' },
-    { id: 'desarrollo',   label: 'Desarrollo Inmobiliario',img: 'images/pages/casos-exito-hero.png' },
-    { id: 'oficinas',     label: 'Oficinas',               img: 'images/pages/contabilidad-profesional-hero.png' },
+    { 
+      id: 'condominio', 
+      label: 'Condominio Residencial', 
+      svg: `<svg viewBox="0 0 24 24"><path d="M2 10l6-5 6 5v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M6 22v-5h4v5" /><path d="M12 10l5-4 5 4v11a1 1 0 0 1-1 1h-6" /><path d="M16 22v-4h3" /></svg>` 
+    },
+    { 
+      id: 'vertical', 
+      label: 'Condominio Vertical', 
+      svg: `<svg viewBox="0 0 24 24"><rect x="3" y="2" width="7" height="20" rx="1" /><rect x="13" y="6" width="8" height="16" rx="1" /><line x1="6" y1="6" x2="7" y2="6" /><line x1="6" y1="10" x2="7" y2="10" /><line x1="6" y1="14" x2="7" y2="14" /><line x1="6" y1="18" x2="7" y2="18" /><line x1="16" y1="10" x2="18" y2="10" /><line x1="16" y1="14" x2="18" y2="14" /><line x1="16" y1="18" x2="18" y2="18" /></svg>` 
+    },
+    { 
+      id: 'vacacional', 
+      label: 'Renta Vacacional', 
+      svg: `<svg viewBox="0 0 24 24"><path d="M2 13l6-5 6 5v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M18 22c-.5-4 1.5-6.5 2.5-8" /><path d="M20 14c-1.5-.5-2.5.5-3 1.5" /><path d="M20 14c1.5-.5 2.5.5 3 1.5" /><path d="M20 14c-.5-1.5.5-2.5 1.5-3" /><circle cx="16" cy="5" r="2" /></svg>` 
+    },
+    { 
+      id: 'desarrollo', 
+      label: 'Desarrollo Inmobiliario', 
+      svg: `<svg viewBox="0 0 24 24"><rect x="3" y="8" width="8" height="14" rx="1" /><line x1="7" y1="12" x2="7" y2="18" /><path d="M16 22V2l6 3H16" /><path d="M11 5h5" /><line x1="20" y1="5" x2="20" y2="10" /><rect x="19" y="10" width="2" height="2" /></svg>` 
+    },
+    { 
+      id: 'oficinas', 
+      label: 'Oficinas', 
+      svg: `<svg viewBox="0 0 24 24"><rect x="2" y="6" width="10" height="16" rx="1" /><rect x="12" y="2" width="10" height="20" rx="1" /><line x1="5" y1="10" x2="9" y2="10" /><line x1="5" y1="14" x2="9" y2="14" /><line x1="5" y1="18" x2="9" y2="18" /><line x1="15" y1="6" x2="19" y2="6" /><line x1="15" y1="10" x2="19" y2="10" /><line x1="15" y1="14" x2="19" y2="14" /><line x1="15" y1="18" x2="19" y2="18" /></svg>` 
+    },
   ];
 
   // --- Build property cards HTML ---
@@ -23,7 +43,7 @@ function initPricingCalcWidget() {
     <label class="calc-prop-card" data-prop="${t.id}">
       <input type="radio" name="calc-prop-type" value="${t.label}" />
       <div class="calc-prop-card__img">
-        <img src="${t.img}" alt="${t.label}" loading="lazy" />
+        ${t.svg}
       </div>
       <span class="calc-prop-card__label">${t.label}</span>
       <span class="calc-prop-card__check">
@@ -49,8 +69,10 @@ function initPricingCalcWidget() {
         <!-- Progress -->
         <div class="calc-steps-bar">
           <div class="calc-step-dot active" data-step="1"><span>1</span></div>
-          <div class="calc-step-line"><div class="calc-step-line__fill"></div></div>
+          <div class="calc-step-line"><div class="calc-step-line__fill" id="calc-line-fill-1"></div></div>
           <div class="calc-step-dot" data-step="2"><span>2</span></div>
+          <div class="calc-step-line"><div class="calc-step-line__fill" id="calc-line-fill-2"></div></div>
+          <div class="calc-step-dot" data-step="3"><span>3</span></div>
         </div>
 
         <!-- ======== STEP 1 — Datos Personales ======== -->
@@ -87,21 +109,38 @@ function initPricingCalcWidget() {
           </div>
         </div>
 
-        <!-- ======== STEP 2 — Cotización ======== -->
+        <!-- ======== STEP 2 — Tipo de Propiedad ======== -->
         <div class="calc-step" id="calc-step-2">
           <div class="calc-modal__header">
             <h3>Tu <span class="serif" style="color:#0DA3E2;">propiedad</span></h3>
-            <p>Selecciona el tipo y número de unidades.</p>
+            <p>Selecciona el tipo de propiedad que administras.</p>
           </div>
           <div class="calc-form" id="calc-form-step2">
-            <label class="calc-form__group" style="margin-bottom:0;">
-              <span style="font-size:13px;font-weight:600;color:#0f172a;letter-spacing:0.01em;">Tipo de propiedad</span>
-            </label>
-            <div class="calc-prop-grid">
+            <div class="calc-prop-grid" style="margin-bottom: 2rem;">
               ${propCardsHTML}
             </div>
 
-            <div class="calc-slider-group">
+            <div class="calc-form__actions">
+              <button type="button" class="calc-form__back" id="calc-step2-back">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Atrás
+              </button>
+              <button type="button" class="calc-form__submit calc-form__submit--quote" id="calc-step2-next" disabled>
+                Avanzar
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======== STEP 3 — Número de Unidades ======== -->
+        <div class="calc-step" id="calc-step-3">
+          <div class="calc-modal__header">
+            <h3>Tus <span class="serif" style="color:#0DA3E2;">unidades</span></h3>
+            <p>Ajusta el número de unidades para estimar tu costo.</p>
+          </div>
+          <div class="calc-form" id="calc-form-step3">
+            <div class="calc-slider-group" style="margin-bottom: 2rem;">
               <div class="calc-slider-header">
                 <label>Número de unidades</label>
                 <div class="calc-slider-value" id="calc-units-display">5 <span>unidades</span></div>
@@ -109,17 +148,17 @@ function initPricingCalcWidget() {
               <input type="range" class="calc-range" id="calc-units" min="5" max="100" value="5" step="1" />
             </div>
 
-            <div class="calc-price-preview">
+            <div class="calc-price-preview" style="margin-bottom: 2.5rem;">
               <div class="price-label">Costo mensual estimado</div>
               <div class="price-amount" id="calc-price-display">$100 <small>MXN / mes</small></div>
             </div>
 
             <div class="calc-form__actions">
-              <button type="button" class="calc-form__back" id="calc-prev-btn">
+              <button type="button" class="calc-form__back" id="calc-step3-back">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
                 Atrás
               </button>
-              <button type="button" class="calc-form__submit calc-form__submit--quote" id="calc-quote-btn" disabled>
+              <button type="button" class="calc-form__submit calc-form__submit--quote" id="calc-quote-btn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
                 Cotizar
               </button>
@@ -152,16 +191,18 @@ function initPricingCalcWidget() {
   const closeBtn     = document.getElementById('calc-close-btn');
   const step1        = document.getElementById('calc-step-1');
   const step2        = document.getElementById('calc-step-2');
+  const step3        = document.getElementById('calc-step-3');
   const resultsView  = document.getElementById('calc-results-view');
   const nextBtn      = document.getElementById('calc-next-btn');
-  const prevBtn      = document.getElementById('calc-prev-btn');
+  const step2BackBtn = document.getElementById('calc-step2-back');
+  const step2NextBtn = document.getElementById('calc-step2-next');
+  const step3BackBtn = document.getElementById('calc-step3-back');
   const quoteBtn     = document.getElementById('calc-quote-btn');
   const restartBtn   = document.getElementById('calc-restart-btn');
   const slider       = document.getElementById('calc-units');
   const unitsDisplay = document.getElementById('calc-units-display');
   const priceDisplay = document.getElementById('calc-price-display');
   const stepDots     = overlay.querySelectorAll('.calc-step-dot');
-  const stepLineFill = overlay.querySelector('.calc-step-line__fill');
   const propCards    = overlay.querySelectorAll('.calc-prop-card');
 
   if (!openBtn || !overlay) return;
@@ -189,7 +230,7 @@ function initPricingCalcWidget() {
       const radio = card.querySelector('input[type="radio"]');
       if (radio) radio.checked = true;
       selectedPropType = radio ? radio.value : '';
-      quoteBtn.disabled = false;
+      step2NextBtn.disabled = false;
     });
   });
 
@@ -198,6 +239,7 @@ function initPricingCalcWidget() {
     currentStep = n;
     step1.classList.toggle('active', n === 1);
     step2.classList.toggle('active', n === 2);
+    step3.classList.toggle('active', n === 3);
     resultsView.classList.remove('active');
 
     stepDots.forEach(d => {
@@ -205,7 +247,11 @@ function initPricingCalcWidget() {
       d.classList.toggle('active', s <= n);
       d.classList.toggle('completed', s < n);
     });
-    if (stepLineFill) stepLineFill.style.width = n >= 2 ? '100%' : '0%';
+
+    const lineFill1 = document.getElementById('calc-line-fill-1');
+    const lineFill2 = document.getElementById('calc-line-fill-2');
+    if (lineFill1) lineFill1.style.width = n >= 2 ? '100%' : '0%';
+    if (lineFill2) lineFill2.style.width = n >= 3 ? '100%' : '0%';
   }
 
   // ---- Validation ----
@@ -246,7 +292,9 @@ function initPricingCalcWidget() {
   nextBtn.addEventListener('click', () => {
     if (validateStep1()) goToStep(2);
   });
-  prevBtn.addEventListener('click', () => goToStep(1));
+  step2BackBtn.addEventListener('click', () => goToStep(1));
+  step2NextBtn.addEventListener('click', () => goToStep(3));
+  step3BackBtn.addEventListener('click', () => goToStep(2));
 
   // ---- Quote (Submit) ----
   quoteBtn.addEventListener('click', () => {
@@ -287,9 +335,14 @@ function initPricingCalcWidget() {
     // Show results
     step1.classList.remove('active');
     step2.classList.remove('active');
+    step3.classList.remove('active');
     resultsView.classList.add('active');
     stepDots.forEach(d => { d.classList.add('active','completed'); });
-    if (stepLineFill) stepLineFill.style.width = '100%';
+    
+    const lineFill1 = document.getElementById('calc-line-fill-1');
+    const lineFill2 = document.getElementById('calc-line-fill-2');
+    if (lineFill1) lineFill1.style.width = '100%';
+    if (lineFill2) lineFill2.style.width = '100%';
   });
 
   // ---- Restart ----
@@ -297,7 +350,7 @@ function initPricingCalcWidget() {
     resultsView.classList.remove('active');
     selectedPropType = '';
     propCards.forEach(c => { c.classList.remove('selected'); const r = c.querySelector('input'); if (r) r.checked = false; });
-    quoteBtn.disabled = true;
+    step2NextBtn.disabled = true;
     slider.value = 5;
     updateSlider();
     goToStep(1);

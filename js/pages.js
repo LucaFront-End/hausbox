@@ -462,7 +462,7 @@ function initRoiCalculators() {
     const hoursSaved = props * 5.5;
 
     // Animate results
-    if (mainResult) mainResult.textContent = '$' + Math.round(finalROI).toLocaleString() + ' MXN';
+    if (mainResult) mainResult.innerHTML = '$' + Math.round(finalROI).toLocaleString() + ' <span>MXN</span>';
     if (hoursResult) hoursResult.textContent = Math.round(hoursSaved) + ' hrs';
     if (conversionResult) conversionResult.textContent = (props > 10 ? '3.5x' : '5x');
   }
