@@ -3991,12 +3991,18 @@ textarea {
    ============================================================ */
 
 /* Gradient progress bar */
+.simple-progress-wrap {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .simple-progress {
   height: 6px;
   background: rgba(0, 0, 0, 0.06);
   border-radius: 99px;
   overflow: hidden;
-  margin-bottom: 2rem;
 }
 
 .simple-progress-bar {
@@ -4004,6 +4010,14 @@ textarea {
   background: linear-gradient(90deg, var(--accent), #06d6a0);
   border-radius: 99px;
   transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+
+.form-step-indicator {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  text-align: right;
+  letter-spacing: 0.02em;
 }
 
 /* Step number nav */

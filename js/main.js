@@ -792,6 +792,19 @@ function initMultistepForm() {
     const progress = stepNum > totalSteps ? 100 : (stepNum / totalSteps) * 100;
     if (progressBar) progressBar.style.width = progress + '%';
 
+    // Update step indicator text and progress bar wrap visibility
+    const stepIndicator = document.getElementById('formStepIndicator');
+    const progressWrap = document.querySelector('.simple-progress-wrap');
+    if (stepIndicator) {
+      if (stepNum > totalSteps) {
+        stepIndicator.textContent = '¡Completado!';
+        if (progressWrap) progressWrap.style.display = 'none';
+      } else {
+        stepIndicator.textContent = `Paso ${stepNum} de ${totalSteps}`;
+        if (progressWrap) progressWrap.style.display = 'block';
+      }
+    }
+
     // Update step number nav
     stepNums.forEach(btn => {
       const num = parseInt(btn.dataset.goto);
