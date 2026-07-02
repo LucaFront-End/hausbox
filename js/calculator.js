@@ -355,4 +355,16 @@ function initPricingCalcWidget() {
     updateSlider();
     goToStep(1);
   });
+
+  // ---- Show/Hide Floating Button on Scroll ----
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      openBtn.classList.add('show');
+    } else {
+      openBtn.classList.remove('show');
+    }
+  };
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Initial check
 }
+
