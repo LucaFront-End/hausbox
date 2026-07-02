@@ -15,93 +15,133 @@
 <body style="background:#f8fafc; color:#0f172a;">
 
   <!-- NAV -->
-  <nav class="site-nav" data-theme="light">
+  <nav class="site-nav" data-theme="dark">
     <div class="nav-inner">
+      <!-- Logo -->
       <a class="nav-logo" aria-label="HausBox" href="index.html">
-        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" class="logo-light" />
-        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-dark.png" alt="HausBox" style="height:28px;width:auto;display:none" class="logo-dark" />
+        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox"
+          style="height:28px;width:auto" class="logo-light" /><img
+          src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-dark.png" alt="HausBox"
+          style="height:28px;width:auto;display:none" class="logo-dark" />
       </a>
+
+      <!-- Desktop nav pills -->
       <div class="nav-pills">
+        <!-- Nosotros Dropdown -->
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" aria-haspopup="true">
             Nosotros
-            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </button>
           <div class="nav-dropdown-menu">
             <a href="nosotros.html">Nosotros</a>
             <a href="casos-de-exito.html">Casos de éxito</a>
           </div>
         </div>
+
         
+
+        <!-- Funcionalidades Mega Dropdown -->
         <div class="nav-dropdown nav-dropdown--mega">
           <button class="nav-dropdown-trigger" aria-haspopup="true">
             Funcionalidades
-            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </button>
           <div class="nav-mega-menu">
+            <!-- Column: Residentes -->
             <div class="mega-col">
               <div class="mega-col-header">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
                 <span>Para Residentes</span>
               </div>
               <a href="acceso-express.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#0DA3E2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7z"/></svg></div>
+                <div class="mega-icon" style="--accent:#0DA3E2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7z"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Acceso Express QR</div>
                   <div class="mega-desc">Códigos QR para ingreso de visitas</div>
                 </div>
               </a>
               <a href="reserva-amenidades.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#f97316"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                <div class="mega-icon" style="--accent:#f97316">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Reserva de Amenidades</div>
                   <div class="mega-desc">Salones, albercas y canchas</div>
                 </div>
               </a>
               <a href="pago-mantenimiento.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#06d6a0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+                <div class="mega-icon" style="--accent:#06d6a0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Pago de Mantenimiento</div>
                   <div class="mega-desc">Cuotas con tarjeta o SPEI</div>
                 </div>
               </a>
               <a href="comunicacion-avisos.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#8b5cf6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <div class="mega-icon" style="--accent:#8b5cf6">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Comunicación y Avisos</div>
                   <div class="mega-desc">Notificaciones push directas</div>
                 </div>
               </a>
             </div>
+            <!-- Divider -->
             <div class="mega-divider"></div>
+            <!-- Column: Administradores -->
             <div class="mega-col">
               <div class="mega-col-header">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
                 <span>Para Administradores</span>
               </div>
               <a href="cobranza-inteligente.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#0DA3E2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+                <div class="mega-icon" style="--accent:#0DA3E2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Cobranza Inteligente</div>
                   <div class="mega-desc">Recordatorios y recargos automáticos</div>
                 </div>
               </a>
               <a href="conciliacion-automatizada.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#10b981"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <div class="mega-icon" style="--accent:#10b981">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Conciliación Automatizada</div>
                   <div class="mega-desc">Vincula tu banco y concilia pagos</div>
                 </div>
               </a>
               <a href="contabilidad-profesional.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#f59e0b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                <div class="mega-icon" style="--accent:#f59e0b">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Contabilidad Profesional</div>
                   <div class="mega-desc">Balanzas, estados de cuenta y reportes</div>
                 </div>
               </a>
               <a href="mensajeria-multicanal.html" class="mega-item">
-                <div class="mega-icon" style="--accent:#f43f5e"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+                <div class="mega-icon" style="--accent:#f43f5e">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                </div>
                 <div>
                   <div class="mega-title">Mensajería Multicanal</div>
                   <div class="mega-desc">Comunicados, encuestas y avisos push</div>
@@ -110,30 +150,113 @@
             </div>
           </div>
         </div>
+
+        <!-- Comunidad Dropdown -->
         <div class="nav-dropdown">
           <button class="nav-dropdown-trigger" aria-haspopup="true">
             Comunidad
-            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
           </button>
           <div class="nav-dropdown-menu">
             <a href="blog.html">Blogs</a>
             <a href="comunidad.html">Comunidad</a>
           </div>
         </div>
+
         <a href="index.html#faq">FAQ</a>
+
         <span class="nav-divider"></span>
+
+        <!-- Iniciar Sesión / Ingresar -->
         <a href="https://app.hausbox.com" class="btn-login-nav">Ingresar</a>
-        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-          <span>Solicitar Demo</span>
+
+        <!-- Solicitar Demo -->
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0"
+          class="btn-cta-nav group" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:16px;height:16px">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z">
+            </path>
+          </svg>
+          <span class="rolling-text">
+            <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span
+                class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span
+                class="char-top" style="transition-delay:22ms">o</span><span class="char-bottom"
+                style="transition-delay:22ms">o</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:44ms">l</span><span class="char-bottom"
+                style="transition-delay:44ms">l</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:66ms">i</span><span class="char-bottom"
+                style="transition-delay:66ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:88ms">c</span><span class="char-bottom"
+                style="transition-delay:88ms">c</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:110ms">i</span><span class="char-bottom"
+                style="transition-delay:110ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:132ms">t</span><span class="char-bottom"
+                style="transition-delay:132ms">t</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:154ms">a</span><span class="char-bottom"
+                style="transition-delay:154ms">a</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:176ms">r</span><span class="char-bottom"
+                style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:198ms">&nbsp;</span><span class="char-bottom"
+                style="transition-delay:198ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:220ms">D</span><span class="char-bottom"
+                style="transition-delay:220ms">D</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:242ms">e</span><span class="char-bottom"
+                style="transition-delay:242ms">e</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:264ms">m</span><span class="char-bottom"
+                style="transition-delay:264ms">m</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:286ms">o</span><span class="char-bottom"
+                style="transition-delay:286ms">o</span></span>
+          </span>
         </a>
       </div>
+
+      <!-- Mobile CTA -->
       <div class="nav-mobile-cta">
-        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="btn-cta-nav group" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-          <span>Solicitar Demo</span>
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0"
+          class="btn-cta-nav group" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:16px;height:16px">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z">
+            </path>
+          </svg>
+          <span class="rolling-text">
+            <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span
+                class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span
+                class="char-top" style="transition-delay:22ms">o</span><span class="char-bottom"
+                style="transition-delay:22ms">o</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:44ms">l</span><span class="char-bottom"
+                style="transition-delay:44ms">l</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:66ms">i</span><span class="char-bottom"
+                style="transition-delay:66ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:88ms">c</span><span class="char-bottom"
+                style="transition-delay:88ms">c</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:110ms">i</span><span class="char-bottom"
+                style="transition-delay:110ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:132ms">t</span><span class="char-bottom"
+                style="transition-delay:132ms">t</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:154ms">a</span><span class="char-bottom"
+                style="transition-delay:154ms">a</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:176ms">r</span><span class="char-bottom"
+                style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:198ms">&nbsp;</span><span class="char-bottom"
+                style="transition-delay:198ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:220ms">D</span><span class="char-bottom"
+                style="transition-delay:220ms">D</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:242ms">e</span><span class="char-bottom"
+                style="transition-delay:242ms">e</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:264ms">m</span><span class="char-bottom"
+                style="transition-delay:264ms">m</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:286ms">o</span><span class="char-bottom"
+                style="transition-delay:286ms">o</span></span>
+          </span>
         </a>
       </div>
+
+      <!-- Spacer for grid balance -->
       <div class="nav-spacer" aria-hidden="true"></div>
     </div>
   </nav>
@@ -372,26 +495,91 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <a href="index.html" class="footer-logo" aria-label="HausBox"><img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox" style="height:28px;width:auto" /></a>
-        <div class="footer-links">
-          <a href="#">Política de Privacidad</a>
-          <a href="#">Términos de Servicio</a>
-          <a href="mailto:contacto@hausbox.com">contacto@hausbox.com</a>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <a href="index.html" class="footer-logo" aria-label="HausBox"><img
+              src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox"
+              style="height:28px;width:auto" /></a>
+
+          <div class="footer-links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+            <a href="mailto:contacto@hausbox.com">contacto@hausbox.com</a>
+          </div>
+
+          <div class="footer-apps">
+            <!-- App Store Badge -->
+            <a href="#" class="btn-store" aria-label="Descargar en App Store">
+              <svg class="store-svg" viewBox="0 0 135 40" width="135" height="40">
+                <rect width="135" height="40" rx="6" ry="6" fill="#000000" stroke="rgba(255,255,255,0.15)"
+                  stroke-width="1" />
+                <path
+                  d="M22.25 15.65c-.03-2.28 1.86-3.37 1.95-3.43-1.07-1.55-2.73-1.76-3.32-1.81-1.42-.15-2.78.84-3.5.84-.71 0-1.86-.82-3.05-.8-1.56.02-3 .91-3.8 2.3-1.61 2.8-.41 6.94 1.15 9.19.76 1.1 1.66 2.33 2.85 2.28 1.15-.05 1.58-.75 2.97-.75 1.38 0 1.78.75 2.98.72 1.22-.02 2.01-1.11 2.76-2.21.87-1.27 1.23-2.5 1.25-2.56-.03-.01-2.4-1.07-2.41-3.78z"
+                  fill="#ffffff" />
+                <path
+                  d="M19.16 9.11c.62-.75 1.04-1.8 1.04-2.85v-.16c-.9.04-2 .6-2.65 1.36-.57.65-1.07 1.72-1.07 2.76v.16c.99 0 2.06-.52 2.68-1.27z"
+                  fill="#ffffff" />
+                <text x="38" y="15" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="8"
+                  font-weight="600" letter-spacing="0.2">Disponible en</text>
+                <text x="38" y="28" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13"
+                  font-weight="700" letter-spacing="0.2">App Store</text>
+              </svg>
+            </a>
+            <!-- Google Play Badge -->
+            <a href="#" class="btn-store" aria-label="Descargar en Google Play">
+              <svg class="store-svg" viewBox="0 0 135 40" width="135" height="40">
+                <rect width="135" height="40" rx="6" ry="6" fill="#000000" stroke="rgba(255,255,255,0.15)"
+                  stroke-width="1" />
+                <g transform="translate(10, 8)">
+                  <path
+                    d="M1.5 1.72a1.69 1.69 0 0 0-.4 1.2v18.16a1.69 1.69 0 0 0 .4 1.2l.06.06L12.3 11.6v-.2L1.56 1.66z"
+                    fill="#32b5e5" />
+                  <path d="M15.86 15.22l-3.56-3.62V11.4l3.56-3.62.08.05 4.22 2.4a1.44 1.44 0 0 1 0 2.54l-4.22 2.4z"
+                    fill="#ffcc00" />
+                  <path d="M12.3 11.4L1.56 1.66a1.28 1.28 0 0 1 1.76 0l9 9z" fill="#ff3333" />
+                  <path d="M12.3 11.6L3.32 21.34a1.28 1.28 0 0 1-1.76 0z" fill="#00cc66" />
+                </g>
+                <text x="38" y="15" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="8"
+                  font-weight="600" letter-spacing="0.2">Disponible en</text>
+                <text x="38" y="28" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13"
+                  font-weight="700" letter-spacing="0.2">Google Play</text>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 HausBox. Todos los derechos reservados.</p>
+          <div class="footer-social">
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.88-2.88 2.89 2.89 0 0 1 2.88-2.88c.28 0 .56.04.81.12v-3.49a6.37 6.37 0 0 0-.81-.05A6.34 6.34 0 0 0 3.15 15.4a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.16a8.18 8.18 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.59z" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="footer-social">
-          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-        </div>
-        <div class="footer-copy">
-          <span>© 2026 HausBox. Todos los derechos reservados.</span>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
   <div class="floating-whatsapp-container">
     <div class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</div>
