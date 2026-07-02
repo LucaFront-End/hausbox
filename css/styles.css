@@ -576,6 +576,30 @@ textarea {
   color: #000000;
 }
 
+/* Mobile Precios Link Styling & Theme overrides */
+.nav-link-mobile-precios {
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 300ms ease;
+}
+
+.site-nav[data-theme="dark"] .nav-link-mobile-precios {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.site-nav[data-theme="dark"] .nav-link-mobile-precios:hover {
+  color: #ffffff !important;
+}
+
+.site-nav[data-theme="light"] .nav-link-mobile-precios {
+  color: rgba(31, 32, 37, 0.8) !important;
+}
+
+.site-nav[data-theme="light"] .nav-link-mobile-precios:hover {
+  color: #000000 !important;
+}
+
 /* Mobile CTA Button */
 .btn-cta-nav {
   display: inline-flex;
