@@ -1872,6 +1872,12 @@ textarea {
   /* height set dynamically by JS to create scroll room */
 }
 
+@media (max-width: 767px) {
+  #highlights {
+    display: none !important;
+  }
+}
+
 .highlights-scroller-container {
   position: sticky;
   top: 0;

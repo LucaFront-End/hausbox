@@ -408,6 +408,11 @@ function initHighlightsLateralScroll() {
   const inner = document.querySelector('.highlights-scroller-inner');
   if (!section || !inner) return;
 
+  // Disable and skip on mobile
+  if (window.innerWidth < 768) {
+    return;
+  }
+
   function setHeight() {
     // Reset to measure natural inner width
     inner.style.transform = '';
