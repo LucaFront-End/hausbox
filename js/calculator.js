@@ -7,8 +7,39 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initPricingCalcWidget() {
-  const PRICE_PER_UNIT = 20;
   const WA_PHONE = '5215574374431';
+
+  const MXN_TIERS = [
+    { max: 25, price: 13.90 },
+    { max: 50, price: 12.90 },
+    { max: 100, price: 10.90 },
+    { max: 250, price: 7.90 },
+    { max: 500, price: 4.90 },
+    { max: 700, price: 4.10 },
+    { max: 900, price: 3.50 },
+    { max: Infinity, price: 3.20 }
+  ];
+
+  const USD_TIERS = [
+    { max: 25, price: 0.99 },
+    { max: 50, price: 0.95 },
+    { max: 100, price: 0.85 },
+    { max: 250, price: 0.69 },
+    { max: 500, price: 0.49 },
+    { max: 700, price: 0.44 },
+    { max: 900, price: 0.25 },
+    { max: Infinity, price: 0.22 }
+  ];
+
+  function getPricePerUnit(units, currency) {
+    const tiers = currency === 'USD' ? USD_TIERS : MXN_TIERS;
+    for (const tier of tiers) {
+      if (units <= tier.max) {
+        return tier.price;
+      }
+    }
+    return tiers[tiers.length - 1].price;
+  }
 
   const PROPERTY_TYPES = [
     { 
@@ -134,17 +165,30 @@ function initPricingCalcWidget() {
             <p>Ajusta el número de unidades para estimar tu costo.</p>
           </div>
           <div class="calc-form" id="calc-form-step3">
+            <!-- Currency Selector -->
+            <div class="calc-currency-toggle">
+              <span class="currency-toggle-label">Moneda de visualización</span>
+              <div class="currency-toggle-group">
+                <button type="button" class="currency-btn active" data-currency="MXN">Pesos MXN</button>
+                <button type="button" class="currency-btn" data-currency="USD">Dólares USD</button>
+              </div>
+            </div>
+
             <div class="calc-slider-group" style="margin-bottom: 2rem;">
               <div class="calc-slider-header">
                 <label>Número de unidades</label>
-                <div class="calc-slider-value" id="calc-units-display">5 <span>unidades</span></div>
+                <div class="calc-slider-value" id="calc-units-display">50 <span>unidades</span></div>
               </div>
-              <input type="range" class="calc-range" id="calc-units" min="5" max="100" value="5" step="1" />
+              <input type="range" class="calc-range" id="calc-units" min="5" max="1000" value="50" step="5" />
             </div>
 
-            <div class="calc-price-preview" style="margin-bottom: 2.5rem;">
+            <div class="calc-price-preview" style="margin-bottom: 2.5rem; text-align: center;">
               <div class="price-label">Costo mensual estimado</div>
-              <div class="price-amount" id="calc-price-display">$100 <small>MXN / mes</small></div>
+              <div class="price-amount" id="calc-price-display">$645 <small>MXN / mes</small></div>
+              <div class="price-promo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                Paga 11 meses y obtén 1 mes gratis
+              </div>
             </div>
 
             <div class="calc-form__actions">
@@ -203,17 +247,33 @@ function initPricingCalcWidget() {
   // ---- State ----
   let currentStep = 1;
   let selectedPropType = '';
+  let selectedCurrency = 'MXN';
 
   // ---- Slider ----
   function updateSlider() {
     const val = parseInt(slider.value, 10);
-    const pct = ((val - 5) / (100 - 5)) * 100;
+    const pct = ((val - 5) / (1000 - 5)) * 100;
     slider.style.setProperty('--range-pct', pct + '%');
+    
+    const unitPrice = getPricePerUnit(val, selectedCurrency);
+    const totalCost = val * unitPrice;
+    
     unitsDisplay.innerHTML = val + ' <span>unidades</span>';
-    priceDisplay.innerHTML = '$' + (val * PRICE_PER_UNIT).toLocaleString('es-MX') + ' <small>MXN / mes</small>';
+    priceDisplay.innerHTML = '$' + totalCost.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' <small>' + selectedCurrency + ' / mes</small>';
   }
   slider.addEventListener('input', updateSlider);
   updateSlider();
+
+  // ---- Currency Toggle ----
+  const currencyBtns = overlay.querySelectorAll('.currency-btn');
+  currencyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currencyBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedCurrency = btn.dataset.currency;
+      updateSlider();
+    });
+  });
 
   // ---- Property Card Selection ----
   propCards.forEach(card => {
@@ -306,7 +366,9 @@ function initPricingCalcWidget() {
     const phone   = document.getElementById('calc-phone').value.trim();
     const city    = document.getElementById('calc-city').value.trim();
     const units   = parseInt(slider.value, 10);
-    const total   = units * PRICE_PER_UNIT;
+    
+    const unitPrice = getPricePerUnit(units, selectedCurrency);
+    const total = units * unitPrice;
 
     // Results
     document.getElementById('calc-result-summary').textContent =
@@ -315,9 +377,10 @@ function initPricingCalcWidget() {
     document.getElementById('calc-result-card').innerHTML = `
       <div class="result-row"><span class="rl">Tipo de propiedad</span><span class="rv">${selectedPropType}</span></div>
       <div class="result-row"><span class="rl">Unidades</span><span class="rv">${units}</span></div>
-      <div class="result-row"><span class="rl">Precio por unidad</span><span class="rv">$${PRICE_PER_UNIT} MXN</span></div>
+      <div class="result-row"><span class="rl">Precio por unidad</span><span class="rv">$${unitPrice.toFixed(2)} ${selectedCurrency}</span></div>
       ${city ? `<div class="result-row"><span class="rl">Ciudad</span><span class="rv">${city}</span></div>` : ''}
-      <div class="result-total"><span class="rl">Total mensual</span><span class="rv">$${total.toLocaleString('es-MX')} MXN</span></div>
+      <div class="result-total"><span class="rl">Total mensual</span><span class="rv">$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}</span></div>
+      <div class="result-row" style="margin-top: 8px; font-weight: 600; color: #059669; font-size: 11px;"><span class="rl">Promoción</span><span class="rv">🎁 Paga 11, llévate 12</span></div>
     `;
 
     const waMsg = encodeURIComponent(
@@ -326,7 +389,8 @@ function initPricingCalcWidget() {
       `📋 Mi plan calculado:\n` +
       `• Tipo: ${selectedPropType}\n` +
       `• Unidades: ${units}\n` +
-      `• Total mensual: $${total.toLocaleString('es-MX')} MXN\n` +
+      `• Total mensual: $${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}\n` +
+      `• Promoción: Paga 11 meses y obtén 1 mes gratis (12 meses en total)\n` +
       (city ? `• Ciudad: ${city}\n` : '') +
       `\n📧 ${email}\n📱 ${phone}`
     );

@@ -4381,3 +4381,57 @@ input[type="range"].calc-range::-moz-range-thumb {
   80%, 100% { content: "Código QR Generado"; }
 }
 
+/* --- Calculator Currency Toggle & Promo badge --- */
+.calc-currency-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.currency-toggle-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+.currency-toggle-group {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 99px;
+  padding: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+.currency-btn {
+  border: none;
+  background: transparent;
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.currency-btn.active {
+  background: #ffffff;
+  color: #0DA3E2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.price-promo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: rgba(6, 214, 160, 0.08);
+  color: #059669;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(6, 214, 160, 0.15);
+  animation: pulsePromo 2.5s infinite ease-in-out;
+}
+@keyframes pulsePromo {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
