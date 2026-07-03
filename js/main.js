@@ -294,6 +294,7 @@ function initMobileFeatures() {
   ];
 
   let currentMobileSlide = 0;
+  let autoplayTimer = null;
 
   // Helper to play/pause videos inside slides
   function toggleVideo(slide, play) {
@@ -308,78 +309,103 @@ function initMobileFeatures() {
     }
   }
 
-  // Play initial active mobile video
-  phoneSlides.forEach((slide, i) => {
-    if (slide.classList.contains('active')) {
-      toggleVideo(slide, true);
+  // Update slide display
+  function setMobileSlide(slideIndex) {
+    currentMobileSlide = (slideIndex + mobileTexts.length) % mobileTexts.length;
+
+    // Update text content
+    const h2 = textEl.querySelector('h2');
+    const p = textEl.querySelector('p');
+    const a = textEl.querySelector('.mobile-feature-link');
+    if (h2) h2.innerHTML = mobileTexts[currentMobileSlide].title;
+    if (p) p.textContent = mobileTexts[currentMobileSlide].desc;
+    if (a) {
+      a.setAttribute('href', mobileTexts[currentMobileSlide].linkHref);
+      a.innerHTML = mobileTexts[currentMobileSlide].linkText + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
     }
+
+    // Update phone mockups
+    phoneSlides.forEach((slide, i) => {
+      const isActive = i === currentMobileSlide;
+      slide.classList.toggle('active', isActive);
+      toggleVideo(slide, isActive);
+    });
+
+    // Update dots
+    const dots = container.querySelectorAll('.mobile-features-progress .progress-dot');
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === currentMobileSlide);
+    });
+
+    // Update background color transitions on container
+    const stickyWrapper = container.querySelector('.features-mobile-sticky');
+    if (stickyWrapper) {
+      stickyWrapper.className = `features-mobile-sticky bg-slide-${currentMobileSlide}`;
+    }
+  }
+
+  // Autoplay control
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(() => {
+      setMobileSlide(currentMobileSlide + 1);
+    }, 5500); // Transitions every 5.5s
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  // Bind dots clicking
+  const dots = container.querySelectorAll('.mobile-features-progress .progress-dot');
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      stopAutoplay();
+      setMobileSlide(idx);
+    });
   });
 
-  function updateMobileSlide() {
-    if (!container.offsetParent && getComputedStyle(container).display === 'none') return;
-
-    const rect = container.getBoundingClientRect();
-    const totalScroll = container.offsetHeight - window.innerHeight;
-    const scrolled = -rect.top;
-    const progress = Math.max(0, Math.min(1, scrolled / totalScroll));
-    const slideIndex = Math.min(
-      mobileTexts.length - 1,
-      Math.floor(progress * mobileTexts.length)
-    );
-
-    if (slideIndex !== currentMobileSlide) {
-      currentMobileSlide = slideIndex;
-
-      // Update text
-      const h2 = textEl.querySelector('h2');
-      const p = textEl.querySelector('p');
-      const a = textEl.querySelector('.mobile-feature-link');
-      if (h2) h2.innerHTML = mobileTexts[slideIndex].title;
-      if (p) p.textContent = mobileTexts[slideIndex].desc;
-      if (a) {
-        a.setAttribute('href', mobileTexts[slideIndex].linkHref);
-        a.innerHTML = mobileTexts[slideIndex].linkText + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
-      }
-
-      // Update phone slides
-      phoneSlides.forEach((slide, i) => {
-        const isActive = i === slideIndex;
-        slide.classList.toggle('active', isActive);
-        toggleVideo(slide, isActive);
-      });
-
-      // Update progress dots
-      const dots = container.querySelectorAll('.mobile-features-progress .progress-dot');
-      dots.forEach((dot, idx) => {
-        dot.classList.toggle('active', idx === slideIndex);
-      });
-
-      // Update background class on sticky container
-      const stickyWrapper = container.querySelector('.features-mobile-sticky');
-      if (stickyWrapper) {
-        stickyWrapper.className = `features-mobile-sticky bg-slide-${slideIndex}`;
-      }
-    }
+  // Bind arrows clicking
+  const prevBtn = container.querySelector('.prev-arrow');
+  const nextBtn = container.querySelector('.next-arrow');
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      stopAutoplay();
+      setMobileSlide(currentMobileSlide - 1);
+    });
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      stopAutoplay();
+      setMobileSlide(currentMobileSlide + 1);
+    });
   }
 
-  window.addEventListener('scroll', () => {
-    requestAnimationFrame(updateMobileSlide);
+  // Bind touch swipe gestures
+  let startX = 0;
+  container.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
   }, { passive: true });
 
-  // Init first
-  const h2 = textEl.querySelector('h2');
-  const p = textEl.querySelector('p');
-  const a = textEl.querySelector('.mobile-feature-link');
-  if (h2) h2.innerHTML = mobileTexts[0].title;
-  if (p) p.textContent = mobileTexts[0].desc;
-  if (a) {
-    a.setAttribute('href', mobileTexts[0].linkHref);
-    a.innerHTML = mobileTexts[0].linkText + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>';
-  }
-  const stickyWrapper = container.querySelector('.features-mobile-sticky');
-  if (stickyWrapper) {
-    stickyWrapper.className = 'features-mobile-sticky bg-slide-0';
-  }
+  container.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+    if (Math.abs(diffX) > 40) { // 40px threshold for swipes
+      stopAutoplay();
+      if (diffX > 0) {
+        setMobileSlide(currentMobileSlide + 1);
+      } else {
+        setMobileSlide(currentMobileSlide - 1);
+      }
+    }
+  }, { passive: true });
+
+  // Initialize
+  setMobileSlide(0);
+  startAutoplay();
 }
 
 /* ============================================================
