@@ -543,7 +543,7 @@ function initDashboardSimulators() {
 
 /* --- Magnetic buttons --- */
 function initMagneticButtons() {
-  const links = document.querySelectorAll('.btn-cta-hero, .btn-cta-nav, .event-card__cta');
+  const links = document.querySelectorAll('.event-card__cta');
   links.forEach(link => {
     link.addEventListener('mousemove', (e) => {
       const rect = link.getBoundingClientRect();
