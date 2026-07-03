@@ -3586,8 +3586,8 @@
   50% { box-shadow: 0 8px 28px rgba(13, 163, 226, 0.35), 0 0 0 10px rgba(13, 163, 226, 0); }
 }
 
-@media (max-width: 767px) {
-  .floating-calc-btn { bottom: 85px; right: 16px; height: 46px; padding: 0 18px; font-size: 13px; }
+@media (max-width: 1023px) {
+  .floating-calc-btn { display: none !important; }
 }
 
 /* --- Modal Overlay --- */

@@ -86,6 +86,12 @@ function initPricingCalcWidget() {
   // --- Inject HTML ---
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
+    <!-- Floating Calc Button -->
+    <button class="floating-calc-btn" id="calc-open-btn" aria-label="Calcula tu Plan">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
+      <span>Calcula tu Plan</span>
+    </button>
+
     <!-- Modal Overlay -->
     <div class="calc-modal-overlay" id="calc-modal-overlay">
       <div class="calc-modal" id="calc-modal">
@@ -420,5 +426,18 @@ function initPricingCalcWidget() {
     updateSlider();
     goToStep(1);
   });
+
+  // ---- Show/Hide Floating Button on Scroll ----
+  const openBtn = document.getElementById('calc-open-btn');
+  const handleScroll = () => {
+    if (!openBtn) return;
+    if (window.scrollY > 300) {
+      openBtn.classList.add('show');
+    } else {
+      openBtn.classList.remove('show');
+    }
+  };
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Initial check
 }
 
