@@ -4,6 +4,7 @@
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   try { initPricingCalcWidget(); } catch(e) { console.warn('[HausBox] Calculator widget error:', e); }
+  try { initWixChatObserver(); } catch(e) { console.warn('[HausBox] Wix Chat observer error:', e); }
 });
 
 function initPricingCalcWidget() {
@@ -439,5 +440,47 @@ function initPricingCalcWidget() {
   };
   window.addEventListener('scroll', handleScroll);
   handleScroll(); // Initial check
+}
+
+/* ============================================================
+   WIX INBOX CHAT — Observer to auto-stack floating elements
+   ============================================================ */
+function initWixChatObserver() {
+  let checkCount = 0;
+  const maxChecks = 30; // Check for 1 minute
+
+  const checkChat = () => {
+    // Selectors for Wix Chat widget wrappers or loaded frames
+    const wixWidget = document.querySelector('#WixChatWidget, [data-hook="wix-chat-widget"], .wix-chat-widget, iframe[title="Wix Chat"], #WIX_CHAT_CONTAINER, iframe[src*="wix-chat"]');
+    if (wixWidget) {
+      document.body.classList.add('wix-chat-active');
+      return true;
+    }
+    return false;
+  };
+
+  // Run initial check
+  if (checkChat()) return;
+
+  // Set up polling
+  const interval = setInterval(() => {
+    checkCount++;
+    if (checkChat() || checkCount >= maxChecks) {
+      clearInterval(interval);
+    }
+  }, 2000);
+
+  // Set up MutationObserver as a fallback for snappy detection
+  const observer = new MutationObserver((mutations, obs) => {
+    if (checkChat()) {
+      obs.disconnect();
+      clearInterval(interval);
+    }
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 }
 

@@ -3567,7 +3567,7 @@
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px) scale(0.9);
-  transition: opacity 300ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 300ms ease;
+  transition: opacity 300ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 300ms ease, bottom 300ms ease;
 }
 .floating-calc-btn.show {
   opacity: 1;
@@ -3588,9 +3588,26 @@
   50% { box-shadow: 0 8px 28px rgba(13, 163, 226, 0.35), 0 0 0 10px rgba(13, 163, 226, 0); }
 }
 
-@media (max-width: 1023px) {
-  .floating-calc-btn { display: none !important; }
+@media (max-width: 767px) {
+  .floating-calc-btn {
+    bottom: 84px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .floating-calc-btn span {
+    display: none;
+  }
+  .floating-calc-btn svg {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
 }
+
 
 /* --- Modal Overlay --- */
 .calc-modal-overlay {
@@ -4435,5 +4452,26 @@ input[type="range"].calc-range::-moz-range-thumb {
 @keyframes pulsePromo {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.02); }
+}
+
+/* --- Wix Chat Auto-stack Overrides --- */
+.floating-whatsapp-container {
+  transition: bottom 300ms ease !important;
+}
+
+body.wix-chat-active .floating-whatsapp-container {
+  bottom: 96px;
+}
+body.wix-chat-active .floating-calc-btn {
+  bottom: 172px;
+}
+
+@media (max-width: 767px) {
+  body.wix-chat-active .floating-whatsapp-container {
+    bottom: 84px;
+  }
+  body.wix-chat-active .floating-calc-btn {
+    bottom: 148px;
+  }
 }
 
