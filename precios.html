@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050c14" />
+
+  <title>Precios — HausBox | Paga solo lo que necesitas</title>
+  <meta name="description"
+    content="Precios transparentes y flexibles para tu condominio o desarrollo. Calcula tu costo mensual, paga solo por las unidades que administras y obtén soporte premium incluido." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=1.0.8" />
+  <link rel="stylesheet" href="css/pages.css?v=1.1.2" />
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" data-theme="light">
+    <div class="nav-inner">
+      <!-- Logo -->
+      <a class="nav-logo" aria-label="HausBox" href="index.html">
+        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-dark.png" alt="HausBox"
+          style="height:28px;width:auto" class="logo-dark" />
+        <img src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox"
+          style="height:28px;width:auto;display:none" class="logo-light" />
+      </a>
+
+      <!-- Desktop nav pills -->
+      <div class="nav-pills">
+        <!-- Nosotros Dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Nosotros
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="casos-de-exito.html">Casos de éxito</a>
+          </div>
+        </div>
+
+        <!-- Funcionalidades Mega Dropdown -->
+        <div class="nav-dropdown nav-dropdown--mega">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Funcionalidades
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="nav-mega-menu">
+            <div class="mega-col">
+              <div class="mega-col-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Para Residentes</span>
+              </div>
+              <a href="acceso-express.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#0DA3E2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7h4v4H7zM13 7h4v4h-4zM7 13h4v4H7z"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Acceso Express QR</div>
+                  <div class="mega-desc">Códigos QR para ingreso de visitas</div>
+                </div>
+              </a>
+              <a href="reserva-amenidades.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#f97316">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Reserva de Amenidades</div>
+                  <div class="mega-desc">Salones, albercas y canchas</div>
+                </div>
+              </a>
+              <a href="pago-mantenimiento.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#06d6a0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Pago de Mantenimiento</div>
+                  <div class="mega-desc">Cuotas con tarjeta o SPEI</div>
+                </div>
+              </a>
+              <a href="comunicacion-avisos.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#8b5cf6">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Comunicación y Avisos</div>
+                  <div class="mega-desc">Notificaciones push directas</div>
+                </div>
+              </a>
+            </div>
+            <div class="mega-divider"></div>
+            <div class="mega-col">
+              <div class="mega-col-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>Para Administradores</span>
+              </div>
+              <a href="cobranza-inteligente.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#0DA3E2">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Cobranza Inteligente</div>
+                  <div class="mega-desc">Recordatorios y recargos automáticos</div>
+                </div>
+              </a>
+              <a href="conciliacion-automatizada.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#10b981">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Conciliación Automatizada</div>
+                  <div class="mega-desc">Vincula tu banco y concilia pagos</div>
+                </div>
+              </a>
+              <a href="contabilidad-profesional.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#f59e0b">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Contabilidad Profesional</div>
+                  <div class="mega-desc">Balanzas, estados de cuenta y reportes</div>
+                </div>
+              </a>
+              <a href="mensajeria-multicanal.html" class="mega-item">
+                <div class="mega-icon" style="--accent:#f43f5e">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                </div>
+                <div>
+                  <div class="mega-title">Mensajería Multicanal</div>
+                  <div class="mega-desc">Comunicados, encuestas y avisos push</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comunidad Dropdown -->
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-haspopup="true">
+            Comunidad
+            <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="blog.html">Blogs</a>
+            <a href="comunidad.html">Comunidad</a>
+          </div>
+        </div>
+
+        <!-- Precios -->
+        <a href="precios.html">Precios</a>
+
+        <span class="nav-divider"></span>
+
+        <!-- Iniciar Sesión / Ingresar -->
+        <a href="https://app.hausbox.com" class="btn-login-nav">Ingresar</a>
+
+        <!-- Solicitar Demo -->
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0"
+          class="btn-cta-nav group" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:16px;height:16px">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z">
+            </path>
+          </svg>
+          <span class="rolling-text">
+            <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span
+                class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span
+                class="char-top" style="transition-delay:22ms">o</span><span class="char-bottom"
+                style="transition-delay:22ms">o</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:44ms">l</span><span class="char-bottom"
+                style="transition-delay:44ms">l</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:66ms">i</span><span class="char-bottom"
+                style="transition-delay:66ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:88ms">c</span><span class="char-bottom"
+                style="transition-delay:88ms">c</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:110ms">i</span><span class="char-bottom"
+                style="transition-delay:110ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:132ms">t</span><span class="char-bottom"
+                style="transition-delay:132ms">t</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:154ms">a</span><span class="char-bottom"
+                style="transition-delay:154ms">a</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:176ms">r</span><span class="char-bottom"
+                style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:198ms">&nbsp;</span><span class="char-bottom"
+                style="transition-delay:198ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:220ms">D</span><span class="char-bottom"
+                style="transition-delay:220ms">D</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:242ms">e</span><span class="char-bottom"
+                style="transition-delay:242ms">e</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:264ms">m</span><span class="char-bottom"
+                style="transition-delay:264ms">m</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:286ms">o</span><span class="char-bottom"
+                style="transition-delay:286ms">o</span></span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Mobile CTA -->
+      <div class="nav-mobile-cta">
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0"
+          class="btn-cta-nav group" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" style="width:16px;height:16px">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z">
+            </path>
+          </svg>
+          <span class="rolling-text">
+            <span class="rolling-char"><span class="char-top" style="transition-delay:0ms">S</span><span
+                class="char-bottom" style="transition-delay:0ms">S</span></span><span class="rolling-char"><span
+                class="char-top" style="transition-delay:22ms">o</span><span class="char-bottom"
+                style="transition-delay:22ms">o</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:44ms">l</span><span class="char-bottom"
+                style="transition-delay:44ms">l</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:66ms">i</span><span class="char-bottom"
+                style="transition-delay:66ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:88ms">c</span><span class="char-bottom"
+                style="transition-delay:88ms">c</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:110ms">i</span><span class="char-bottom"
+                style="transition-delay:110ms">i</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:132ms">t</span><span class="char-bottom"
+                style="transition-delay:132ms">t</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:154ms">a</span><span class="char-bottom"
+                style="transition-delay:154ms">a</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:176ms">r</span><span class="char-bottom"
+                style="transition-delay:176ms">r</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:198ms">&nbsp;</span><span class="char-bottom"
+                style="transition-delay:198ms">&nbsp;</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:220ms">D</span><span class="char-bottom"
+                style="transition-delay:220ms">D</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:242ms">e</span><span class="char-bottom"
+                style="transition-delay:242ms">e</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:264ms">m</span><span class="char-bottom"
+                style="transition-delay:264ms">m</span></span><span class="rolling-char"><span class="char-top"
+                style="transition-delay:286ms">o</span><span class="char-bottom"
+                style="transition-delay:286ms">o</span></span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Spacer for grid balance -->
+      <div class="nav-spacer" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <!-- MAIN STRUCTURE -->
+  <main style="flex:1; background: #fafbfc;">
+
+    <section class="pricing-hero">
+      <div class="pricing-hero__glow"></div>
+      <div class="pricing-container">
+        
+        <!-- HEADER -->
+        <div class="pricing-header">
+          <div class="pricing-badge">Paga solo lo que ocupas</div>
+          <h1>Planes flexibles, <span class="serif">sin sorpresas.</span></h1>
+          <p>HausBox es escalable y transparente. Sin cargos ocultos, sin comisiones de instalación y con soporte de primer nivel siempre incluido.</p>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- LEFT COLUMN: Simulator + Advantages -->
+          <div class="pricing-left">
+            
+            <!-- Simulator Panel -->
+            <div class="pricing-panel">
+              <h3 class="panel-title">Calculadora de Plan</h3>
+              <p class="panel-desc">Usa el simulador para estimar el costo mensual en base a tus unidades.</p>
+              
+              <!-- Currency Toggle -->
+              <div class="pricing-currency-toggle">
+                <span class="currency-toggle-label">Moneda:</span>
+                <div class="currency-toggle-group">
+                  <button type="button" class="currency-btn active" id="page-curr-mxn">Pesos MXN</button>
+                  <button type="button" class="currency-btn" id="page-curr-usd">Dólares USD</button>
+                </div>
+              </div>
+
+              <!-- Property Selector -->
+              <div class="pricing-prop-selector">
+                <span class="prop-selector-label">Tipo de propiedad:</span>
+                <div class="pricing-prop-grid" id="page-prop-grid">
+                  <!-- JS will render property selector cards here -->
+                </div>
+              </div>
+
+              <!-- Units Slider -->
+              <div class="pricing-slider-group">
+                <div class="pricing-slider-header">
+                  <label>Número de unidades</label>
+                  <div class="pricing-slider-value" id="page-units-display">50 <span>unidades</span></div>
+                </div>
+                <input type="range" class="pricing-range" id="page-units-slider" min="5" max="1000" value="50" step="5" />
+              </div>
+
+              <!-- Dynamic Price Preview -->
+              <div class="pricing-price-preview">
+                <div class="price-label">Costo mensual estimado</div>
+                <div class="price-amount" id="page-price-display">$645 <small>MXN / mes</small></div>
+                <div class="price-promo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                  Paga 11 meses y obtén 1 mes gratis (12 meses en total)
+                </div>
+              </div>
+            </div>
+
+            <!-- Advantages Section -->
+            <div class="advantages-section">
+              <h3>¿Por qué HausBox te da más por menos?</h3>
+              <p class="section-intro">Comparado con otras plataformas del mercado, HausBox te ofrece el conjunto completo de herramientas sin costos extras o sorpresas.</p>
+              
+              <div class="advantages-grid">
+                <!-- Advantage item -->
+                <div class="advantage-card">
+                  <div class="adv-icon">✓</div>
+                  <div>
+                    <h4>Sin costos de instalación ni capacitación</h4>
+                    <p>Configuramos tu cuenta, cargamos tu base de datos y capacitamos a tu comité sin cobrarte un solo centavo extra.</p>
+                  </div>
+                </div>
+                <div class="advantage-card">
+                  <div class="adv-icon">✓</div>
+                  <div>
+                    <h4>Soporte premium incluido</h4>
+                    <p>Atención inmediata por teléfono, WhatsApp y correo de 9am a 6pm. Tu propio gestor de cuenta asignado para resolver cualquier duda.</p>
+                  </div>
+                </div>
+                <div class="advantage-card">
+                  <div class="adv-icon">✓</div>
+                  <div>
+                    <h4>Usuarios y administradores ilimitados</h4>
+                    <p>Agrega a todos los guardias, administradores, contadores y miembros del comité que necesites. No cobramos por licencias de usuario.</p>
+                  </div>
+                </div>
+                <div class="advantage-card">
+                  <div class="adv-icon">✓</div>
+                  <div>
+                    <h4>App de residentes 100% gratis</h4>
+                    <p>Tus condóminos descargan e interactúan con la aplicación sin costo. Todo incluido en la cuota por unidad.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Features checklist group -->
+            <div class="features-checklist">
+              <h3>Todas las funcionalidades, siempre incluidas</h3>
+              <div class="checklist-grid">
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Acceso Express QR</span>
+                </div>
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Reserva de amenidades</span>
+                </div>
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Cobros SPEI, Tarjeta y OXXO</span>
+                </div>
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Conciliación Bancaria Automática</span>
+                </div>
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Contabilidad Profesional integrada</span>
+                </div>
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Envío de avisos y encuestas push</span>
+                </div>
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Módulo de seguridad para caseta</span>
+                </div>
+                <div class="checklist-item">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Reportes financieros en tiempo real</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: Sticky Form following scroll -->
+          <div class="pricing-right-col">
+            <div class="pricing-sticky-card">
+              <div class="sticky-card-header">
+                <h3>Solicita tu Cotización</h3>
+                <p>Completa tus datos para recibir una propuesta formal adaptada a tu desarrollo.</p>
+              </div>
+              
+              <form class="sticky-quote-form" id="pricing-quote-form">
+                <div class="form-group">
+                  <label for="quote-name">Nombre completo</label>
+                  <input type="text" id="quote-name" placeholder="Ej. Alejandra Gómez" required />
+                </div>
+                
+                <div class="form-group">
+                  <label for="quote-email">Correo electrónico</label>
+                  <input type="email" id="quote-email" placeholder="tu@email.com" required />
+                </div>
+                
+                <div class="form-group">
+                  <label for="quote-phone">Teléfono</label>
+                  <input type="tel" id="quote-phone" placeholder="55 1234 5678" required />
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="quote-prop-type">Tipo de propiedad</label>
+                    <select id="quote-prop-type" required>
+                      <option value="" disabled selected>Seleccionar...</option>
+                      <option value="Condominio Residencial">Condominio Residencial</option>
+                      <option value="Condominio Vertical">Condominio Vertical</option>
+                      <option value="Renta Vacacional">Renta Vacacional</option>
+                      <option value="Desarrollo Inmobiliario">Desarrollo Inmobiliario</option>
+                      <option value="Oficinas">Oficinas</option>
+                      <option value="Otro">Otro</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="quote-units">Unidades</label>
+                    <input type="number" id="quote-units" min="5" max="1000" value="50" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="quote-city">Ciudad <span style="opacity:0.6;font-weight:400;">(opcional)</span></label>
+                  <input type="text" id="quote-city" placeholder="Ej. CDMX" />
+                </div>
+
+                <!-- Price summary inside form -->
+                <div class="form-price-summary">
+                  <div class="summary-row">
+                    <span>Costo mensual estimado:</span>
+                    <strong id="form-summary-price">$645 MXN</strong>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn-quote-submit">
+                  <span>Solicitar Propuesta</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </form>
+
+              <!-- Success State -->
+              <div class="quote-success-state" id="quote-success-view" style="display:none;">
+                <div class="success-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>¡Propuesta Solicitada!</h3>
+                <p class="success-desc">Hemos recibido tus datos y te contactaremos a la brevedad con tu cotización formal.</p>
+                <a class="success-wa-btn" id="success-wa-link" href="#" target="_blank">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                  Enviar por WhatsApp
+                </a>
+                <button type="button" class="success-back-btn" id="success-back-btn">Hacer otra solicitud</button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo" aria-label="HausBox"><img
+            src="https://www.hausbox.com/wp-content/uploads/2025/06/logo-hausbox-light.png" alt="HausBox"
+            style="height:28px;width:auto" /></a>
+
+        <div class="footer-links">
+          <a href="precios.html">Precios</a>
+          <a href="#">Política de Privacidad</a>
+          <a href="#">Términos de Servicio</a>
+          <a href="mailto:contacto@hausbox.com">contacto@hausbox.com</a>
+        </div>
+
+        <div class="footer-apps">
+          <a href="#" class="btn-store" aria-label="Descargar en App Store">
+            <svg class="store-svg" viewBox="0 0 135 40" width="135" height="40">
+              <rect width="135" height="40" rx="6" fill="#000000" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+              <path
+                d="M23.95 24.1c-.1.7-.5 1.5-1.1 2.2-.6.7-1.3 1.4-2.1 1.4-.8 0-1.1-.5-2-.5-.9 0-1.2.5-2 .5-.8 0-1.5-.7-2.1-1.4-.7-.9-1.2-2.1-1.2-3.3 0-1.9 1.2-2.9 2.4-2.9.8 0 1.5.5 2 .5.5 0 1.3-.5 2.2-.5 1 0 1.8.4 2.3 1.2-2 .8-1.7 3.3.7 4.3M21.5 17.5c.5-.6.8-1.4.7-2.2-.7 0-1.6.5-2.1 1.1-.5.6-.8 1.4-.7 2.2.8 0 1.6-.5 2.1-1.1"
+                fill="#ffffff" />
+              <text x="38" y="15" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="8" font-weight="600"
+                letter-spacing="0.2">Descargar en la</text>
+              <text x="38" y="28" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="700"
+                letter-spacing="0.2">App Store</text>
+            </svg>
+          </a>
+          <a href="#" class="btn-store" aria-label="Descargar en Google Play">
+            <svg class="store-svg" viewBox="0 0 135 40" width="135" height="40">
+              <rect width="135" height="40" rx="6" fill="#000000" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+              <g transform="translate(10, 8)">
+                <path d="M1.5 1.72a1.69 1.69 0 0 0-.4 1.2v18.16a1.69 1.69 0 0 0 .4 1.2l.06.06L12.3 11.6v-.2L1.56 1.66z"
+                  fill="#32b5e5" />
+                <path d="M15.86 15.22l-3.56-3.62V11.4l3.56-3.62.08.05 4.22 2.4a1.44 1.44 0 0 1 0 2.54l-4.22 2.4z"
+                  fill="#ffcc00" />
+                <path d="M12.3 11.4L1.56 1.66a1.28 1.28 0 0 1 1.76 0l9 9z" fill="#ff3333" />
+                <path d="M12.3 11.6L3.32 21.34a1.28 1.28 0 0 1-1.76 0z" fill="#00cc66" />
+              </g>
+              <text x="38" y="15" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="8" font-weight="600"
+                letter-spacing="0.2">Disponible en</text>
+              <text x="38" y="28" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="13" font-weight="700"
+                letter-spacing="0.2">Google Play</text>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 HausBox. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <div class="floating-whatsapp-container">
+    <div class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</div>
+    <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0"
+      class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z">
+        </path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/calculator.js"></script>
+  
+  <!-- Interactive page logic for precios.html -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // MXN / USD tiers logic
+      const MXN_TIERS = [
+        { max: 25, price: 13.90 },
+        { max: 50, price: 12.90 },
+        { max: 100, price: 10.90 },
+        { max: 250, price: 7.90 },
+        { max: 500, price: 4.90 },
+        { max: 700, price: 4.10 },
+        { max: 900, price: 3.50 },
+        { max: Infinity, price: 3.20 }
+      ];
+      const USD_TIERS = [
+        { max: 25, price: 0.99 },
+        { max: 50, price: 0.95 },
+        { max: 100, price: 0.85 },
+        { max: 250, price: 0.69 },
+        { max: 500, price: 0.49 },
+        { max: 700, price: 0.44 },
+        { max: 900, price: 0.25 },
+        { max: Infinity, price: 0.22 }
+      ];
+
+      function getPricePerUnit(units, currency) {
+        const tiers = currency === 'USD' ? USD_TIERS : MXN_TIERS;
+        for (const tier of tiers) {
+          if (units <= tier.max) return tier.price;
+        }
+        return tiers[tiers.length - 1].price;
+      }
+
+      // Prop type definitions
+      const PROP_TYPES = [
+        { id: 'condominio', label: 'Condominio Residencial', svg: `<svg viewBox="0 0 24 24"><path d="M2 10l6-5 6 5v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M6 22v-5h4v5" /><path d="M12 10l5-4 5 4v11a1 1 0 0 1-1 1h-6" /><path d="M16 22v-4h3" /></svg>` },
+        { id: 'vertical', label: 'Condominio Vertical', svg: `<svg viewBox="0 0 24 24"><rect x="3" y="2" width="7" height="20" rx="1" /><rect x="13" y="6" width="8" height="16" rx="1" /><line x1="6" y1="6" x2="7" y2="6" /><line x1="6" y1="10" x2="7" y2="10" /><line x1="6" y1="14" x2="7" y2="14" /><line x1="6" y1="18" x2="7" y2="18" /><line x1="16" y1="10" x2="18" y2="10" /><line x1="16" y1="14" x2="18" y2="14" /><line x1="16" y1="18" x2="18" y2="18" /></svg>` },
+        { id: 'vacacional', label: 'Renta Vacacional', svg: `<svg viewBox="0 0 24 24"><path d="M2 13l6-5 6 5v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M18 22c-.5-4 1.5-6.5 2.5-8" /><path d="M20 14c-1.5-.5-2.5.5-3 1.5" /><path d="M20 14c1.5-.5 2.5.5 3 1.5" /><path d="M20 14c-.5-1.5.5-2.5 1.5-3" /><circle cx="16" cy="5" r="2" /></svg>` },
+        { id: 'desarrollo', label: 'Desarrollo Inmobiliario', svg: `<svg viewBox="0 0 24 24"><rect x="3" y="8" width="8" height="14" rx="1" /><line x1="7" y1="12" x2="7" y2="18" /><path d="M16 22V2l6 3H16" /><path d="M11 5h5" /><line x1="20" y1="5" x2="20" y2="10" /><rect x="19" y="10" width="2" height="2" /></svg>` },
+        { id: 'oficinas', label: 'Oficinas', svg: `<svg viewBox="0 0 24 24"><rect x="2" y="6" width="10" height="16" rx="1" /><rect x="12" y="2" width="10" height="20" rx="1" /><line x1="5" y1="10" x2="9" y2="10" /><line x1="5" y1="14" x2="9" y2="14" /><line x1="5" y1="18" x2="9" y2="18" /><line x1="15" y1="6" x2="19" y2="6" /><line x1="15" y1="10" x2="19" y2="10" /><line x1="15" y1="14" x2="19" y2="14" /><line x1="15" y1="18" x2="19" y2="18" /></svg>` }
+      ];
+
+      // DOM elements
+      const slider = document.getElementById('page-units-slider');
+      const unitsDisplay = document.getElementById('page-units-display');
+      const priceDisplay = document.getElementById('page-price-display');
+      const formSummaryPrice = document.getElementById('form-summary-price');
+      const currMxnBtn = document.getElementById('page-curr-mxn');
+      const currUsdBtn = document.getElementById('page-curr-usd');
+      const propGrid = document.getElementById('page-prop-grid');
+      
+      const form = document.getElementById('pricing-quote-form');
+      const successView = document.getElementById('quote-success-view');
+      const successBackBtn = document.getElementById('success-back-btn');
+      
+      const inputUnits = document.getElementById('quote-units');
+      const selectProp = document.getElementById('quote-prop-type');
+
+      let selectedCurrency = 'MXN';
+      let selectedPropType = '';
+
+      // Render property cards on page
+      propGrid.innerHTML = PROP_TYPES.map(t => `
+        <div class="pricing-prop-card" data-prop-id="${t.id}" data-prop-label="${t.label}">
+          <div class="prop-card-icon">${t.svg}</div>
+          <div class="prop-card-label">${t.label}</div>
+        </div>
+      `).join('');
+
+      const propCards = propGrid.querySelectorAll('.pricing-prop-card');
+
+      function updateCalculation() {
+        const val = parseInt(slider.value, 10);
+        const pct = ((val - 5) / (1000 - 5)) * 100;
+        slider.style.setProperty('--range-pct', pct + '%');
+        
+        const unitPrice = getPricePerUnit(val, selectedCurrency);
+        const total = val * unitPrice;
+
+        unitsDisplay.innerHTML = val + ' <span>unidades</span>';
+        const formattedTotal = '$' + total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+        priceDisplay.innerHTML = formattedTotal + ' <small>' + selectedCurrency + ' / mes</small>';
+        formSummaryPrice.textContent = formattedTotal + ' ' + selectedCurrency;
+
+        // Sync to form input
+        inputUnits.value = val;
+      }
+
+      // Slider listener
+      slider.addEventListener('input', updateCalculation);
+
+      // Sync form input back to slider
+      inputUnits.addEventListener('input', () => {
+        let val = parseInt(inputUnits.value, 10);
+        if (isNaN(val)) val = 5;
+        if (val < 5) val = 5;
+        if (val > 1000) val = 1000;
+        slider.value = val;
+        updateCalculation();
+      });
+
+      // Currency Toggles
+      currMxnBtn.addEventListener('click', () => {
+        currMxnBtn.classList.add('active');
+        currUsdBtn.classList.remove('active');
+        selectedCurrency = 'MXN';
+        updateCalculation();
+      });
+      currUsdBtn.addEventListener('click', () => {
+        currUsdBtn.classList.add('active');
+        currMxnBtn.classList.remove('active');
+        selectedCurrency = 'USD';
+        updateCalculation();
+      });
+
+      // Property Cards click listener
+      propCards.forEach(card => {
+        card.addEventListener('click', () => {
+          propCards.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          selectedPropType = card.dataset.propLabel;
+          
+          // Sync to select dropdown inside form
+          selectProp.value = selectedPropType;
+        });
+      });
+
+      // Sync form select back to cards
+      selectProp.addEventListener('change', () => {
+        const val = selectProp.value;
+        propCards.forEach(card => {
+          if (card.dataset.propLabel === val) {
+            card.classList.add('selected');
+          } else {
+            card.classList.remove('selected');
+          }
+        });
+        selectedPropType = val;
+      });
+
+      // Initial calculation run
+      updateCalculation();
+
+      // Form submit
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('quote-name').value.trim();
+        const email = document.getElementById('quote-email').value.trim();
+        const phone = document.getElementById('quote-phone').value.trim();
+        const city = document.getElementById('quote-city').value.trim();
+        const units = parseInt(slider.value, 10);
+        
+        const unitPrice = getPricePerUnit(units, selectedCurrency);
+        const total = units * unitPrice;
+        
+        const waMsg = encodeURIComponent(
+          `Hola! Soy ${name}.\n` +
+          `Quiero solicitar una cotización formal para HausBox.\n\n` +
+          `📋 Plan simulado:\n` +
+          `• Tipo: ${selectedPropType || 'No especificado'}\n` +
+          `• Unidades: ${units}\n` +
+          `• Costo estimado: $${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes\n` +
+          (city ? `• Ciudad: ${city}\n` : '') +
+          `\n📧 Correo: ${email}\n📱 Teléfono: ${phone}`
+        );
+        
+        const waLink = `https://api.whatsapp.com/send/?phone=5215574374431&text=${waMsg}&type=phone_number&app_absent=0`;
+        document.getElementById('success-wa-link').href = waLink;
+        
+        // Hide form fields, show success view inside the sticky card
+        form.style.display = 'none';
+        successView.style.display = 'flex';
+      });
+
+      successBackBtn.addEventListener('click', () => {
+        form.reset();
+        successView.style.display = 'none';
+        form.style.display = 'flex';
+        propCards.forEach(c => c.classList.remove('selected'));
+        selectedPropType = '';
+        slider.value = 50;
+        updateCalculation();
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>
