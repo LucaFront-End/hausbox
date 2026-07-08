@@ -635,7 +635,7 @@
 
       const propCards = propGrid.querySelectorAll('.pricing-prop-card');
 
-      function updateCalculation() {
+      function updateCalculation(skipFormInputSync = false) {
         const val = parseInt(slider.value, 10);
         const pct = ((val - 5) / (1000 - 5)) * 100;
         slider.style.setProperty('--range-pct', pct + '%');
@@ -648,21 +648,50 @@
         priceDisplay.innerHTML = formattedTotal + ' <small>' + selectedCurrency + ' / mes</small>';
         formSummaryPrice.textContent = formattedTotal + ' ' + selectedCurrency;
 
-        // Sync to form input
-        inputUnits.value = val;
+        // Sync to form input only if not skipped
+        if (!skipFormInputSync) {
+          inputUnits.value = val;
+        }
       }
 
       // Slider listener
-      slider.addEventListener('input', updateCalculation);
+      slider.addEventListener('input', () => {
+        updateCalculation(false); // Sync to text input
+      });
 
-      // Sync form input back to slider
+      // Sync form input back to slider while typing
       inputUnits.addEventListener('input', () => {
         let val = parseInt(inputUnits.value, 10);
-        if (isNaN(val)) val = 5;
-        if (val < 5) val = 5;
+        if (isNaN(val)) return; // Allow empty/intermediate state
+        
+        if (val >= 5 && val <= 1000) {
+          slider.value = val;
+          updateCalculation(true); // Skip overwriting inputUnits.value while typing
+        } else {
+          // If outside range (e.g. typed 1), calculate visuals with clamped min/max but keep input box as is
+          const clampedVal = Math.min(Math.max(val, 5), 1000);
+          slider.value = clampedVal;
+          
+          const unitPrice = getPricePerUnit(clampedVal, selectedCurrency);
+          const total = clampedVal * unitPrice;
+          const formattedTotal = '$' + total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+          priceDisplay.innerHTML = formattedTotal + ' <small>' + selectedCurrency + ' / mes</small>';
+          formSummaryPrice.textContent = formattedTotal + ' ' + selectedCurrency;
+          unitsDisplay.innerHTML = clampedVal + ' <span>unidades</span>';
+          
+          const pct = ((clampedVal - 5) / (1000 - 5)) * 100;
+          slider.style.setProperty('--range-pct', pct + '%');
+        }
+      });
+
+      // Sanitize and fully sync when they finish typing/focus out
+      inputUnits.addEventListener('blur', () => {
+        let val = parseInt(inputUnits.value, 10);
+        if (isNaN(val) || val < 5) val = 5;
         if (val > 1000) val = 1000;
+        inputUnits.value = val;
         slider.value = val;
-        updateCalculation();
+        updateCalculation(false);
       });
 
       // Currency Toggles
