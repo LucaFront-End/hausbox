@@ -2594,6 +2594,7 @@ textarea {
   align-items: center;
   gap: 12px;
   pointer-events: none;
+  transition: bottom 300ms ease, opacity 300ms ease, transform 300ms ease;
 }
 
 .floating-whatsapp {
@@ -4399,4 +4400,12 @@ textarea {
 
 .btn-store:hover .store-svg rect {
   stroke: rgba(13, 163, 226, 0.6);
+}
+
+/* --- Hide floating buttons at footer --- */
+.floating-whatsapp-container.hide-for-footer,
+.floating-calc-btn.hide-for-footer {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(20px) scale(0.9) !important;
 }

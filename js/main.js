@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWeeklyPhoneReveal();
   initCardAnimations();
   initFloatingWhatsApp();
+  initFooterScrollObserver();
   // initReviewsLateralScroll();
   initRolesTabs();
   initMultistepForm();
@@ -744,6 +745,34 @@ function initFloatingWhatsApp() {
     }
   };
   window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+/* ============================================================
+   FOOTER SCROLL OBSERVER — Hide floating elements in footer
+   ============================================================ */
+function initFooterScrollObserver() {
+  const footer = document.querySelector('.site-footer');
+  const whatsapp = document.querySelector('.floating-whatsapp-container');
+  const calcBtn = document.getElementById('calc-open-btn');
+  
+  if (!footer) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (whatsapp) whatsapp.classList.add('hide-for-footer');
+        if (calcBtn) calcBtn.classList.add('hide-for-footer');
+      } else {
+        if (whatsapp) whatsapp.classList.remove('hide-for-footer');
+        if (calcBtn) calcBtn.classList.remove('hide-for-footer');
+      }
+    });
+  }, {
+    rootMargin: '0px 0px 50px 0px',
+    threshold: 0.05
+  });
+
+  observer.observe(footer);
 }
 
 /* ============================================================
