@@ -478,7 +478,7 @@
             <h3>Recibe las mejores ideas en tu <span class="serif text-gradient" style="background:linear-gradient(to right, #0da3e2, #8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">bandeja.</span></h3>
             <p style="margin-bottom:2rem; opacity:0.65; max-width:500px; margin:0.5rem auto 2rem;">Un email semanal con artículos, guías y tendencias para administradores de condominios.</p>
             <form class="newsletter-form" id="blog-newsletter-form" onsubmit="handleNewsletterSubmit(event)" style="max-width: 440px; margin: 0 auto; display:flex; gap:0.5rem; justify-content:center;">
-              <input type="email" placeholder="tu@email.com" required />
+              <input type="email" placeholder="tu@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. usuario@dominio.com)" required />
               <button type="submit" class="btn-sim-action" style="height:48px; padding:0 1.5rem; border-radius:12px; font-weight:600; border:none; width:auto; cursor:pointer;">Suscribirme</button>
             </form>
           </div>

@@ -527,7 +527,7 @@
         
         <form class="modal-form">
           <input type="text" placeholder="Nombre completo" required />
-          <input type="email" placeholder="Correo electrónico" required />
+          <input type="email" placeholder="Correo electrónico" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. usuario@dominio.com)" required />
           <input type="text" placeholder="Nombre de tu Condominio" required />
           <button type="submit" class="magnetic-button"><span class="magnetic-content">Reservar mi lugar</span></button>
         </form>

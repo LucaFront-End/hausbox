@@ -839,6 +839,13 @@ function initMultistepForm() {
   const nextBtns = form.querySelectorAll('.btn-simple-next');
   const prevBtns = form.querySelectorAll('.btn-simple-prev');
   const propertyError = document.getElementById('property-error');
+  const phoneInput = document.getElementById('form-phone');
+
+  if (phoneInput) {
+    phoneInput.addEventListener('input', () => {
+      phoneInput.value = phoneInput.value.replace(/\D/g, '').substring(0, 10);
+    });
+  }
 
   const totalSteps = 3; // exclude success
   let currentStep = 1;
@@ -911,13 +918,13 @@ function initMultistepForm() {
     }
 
     if (isValid && input.type === 'email') {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailRegex.test(input.value.trim())) isValid = false;
     }
 
     if (isValid && input.id === 'form-phone') {
       const phoneDigits = input.value.replace(/\D/g, '');
-      if (phoneDigits.length < 10) isValid = false;
+      if (phoneDigits.length !== 10) isValid = false;
     }
 
     wrap.classList.toggle('error', !isValid);

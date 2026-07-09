@@ -270,7 +270,7 @@
   <!-- MAIN STRUCTURE -->
   <main style="flex:1; background: #fafbfc;">
 
-    <section class="pricing-hero">
+    <section class="pricing-hero" data-nav-theme="light">
       <div class="pricing-hero__glow"></div>
       <div class="pricing-container">
         
@@ -423,12 +423,12 @@
                 
                 <div class="form-group">
                   <label for="quote-email">Correo electrónico</label>
-                  <input type="email" id="quote-email" placeholder="tu@email.com" required />
+                  <input type="email" id="quote-email" placeholder="tu@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. usuario@dominio.com)" required />
                 </div>
                 
                 <div class="form-group">
                   <label for="quote-phone">Teléfono</label>
-                  <input type="tel" id="quote-phone" placeholder="55 1234 5678" required />
+                  <input type="tel" id="quote-phone" placeholder="10 dígitos (ej. 5512345678)" pattern="[0-9]{10}" title="El teléfono debe tener exactamente 10 dígitos numéricos" required />
                 </div>
                 
                 <div class="form-row">
@@ -621,6 +621,7 @@
       
       const inputUnits = document.getElementById('quote-units');
       const selectProp = document.getElementById('quote-prop-type');
+      const inputPhone = document.getElementById('quote-phone');
 
       let selectedCurrency = 'MXN';
       let selectedPropType = '';
@@ -658,6 +659,13 @@
       slider.addEventListener('input', () => {
         updateCalculation(false); // Sync to text input
       });
+
+      // Phone input auto-cleaner
+      if (inputPhone) {
+        inputPhone.addEventListener('input', () => {
+          inputPhone.value = inputPhone.value.replace(/\D/g, '').substring(0, 10);
+        });
+      }
 
       // Sync form input back to slider while typing
       inputUnits.addEventListener('input', () => {
