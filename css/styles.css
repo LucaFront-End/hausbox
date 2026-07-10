@@ -4409,3 +4409,205 @@ textarea {
   pointer-events: none !important;
   transform: translateY(20px) scale(0.9) !important;
 }
+
+/* ============================================================
+   MOBILE HEADER IMPROVEMENTS (Imagotipo, Hamburger & Drawer)
+   ============================================================ */
+@media (max-width: 991px) {
+  .nav-logo {
+    width: 32px !important;
+    height: 32px !important;
+    overflow: hidden !important;
+    display: inline-block !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+  .nav-logo img {
+    max-width: none !important;
+    height: 32px !important;
+    width: auto !important;
+  }
+}
+
+.nav-mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1010;
+  margin-left: 12px;
+}
+
+@media (min-width: 1024px) {
+  .nav-mobile-toggle {
+    display: none;
+  }
+}
+
+.nav-mobile-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 99px;
+  transition: all 300ms ease;
+}
+
+.site-nav[data-theme="dark"] .nav-mobile-toggle .bar {
+  background-color: #ffffff;
+}
+.site-nav[data-theme="light"] .nav-mobile-toggle .bar {
+  background-color: #0f172a;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  width: 100%;
+  max-width: 320px;
+  background: #090e17;
+  height: 100%;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  overflow-y: auto;
+  position: relative;
+  transform: translateX(50px);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+
+.mobile-menu-overlay.active .mobile-menu-content {
+  transform: translateX(0);
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 200ms;
+}
+
+.mobile-menu-close:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.mobile-menu-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-menu-section h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.mobile-menu-section a {
+  font-size: 15px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  padding: 6px 0;
+  font-weight: 500;
+  transition: color 200ms;
+}
+
+.mobile-menu-section a:hover {
+  color: #0DA3E2;
+}
+
+.mobile-menu-section .menu-highlight {
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 600;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1rem;
+  margin-top: 0.5rem;
+}
+
+.mobile-menu-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.mobile-login-btn {
+  height: 44px;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  background: rgba(255,255,255,0.05);
+  transition: background 200ms;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.mobile-login-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.mobile-cta-btn {
+  height: 44px;
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  background: linear-gradient(135deg, #0DA3E2 0%, #0b7fb4 100%);
+  box-shadow: 0 4px 12px rgba(13, 163, 226, 0.2);
+  transition: transform 200ms;
+}
+
+.mobile-cta-btn:hover {
+  transform: translateY(-1px);
+}

@@ -425,7 +425,7 @@ function initPricingCalcWidget() {
     `;
 
     const waMsg = encodeURIComponent(
-      `Hola! Soy ${name}.\n` +
+      `SW- Hola! Soy ${name}.\n` +
       `Quiero más información sobre HausBox.\n\n` +
       `📋 Mi plan calculado:\n` +
       `• Tipo: ${selectedPropType}\n` +

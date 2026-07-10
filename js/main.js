@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPhoneScrollSwap();
   initFAQ();
   initCounters();
+  initMobileMenu();
   initMobileFeatures();
   initHighlightsLateralScroll();
   initPrivacySpotlight();
@@ -1011,4 +1012,116 @@ function initMultistepForm() {
       if (propertyError) propertyError.classList.remove('visible');
     });
   });
+}
+
+/* ============================================================
+   MOBILE NAVIGATION DRAWER — Dynamic build and controls
+   ============================================================ */
+function initMobileMenu() {
+  const nav = document.querySelector('.site-nav');
+  if (!nav) return;
+
+  const navInner = nav.querySelector('.nav-inner');
+  if (!navInner) return;
+
+  // 1. Append Hamburger Menu Button
+  const toggleBtn = document.createElement('button');
+  toggleBtn.className = 'nav-mobile-toggle';
+  toggleBtn.setAttribute('aria-label', 'Abrir menú');
+  toggleBtn.innerHTML = `
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  `;
+  navInner.appendChild(toggleBtn);
+
+  // 2. Append Mobile Menu Overlay
+  const mobileMenu = document.createElement('div');
+  mobileMenu.className = 'mobile-menu-overlay';
+  mobileMenu.innerHTML = `
+    <div class="mobile-menu-content">
+      <button class="mobile-menu-close" aria-label="Cerrar menú">✕</button>
+      <div class="mobile-menu-section">
+        <h4>Nosotros</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="casos-de-exito.html">Casos de éxito</a>
+      </div>
+      <div class="mobile-menu-section">
+        <h4>Funcionalidades</h4>
+        <a href="acceso-express.html">Acceso Express QR</a>
+        <a href="reserva-amenidades.html">Reserva de Amenidades</a>
+        <a href="pago-mantenimiento.html">Pago de Mantenimiento</a>
+        <a href="comunicacion-avisos.html">Comunicación y Avisos</a>
+        <a href="cobranza-inteligente.html">Cobranza Inteligente</a>
+        <a href="conciliacion-automatizada.html">Conciliación Automatizada</a>
+        <a href="contabilidad-profesional.html">Contabilidad Profesional</a>
+        <a href="mensajeria-multicanal.html">Mensajería Multicanal</a>
+      </div>
+      <div class="mobile-menu-section">
+        <h4>Comunidad</h4>
+        <a href="blog.html">Blog</a>
+        <a href="comunidad.html">Comunidad</a>
+      </div>
+      <div class="mobile-menu-section">
+        <a href="precios.html" class="menu-highlight">Precios</a>
+      </div>
+      <div class="mobile-menu-actions">
+        <a href="https://app.hausbox.com" class="mobile-login-btn">Ingresar</a>
+        <a href="#" class="mobile-cta-btn open-calc-btn">Solicitar Demo</a>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(mobileMenu);
+
+  // 3. Toggle Logic
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+
+  const closeMenu = () => {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  const closeBtn = mobileMenu.querySelector('.mobile-menu-close');
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  // Close when clicking overlay backdrop
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) closeMenu();
+  });
+
+  // Close when clicking links
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      closeMenu();
+      // If it's the open-calc-btn, let calculator widget trigger
+      if (link.classList.contains('open-calc-btn')) {
+        const calcTrigger = document.querySelector('#calc-open-btn, .open-calc-btn');
+        if (calcTrigger) calcTrigger.click();
+      }
+    });
+  });
+
+  // 4. Update mobile header CTA link ("Solicitar Demo") to open widget instead of WhatsApp
+  const mobileHeaderCta = navInner.querySelector('.nav-mobile-cta .btn-cta-nav');
+  if (mobileHeaderCta) {
+    mobileHeaderCta.classList.add('open-calc-btn');
+    mobileHeaderCta.setAttribute('href', '#');
+    mobileHeaderCta.removeAttribute('target');
+    mobileHeaderCta.removeAttribute('rel');
+    
+    // Replace WhatsApp icon with arrow icon
+    const svg = mobileHeaderCta.querySelector('svg');
+    if (svg) {
+      svg.outerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;margin-right:2px;">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      `;
+    }
+  }
 }
