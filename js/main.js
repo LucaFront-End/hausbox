@@ -1105,23 +1105,35 @@ function initMobileMenu() {
     });
   });
 
-  // 4. Update mobile header CTA link ("Solicitar Demo") to open widget instead of WhatsApp
-  const mobileHeaderCta = navInner.querySelector('.nav-mobile-cta .btn-cta-nav');
-  if (mobileHeaderCta) {
-    mobileHeaderCta.classList.add('open-calc-btn');
-    mobileHeaderCta.setAttribute('href', '#');
-    mobileHeaderCta.removeAttribute('target');
-    mobileHeaderCta.removeAttribute('rel');
-    
-    // Replace WhatsApp icon with arrow icon
-    const svg = mobileHeaderCta.querySelector('svg');
-    if (svg) {
-      svg.outerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;margin-right:2px;">
+  // 4. Convert floating WhatsApp button to "Solicitar Demo" on mobile
+  const floatWhatsapp = document.querySelector('.floating-whatsapp-container');
+  if (floatWhatsapp) {
+    const link = floatWhatsapp.querySelector('a');
+    const tooltip = floatWhatsapp.querySelector('.whatsapp-tooltip');
+    if (link) {
+      if (tooltip) tooltip.textContent = 'Calcula tu plan';
+      
+      floatWhatsapp.classList.add('mobile-cta-floating');
+      link.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
+        <span>Solicitar Demo</span>
       `;
+      
+      link.removeAttribute('target');
+      link.removeAttribute('rel');
+      link.setAttribute('href', '#');
+      link.classList.add('open-calc-btn');
+      
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const calcTrigger = document.querySelector('#calc-open-btn, .open-calc-btn');
+        if (calcTrigger) {
+          calcTrigger.click();
+        }
+      });
     }
   }
 }

@@ -625,17 +625,7 @@ textarea {
 
 /* Mobile CTA */
 .nav-mobile-cta {
-  grid-column-start: 3;
-  justify-self: end;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-@media (min-width: 1024px) {
-  .nav-mobile-cta {
-    display: none;
-  }
+  display: none !important;
 }
 
 .nav-spacer {
@@ -4610,4 +4600,46 @@ textarea {
 
 .mobile-cta-btn:hover {
   transform: translateY(-1px);
+}
+
+/* ============================================================
+   MOBILE FLOATING CTA BUTTON (Replaces WhatsApp on mobile)
+   ============================================================ */
+@media (max-width: 1023px) {
+  .floating-whatsapp-container.mobile-cta-floating {
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 999 !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  .floating-whatsapp-container.mobile-cta-floating .floating-whatsapp {
+    width: auto !important;
+    height: 48px !important;
+    padding: 0 1.5rem !important;
+    border-radius: 9999px !important;
+    background: #000000 !important; /* Premium black background */
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: transform 200ms !important;
+  }
+  .floating-whatsapp-container.mobile-cta-floating .floating-whatsapp:active {
+    transform: scale(0.95) !important;
+  }
+  .floating-whatsapp-container.mobile-cta-floating .floating-whatsapp svg {
+    width: 16px !important;
+    height: 16px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 2.5 !important;
+  }
+  .floating-whatsapp-container.mobile-cta-floating .whatsapp-tooltip {
+    display: none !important; /* Hide to avoid clutter */
+  }
 }
