@@ -4407,17 +4407,17 @@ textarea {
   .nav-logo {
     width: 32px !important;
     height: 32px !important;
-    overflow: hidden !important;
+    background-image: url('../favicon.png') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
     display: inline-block !important;
     padding: 0 !important;
     border-radius: 0 !important;
-    background: none !important;
     box-shadow: none !important;
   }
   .nav-logo img {
-    max-width: none !important;
-    height: 32px !important;
-    width: auto !important;
+    display: none !important;
   }
 }
 
