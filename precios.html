@@ -293,18 +293,9 @@
               
               <!-- Currency Toggle -->
               <div class="pricing-currency-toggle">
-                <span class="currency-toggle-label">Moneda:</span>
                 <div class="currency-toggle-group">
                   <button type="button" class="currency-btn active" id="page-curr-mxn">Pesos MXN</button>
                   <button type="button" class="currency-btn" id="page-curr-usd">Dólares USD</button>
-                </div>
-              </div>
-
-              <!-- Property Selector -->
-              <div class="pricing-prop-selector">
-                <span class="prop-selector-label">Tipo de propiedad:</span>
-                <div class="pricing-prop-grid" id="page-prop-grid">
-                  <!-- JS will render property selector cards here -->
                 </div>
               </div>
 
@@ -431,37 +422,11 @@
                   <input type="tel" id="quote-phone" placeholder="10 dígitos (ej. 5512345678)" pattern="[0-9]{10}" title="El teléfono debe tener exactamente 10 dígitos numéricos" required />
                 </div>
                 
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="quote-prop-type">Tipo de propiedad</label>
-                    <select id="quote-prop-type" required>
-                      <option value="" disabled selected>Seleccionar...</option>
-                      <option value="Condominio Residencial">Condominio Residencial</option>
-                      <option value="Condominio Vertical">Condominio Vertical</option>
-                      <option value="Renta Vacacional">Renta Vacacional</option>
-                      <option value="Desarrollo Inmobiliario">Desarrollo Inmobiliario</option>
-                      <option value="Oficinas">Oficinas</option>
-                      <option value="Otro">Otro</option>
-                    </select>
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="quote-units">Unidades</label>
-                    <input type="number" id="quote-units" min="5" max="1000" value="50" required />
-                  </div>
-                </div>
+                <input type="hidden" id="quote-units" value="50" />
 
                 <div class="form-group">
                   <label for="quote-city">Ciudad <span style="opacity:0.6;font-weight:400;">(opcional)</span></label>
                   <input type="text" id="quote-city" placeholder="Ej. CDMX" />
-                </div>
-
-                <!-- Price summary inside form -->
-                <div class="form-price-summary">
-                  <div class="summary-row">
-                    <span>Costo mensual estimado:</span>
-                    <strong id="form-summary-price">$645 MXN</strong>
-                  </div>
                 </div>
 
                 <button type="submit" class="btn-quote-submit">
@@ -597,46 +562,23 @@
         return tiers[tiers.length - 1].price;
       }
 
-      // Prop type definitions
-      const PROP_TYPES = [
-        { id: 'condominio', label: 'Condominio Residencial', svg: `<svg viewBox="0 0 24 24"><path d="M2 10l6-5 6 5v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M6 22v-5h4v5" /><path d="M12 10l5-4 5 4v11a1 1 0 0 1-1 1h-6" /><path d="M16 22v-4h3" /></svg>` },
-        { id: 'vertical', label: 'Condominio Vertical', svg: `<svg viewBox="0 0 24 24"><rect x="3" y="2" width="7" height="20" rx="1" /><rect x="13" y="6" width="8" height="16" rx="1" /><line x1="6" y1="6" x2="7" y2="6" /><line x1="6" y1="10" x2="7" y2="10" /><line x1="6" y1="14" x2="7" y2="14" /><line x1="6" y1="18" x2="7" y2="18" /><line x1="16" y1="10" x2="18" y2="10" /><line x1="16" y1="14" x2="18" y2="14" /><line x1="16" y1="18" x2="18" y2="18" /></svg>` },
-        { id: 'vacacional', label: 'Renta Vacacional', svg: `<svg viewBox="0 0 24 24"><path d="M2 13l6-5 6 5v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M18 22c-.5-4 1.5-6.5 2.5-8" /><path d="M20 14c-1.5-.5-2.5.5-3 1.5" /><path d="M20 14c1.5-.5 2.5.5 3 1.5" /><path d="M20 14c-.5-1.5.5-2.5 1.5-3" /><circle cx="16" cy="5" r="2" /></svg>` },
-        { id: 'desarrollo', label: 'Desarrollo Inmobiliario', svg: `<svg viewBox="0 0 24 24"><rect x="3" y="8" width="8" height="14" rx="1" /><line x1="7" y1="12" x2="7" y2="18" /><path d="M16 22V2l6 3H16" /><path d="M11 5h5" /><line x1="20" y1="5" x2="20" y2="10" /><rect x="19" y="10" width="2" height="2" /></svg>` },
-        { id: 'oficinas', label: 'Oficinas', svg: `<svg viewBox="0 0 24 24"><rect x="2" y="6" width="10" height="16" rx="1" /><rect x="12" y="2" width="10" height="20" rx="1" /><line x1="5" y1="10" x2="9" y2="10" /><line x1="5" y1="14" x2="9" y2="14" /><line x1="5" y1="18" x2="9" y2="18" /><line x1="15" y1="6" x2="19" y2="6" /><line x1="15" y1="10" x2="19" y2="10" /><line x1="15" y1="14" x2="19" y2="14" /><line x1="15" y1="18" x2="19" y2="18" /></svg>` }
-      ];
-
       // DOM elements
       const slider = document.getElementById('page-units-slider');
       const unitsDisplay = document.getElementById('page-units-display');
       const priceDisplay = document.getElementById('page-price-display');
-      const formSummaryPrice = document.getElementById('form-summary-price');
       const currMxnBtn = document.getElementById('page-curr-mxn');
       const currUsdBtn = document.getElementById('page-curr-usd');
-      const propGrid = document.getElementById('page-prop-grid');
       
       const form = document.getElementById('pricing-quote-form');
       const successView = document.getElementById('quote-success-view');
       const successBackBtn = document.getElementById('success-back-btn');
       
       const inputUnits = document.getElementById('quote-units');
-      const selectProp = document.getElementById('quote-prop-type');
       const inputPhone = document.getElementById('quote-phone');
 
       let selectedCurrency = 'MXN';
-      let selectedPropType = '';
 
-      // Render property cards on page
-      propGrid.innerHTML = PROP_TYPES.map(t => `
-        <div class="pricing-prop-card" data-prop-id="${t.id}" data-prop-label="${t.label}">
-          <div class="prop-card-icon">${t.svg}</div>
-          <div class="prop-card-label">${t.label}</div>
-        </div>
-      `).join('');
-
-      const propCards = propGrid.querySelectorAll('.pricing-prop-card');
-
-      function updateCalculation(skipFormInputSync = false) {
+      function updateCalculation() {
         const val = parseInt(slider.value, 10);
         const pct = ((val - 5) / (1000 - 5)) * 100;
         slider.style.setProperty('--range-pct', pct + '%');
@@ -647,17 +589,16 @@
         unitsDisplay.innerHTML = val + ' <span>unidades</span>';
         const formattedTotal = '$' + total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
         priceDisplay.innerHTML = formattedTotal + ' <small>' + selectedCurrency + ' / mes</small>';
-        formSummaryPrice.textContent = formattedTotal + ' ' + selectedCurrency;
 
-        // Sync to form input only if not skipped
-        if (!skipFormInputSync) {
+        // Sync to form hidden input
+        if (inputUnits) {
           inputUnits.value = val;
         }
       }
 
       // Slider listener
       slider.addEventListener('input', () => {
-        updateCalculation(false); // Sync to text input
+        updateCalculation();
       });
 
       // Phone input auto-cleaner
@@ -666,41 +607,6 @@
           inputPhone.value = inputPhone.value.replace(/\D/g, '').substring(0, 10);
         });
       }
-
-      // Sync form input back to slider while typing
-      inputUnits.addEventListener('input', () => {
-        let val = parseInt(inputUnits.value, 10);
-        if (isNaN(val)) return; // Allow empty/intermediate state
-        
-        if (val >= 5 && val <= 1000) {
-          slider.value = val;
-          updateCalculation(true); // Skip overwriting inputUnits.value while typing
-        } else {
-          // If outside range (e.g. typed 1), calculate visuals with clamped min/max but keep input box as is
-          const clampedVal = Math.min(Math.max(val, 5), 1000);
-          slider.value = clampedVal;
-          
-          const unitPrice = getPricePerUnit(clampedVal, selectedCurrency);
-          const total = clampedVal * unitPrice;
-          const formattedTotal = '$' + total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
-          priceDisplay.innerHTML = formattedTotal + ' <small>' + selectedCurrency + ' / mes</small>';
-          formSummaryPrice.textContent = formattedTotal + ' ' + selectedCurrency;
-          unitsDisplay.innerHTML = clampedVal + ' <span>unidades</span>';
-          
-          const pct = ((clampedVal - 5) / (1000 - 5)) * 100;
-          slider.style.setProperty('--range-pct', pct + '%');
-        }
-      });
-
-      // Sanitize and fully sync when they finish typing/focus out
-      inputUnits.addEventListener('blur', () => {
-        let val = parseInt(inputUnits.value, 10);
-        if (isNaN(val) || val < 5) val = 5;
-        if (val > 1000) val = 1000;
-        inputUnits.value = val;
-        slider.value = val;
-        updateCalculation(false);
-      });
 
       // Currency Toggles
       currMxnBtn.addEventListener('click', () => {
@@ -714,31 +620,6 @@
         currMxnBtn.classList.remove('active');
         selectedCurrency = 'USD';
         updateCalculation();
-      });
-
-      // Property Cards click listener
-      propCards.forEach(card => {
-        card.addEventListener('click', () => {
-          propCards.forEach(c => c.classList.remove('selected'));
-          card.classList.add('selected');
-          selectedPropType = card.dataset.propLabel;
-          
-          // Sync to select dropdown inside form
-          selectProp.value = selectedPropType;
-        });
-      });
-
-      // Sync form select back to cards
-      selectProp.addEventListener('change', () => {
-        const val = selectProp.value;
-        propCards.forEach(card => {
-          if (card.dataset.propLabel === val) {
-            card.classList.add('selected');
-          } else {
-            card.classList.remove('selected');
-          }
-        });
-        selectedPropType = val;
       });
 
       // Initial calculation run
@@ -761,7 +642,6 @@
           `Hola! Soy ${name}.\n` +
           `Quiero solicitar una cotización formal para HausBox.\n\n` +
           `📋 Plan simulado:\n` +
-          `• Tipo: ${selectedPropType || 'No especificado'}\n` +
           `• Unidades: ${units}\n` +
           `• Costo estimado: $${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes\n` +
           (city ? `• Ciudad: ${city}\n` : '') +
@@ -780,8 +660,6 @@
         form.reset();
         successView.style.display = 'none';
         form.style.display = 'flex';
-        propCards.forEach(c => c.classList.remove('selected'));
-        selectedPropType = '';
         slider.value = 50;
         updateCalculation();
       });

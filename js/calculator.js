@@ -121,7 +121,7 @@ function initPricingCalcWidget() {
               </div>
               <div class="calc-form__group">
                 <label for="calc-phone">Teléfono</label>
-                <input type="tel" id="calc-phone" placeholder="55 1234 5678" required />
+                <input type="tel" id="calc-phone" placeholder="10 dígitos (ej. 5512345678)" required />
               </div>
             </div>
             <div class="calc-form__row">
@@ -248,6 +248,13 @@ function initPricingCalcWidget() {
   const priceDisplay = document.getElementById('calc-price-display');
   const stepDots     = overlay.querySelectorAll('.calc-step-dot');
   const propCards    = overlay.querySelectorAll('.calc-prop-card');
+  const calcPhone    = document.getElementById('calc-phone');
+
+  if (calcPhone) {
+    calcPhone.addEventListener('input', () => {
+      calcPhone.value = calcPhone.value.replace(/\D/g, '').substring(0, 10);
+    });
+  }
 
   if (!overlay) return;
 
@@ -316,21 +323,48 @@ function initPricingCalcWidget() {
 
   // ---- Validation ----
   function validateStep1() {
-    const name  = document.getElementById('calc-name').value.trim();
-    const phone = document.getElementById('calc-phone').value.trim();
-    const email = document.getElementById('calc-email').value.trim();
-    if (!name || !phone || !email) {
-      // Highlight empty required fields
-      ['calc-name','calc-phone','calc-email'].forEach(id => {
-        const el = document.getElementById(id);
-        if (!el.value.trim()) {
-          el.style.borderColor = '#ef4444';
-          el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
-        }
-      });
-      return false;
+    const nameInput  = document.getElementById('calc-name');
+    const phoneInput = document.getElementById('calc-phone');
+    const emailInput = document.getElementById('calc-email');
+    
+    const name  = nameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const email = emailInput.value.trim();
+    
+    let isValid = true;
+    
+    // Reset colors
+    [nameInput, phoneInput, emailInput].forEach(el => {
+      if (el) el.style.borderColor = '';
+    });
+
+    if (!name) {
+      if (nameInput) nameInput.style.borderColor = '#ef4444';
+      isValid = false;
     }
-    return true;
+    
+    // Phone validation (exactly 10 digits)
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (phoneDigits.length !== 10) {
+      if (phoneInput) phoneInput.style.borderColor = '#ef4444';
+      isValid = false;
+    }
+
+    // Email validation (top level domain required)
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(email)) {
+      if (emailInput) emailInput.style.borderColor = '#ef4444';
+      isValid = false;
+    }
+
+    // Dynamic input feedback
+    [nameInput, phoneInput, emailInput].forEach(el => {
+      if (el) {
+        el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
+      }
+    });
+
+    return isValid;
   }
 
   // ---- Open / Close ----

@@ -3731,6 +3731,13 @@
   border-color: #0DA3E2;
   box-shadow: 0 0 0 3px rgba(13, 163, 226, 0.1);
 }
+.calc-form__group input:-webkit-autofill,
+.calc-form__group input:-webkit-autofill:hover, 
+.calc-form__group input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #f8fafc inset !important;
+  -webkit-text-fill-color: #0f172a !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
 .calc-form__group input::placeholder { color: rgba(15, 23, 42, 0.35); }
 
 /* --- Property Type Cards Grid --- */
@@ -4934,6 +4941,14 @@ input[type="range"].pricing-range::-webkit-slider-thumb:hover {
   font-size: 14px;
   outline: none;
   transition: all 200ms;
+}
+
+.sticky-quote-form input:-webkit-autofill,
+.sticky-quote-form input:-webkit-autofill:hover, 
+.sticky-quote-form input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-text-fill-color: #0f172a !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 .sticky-quote-form input:focus,
