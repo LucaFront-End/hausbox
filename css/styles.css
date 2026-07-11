@@ -4416,9 +4416,9 @@ textarea {
     border-radius: 0 !important;
     box-shadow: none !important;
   }
-  .site-nav .nav-logo img,
-  .nav-logo .logo-light,
-  .nav-logo .logo-dark {
+  .site-nav[data-theme] .nav-logo img,
+  .site-nav[data-theme] .nav-logo .logo-light,
+  .site-nav[data-theme] .nav-logo .logo-dark {
     display: none !important;
   }
 }
