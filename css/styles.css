@@ -4627,8 +4627,8 @@ textarea {
   }
   .floating-whatsapp-container.mobile-cta-floating .floating-whatsapp {
     width: auto !important;
-    height: 48px !important;
-    padding: 0 1.5rem !important;
+    height: 42px !important;
+    padding: 0 1.375rem !important;
     border-radius: 9999px !important;
     background: #000000 !important; /* Premium black background */
     color: #ffffff !important;
@@ -4636,10 +4636,15 @@ textarea {
     align-items: center !important;
     gap: 8px !important;
     box-shadow: 0 8px 30px rgba(0,0,0,0.3) !important;
-    font-size: 14px !important;
+    font-size: 15px !important;
     font-weight: 600 !important;
     text-decoration: none !important;
     transition: transform 200ms !important;
+  }
+  .floating-whatsapp-container.mobile-cta-floating .floating-whatsapp::before {
+    display: none !important;
+    content: none !important;
+    animation: none !important;
   }
   .floating-whatsapp-container.mobile-cta-floating .floating-whatsapp:active {
     transform: scale(0.95) !important;
