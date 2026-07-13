@@ -4781,12 +4781,14 @@ input[type="range"].pricing-range::-webkit-slider-thumb:hover {
   gap: 0.5rem;
   width: 100%;
   margin-top: 1.5rem;
-  height: 48px;
+  min-height: 44px;
+  padding: 0.625rem 1.5rem;
   border-radius: 99px;
   background: linear-gradient(135deg, #0DA3E2 0%, #0b7fb4 100%);
   color: #ffffff !important;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 600;
+  line-height: 1.2;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(13, 163, 226, 0.25);
   transition: transform 250ms ease, box-shadow 250ms ease;
