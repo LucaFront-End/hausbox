@@ -4774,6 +4774,42 @@ input[type="range"].pricing-range::-webkit-slider-thumb:hover {
   color: #64748b;
 }
 
+.btn-scroll-to-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 1.5rem;
+  height: 48px;
+  border-radius: 99px;
+  background: linear-gradient(135deg, #0DA3E2 0%, #0b7fb4 100%);
+  color: #ffffff !important;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(13, 163, 226, 0.25);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.btn-scroll-to-quote:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(13, 163, 226, 0.4);
+}
+
+.btn-scroll-to-quote:active {
+  transform: translateY(0);
+}
+
+.btn-scroll-to-quote svg {
+  flex-shrink: 0;
+  transition: transform 250ms ease;
+}
+
+.btn-scroll-to-quote:hover svg {
+  transform: translateY(2px);
+}
+
 /* Advantages Section */
 .advantages-section {
   margin-bottom: 4rem;
