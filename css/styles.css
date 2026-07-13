@@ -784,6 +784,16 @@ textarea {
   font-weight: 500;
   line-height: 1;
   box-shadow: var(--shadow-lift);
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 300ms cubic-bezier(0.34, 1.56, 0.64, 1), background-color 300ms;
+}
+
+.btn-cta-hero:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(13, 163, 226, 0.35);
+}
+
+.btn-cta-hero:active {
+  transform: translateY(0);
 }
 
 .btn-cta-hero svg {

@@ -727,9 +727,9 @@ function initMobileMenu() {
     });
   });
 
-  // 4. Convert floating WhatsApp button to "Solicitar Demo" on mobile
+  // 4. Convert floating WhatsApp button to "Solicitar Demo" on mobile only
   const floatWhatsapp = document.querySelector('.floating-whatsapp-container');
-  if (floatWhatsapp) {
+  if (floatWhatsapp && window.innerWidth <= 1023) {
     const link = floatWhatsapp.querySelector('a');
     const tooltip = floatWhatsapp.querySelector('.whatsapp-tooltip');
     if (link) {
