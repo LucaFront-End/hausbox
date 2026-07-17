@@ -732,6 +732,21 @@
         const waLink = `https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+${waMsg}&type=phone_number&app_absent=0`;
         document.getElementById('success-wa-link').href = waLink;
         
+        // Submit to Wix CMS
+        if (typeof window.submitInquiryToWix === 'function') {
+          window.submitInquiryToWix({
+            name,
+            email,
+            phone,
+            propertyType: 'Condominio',
+            units,
+            city,
+            estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
+            currency: selectedCurrency,
+            formSource: 'Formulario de Precios'
+          });
+        }
+
         // Hide form fields, show success view inside the sticky card
         form.style.display = 'none';
         successView.style.display = 'flex';

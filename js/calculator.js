@@ -7,8 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
   try { initWixChatObserver(); } catch(e) { console.warn('[HausBox] Wix Chat observer error:', e); }
 });
 
+function injectWixScript() {
+  if (document.querySelector('script[src*="wix-integration.js"]')) return;
+  const script = document.createElement('script');
+  script.type = 'module';
+  script.src = 'js/wix-integration.js';
+  document.head.appendChild(script);
+}
+
 function initPricingCalcWidget() {
   const WA_PHONE = '5215574374431';
+  injectWixScript();
 
   const MXN_TIERS = [
     { max: 25, price: 13.90 },
@@ -515,6 +524,21 @@ function initPricingCalcWidget() {
     );
     document.getElementById('calc-wa-link').href =
       `https://api.whatsapp.com/send/?phone=${WA_PHONE}&text=${waMsg}&type=phone_number&app_absent=0`;
+
+    // Submit to Wix CMS
+    if (typeof window.submitInquiryToWix === 'function') {
+      window.submitInquiryToWix({
+        name,
+        email,
+        phone,
+        propertyType: selectedPropType,
+        units,
+        city,
+        estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
+        currency: selectedCurrency,
+        formSource: 'Calculadora Modal'
+      });
+    }
 
     // Show results
     step1.classList.remove('active');

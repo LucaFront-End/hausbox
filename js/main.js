@@ -830,9 +830,19 @@ function initRolesTabs() {
 /* ============================================================
    SIMPLE MULTI-STEP FORM — Wizard steps and validation
    ============================================================ */
+function injectWixScript() {
+  if (document.querySelector('script[src*="wix-integration.js"]')) return;
+  const script = document.createElement('script');
+  script.type = 'module';
+  script.src = 'js/wix-integration.js';
+  document.head.appendChild(script);
+}
+
 function initMultistepForm() {
   const form = document.getElementById('multistep-form');
   if (!form) return;
+
+  injectWixScript();
 
   const steps = form.querySelectorAll('.form-step');
   const progressBar = document.getElementById('formProgressBar');
@@ -1011,6 +1021,22 @@ function initMultistepForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (validateStep(currentStep)) {
+      const name = document.getElementById('form-name').value.trim();
+      const email = document.getElementById('form-email').value.trim();
+      const phone = (document.getElementById('form-phone-full').value || document.getElementById('form-phone').value).trim();
+      const propRadio = form.querySelector('input[name="property-type"]:checked');
+      const propertyType = propRadio ? propRadio.value : '';
+
+      if (typeof window.submitInquiryToWix === 'function') {
+        window.submitInquiryToWix({
+          name,
+          email,
+          phone,
+          propertyType,
+          formSource: 'Formulario de Inicio'
+        });
+      }
+
       goToStep(totalSteps + 1); // show success
     }
   });
@@ -1154,6 +1180,8 @@ function initMobileMenu() {
 function setupPhoneCountryPicker(phoneInputId) {
   const phoneInput = document.getElementById(phoneInputId);
   if (!phoneInput) return;
+
+  injectWixScript();
 
   const container = phoneInput.closest('.phone-input-group');
   if (!container) return;
