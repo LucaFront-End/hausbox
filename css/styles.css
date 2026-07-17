@@ -4857,4 +4857,31 @@ textarea {
   display: inline-block !important;
   flex-shrink: 0 !important;
   vertical-align: middle !important;
+}
+
+/* Calculator modal boxed design */
+.calc-form__group .phone-input-group {
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #f8fafc;
+  overflow: visible;
+  transition: border-color 200ms, box-shadow 200ms;
+}
+.calc-form__group .phone-input-group:focus-within {
+  border-color: #0DA3E2;
+  box-shadow: 0 0 0 3px rgba(13, 163, 226, 0.1);
+}
+.calc-form__group .phone-input-group.error {
+  border-color: #ef4444 !important;
+}
+.calc-form__group .phone-input-group input {
+  border: none !important;
+  height: 100% !important;
+  padding: 0 10px !important;
+  flex: 1;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 15px !important;
+  font-style: normal !important;
 }

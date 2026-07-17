@@ -121,7 +121,66 @@ function initPricingCalcWidget() {
               </div>
               <div class="calc-form__group">
                 <label for="calc-phone">Teléfono</label>
-                <input type="tel" id="calc-phone" placeholder="10 dígitos (ej. 5512345678)" required />
+                <div class="phone-input-group" id="calc-phone-group">
+                  <div class="country-picker">
+                    <button type="button" class="country-picker-trigger">
+                      <span class="country-picker-flag"><img src="https://flagcdn.com/mx.svg" alt="México" class="picker-flag-img" /></span>
+                      <span class="country-picker-code">+52</span>
+                      <svg class="country-picker-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="country-picker-dropdown">
+                      <div class="country-option active" data-value="+52" data-digits="10" data-placeholder="55 1234 5678">
+                        <span class="option-flag"><img src="https://flagcdn.com/mx.svg" alt="México" class="picker-flag-img" /></span>
+                        <span class="option-name">México</span>
+                        <span class="option-code">+52</span>
+                      </div>
+                      <div class="country-option" data-value="+57" data-digits="10" data-placeholder="300 123 4567">
+                        <span class="option-flag"><img src="https://flagcdn.com/co.svg" alt="Colombia" class="picker-flag-img" /></span>
+                        <span class="option-name">Colombia</span>
+                        <span class="option-code">+57</span>
+                      </div>
+                      <div class="country-option" data-value="+51" data-digits="9" data-placeholder="912 345 678">
+                        <span class="option-flag"><img src="https://flagcdn.com/pe.svg" alt="Perú" class="picker-flag-img" /></span>
+                        <span class="option-name">Perú</span>
+                        <span class="option-code">+51</span>
+                      </div>
+                      <div class="country-option" data-value="+56" data-digits="9" data-placeholder="9 1234 5678">
+                        <span class="option-flag"><img src="https://flagcdn.com/cl.svg" alt="Chile" class="picker-flag-img" /></span>
+                        <span class="option-name">Chile</span>
+                        <span class="option-code">+56</span>
+                      </div>
+                      <div class="country-option" data-value="+507" data-digits="8" data-placeholder="6123 4567">
+                        <span class="option-flag"><img src="https://flagcdn.com/pa.svg" alt="Panamá" class="picker-flag-img" /></span>
+                        <span class="option-name">Panamá</span>
+                        <span class="option-code">+507</span>
+                      </div>
+                      <div class="country-option" data-value="+593" data-digits="9" data-placeholder="9 1234 5678">
+                        <span class="option-flag"><img src="https://flagcdn.com/ec.svg" alt="Ecuador" class="picker-flag-img" /></span>
+                        <span class="option-name">Ecuador</span>
+                        <span class="option-code">+593</span>
+                      </div>
+                      <div class="country-option" data-value="+506" data-digits="8" data-placeholder="8123 4567">
+                        <span class="option-flag"><img src="https://flagcdn.com/cr.svg" alt="Costa Rica" class="picker-flag-img" /></span>
+                        <span class="option-name">Costa Rica</span>
+                        <span class="option-code">+506</span>
+                      </div>
+                      <div class="country-option" data-value="+1" data-digits="10" data-placeholder="809 123 4567">
+                        <span class="option-flag"><img src="https://flagcdn.com/do.svg" alt="República Dominicana" class="picker-flag-img" /></span>
+                        <span class="option-name">República Dominicana</span>
+                        <span class="option-code">+1</span>
+                      </div>
+                      <div class="country-option" data-value="other" data-digits="any" data-placeholder="Número completo con lada">
+                        <span class="option-flag">
+                          <svg class="picker-flag-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        </span>
+                        <span class="option-name">Otro</span>
+                        <span class="option-code"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <input type="tel" id="calc-phone" placeholder="55 1234 5678" required />
+                  <input type="hidden" id="calc-phone-full" name="calc-phone-full" />
+                </div>
               </div>
             </div>
             <div class="calc-form__row">
@@ -251,9 +310,7 @@ function initPricingCalcWidget() {
   const calcPhone    = document.getElementById('calc-phone');
 
   if (calcPhone) {
-    calcPhone.addEventListener('input', () => {
-      calcPhone.value = calcPhone.value.replace(/\D/g, '').substring(0, 10);
-    });
+    setupPhoneCountryPicker('calc-phone');
   }
 
   if (!overlay) return;
@@ -326,6 +383,7 @@ function initPricingCalcWidget() {
     const nameInput  = document.getElementById('calc-name');
     const phoneInput = document.getElementById('calc-phone');
     const emailInput = document.getElementById('calc-email');
+    const phoneGroup = document.getElementById('calc-phone-group');
     
     const name  = nameInput.value.trim();
     const phone = phoneInput.value.trim();
@@ -334,19 +392,36 @@ function initPricingCalcWidget() {
     let isValid = true;
     
     // Reset colors
-    [nameInput, phoneInput, emailInput].forEach(el => {
+    [nameInput, emailInput].forEach(el => {
       if (el) el.style.borderColor = '';
     });
+    if (phoneGroup) {
+      phoneGroup.classList.remove('error');
+    }
 
     if (!name) {
       if (nameInput) nameInput.style.borderColor = '#ef4444';
       isValid = false;
     }
     
-    // Phone validation (exactly 10 digits)
-    const phoneDigits = phone.replace(/\D/g, '');
-    if (phoneDigits.length !== 10) {
-      if (phoneInput) phoneInput.style.borderColor = '#ef4444';
+    // Phone validation
+    let isPhoneValid = true;
+    if (phoneGroup) {
+      const activeOption = phoneGroup.querySelector('.country-option.active');
+      const digits = activeOption ? activeOption.dataset.digits : '10';
+      const phoneDigits = phone.replace(/\D/g, '');
+      if (digits === 'any') {
+        if (phoneDigits.length < 7) isPhoneValid = false;
+      } else {
+        if (phoneDigits.length !== parseInt(digits)) isPhoneValid = false;
+      }
+    } else {
+      const phoneDigits = phone.replace(/\D/g, '');
+      if (phoneDigits.length !== 10) isPhoneValid = false;
+    }
+
+    if (!isPhoneValid) {
+      if (phoneGroup) phoneGroup.classList.add('error');
       isValid = false;
     }
 
@@ -358,11 +433,14 @@ function initPricingCalcWidget() {
     }
 
     // Dynamic input feedback
-    [nameInput, phoneInput, emailInput].forEach(el => {
+    [nameInput, emailInput].forEach(el => {
       if (el) {
         el.addEventListener('input', () => { el.style.borderColor = ''; }, { once: true });
       }
     });
+    if (phoneInput && phoneGroup) {
+      phoneInput.addEventListener('input', () => { phoneGroup.classList.remove('error'); }, { once: true });
+    }
 
     return isValid;
   }
@@ -404,7 +482,7 @@ function initPricingCalcWidget() {
 
     const name    = document.getElementById('calc-name').value.trim();
     const email   = document.getElementById('calc-email').value.trim();
-    const phone   = document.getElementById('calc-phone').value.trim();
+    const phone   = (document.getElementById('calc-phone-full').value || document.getElementById('calc-phone').value).trim();
     const city    = document.getElementById('calc-city').value.trim();
     const units   = parseInt(slider.value, 10);
     
