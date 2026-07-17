@@ -4660,3 +4660,181 @@ textarea {
     display: none !important; /* Hide to avoid clutter */
   }
 }
+
+/* ============================================================
+   CUSTOM COUNTRY PHONE INPUT PICKER
+   ============================================================ */
+.phone-input-group {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+/* Homepage simple design (border-bottom only) */
+.simple-input-wrap .phone-input-group {
+  border-bottom: 2px solid #e2e8f0;
+  transition: border-color 0.3s ease;
+}
+.simple-input-wrap .phone-input-group .simple-input {
+  border-bottom: none !important;
+  padding-left: 10px !important;
+  margin: 0 !important;
+  flex: 1;
+}
+
+.simple-input-wrap.error .phone-input-group {
+  border-bottom-color: #f43f5e;
+}
+
+/* Pricing page boxed design */
+.sticky-quote-form .phone-input-group {
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  overflow: visible; /* so dropdown list isn't clipped */
+  transition: border-color 200ms, box-shadow 200ms;
+}
+.sticky-quote-form .phone-input-group:focus-within {
+  border-color: #0DA3E2;
+  box-shadow: 0 0 0 3px rgba(13, 163, 226, 0.12);
+}
+.sticky-quote-form .phone-input-group.error {
+  border-color: #f43f5e;
+}
+.sticky-quote-form .phone-input-group input {
+  border: none !important;
+  height: 100% !important;
+  padding: 0 10px !important;
+  flex: 1;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Picker itself */
+.country-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  user-select: none;
+  z-index: 10;
+}
+
+.country-picker-trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 100%;
+  padding: 0 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 15px;
+  transition: background-color 0.2s;
+}
+
+.simple-input-wrap .country-picker-trigger {
+  padding: 16px 8px 16px 0;
+  color: #0f172a;
+}
+
+.country-picker-trigger:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.simple-input-wrap .country-picker-trigger:hover {
+  background: rgba(0, 0, 0, 0.01);
+}
+
+.country-picker-flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.country-picker-code {
+  font-weight: 500;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.simple-input-wrap .country-picker-code {
+  color: #0f172a;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.country-picker-arrow {
+  color: #94a3b8;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.country-picker-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 4px;
+  width: 280px;
+  max-height: 250px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  z-index: 1000;
+}
+
+.country-picker-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.country-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  font-size: 13.5px;
+  color: #334155;
+  text-align: left;
+}
+
+.country-option:hover {
+  background-color: #f1f5f9;
+}
+
+.country-option.active {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+}
+
+.option-flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.option-name {
+  flex: 1;
+}
+
+.option-code {
+  font-weight: 500;
+  color: #64748b;
+}
+
+.country-option.active .option-code {
+  color: #0369a1;
+}

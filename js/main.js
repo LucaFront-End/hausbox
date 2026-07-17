@@ -843,9 +843,7 @@ function initMultistepForm() {
   const phoneInput = document.getElementById('form-phone');
 
   if (phoneInput) {
-    phoneInput.addEventListener('input', () => {
-      phoneInput.value = phoneInput.value.replace(/\D/g, '').substring(0, 10);
-    });
+    setupPhoneCountryPicker('form-phone');
   }
 
   const totalSteps = 3; // exclude success
@@ -924,8 +922,20 @@ function initMultistepForm() {
     }
 
     if (isValid && input.id === 'form-phone') {
-      const phoneDigits = input.value.replace(/\D/g, '');
-      if (phoneDigits.length !== 10) isValid = false;
+      const container = input.closest('.phone-input-group');
+      if (container) {
+        const activeOption = container.querySelector('.country-option.active');
+        const digits = activeOption ? activeOption.dataset.digits : '10';
+        const phoneDigits = input.value.replace(/\D/g, '');
+        if (digits === 'any') {
+          if (phoneDigits.length < 7) isValid = false;
+        } else {
+          if (phoneDigits.length !== parseInt(digits)) isValid = false;
+        }
+      } else {
+        const phoneDigits = input.value.replace(/\D/g, '');
+        if (phoneDigits.length !== 10) isValid = false;
+      }
     }
 
     wrap.classList.toggle('error', !isValid);
@@ -1135,5 +1145,93 @@ function initMobileMenu() {
         }
       });
     }
+  }
+}
+
+/* ============================================================
+   PHONE INPUT COUNTRY SELECTOR HELPER
+   ============================================================ */
+function setupPhoneCountryPicker(phoneInputId) {
+  const phoneInput = document.getElementById(phoneInputId);
+  if (!phoneInput) return;
+
+  const container = phoneInput.closest('.phone-input-group');
+  if (!container) return;
+
+  const trigger = container.querySelector('.country-picker-trigger');
+  const dropdown = container.querySelector('.country-picker-dropdown');
+  const flagSpan = container.querySelector('.country-picker-flag');
+  const codeSpan = container.querySelector('.country-picker-code');
+  const options = container.querySelectorAll('.country-option');
+  const hiddenInput = container.querySelector('input[type="hidden"]');
+
+  let activeCode = "+52";
+  let activeDigits = "10";
+
+  // Toggle dropdown
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Close other country dropdowns if any
+    document.querySelectorAll('.country-picker-dropdown').forEach(d => {
+      if (d !== dropdown) d.classList.remove('active');
+    });
+    dropdown.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    dropdown.classList.remove('active');
+  });
+
+  // Option selection
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      options.forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+
+      const flag = opt.dataset.flag;
+      const code = opt.dataset.value;
+      const digits = opt.dataset.digits;
+      const placeholder = opt.dataset.placeholder;
+
+      flagSpan.textContent = flag;
+      codeSpan.textContent = code === "other" ? "" : code;
+      phoneInput.placeholder = placeholder;
+      
+      activeCode = code === "other" ? "" : code;
+      activeDigits = digits;
+
+      // Clean phone input when changing country
+      phoneInput.value = "";
+      if (hiddenInput) hiddenInput.value = "";
+      
+      // Trigger input event to update validation state
+      phoneInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+      // Close dropdown
+      dropdown.classList.remove('active');
+    });
+  });
+
+  // Format and clean phone input on input event
+  phoneInput.addEventListener('input', () => {
+    let cleanVal = phoneInput.value.replace(/\D/g, ''); // strip non-digits
+    
+    // For normal countries, limit size
+    if (activeDigits !== 'any') {
+      cleanVal = cleanVal.substring(0, parseInt(activeDigits));
+    }
+    
+    phoneInput.value = cleanVal;
+
+    // Update hidden field value
+    if (hiddenInput) {
+      hiddenInput.value = activeCode + cleanVal;
+    }
+  });
+
+  // Initial hidden value sync
+  if (hiddenInput && phoneInput.value) {
+    hiddenInput.value = activeCode + phoneInput.value.replace(/\D/g, '');
   }
 }

@@ -422,10 +422,67 @@
                   <input type="email" id="quote-email" placeholder="tu@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. usuario@dominio.com)" required />
                 </div>
                 
-                <div class="form-group">
-                  <label for="quote-phone">Teléfono</label>
-                  <input type="tel" id="quote-phone" placeholder="10 dígitos (ej. 5512345678)" pattern="[0-9]{10}" title="El teléfono debe tener exactamente 10 dígitos numéricos" required />
-                </div>
+                 <div class="form-group">
+                   <label for="quote-phone">Teléfono</label>
+                   <div class="phone-input-group" id="quote-phone-group">
+                     <div class="country-picker">
+                       <button type="button" class="country-picker-trigger">
+                         <span class="country-picker-flag">🇲🇽</span>
+                         <span class="country-picker-code">+52</span>
+                         <svg class="country-picker-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                       </button>
+                       <div class="country-picker-dropdown">
+                         <div class="country-option active" data-value="+52" data-flag="🇲🇽" data-digits="10" data-placeholder="55 1234 5678">
+                           <span class="option-flag">🇲🇽</span>
+                           <span class="option-name">México</span>
+                           <span class="option-code">+52</span>
+                         </div>
+                         <div class="country-option" data-value="+57" data-flag="🇨🇴" data-digits="10" data-placeholder="300 123 4567">
+                           <span class="option-flag">🇨🇴</span>
+                           <span class="option-name">Colombia</span>
+                           <span class="option-code">+57</span>
+                         </div>
+                         <div class="country-option" data-value="+51" data-flag="🇵🇪" data-digits="9" data-placeholder="912 345 678">
+                           <span class="option-flag">🇵🇪</span>
+                           <span class="option-name">Perú</span>
+                           <span class="option-code">+51</span>
+                         </div>
+                         <div class="country-option" data-value="+56" data-flag="🇨🇱" data-digits="9" data-placeholder="9 1234 5678">
+                           <span class="option-flag">🇨🇱</span>
+                           <span class="option-name">Chile</span>
+                           <span class="option-code">+56</span>
+                         </div>
+                         <div class="country-option" data-value="+507" data-flag="🇵🇦" data-digits="8" data-placeholder="6123 4567">
+                           <span class="option-flag">🇵🇦</span>
+                           <span class="option-name">Panamá</span>
+                           <span class="option-code">+507</span>
+                         </div>
+                         <div class="country-option" data-value="+593" data-flag="🇪🇨" data-digits="9" data-placeholder="9 1234 5678">
+                           <span class="option-flag">🇪🇨</span>
+                           <span class="option-name">Ecuador</span>
+                           <span class="option-code">+593</span>
+                         </div>
+                         <div class="country-option" data-value="+506" data-flag="🇨🇷" data-digits="8" data-placeholder="8123 4567">
+                           <span class="option-flag">🇨🇷</span>
+                           <span class="option-name">Costa Rica</span>
+                           <span class="option-code">+506</span>
+                         </div>
+                         <div class="country-option" data-value="+1" data-flag="🇩🇴" data-digits="10" data-placeholder="809 123 4567">
+                           <span class="option-flag">🇩🇴</span>
+                           <span class="option-name">República Dominicana</span>
+                           <span class="option-code">+1</span>
+                         </div>
+                         <div class="country-option" data-value="other" data-flag="🌐" data-digits="any" data-placeholder="Número completo con lada">
+                           <span class="option-flag">🌐</span>
+                           <span class="option-name">Otro</span>
+                           <span class="option-code"></span>
+                         </div>
+                       </div>
+                     </div>
+                     <input type="tel" id="quote-phone" placeholder="55 1234 5678" required />
+                     <input type="hidden" id="quote-phone-full" name="quote-phone-full" />
+                   </div>
+                 </div>
                 
                 <input type="hidden" id="quote-units" value="50" />
 
@@ -606,11 +663,9 @@
         updateCalculation();
       });
 
-      // Phone input auto-cleaner
+      // Phone input country picker initialization
       if (inputPhone) {
-        inputPhone.addEventListener('input', () => {
-          inputPhone.value = inputPhone.value.replace(/\D/g, '').substring(0, 10);
-        });
+        setupPhoneCountryPicker('quote-phone');
       }
 
       // Currency Toggles
@@ -634,9 +689,28 @@
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         
+        // Custom phone validation
+        const phoneGroup = document.getElementById('quote-phone-group');
+        let isPhoneValid = true;
+        if (phoneGroup) {
+          const activeOption = phoneGroup.querySelector('.country-option.active');
+          const digits = activeOption ? activeOption.dataset.digits : '10';
+          const phoneDigits = inputPhone.value.replace(/\D/g, '');
+          if (digits === 'any') {
+            if (phoneDigits.length < 7) isPhoneValid = false;
+          } else {
+            if (phoneDigits.length !== parseInt(digits)) isPhoneValid = false;
+          }
+          phoneGroup.classList.toggle('error', !isPhoneValid);
+        }
+        if (!isPhoneValid) {
+          inputPhone.focus();
+          return;
+        }
+
         const name = document.getElementById('quote-name').value.trim();
         const email = document.getElementById('quote-email').value.trim();
-        const phone = document.getElementById('quote-phone').value.trim();
+        const phone = document.getElementById('quote-phone-full').value.trim() || inputPhone.value.trim();
         const city = document.getElementById('quote-city').value.trim();
         const units = parseInt(slider.value, 10);
         
