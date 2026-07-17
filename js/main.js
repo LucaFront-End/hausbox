@@ -1189,12 +1189,14 @@ function setupPhoneCountryPicker(phoneInputId) {
       options.forEach(o => o.classList.remove('active'));
       opt.classList.add('active');
 
-      const flag = opt.dataset.flag;
+      const optFlag = opt.querySelector('.option-flag');
       const code = opt.dataset.value;
       const digits = opt.dataset.digits;
       const placeholder = opt.dataset.placeholder;
 
-      flagSpan.textContent = flag;
+      if (flagSpan && optFlag) {
+        flagSpan.innerHTML = optFlag.innerHTML;
+      }
       codeSpan.textContent = code === "other" ? "" : code;
       phoneInput.placeholder = placeholder;
       

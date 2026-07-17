@@ -4837,4 +4837,24 @@ textarea {
 
 .country-option.active .option-code {
   color: #0369a1;
+}
+
+.picker-flag-img {
+  width: 20px !important;
+  height: 14px !important;
+  object-fit: cover !important;
+  border-radius: 2px !important;
+  display: inline-block !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15) !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+}
+
+.picker-flag-globe {
+  width: 16px !important;
+  height: 16px !important;
+  stroke: #64748b !important;
+  display: inline-block !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
 }
