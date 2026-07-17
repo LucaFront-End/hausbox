@@ -15,17 +15,16 @@ const wixClient = createClient({
 window.submitInquiryToWix = async function(data) {
   try {
     const payload = {
-      // Wix utiliza nombres de propiedad que coinciden con los Field IDs de la colección
       title: data.name || '',
-      Nombre: data.name || '',
-      Correo: data.email || '',
-      Telefono: data.phone || '',
-      Propiedad: data.propertyType || '',
-      Unidades: data.units ? parseInt(data.units, 10) : 0,
-      Ciudad: data.city || '',
-      Costo: data.estimatedCost || '',
-      Moneda: data.currency || '',
-      Origen: data.formSource || ''
+      nombre: data.name || '',
+      correo: data.email || '',
+      telefono: data.phone || '',
+      propiedad: data.propertyType || '',
+      unidades: data.units ? parseInt(data.units, 10) : 0,
+      ciudad: data.city || '',
+      costo: data.estimatedCost || '',
+      moneda: data.currency || '',
+      origen: data.formSource || ''
     };
 
     await wixClient.items.insert('ConsultasWeb', payload);
