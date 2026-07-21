@@ -464,13 +464,16 @@ function initPricingCalcWidget() {
     document.body.style.overflow = '';
   }
 
-  // Bind all triggers to open modal
-  const triggers = document.querySelectorAll('.open-calc-btn, #calc-open-btn, a[href="#precios"]');
-  triggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
+  window.openHausboxCalcModal = openModal;
+  window.closeHausboxCalcModal = closeModal;
+
+  // Bind triggers via event delegation so dynamically added .open-calc-btn buttons work instantly
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.open-calc-btn, #calc-open-btn');
+    if (btn) {
       e.preventDefault();
       openModal();
-    });
+    }
   });
 
   closeBtn.addEventListener('click', closeModal);

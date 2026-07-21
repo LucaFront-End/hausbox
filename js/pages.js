@@ -717,12 +717,13 @@ function initMobileMenu() {
 
   // Close when clicking links
   mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (e) => {
       closeMenu();
-      // If it's the open-calc-btn, let calculator widget trigger
       if (link.classList.contains('open-calc-btn')) {
-        const calcTrigger = document.querySelector('#calc-open-btn, .open-calc-btn');
-        if (calcTrigger) calcTrigger.click();
+        e.preventDefault();
+        if (typeof window.openHausboxCalcModal === 'function') {
+          window.openHausboxCalcModal();
+        }
       }
     });
   });
@@ -751,9 +752,8 @@ function initMobileMenu() {
       
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        const calcTrigger = document.querySelector('#calc-open-btn, .open-calc-btn');
-        if (calcTrigger) {
-          calcTrigger.click();
+        if (typeof window.openHausboxCalcModal === 'function') {
+          window.openHausboxCalcModal();
         }
       });
     }
