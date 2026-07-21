@@ -730,32 +730,58 @@ function initMobileMenu() {
 
   // 4. Convert floating WhatsApp button to "Solicitar Demo" on mobile only
   const floatWhatsapp = document.querySelector('.floating-whatsapp-container');
-  if (floatWhatsapp && window.innerWidth <= 1023) {
+  if (floatWhatsapp) {
     const link = floatWhatsapp.querySelector('a');
     const tooltip = floatWhatsapp.querySelector('.whatsapp-tooltip');
+    
+    const checkMobileCTA = () => {
+      if (window.innerWidth <= 1023) {
+        if (tooltip) tooltip.textContent = 'Calcula tu plan';
+        floatWhatsapp.classList.add('mobile-cta-floating');
+        link.innerHTML = `
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+          <span>Solicitar Demo</span>
+        `;
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+        link.setAttribute('href', '#');
+        link.classList.add('open-calc-btn');
+      }
+    };
+
     if (link) {
-      if (tooltip) tooltip.textContent = 'Calcula tu plan';
-      
-      floatWhatsapp.classList.add('mobile-cta-floating');
-      link.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:16px;height:16px;">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-        <span>Solicitar Demo</span>
-      `;
-      
-      link.removeAttribute('target');
-      link.removeAttribute('rel');
-      link.setAttribute('href', '#');
-      link.classList.add('open-calc-btn');
-      
+      checkMobileCTA();
+      window.addEventListener('resize', checkMobileCTA);
       link.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (typeof window.openHausboxCalcModal === 'function') {
-          window.openHausboxCalcModal();
+        if (link.classList.contains('open-calc-btn')) {
+          e.preventDefault();
+          if (typeof window.openHausboxCalcModal === 'function') {
+            window.openHausboxCalcModal();
+          }
         }
       });
     }
+  }
+
+  // 5. Footer observer to hide floating elements
+  const footer = document.querySelector('.site-footer, footer');
+  if (footer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const whatsapp = document.querySelector('.floating-whatsapp-container');
+        const calcBtn = document.getElementById('calc-open-btn');
+        if (entry.isIntersecting) {
+          if (whatsapp) whatsapp.classList.add('hide-for-footer');
+          if (calcBtn) calcBtn.classList.add('hide-for-footer');
+        } else {
+          if (whatsapp) whatsapp.classList.remove('hide-for-footer');
+          if (calcBtn) calcBtn.classList.remove('hide-for-footer');
+        }
+      });
+    }, { threshold: 0.1 });
+    observer.observe(footer);
   }
 }
