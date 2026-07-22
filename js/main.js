@@ -1027,14 +1027,18 @@ function initMultistepForm() {
       const propRadio = form.querySelector('input[name="property-type"]:checked');
       const propertyType = propRadio ? propRadio.value : '';
 
+      const inquiryData = {
+        name,
+        email,
+        phone,
+        propertyType,
+        formSource: 'Formulario de Inicio'
+      };
       if (typeof window.submitInquiryToWix === 'function') {
-        window.submitInquiryToWix({
-          name,
-          email,
-          phone,
-          propertyType,
-          formSource: 'Formulario de Inicio'
-        });
+        window.submitInquiryToWix(inquiryData);
+      } else {
+        window.wixInquiryQueue = window.wixInquiryQueue || [];
+        window.wixInquiryQueue.push(inquiryData);
       }
 
       goToStep(totalSteps + 1); // show success

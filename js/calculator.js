@@ -318,8 +318,8 @@ function initPricingCalcWidget() {
   const propCards    = overlay.querySelectorAll('.calc-prop-card');
   const calcPhone    = document.getElementById('calc-phone');
 
-  if (calcPhone) {
-    setupPhoneCountryPicker('calc-phone');
+  if (calcPhone && typeof window.setupPhoneCountryPicker === 'function') {
+    window.setupPhoneCountryPicker('calc-phone');
   }
 
   if (!overlay) return;
@@ -529,18 +529,22 @@ function initPricingCalcWidget() {
       `https://api.whatsapp.com/send/?phone=${WA_PHONE}&text=${waMsg}&type=phone_number&app_absent=0`;
 
     // Submit to Wix CMS
+    const inquiryData = {
+      name,
+      email,
+      phone,
+      propertyType: selectedPropType,
+      units,
+      city,
+      estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
+      currency: selectedCurrency,
+      formSource: 'Calculadora Modal'
+    };
     if (typeof window.submitInquiryToWix === 'function') {
-      window.submitInquiryToWix({
-        name,
-        email,
-        phone,
-        propertyType: selectedPropType,
-        units,
-        city,
-        estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
-        currency: selectedCurrency,
-        formSource: 'Calculadora Modal'
-      });
+      window.submitInquiryToWix(inquiryData);
+    } else {
+      window.wixInquiryQueue = window.wixInquiryQueue || [];
+      window.wixInquiryQueue.push(inquiryData);
     }
 
     // Show results
@@ -569,13 +573,12 @@ function initPricingCalcWidget() {
 
   // ---- Show/Hide Floating Button on Scroll ----
   const openBtn = document.getElementById('calc-open-btn');
+  if (openBtn) {
+    openBtn.classList.add('show');
+  }
   const handleScroll = () => {
     if (!openBtn) return;
-    if (window.scrollY > 50) {
-      openBtn.classList.add('show');
-    } else {
-      openBtn.classList.remove('show');
-    }
+    openBtn.classList.add('show');
   };
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll(); // Initial check
@@ -622,4 +625,97 @@ function initWixChatObserver() {
     subtree: true
   });
 }
+
+/* ============================================================
+   PHONE COUNTRY PICKER CONTROL
+   ============================================================ */
+function setupPhoneCountryPicker(phoneInputId) {
+  const phoneInput = document.getElementById(phoneInputId);
+  if (!phoneInput) return;
+
+  injectWixScript();
+
+  const container = phoneInput.closest('.phone-input-group');
+  if (!container) return;
+
+  const trigger = container.querySelector('.country-picker-trigger');
+  const dropdown = container.querySelector('.country-picker-dropdown');
+  const flagSpan = container.querySelector('.country-picker-flag');
+  const codeSpan = container.querySelector('.country-picker-code');
+  const options = container.querySelectorAll('.country-option');
+  const hiddenInput = container.querySelector('input[type="hidden"]');
+
+  let activeCode = "+52";
+  let activeDigits = "10";
+
+  // Toggle dropdown
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Close other country dropdowns if any
+    document.querySelectorAll('.country-picker-dropdown').forEach(d => {
+      if (d !== dropdown) d.classList.remove('active');
+    });
+    dropdown.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    dropdown.classList.remove('active');
+  });
+
+  // Option selection
+  options.forEach(opt => {
+    opt.addEventListener('click', () => {
+      options.forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+
+      const optFlag = opt.querySelector('.option-flag');
+      const code = opt.dataset.value;
+      const digits = opt.dataset.digits;
+      const placeholder = opt.dataset.placeholder;
+
+      if (flagSpan && optFlag) {
+        flagSpan.innerHTML = optFlag.innerHTML;
+      }
+      codeSpan.textContent = code === "other" ? "" : code;
+      phoneInput.placeholder = placeholder;
+      
+      activeCode = code === "other" ? "" : code;
+      activeDigits = digits;
+
+      // Clean phone input when changing country
+      phoneInput.value = "";
+      if (hiddenInput) hiddenInput.value = "";
+      
+      // Trigger input event to update validation state
+      phoneInput.dispatchEvent(new Event('input', { bubbles: true }));
+
+      // Close dropdown
+      dropdown.classList.remove('active');
+    });
+  });
+
+  // Format and clean phone input on input event
+  phoneInput.addEventListener('input', () => {
+    let cleanVal = phoneInput.value.replace(/\D/g, ''); // strip non-digits
+    
+    // For normal countries, limit size
+    if (activeDigits !== 'any') {
+      cleanVal = cleanVal.substring(0, parseInt(activeDigits));
+    }
+    
+    phoneInput.value = cleanVal;
+
+    // Update hidden field value
+    if (hiddenInput) {
+      hiddenInput.value = activeCode + cleanVal;
+    }
+  });
+
+  // Initial hidden value sync
+  if (hiddenInput && phoneInput.value) {
+    hiddenInput.value = activeCode + phoneInput.value.replace(/\D/g, '');
+  }
+}
+
 

@@ -37,3 +37,11 @@ window.submitInquiryToWix = async function(data) {
 };
 
 console.log('[Wix Integration] Script Wix Headless inicializado correctamente.');
+
+// Process any queued inquiries that were submitted before this script loaded
+if (window.wixInquiryQueue && Array.isArray(window.wixInquiryQueue)) {
+  window.wixInquiryQueue.forEach(data => {
+    window.submitInquiryToWix(data);
+  });
+  window.wixInquiryQueue = [];
+}
