@@ -3549,7 +3549,7 @@
   position: fixed;
   bottom: 100px;
   right: 24px;
-  z-index: 999;
+  z-index: 9999;
   display: inline-flex;
   align-items: center;
   gap: 8px;

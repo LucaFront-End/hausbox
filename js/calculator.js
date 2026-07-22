@@ -571,13 +571,13 @@ function initPricingCalcWidget() {
   const openBtn = document.getElementById('calc-open-btn');
   const handleScroll = () => {
     if (!openBtn) return;
-    if (window.scrollY > 300) {
+    if (window.scrollY > 50) {
       openBtn.classList.add('show');
     } else {
       openBtn.classList.remove('show');
     }
   };
-  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll(); // Initial check
 }
 
