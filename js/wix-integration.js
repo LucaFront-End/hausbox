@@ -29,148 +29,1220 @@ export function resolveWixImage(wixUri, width = 1200) {
 }
 
 /**
- * Base de datos local (fallback) para Landings de Ciudad con todos los nombres de campo exactos
+ * Colección completa exportada del CMS de Wix (Landings de Ciudad - 101 registros)
  */
 export const mockLandingsDeCiudad = [
   {
-    _id: 'cdmx',
-    slug: 'cdmx',
-    ciudad: 'Ciudad de México',
-    tituloPagina: 'Administra tu condominio en <span class="serif">CDMX.</span>',
-    excerptPagina: 'La solución líder en Ciudad de México para automatizar cobranza, generar accesos QR instantáneos y llevar contabilidad transparente sin complicaciones.',
-    tituloSeo: 'Software para Condominios en CDMX | HausBox #1',
-    descripcionSeo: 'La plataforma #1 para administración de condominios, edificios y privadas en Ciudad de México (CDMX). Cobranza, SPEI, accesos QR y contabilidad.',
-    title: 'Administra tu condominio en CDMX',
-    excerpt: 'La solución líder en Ciudad de México para automatizar cobranza, generar accesos QR instantáneos y llevar contabilidad transparente.',
-    metaTitle: 'Software para Condominios en CDMX | HausBox #1',
-    metaDescription: 'La plataforma #1 para administración de condominios, edificios y privadas en Ciudad de México (CDMX).',
-    badge: '📍 Cobertura Activa · CDMX',
-    image: 'assets/images/hero-bg-app.png',
-    content: 'Proveedores, facturas, adeudos y gastos organizados. Administra pagos de forma ágil y profesional en la Ciudad de México.',
-    beneficio1: 'Todo el control. <br />En un solo <span class="serif">lugar.</span>',
-    beneficio2: 'Tu condominio <br />en tu <span class="serif">mano.</span>',
-    beneficio3: 'Cobra a tiempo en CDMX. <br />Sin <span class="serif">complicaciones.</span>',
-    whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Ciudad de México'
+    "_id": "005736d7-7039-43f8-9e4c-487f894e444d",
+    "slug": "software-para-conjuntos-habitacionales",
+    "titulo": "software para conjuntos habitacionales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para conjuntos habitacionales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para conjuntos habitacionales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Conjuntos Habitacionales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para conjuntos habitacionales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20conjuntos%20habitacionales"
   },
   {
-    _id: 'guadalajara',
-    slug: 'guadalajara',
-    ciudad: 'Guadalajara',
-    tituloPagina: 'Administración inteligente de cotos en <span class="serif">Guadalajara.</span>',
-    excerptPagina: 'Simplifica la gestión de cuotas de mantenimiento, concilia bancos al instante y mantén informados a todos tus residentes en la ZMG.',
-    tituloSeo: 'Software para Condominios en Guadalajara | HausBox #1',
-    descripcionSeo: 'Administra tu condominio o coto residencial en Guadalajara con HausBox. Automatiza pagos, cuotas de mantenimiento y reservas de amenidades.',
-    title: 'Administración inteligente de cotos en Guadalajara',
-    excerpt: 'Simplifica la gestión de cuotas de mantenimiento, concilia bancos al instante y mantén informados a todos tus residentes.',
-    metaTitle: 'Software para Condominios en Guadalajara | HausBox #1',
-    metaDescription: 'Administra tu condominio o coto residencial en Guadalajara con HausBox.',
-    badge: '📍 Cobertura Activa · Guadalajara',
-    image: 'assets/images/hero-bg-app.png',
-    content: 'Gestión especializada para cotos residenciales y desarrollos habitacionales en Zapopan y la Zona Metropolitana de Guadalajara.',
-    beneficio1: 'Control total de cotos <br />y <span class="serif">fraccionamientos.</span>',
-    beneficio2: 'App para residentes <br />en <span class="serif">Guadalajara.</span>',
-    beneficio3: 'Cobranza automática SPEI <br />en <span class="serif">Jalisco.</span>',
-    whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Guadalajara'
+    "_id": "01ac58ae-496b-4e89-a8a1-bb1872dee16e",
+    "slug": "software-para-pagos-de-mantenimiento",
+    "titulo": "software para pagos de mantenimiento",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para pagos de mantenimiento con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para pagos de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Pagos De Mantenimiento | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para pagos de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20pagos%20de%20mantenimiento"
   },
   {
-    _id: 'monterrey',
-    slug: 'monterrey',
-    ciudad: 'Monterrey',
-    tituloPagina: 'La plataforma de gestión condominal en <span class="serif">Monterrey.</span>',
-    excerptPagina: 'Optimiza la operación de torres residenciales y fraccionamientos en la zona metropolitana de Monterrey con tecnología de vanguardia.',
-    tituloSeo: 'Software para Condominios en Monterrey | HausBox #1',
-    descripcionSeo: 'Plataforma de gestión condominal en Monterrey y San Pedro Garza García. Control de accesos, cobranza automática y reportes financieros.',
-    title: 'Gestión condominal preferida en Monterrey',
-    excerpt: 'Optimiza la operación de torres residenciales y fraccionamientos en la zona metropolitana de Monterrey.',
-    metaTitle: 'Software para Condominios en Monterrey | HausBox #1',
-    metaDescription: 'Plataforma de gestión condominal en Monterrey y San Pedro Garza García.',
-    badge: '📍 Cobertura Activa · Monterrey',
-    image: 'assets/images/hero-bg-app.png',
-    content: 'Tecnología de alto rendimiento para torres de departamentos y residenciales en San Pedro Garza García y Monterrey.',
-    beneficio1: 'Gestión financiera <br />de alto <span class="serif">nivel.</span>',
-    beneficio2: 'Accesos QR <br />para torres en <span class="serif">Monterrey.</span>',
-    beneficio3: 'Cobranza inteligente <br />en <span class="serif">Nuevo León.</span>',
-    whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Monterrey'
+    "_id": "058bb54d-6957-4504-838e-b130007e7293",
+    "slug": "software-de-administracion-residencial",
+    "titulo": "software de administración residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software de administración residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software de administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Administración Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20administraci%C3%B3n%20residencial"
   },
   {
-    _id: 'queretaro',
-    slug: 'queretaro',
-    ciudad: 'Querétaro',
-    tituloPagina: 'Gestión condominal transparente en <span class="serif">Querétaro.</span>',
-    excerptPagina: 'Controla el flujo de caja, automatiza recordatorios de pago y brinda acceso rápido por QR a tus residentes en Querétaro.',
-    tituloSeo: 'Software para Condominios en Querétaro | HausBox #1',
-    descripcionSeo: 'Gestión moderna de fraccionamientos y condominios en Querétaro. Cobranza inteligente, reservas de amenidades y avisos push.',
-    title: 'Gestión condominal transparente en Querétaro',
-    excerpt: 'Controla el flujo de caja, automatiza recordatorios de pago y brinda acceso rápido por QR.',
-    metaTitle: 'Software para Condominios en Querétaro | HausBox #1',
-    metaDescription: 'Gestión moderna de fraccionamientos y condominios en Querétaro.',
-    badge: '📍 Cobertura Activa · Querétaro',
-    image: 'assets/images/hero-bg-app.png',
-    content: 'Solución integral adaptada a desarrollos residenciales en Juriquilla, Zibatá, El Marqués y zona metropolitana de Querétaro.',
-    beneficio1: 'Transparencia total <br />en tus <span class="serif">finanzas.</span>',
-    beneficio2: 'Reservas de amenidades <br />en <span class="serif">Querétaro.</span>',
-    beneficio3: 'Reducción de morosidad <br />en <span class="serif">fraccionamientos.</span>',
-    whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Querétaro'
+    "_id": "073f6477-4886-4b8d-8fbe-485f47cb0f2d",
+    "slug": "mejores-herramientas-para-condominios",
+    "titulo": "mejores herramientas para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma mejores herramientas para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica mejores herramientas para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Mejores Herramientas Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza mejores herramientas para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20mejores%20herramientas%20para%20condominios"
   },
   {
-    _id: 'puebla',
-    slug: 'puebla',
-    ciudad: 'Puebla',
-    tituloPagina: 'Digitaliza la administración en <span class="serif">Puebla.</span>',
-    excerptPagina: 'Ofrece a tus residentes la app más intuitiva para pagar mantenimientos, reservar amenidades y recibir comunicados oficiales.',
-    tituloSeo: 'Software para Condominios en Puebla | HausBox #1',
-    descripcionSeo: 'Software de administración de condominios en Puebla y Angelópolis. Reducción de morosidad, pagos SPEI y reportes contables.',
-    title: 'Digitaliza la administración de tu condominio en Puebla',
-    excerpt: 'Ofrece a tus residentes la app más intuitiva para pagar mantenimientos y reservar amenidades.',
-    metaTitle: 'Software para Condominios en Puebla | HausBox #1',
-    metaDescription: 'Software de administración de condominios en Puebla y Angelópolis.',
-    badge: '📍 Cobertura Activa · Puebla',
-    image: 'assets/images/hero-bg-app.png',
-    content: 'Plataforma líder para clústeres residenciales y edificios en Angelópolis, Lomas de Angelópolis y Puebla.',
-    beneficio1: 'Control absoluto <br />para tu <span class="serif">clúster.</span>',
-    beneficio2: 'Comunicación oficial <br />en <span class="serif">Puebla.</span>',
-    beneficio3: 'Reportes financieros <br />al <span class="serif">instante.</span>',
-    whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Puebla'
+    "_id": "0ab72f85-de8d-4604-87ff-33cc0357d800",
+    "slug": "software-para-edificios-pequenos",
+    "titulo": "software para edificios pequeños",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para edificios pequeños con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para edificios pequeños con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Edificios Pequeños | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para edificios pequeños, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20edificios%20peque%C3%B1os"
   },
   {
-    _id: 'cancun',
-    slug: 'cancun',
-    ciudad: 'Cancún',
-    tituloPagina: 'Gestión de condominios y residenciales en <span class="serif">Cancún.</span>',
-    excerptPagina: 'La herramienta perfecta para administradores y complejos vacacionales en Cancún. Control de accesos QR y cobranza en USD y MXN.',
-    tituloSeo: 'Software para Condominios y Rentas Vacacionales en Cancún | HausBox',
-    descripcionSeo: 'Administración de residenciales y rentas vacacionales en Cancún y Riviera Maya. Control de amenidades, pagos y comunicación.',
-    title: 'Gestión de condominios y residenciales en Cancún',
-    excerpt: 'La herramienta perfecta para administradores y complejos vacacionales en Cancún.',
-    metaTitle: 'Software para Condominios y Rentas Vacacionales en Cancún | HausBox',
-    metaDescription: 'Administración de residenciales y rentas vacacionales en Cancún y Riviera Maya.',
-    badge: '📍 Cobertura Activa · Cancún',
-    image: 'assets/images/hero-bg-app.png',
-    content: 'Plataforma especializada en administración de residenciales de lujo y desarrollos en Cancún y Riviera Maya.',
-    beneficio1: 'Gestión multimoneda <br />en <span class="serif">MXN y USD.</span>',
-    beneficio2: 'Accesos QR rápidos <br />para <span class="serif">visitas.</span>',
-    beneficio3: 'Cobranza transparente <br />en la <span class="serif">Riviera Maya.</span>',
-    whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Cancún'
+    "_id": "0bde5991-9f9c-4e01-8eea-0b32738e80f5",
+    "slug": "app-para-cuotas-de-mantenimiento",
+    "titulo": "app para cuotas de mantenimiento",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app para cuotas de mantenimiento con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app para cuotas de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Cuotas De Mantenimiento | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para cuotas de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20cuotas%20de%20mantenimiento"
   },
   {
-    _id: 'merida',
-    slug: 'merida',
-    ciudad: 'Mérida',
-    tituloPagina: 'Administra tus privadas residenciales en <span class="serif">Mérida.</span>',
-    excerptPagina: 'Transforma la vivencia en comunidad con cobranza automatizada, accesos seguros y contabilidad al día en Yucatán.',
-    tituloSeo: 'Software para Condominios y Privadas en Mérida | HausBox #1',
-    descripcionSeo: 'Plataforma para administración de privadas y condominios en Mérida. Pagos en línea, control de visitas e informes financieros.',
-    title: 'Administra tus privadas residenciales en Mérida',
-    excerpt: 'Transforma la vivencia en comunidad con cobranza automatizada, accesos seguros y contabilidad.',
-    metaTitle: 'Software para Condominios y Privadas en Mérida | HausBox #1',
-    metaDescription: 'Plataforma para administración de privadas y condominios en Mérida.',
-    badge: '📍 Cobertura Activa · Mérida',
-    image: 'assets/images/hero-bg-app.png',
-    content: 'La solución número 1 para privadas residenciales y cotos cerrados en Mérida y el estado de Yucatán.',
-    beneficio1: 'Organización simple <br />para tus <span class="serif">privadas.</span>',
-    beneficio2: 'Pagos SPEI <br />y tarjeta en <span class="serif">Mérida.</span>',
-    beneficio3: 'Tranquilidad total <br />en <span class="serif">comunidad.</span>',
-    whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Mérida'
+    "_id": "0bec38bd-79b2-4336-918b-2e70326dbc8d",
+    "slug": "software-para-administrar-condominios",
+    "titulo": "software para administrar condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para administrar condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para administrar condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Administrar Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para administrar condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20administrar%20condominios"
+  },
+  {
+    "_id": "0d763181-8328-42c6-80ef-c811013b256f",
+    "slug": "control-de-acceso-para-privadas",
+    "titulo": "control de acceso para privadas",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma control de acceso para privadas con Hausbox.",
+    "excerptPagina": "Hausbox simplifica control de acceso para privadas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control De Acceso Para Privadas | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control de acceso para privadas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20de%20acceso%20para%20privadas"
+  },
+  {
+    "_id": "10c9a5cd-a9d9-4a2a-94a3-29c5666e2472",
+    "slug": "como-administrar-condominios-mejor",
+    "titulo": "cómo administrar condominios mejor",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo administrar condominios mejor con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo administrar condominios mejor con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Condominios Mejor | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar condominios mejor, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20condominios%20mejor"
+  },
+  {
+    "_id": "12790919-75b3-4bb6-b3c0-99586f079ae3",
+    "slug": "administracion-moderna-de-condominios",
+    "titulo": "administración moderna de condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma administración moderna de condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica administración moderna de condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Moderna De Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración moderna de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20moderna%20de%20condominios"
+  },
+  {
+    "_id": "177b21c7-518b-4cc2-8cb5-290b9fae91d1",
+    "slug": "sistema-de-acceso-residencial",
+    "titulo": "sistema de acceso residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema de acceso residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema de acceso residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Acceso Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de acceso residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20acceso%20residencial"
+  },
+  {
+    "_id": "184281dd-ae81-4b42-906c-2449806f146e",
+    "slug": "sistema-para-condominios",
+    "titulo": "sistema para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20condominios"
+  },
+  {
+    "_id": "1bb6aeb3-124a-4936-8692-7fcbf417b74b",
+    "slug": "plataforma-de-pagos-residenciales",
+    "titulo": "plataforma de pagos residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma de pagos residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma de pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma De Pagos Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma de pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20de%20pagos%20residenciales"
+  },
+  {
+    "_id": "23414796-15e1-4f6a-ba91-c87b03f9c855",
+    "slug": "sistema-de-pagos-residenciales",
+    "titulo": "sistema de pagos residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema de pagos residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema de pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Pagos Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20pagos%20residenciales"
+  },
+  {
+    "_id": "244c3647-3341-45c4-bbb9-e8c78c871a23",
+    "slug": "automatizacion-de-pagos-condominales",
+    "titulo": "automatización de pagos condominales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma automatización de pagos condominales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica automatización de pagos condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Automatización De Pagos Condominales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza automatización de pagos condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20automatizaci%C3%B3n%20de%20pagos%20condominales"
+  },
+  {
+    "_id": "252e8598-ed0f-4dd9-b997-9d4f447f7abe",
+    "slug": "como-mejorar-la-administracion-residencial",
+    "titulo": "cómo mejorar la administración residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo mejorar la administración residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo mejorar la administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Mejorar La Administración Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo mejorar la administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20mejorar%20la%20administraci%C3%B3n%20residencial"
+  },
+  {
+    "_id": "2a319bd0-8214-4ee7-8d5b-23175de067ee",
+    "slug": "control-vehicular-residencial",
+    "titulo": "control vehicular residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma control vehicular residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica control vehicular residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control Vehicular Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control vehicular residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20vehicular%20residencial"
+  },
+  {
+    "_id": "2c0c434e-27f8-4695-b97a-1ed654529e85",
+    "slug": "plataforma-simple-residencial",
+    "titulo": "plataforma simple residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma simple residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma simple residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Simple Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma simple residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20simple%20residencial"
+  },
+  {
+    "_id": "2fb29f57-dde7-40be-a64f-8d28435b0959",
+    "slug": "administracion-digital-de-fraccionamientos",
+    "titulo": "administración digital de fraccionamientos",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma administración digital de fraccionamientos con Hausbox.",
+    "excerptPagina": "Hausbox simplifica administración digital de fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Digital De Fraccionamientos | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración digital de fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20digital%20de%20fraccionamientos"
+  },
+  {
+    "_id": "31fec2d8-fc65-4af2-a5a4-0c5a1fa22066",
+    "slug": "app-profesional-para-residentes",
+    "titulo": "app profesional para residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app profesional para residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app profesional para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Profesional Para Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app profesional para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20profesional%20para%20residentes"
+  },
+  {
+    "_id": "32f9b5b2-c3de-4866-8ef8-30b540db25ca",
+    "slug": "plataforma-para-condominios",
+    "titulo": "plataforma para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20condominios"
+  },
+  {
+    "_id": "35850f40-06ff-47b9-a5e1-3adffa16ff37",
+    "slug": "como-cobrar-cuotas-condominales",
+    "titulo": "cómo cobrar cuotas condominales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo cobrar cuotas condominales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo cobrar cuotas condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Cobrar Cuotas Condominales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo cobrar cuotas condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20cobrar%20cuotas%20condominales"
+  },
+  {
+    "_id": "35addd01-a30e-4c65-b095-fcae09e6250e",
+    "slug": "sistema-profesional-residencial",
+    "titulo": "sistema profesional residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema profesional residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema profesional residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Profesional Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema profesional residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20profesional%20residencial"
+  },
+  {
+    "_id": "35bda08a-ae37-4f92-a6b0-8db02f419206",
+    "slug": "app-mexicana-para-condominios",
+    "titulo": "app mexicana para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app mexicana para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app mexicana para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Mexicana Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app mexicana para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20mexicana%20para%20condominios"
+  },
+  {
+    "_id": "36f5fbae-13b6-4557-8746-0411e5e46b2a",
+    "slug": "sistema-integral-para-residentes",
+    "titulo": "sistema integral para residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema integral para residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema integral para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Integral Para Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema integral para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20integral%20para%20residentes"
+  },
+  {
+    "_id": "395b8a0c-032a-4d20-a05b-e4867912b627",
+    "slug": "como-administrar-edificios-residenciales",
+    "titulo": "cómo administrar edificios residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo administrar edificios residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo administrar edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Edificios Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20edificios%20residenciales"
+  },
+  {
+    "_id": "3a0b379f-c3d7-4332-bcb3-cf518050ecf5",
+    "slug": "como-organizar-pagos-de-mantenimiento",
+    "titulo": "cómo organizar pagos de mantenimiento",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo organizar pagos de mantenimiento con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo organizar pagos de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Organizar Pagos De Mantenimiento | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo organizar pagos de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20organizar%20pagos%20de%20mantenimiento"
+  },
+  {
+    "_id": "3a9bf48b-7533-4c1e-9b27-d62f19d7bba9",
+    "slug": "sistema-para-edificios-residenciales",
+    "titulo": "sistema para edificios residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema para edificios residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema para edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Edificios Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20edificios%20residenciales"
+  },
+  {
+    "_id": "3ae994c0-7173-4e9b-97f3-12f9b166e423",
+    "slug": "software-de-operacion-condominal",
+    "titulo": "software de operación condominal",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software de operación condominal con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software de operación condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Operación Condominal | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de operación condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20operaci%C3%B3n%20condominal"
+  },
+  {
+    "_id": "3b98532c-77c1-4dd4-8167-a0374cd928ad",
+    "slug": "sistema-automatizado-residencial",
+    "titulo": "sistema automatizado residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema automatizado residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema automatizado residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Automatizado Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema automatizado residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20automatizado%20residencial"
+  },
+  {
+    "_id": "3bbcd9e1-c0c5-4f6f-a159-357eff09cd63",
+    "slug": "plataforma-para-fraccionamientos",
+    "titulo": "plataforma para fraccionamientos",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma para fraccionamientos con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma para fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Fraccionamientos | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20fraccionamientos"
+  },
+  {
+    "_id": "3eeb1264-30e9-4b90-a8d4-8260d64744d4",
+    "slug": "app-para-privadas-residenciales",
+    "titulo": "app para privadas residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app para privadas residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app para privadas residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Privadas Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para privadas residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20privadas%20residenciales"
+  },
+  {
+    "_id": "42b05c86-e245-41e9-9530-588fd19d6b98",
+    "slug": "como-organizar-cuotas-de-mantenimiento",
+    "titulo": "cómo organizar cuotas de mantenimiento",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo organizar cuotas de mantenimiento con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo organizar cuotas de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Organizar Cuotas De Mantenimiento | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo organizar cuotas de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20organizar%20cuotas%20de%20mantenimiento"
+  },
+  {
+    "_id": "4d9a8910-9534-49de-b4e3-405d235214a1",
+    "slug": "administracion-inteligente-residencial",
+    "titulo": "administración inteligente residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma administración inteligente residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica administración inteligente residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Inteligente Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración inteligente residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20inteligente%20residencial"
+  },
+  {
+    "_id": "4e51fc1f-d5c2-4601-a1b5-b47f442ddc39",
+    "slug": "administracion-digital-de-condominios",
+    "titulo": "administración digital de condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma administración digital de condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica administración digital de condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Digital De Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración digital de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20digital%20de%20condominios"
+  },
+  {
+    "_id": "4e784307-f5e8-4f65-bd0c-09b338d4880c",
+    "slug": "contratar-software-para-condominios",
+    "titulo": "contratar software para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma contratar software para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica contratar software para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Contratar Software Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza contratar software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20contratar%20software%20para%20condominios"
+  },
+  {
+    "_id": "51c10018-918b-4594-9f73-867a40af2d73",
+    "slug": "pagos-en-linea-para-residentes",
+    "titulo": "pagos en línea para residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma pagos en línea para residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica pagos en línea para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Pagos En Línea Para Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza pagos en línea para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20pagos%20en%20l%C3%ADnea%20para%20residentes"
+  },
+  {
+    "_id": "54e0e198-0a10-406b-a6aa-0b9d11afb47e",
+    "slug": "digitalizar-administracion-residencial",
+    "titulo": "digitalizar administración residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma digitalizar administración residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica digitalizar administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Digitalizar Administración Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza digitalizar administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20digitalizar%20administraci%C3%B3n%20residencial"
+  },
+  {
+    "_id": "5541a46f-c7c4-43e2-8d55-258ad9e77687",
+    "slug": "app-para-edificios-residenciales",
+    "titulo": "app para edificios residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app para edificios residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app para edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Edificios Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20edificios%20residenciales"
+  },
+  {
+    "_id": "5552df6e-9e92-4e3d-a7fc-ab1cd36aefea",
+    "slug": "demo-software-condominios",
+    "titulo": "demo software condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma demo software condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica demo software condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Demo Software Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza demo software condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20demo%20software%20condominios"
+  },
+  {
+    "_id": "58773b1b-d807-430f-8952-70cde9609b2c",
+    "slug": "plataforma-para-vecinos",
+    "titulo": "plataforma para vecinos",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma para vecinos con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma para vecinos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Vecinos | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para vecinos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20vecinos"
+  },
+  {
+    "_id": "5a26aaf0-5e81-48cb-8f14-0c134963e48b",
+    "slug": "app-de-gestion-residencial",
+    "titulo": "app de gestión residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app de gestión residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app de gestión residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App De Gestión Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app de gestión residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20de%20gesti%C3%B3n%20residencial"
+  },
+  {
+    "_id": "5adbbf86-e724-4f9e-b5f8-a82b090851a2",
+    "slug": "como-evitar-morosidad-en-condominios",
+    "titulo": "cómo evitar morosidad en condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo evitar morosidad en condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo evitar morosidad en condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Evitar Morosidad En Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo evitar morosidad en condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20evitar%20morosidad%20en%20condominios"
+  },
+  {
+    "_id": "5c4ccb7d-b050-448c-92a5-b6489637c57b",
+    "slug": "mejor-software-para-condominios",
+    "titulo": "mejor software para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma mejor software para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica mejor software para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Mejor Software Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza mejor software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20mejor%20software%20para%20condominios"
+  },
+  {
+    "_id": "60080a67-1452-456b-bf85-093696cb988d",
+    "slug": "automatizacion-de-condominios",
+    "titulo": "automatización de condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma automatización de condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica automatización de condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Automatización De Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza automatización de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20automatizaci%C3%B3n%20de%20condominios"
+  },
+  {
+    "_id": "6579dc74-5467-43ab-a452-fb2787eb2826",
+    "slug": "plataforma-para-residentes",
+    "titulo": "plataforma para residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma para residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20residentes"
+  },
+  {
+    "_id": "6adac611-315a-4712-adac-a42abb1cbfb6",
+    "slug": "automatizar-pagos-condominales",
+    "titulo": "automatizar pagos condominales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma automatizar pagos condominales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica automatizar pagos condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Automatizar Pagos Condominales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza automatizar pagos condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20automatizar%20pagos%20condominales"
+  },
+  {
+    "_id": "6b5ef6f4-da99-4273-9b4c-07cef7e3ef57",
+    "slug": "plataforma-de-acceso-condominal",
+    "titulo": "plataforma de acceso condominal",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma de acceso condominal con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma de acceso condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma De Acceso Condominal | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma de acceso condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20de%20acceso%20condominal"
+  },
+  {
+    "_id": "6b99548e-f77c-4465-8da2-7c5bf8d84a51",
+    "slug": "software-para-estados-de-cuenta",
+    "titulo": "software para estados de cuenta",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para estados de cuenta con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para estados de cuenta con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Estados De Cuenta | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para estados de cuenta, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20estados%20de%20cuenta"
+  },
+  {
+    "_id": "6d4f1539-b34b-4659-9f9c-1e5987a2079b",
+    "slug": "sistema-de-avisos-residenciales",
+    "titulo": "sistema de avisos residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema de avisos residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema de avisos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Avisos Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de avisos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20avisos%20residenciales"
+  },
+  {
+    "_id": "6da69c62-decd-46b8-a8e9-249ead8e2600",
+    "slug": "software-para-automatizar-cobranza",
+    "titulo": "software para automatizar cobranza",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para automatizar cobranza con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para automatizar cobranza con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Automatizar Cobranza | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para automatizar cobranza, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20automatizar%20cobranza"
+  },
+  {
+    "_id": "6edbf8b2-d5b7-41c7-990b-5243de2cf05f",
+    "slug": "software-de-seguridad-condominal",
+    "titulo": "software de seguridad condominal",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software de seguridad condominal con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software de seguridad condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Seguridad Condominal | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de seguridad condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20seguridad%20condominal"
+  },
+  {
+    "_id": "735c2b82-74b0-4115-9786-5fd561d5f018",
+    "slug": "sistema-de-pagos-para-vecinos",
+    "titulo": "sistema de pagos para vecinos",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema de pagos para vecinos con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema de pagos para vecinos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Pagos Para Vecinos | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de pagos para vecinos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20pagos%20para%20vecinos"
+  },
+  {
+    "_id": "74ffbcb3-3ddc-4137-a11d-12cc75b61742",
+    "slug": "plataforma-profesional-para-condominios",
+    "titulo": "plataforma profesional para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma profesional para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma profesional para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Profesional Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma profesional para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20profesional%20para%20condominios"
+  },
+  {
+    "_id": "75cd0297-3aeb-4618-acb6-471e18e83840",
+    "slug": "como-administrar-fraccionamientos",
+    "titulo": "cómo administrar fraccionamientos",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo administrar fraccionamientos con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo administrar fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Fraccionamientos | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20fraccionamientos"
+  },
+  {
+    "_id": "7822b13a-b63b-4eee-ada1-76a44920d2d3",
+    "slug": "software-para-caseta-residencial",
+    "titulo": "software para caseta residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para caseta residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para caseta residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Caseta Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para caseta residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20caseta%20residencial"
+  },
+  {
+    "_id": "79f21edf-900b-4020-bb9a-b909e17d5af3",
+    "slug": "precio-software-para-condominios",
+    "titulo": "precio software para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma precio software para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica precio software para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Precio Software Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza precio software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20precio%20software%20para%20condominios"
+  },
+  {
+    "_id": "7d4b4fdd-4523-4685-a5e2-a88131ab5f2c",
+    "slug": "sistema-sencillo-para-condominios",
+    "titulo": "sistema sencillo para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema sencillo para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema sencillo para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Sencillo Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema sencillo para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20sencillo%20para%20condominios"
+  },
+  {
+    "_id": "7fa7fa1a-861c-4be7-a6f1-58231308d09f",
+    "slug": "sistema-para-administracion-online",
+    "titulo": "sistema para administración online",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema para administración online con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema para administración online con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Administración Online | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para administración online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20administraci%C3%B3n%20online"
+  },
+  {
+    "_id": "811c8bf2-eee6-481d-bda2-671f2be099ee",
+    "slug": "sistema-qr-para-visitas",
+    "titulo": "sistema QR para visitas",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema QR para visitas con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema QR para visitas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Qr Para Visitas | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema QR para visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20QR%20para%20visitas"
+  },
+  {
+    "_id": "8748e92c-27f9-4ad9-93a0-65e3095859a1",
+    "slug": "software-economico-para-condominios",
+    "titulo": "software económico para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software económico para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software económico para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Económico Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software económico para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20econ%C3%B3mico%20para%20condominios"
+  },
+  {
+    "_id": "8859d4ce-2b2e-4624-bf9d-2e678ecef0a3",
+    "slug": "herramienta-para-administrar-edificios",
+    "titulo": "herramienta para administrar edificios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma herramienta para administrar edificios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica herramienta para administrar edificios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Herramienta Para Administrar Edificios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza herramienta para administrar edificios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20herramienta%20para%20administrar%20edificios"
+  },
+  {
+    "_id": "8988577a-09cf-49ac-9916-9ea79b719b5c",
+    "slug": "administracion-residencial-online",
+    "titulo": "administración residencial online",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma administración residencial online con Hausbox.",
+    "excerptPagina": "Hausbox simplifica administración residencial online con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Residencial Online | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración residencial online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20residencial%20online"
+  },
+  {
+    "_id": "8d07425d-2cc3-4f24-b16b-379082923628",
+    "slug": "app-de-comunicacion-para-condominios",
+    "titulo": "app de comunicación para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app de comunicación para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app de comunicación para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App De Comunicación Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app de comunicación para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20de%20comunicaci%C3%B3n%20para%20condominios"
+  },
+  {
+    "_id": "8e86e26d-5061-4b91-adc3-ef45376fbf6e",
+    "slug": "como-controlar-acceso-de-visitas",
+    "titulo": "cómo controlar acceso de visitas",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo controlar acceso de visitas con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo controlar acceso de visitas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Controlar Acceso De Visitas | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo controlar acceso de visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20controlar%20acceso%20de%20visitas"
+  },
+  {
+    "_id": "90b2dc18-7a2e-4f51-9e2d-b2858b78ff1e",
+    "slug": "sistema-de-cobranza-condominal",
+    "titulo": "sistema de cobranza condominal",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema de cobranza condominal con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema de cobranza condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Cobranza Condominal | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de cobranza condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20cobranza%20condominal"
+  },
+  {
+    "_id": "93dc8f96-68ff-467e-9e4a-67d686135a81",
+    "slug": "sistema-de-cobranza-para-condominios",
+    "titulo": "sistema de cobranza para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema de cobranza para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema de cobranza para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Cobranza Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de cobranza para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20cobranza%20para%20condominios"
+  },
+  {
+    "_id": "949ca536-7bf5-4b9c-b908-dc5cf0b66a68",
+    "slug": "como-controlar-pagos-residenciales",
+    "titulo": "cómo controlar pagos residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo controlar pagos residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo controlar pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Controlar Pagos Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo controlar pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20controlar%20pagos%20residenciales"
+  },
+  {
+    "_id": "971ac486-2034-412f-bf74-5b64ca41b5ec",
+    "slug": "software-para-fraccionamientos",
+    "titulo": "software para fraccionamientos",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para fraccionamientos con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Fraccionamientos | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20fraccionamientos"
+  },
+  {
+    "_id": "996eb5b4-b0ad-41d9-8a46-a6b20aa86da0",
+    "slug": "control-digital-de-residentes",
+    "titulo": "control digital de residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma control digital de residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica control digital de residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control Digital De Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control digital de residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20digital%20de%20residentes"
+  },
+  {
+    "_id": "9a0eea5b-4f5a-4ae7-bcec-e7d3baf797d7",
+    "slug": "como-reducir-morosidad-en-condominios",
+    "titulo": "cómo reducir morosidad en condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo reducir morosidad en condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo reducir morosidad en condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Reducir Morosidad En Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo reducir morosidad en condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20reducir%20morosidad%20en%20condominios"
+  },
+  {
+    "_id": "a6a88aa2-982b-45e8-bb65-3e40bca97585",
+    "slug": "software-para-privadas-residenciales",
+    "titulo": "software para privadas residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para privadas residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para privadas residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Privadas Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para privadas residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20privadas%20residenciales"
+  },
+  {
+    "_id": "a79eceae-051b-42b8-8631-205fcfe5f1e4",
+    "slug": "software-para-conjuntos-residenciales",
+    "titulo": "software para conjuntos residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para conjuntos residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para conjuntos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Conjuntos Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para conjuntos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20conjuntos%20residenciales"
+  },
+  {
+    "_id": "a7e10404-132a-42e0-b82f-27d44d676941",
+    "slug": "sistema-de-gestion-residencial",
+    "titulo": "sistema de gestión residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema de gestión residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema de gestión residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Gestión Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de gestión residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20gesti%C3%B3n%20residencial"
+  },
+  {
+    "_id": "b073ffab-4ff4-4b88-99c0-d14d6cce2141",
+    "slug": "sistema-residencial-privado",
+    "titulo": "sistema residencial privado",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema residencial privado con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema residencial privado con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Residencial Privado | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema residencial privado, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20residencial%20privado"
+  },
+  {
+    "_id": "b0778dd1-9bd5-426f-81bd-76a7f27a6bcb",
+    "slug": "control-de-pagos-vecinales",
+    "titulo": "control de pagos vecinales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma control de pagos vecinales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica control de pagos vecinales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control De Pagos Vecinales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control de pagos vecinales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20de%20pagos%20vecinales"
+  },
+  {
+    "_id": "b4924861-9f02-4863-847b-a92f5c2dd350",
+    "slug": "plataforma-de-administracion-online",
+    "titulo": "plataforma de administración online",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma de administración online con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma de administración online con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma De Administración Online | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma de administración online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20de%20administraci%C3%B3n%20online"
+  },
+  {
+    "_id": "b6f2aaa7-0451-4395-a7ae-3e8f4ba6e9c5",
+    "slug": "como-mejorar-cobranza-residencial",
+    "titulo": "cómo mejorar cobranza residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo mejorar cobranza residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo mejorar cobranza residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Mejorar Cobranza Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo mejorar cobranza residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20mejorar%20cobranza%20residencial"
+  },
+  {
+    "_id": "b8128aee-ba2e-4148-a234-634fca6a550a",
+    "slug": "herramientas-para-administradores",
+    "titulo": "herramientas para administradores",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma herramientas para administradores con Hausbox.",
+    "excerptPagina": "Hausbox simplifica herramientas para administradores con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Herramientas Para Administradores | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza herramientas para administradores, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20herramientas%20para%20administradores"
+  },
+  {
+    "_id": "bd43a06c-3f3b-4f9a-8010-7ac739f2389b",
+    "slug": "software-de-control-administrativo",
+    "titulo": "software de control administrativo",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software de control administrativo con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software de control administrativo con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Control Administrativo | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de control administrativo, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20control%20administrativo"
+  },
+  {
+    "_id": "c33712b9-37f1-4988-9a41-d63b76f5f679",
+    "slug": "software-para-comunicacion-residencial",
+    "titulo": "software para comunicación residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para comunicación residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para comunicación residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Comunicación Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para comunicación residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20comunicaci%C3%B3n%20residencial"
+  },
+  {
+    "_id": "c5ec6e53-5359-4ce1-81c5-c9bcc6358701",
+    "slug": "sistema-para-cobrar-cuotas-condominales",
+    "titulo": "sistema para cobrar cuotas condominales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema para cobrar cuotas condominales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema para cobrar cuotas condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Cobrar Cuotas Condominales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para cobrar cuotas condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20cobrar%20cuotas%20condominales"
+  },
+  {
+    "_id": "c795e40c-c84c-4cda-a02a-ce7f43078340",
+    "slug": "administracion-de-privadas",
+    "titulo": "administración de privadas",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma administración de privadas con Hausbox.",
+    "excerptPagina": "Hausbox simplifica administración de privadas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración De Privadas | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración de privadas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20de%20privadas"
+  },
+  {
+    "_id": "ca4ff123-0710-414b-a902-2c1c5dc33238",
+    "slug": "software-para-administracion-moderna",
+    "titulo": "software para administración moderna",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para administración moderna con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para administración moderna con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Administración Moderna | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para administración moderna, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20administraci%C3%B3n%20moderna"
+  },
+  {
+    "_id": "ca63bf6b-120f-4113-81a3-bdbf785f0804",
+    "slug": "software-para-comites-vecinales",
+    "titulo": "software para comités vecinales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software para comités vecinales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software para comités vecinales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Comités Vecinales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para comités vecinales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20comit%C3%A9s%20vecinales"
+  },
+  {
+    "_id": "cd1081b9-508c-4608-a2e1-9b100a470e32",
+    "slug": "problemas-en-administracion-condominal",
+    "titulo": "problemas en administración condominal",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma problemas en administración condominal con Hausbox.",
+    "excerptPagina": "Hausbox simplifica problemas en administración condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Problemas En Administración Condominal | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza problemas en administración condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20problemas%20en%20administraci%C3%B3n%20condominal"
+  },
+  {
+    "_id": "cf6e9231-f7ab-4e24-939e-7ebe3ca2ce9f",
+    "slug": "plataforma-residencial-inteligente",
+    "titulo": "plataforma residencial inteligente",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma residencial inteligente con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma residencial inteligente con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Residencial Inteligente | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma residencial inteligente, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20residencial%20inteligente"
+  },
+  {
+    "_id": "d24f9404-9799-4613-8853-c36542de9cc5",
+    "slug": "sistema-para-evitar-adeudos",
+    "titulo": "sistema para evitar adeudos",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma sistema para evitar adeudos con Hausbox.",
+    "excerptPagina": "Hausbox simplifica sistema para evitar adeudos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Evitar Adeudos | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para evitar adeudos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20evitar%20adeudos"
+  },
+  {
+    "_id": "d25886c7-07ad-4809-a69e-e7da46c2ea64",
+    "slug": "como-digitalizar-un-condominio",
+    "titulo": "cómo digitalizar un condominio",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo digitalizar un condominio con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo digitalizar un condominio con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Digitalizar Un Condominio | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo digitalizar un condominio, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20digitalizar%20un%20condominio"
+  },
+  {
+    "_id": "d2cbaa89-eb86-448e-bb5e-c9ff665dd054",
+    "slug": "app-de-seguridad-residencial",
+    "titulo": "app de seguridad residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app de seguridad residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app de seguridad residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App De Seguridad Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app de seguridad residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20de%20seguridad%20residencial"
+  },
+  {
+    "_id": "d6039daa-436f-4c35-86f0-65077be45c41",
+    "slug": "app-para-administracion-vecinal",
+    "titulo": "app para administración vecinal",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app para administración vecinal con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app para administración vecinal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Administración Vecinal | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para administración vecinal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20administraci%C3%B3n%20vecinal"
+  },
+  {
+    "_id": "db92f85e-5f57-4730-a199-0ecbd63939eb",
+    "slug": "como-administrar-residentes",
+    "titulo": "cómo administrar residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo administrar residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo administrar residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20residentes"
+  },
+  {
+    "_id": "e009b51b-69e0-4b64-b697-ec00fa137f3c",
+    "slug": "control-de-cuotas-de-residentes",
+    "titulo": "control de cuotas de residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma control de cuotas de residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica control de cuotas de residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control De Cuotas De Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control de cuotas de residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20de%20cuotas%20de%20residentes"
+  },
+  {
+    "_id": "e129a794-bcdf-4705-b62b-9a007427929c",
+    "slug": "app-facil-para-residentes",
+    "titulo": "app fácil para residentes",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app fácil para residentes con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app fácil para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Fácil Para Residentes | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app fácil para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20f%C3%A1cil%20para%20residentes"
+  },
+  {
+    "_id": "e36edbee-5f11-4050-9645-f708c5339b2e",
+    "slug": "como-digitalizar-administracion-residencial",
+    "titulo": "cómo digitalizar administración residencial",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma cómo digitalizar administración residencial con Hausbox.",
+    "excerptPagina": "Hausbox simplifica cómo digitalizar administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Digitalizar Administración Residencial | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo digitalizar administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20digitalizar%20administraci%C3%B3n%20residencial"
+  },
+  {
+    "_id": "e5ccac7c-22c6-482a-8ff7-f5cf5963741c",
+    "slug": "app-para-control-de-visitas",
+    "titulo": "app para control de visitas",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app para control de visitas con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app para control de visitas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Control De Visitas | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para control de visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20control%20de%20visitas"
+  },
+  {
+    "_id": "ef5d4b3d-ebe9-4fc6-9650-bd8d2c203ac9",
+    "slug": "plataforma-para-accesos-residenciales",
+    "titulo": "plataforma para accesos residenciales",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma plataforma para accesos residenciales con Hausbox.",
+    "excerptPagina": "Hausbox simplifica plataforma para accesos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Accesos Residenciales | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para accesos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20accesos%20residenciales"
+  },
+  {
+    "_id": "f41577cc-e73f-4780-ad17-4aed11ee29c9",
+    "slug": "software-simple-para-condominios",
+    "titulo": "software simple para condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma software simple para condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica software simple para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Simple Para Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software simple para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20simple%20para%20condominios"
+  },
+  {
+    "_id": "f74d1d59-3b03-44b3-a16c-f4b523c68cc5",
+    "slug": "solucion-para-administracion-condominal",
+    "titulo": "solución para administración condominal",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma solución para administración condominal con Hausbox.",
+    "excerptPagina": "Hausbox simplifica solución para administración condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Solución Para Administración Condominal | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza solución para administración condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20soluci%C3%B3n%20para%20administraci%C3%B3n%20condominal"
+  },
+  {
+    "_id": "faa096b5-9c0f-4adc-86bb-942659494edd",
+    "slug": "app-para-administrar-condominios",
+    "titulo": "app para administrar condominios",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "Transforma app para administrar condominios con Hausbox.",
+    "excerptPagina": "Hausbox simplifica app para administrar condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Administrar Condominios | Hausbox Software para Condominios",
+    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para administrar condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20administrar%20condominios"
+  },
+  {
+    "_id": "fbdd1a01-e673-46e5-860d-149ddb364f45",
+    "slug": "",
+    "titulo": "",
+    "ciudadOEstado": "",
+    "pais": "México",
+    "tituloPagina": "",
+    "excerptPagina": "",
+    "tituloSeo": "",
+    "metadescripcionSeo": "",
+    "whatsappPersonalizado": ""
   }
 ];
 
@@ -182,9 +1254,9 @@ export async function fetchLandingsDeCiudad() {
 
   for (const col of collectionNames) {
     try {
-      const res = await wixClient.items.query(col).find();
+      const res = await wixClient.items.query(col).limit(200).find();
       if (res.items && res.items.length > 0) {
-        console.log(`[Wix CMS] Colección '${col}' obtenida con ${res.items.length} items.`);
+        console.log(`[Wix CMS] Colección '${col}' obtenida exitosamente con ${res.items.length} items.`);
         return res.items.map(item => item.data || item);
       }
     } catch (err) {
@@ -192,8 +1264,81 @@ export async function fetchLandingsDeCiudad() {
     }
   }
 
-  console.warn('[Wix CMS] Usando base de datos local (fallback) para LandingsdeCiudad.');
+  console.warn('[Wix CMS] Usando base de datos local (101 Landings de Ciudad) como fallback.');
   return mockLandingsDeCiudad;
+}
+
+/**
+ * Extrae y normaliza de forma segura todos los campos exactos del CMS de Wix
+ */
+export function extractCmsFields(item) {
+  if (!item) return {};
+
+  const get = (...keys) => {
+    for (const k of keys) {
+      if (item[k] !== undefined && item[k] !== null && item[k] !== '') {
+        return item[k];
+      }
+    }
+    return '';
+  };
+
+  const titlePagina = get(
+    'tituloPagina', 'titulo_pagina', 'tituloPagina', 'Titulo página', 'Titulo pagina',
+    'title', 'titulo', 'Titulo', 'heroTitle', 'h1'
+  );
+
+  const excerptPagina = get(
+    'excerptPagina', 'excerpt_pagina', 'excerptPagina', 'Excerpt Página', 'Excerpt Pagina',
+    'excerpt', 'extracto', 'resumen', 'heroSubtitle', 'subtitulo'
+  );
+
+  const tituloSeo = get(
+    'tituloSeo', 'titulo_seo', 'tituloSeo', 'Titulo SEO', 'Titulo Seo',
+    'seoTitle', 'metaTitle', 'meta_title'
+  );
+
+  const metadescripcionSeo = get(
+    'metadescripcionSeo', 'metadescripcion_seo', 'metaDescripcionSeo', 'Metadescripción SEO', 'Metadescripcion SEO',
+    'metaDescription', 'meta_description', 'seoDescription', 'descripcion'
+  );
+
+  const whatsapp = get(
+    'whatsappPersonalizado', 'whatsapp_personalizado', 'Whatsapp personalizado',
+    'whatsapp', 'mensajeWhatsapp'
+  );
+
+  const ciudad = get('ciudadOEstado', 'ciudad_o_estado', 'Ciudad o Estado', 'ciudad', 'title', 'titulo');
+  const slug = get('slug', '_id');
+  const badge = get('badge', 'insignia') || (ciudad ? `📍 Cobertura Activa · ${ciudad}` : '📍 Software #1 en México');
+
+  return {
+    raw: item,
+    slug,
+    ciudad,
+    titlePagina,
+    excerptPagina,
+    tituloSeo,
+    metadescripcionSeo,
+    whatsapp,
+    badge
+  };
+}
+
+/**
+ * Formatea un título para preservar el estilo 'serif' en la última palabra
+ */
+function formatTitleWithSerif(rawTitle) {
+  if (!rawTitle) return '';
+  if (rawTitle.includes('<span') || rawTitle.includes('<br')) {
+    return rawTitle;
+  }
+  const words = rawTitle.trim().split(' ');
+  if (words.length <= 2) {
+    return `<span class="serif">${words.join(' ')}</span>`;
+  }
+  const lastWord = words.pop();
+  return `${words.join(' ')} <span class="serif">${lastWord}</span>`;
 }
 
 /**
@@ -224,158 +1369,83 @@ window.submitInquiryToWix = async function(data) {
 };
 
 /**
- * Formatea un título para preservar el estilo 'serif' en la última palabra
- */
-function formatTitleWithSerif(rawTitle) {
-  if (!rawTitle) return '';
-  if (rawTitle.includes('<span') || rawTitle.includes('<br')) {
-    return rawTitle; // Ya viene formateado con HTML desde el CMS
-  }
-  const words = rawTitle.trim().split(' ');
-  if (words.length === 1) {
-    return `<span class="serif">${words[0]}</span>`;
-  }
-  const lastWord = words.pop();
-  return `${words.join(' ')} <span class="serif">${lastWord}</span>`;
-}
-
-/**
- * Hidrata dinámicamente el DOM con los campos exactos del CMS (tituloPagina, excerptPagina, tituloSeo, descripcionSeo, badge, image, etc.)
+ * Hidrata dinámicamente el DOM con 100% de los campos exactos del CMS (Titulo página, Excerpt Página, Titulo SEO, Metadescripción SEO, Whatsapp)
  */
 export async function initCityLanding() {
   const urlParams = new URLSearchParams(window.location.search);
-  const rawSlug = urlParams.get('slug') || urlParams.get('c') || urlParams.get('ciudad') || 'cdmx';
+  const rawSlug = urlParams.get('slug') || urlParams.get('c') || urlParams.get('ciudad') || 'software-para-conjuntos-habitacionales';
   const targetSlug = rawSlug.toLowerCase().trim();
 
   const landings = await fetchLandingsDeCiudad();
 
-  // Buscar el item correspondiente por slug, ciudad o título
-  const currentLanding = landings.find(l => {
-    const s = (l.slug || l.ciudad || l.tituloPagina || l.title || l._id || '').toLowerCase();
+  // Buscar el item correspondiente por slug o título
+  const rawItem = landings.find(l => {
+    const s = (l.slug || l.slug || l._id || l.title || l.titulo || '').toLowerCase();
     return s === targetSlug || s.includes(targetSlug) || targetSlug.includes(s);
   }) || landings[0];
 
-  if (!currentLanding) return;
+  if (!rawItem) return;
 
-  // Helper para resolver valor probando múltiples alias de campo
-  const getValue = (...keys) => {
-    for (const key of keys) {
-      if (currentLanding[key] !== undefined && currentLanding[key] !== null && currentLanding[key] !== '') {
-        return currentLanding[key];
-      }
-    }
-    return '';
-  };
+  const cms = extractCmsFields(rawItem);
 
-  // 1. TÍTULO SEO (tituloSeo / metaTitle / seoTitle)
-  const seoTitleVal = getValue('tituloSeo', 'titulo_seo', 'seoTitle', 'seo_title', 'metaTitle', 'meta_title');
-  if (seoTitleVal) {
-    document.title = seoTitleVal;
+  // 1. TÍTULO SEO (Titulo SEO -> <title>)
+  if (cms.tituloSeo) {
+    document.title = cms.tituloSeo;
   }
 
-  // 2. DESCRIPCIÓN SEO (descripcionSeo / metaDescription / seoDescription)
-  const seoDescVal = getValue('descripcionSeo', 'descripcion_seo', 'seoDescription', 'seo_description', 'metaDescription', 'meta_description');
-  if (seoDescVal) {
+  // 2. METADESCRIPCIÓN SEO (Metadescripción SEO -> <meta name="description">)
+  if (cms.metadescripcionSeo) {
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', seoDescVal);
+    if (metaDesc) metaDesc.setAttribute('content', cms.metadescripcionSeo);
   }
 
-  // 3. TÍTULO PÁGINA (tituloPagina / title / heroTitle) -> H1
-  const pageTitleVal = getValue('tituloPagina', 'titulo_pagina', 'titulo-pagina', 'title', 'titulo', 'heroTitle', 'tituloHero');
-  if (pageTitleVal) {
-    const formattedTitle = formatTitleWithSerif(pageTitleVal);
+  // 3. TÍTULO PÁGINA (Titulo página -> H1)
+  if (cms.titlePagina) {
+    const formattedTitle = formatTitleWithSerif(cms.titlePagina);
     const titleElements = document.querySelectorAll('[data-cms="tituloPagina"], [data-cms="title"], [data-cms="hero-title"], [data-cms-title]');
     titleElements.forEach(el => {
       el.innerHTML = formattedTitle;
     });
   }
 
-  // 4. EXCERPT PÁGINA (excerptPagina / excerpt / subtitulo) -> Subtítulo
-  const pageExcerptVal = getValue('excerptPagina', 'excerpt_pagina', 'excerpt-pagina', 'excerpt', 'extracto', 'resumen', 'subtitulo', 'heroSubtitle');
-  if (pageExcerptVal) {
+  // 4. EXCERPT PÁGINA (Excerpt Página -> Subtítulo)
+  if (cms.excerptPagina) {
     const excerptElements = document.querySelectorAll('[data-cms="excerptPagina"], [data-cms="excerpt"], [data-cms="hero-subtitle"], [data-cms-excerpt]');
     excerptElements.forEach(el => {
-      el.innerHTML = pageExcerptVal;
+      el.innerHTML = cms.excerptPagina;
     });
   }
 
   // 5. INSIGNIA / BADGE
-  const badgeVal = getValue('badge', 'insignia', 'cityBadge', 'etiqueta');
-  if (badgeVal) {
+  if (cms.badge) {
     const badgeElements = document.querySelectorAll('[data-cms="badge"], [data-cms="insignia"], [data-cms="city-badge"]');
     badgeElements.forEach(el => {
-      el.innerHTML = badgeVal;
+      el.innerHTML = cms.badge;
     });
   }
 
-  // 6. IMAGEN HERO
-  const imageVal = getValue('image', 'imagen', 'heroImage', 'imagenHero', 'photo', 'foto');
-  if (imageVal) {
-    const imageElements = document.querySelectorAll('[data-cms="image"], [data-cms="imagen"], [data-cms="hero-image"]');
-    imageElements.forEach(el => {
-      if (el.tagName === 'IMG') el.src = resolveWixImage(imageVal);
+  // 6. WHATSAPP PERSONALIZADO
+  if (cms.whatsapp) {
+    const waLinks = document.querySelectorAll('a[href*="whatsapp.com"], [data-cms="whatsapp-link"]');
+    waLinks.forEach(link => {
+      link.href = cms.whatsapp;
     });
   }
 
-  // 7. CONTENIDO / DESCRIPCIÓN CUERPO
-  const contentVal = getValue('content', 'contenido', 'descripcion', 'body', 'texto');
-  if (contentVal) {
-    const contentElements = document.querySelectorAll('[data-cms="content"], [data-cms="contenido"], [data-cms="descripcion"]');
-    contentElements.forEach(el => {
-      el.innerHTML = contentVal;
-    });
-  }
-
-  // 8. BENEFICIOS
-  const ben1 = getValue('beneficio1', 'beneficio_1', 'feature1');
-  if (ben1) {
-    const el1 = document.querySelector('[data-cms="beneficio1"]');
-    if (el1) el1.innerHTML = ben1;
-  }
-
-  const ben2 = getValue('beneficio2', 'beneficio_2', 'feature2');
-  if (ben2) {
-    const el2 = document.querySelector('[data-cms="beneficio2"]');
-    if (el2) el2.innerHTML = ben2;
-  }
-
-  const ben3 = getValue('beneficio3', 'beneficio_3', 'feature3');
-  if (ben3) {
-    const el3 = document.querySelector('[data-cms="beneficio3"]');
-    if (el3) el3.innerHTML = ben3;
-  }
-
-  // 9. Mapeo genérico para cualquier otro campo en la respuesta del CMS
-  Object.keys(currentLanding).forEach(key => {
-    const val = currentLanding[key];
-    if (!val) return;
-
-    const targets = document.querySelectorAll(`[data-cms="${key}"]`);
-    targets.forEach(target => {
-      if (target.tagName === 'IMG') {
-        target.src = resolveWixImage(val);
-      } else if (target.tagName === 'A' && target.hasAttribute('href') && typeof val === 'string' && val.startsWith('http')) {
-        target.href = val;
-      } else {
-        target.innerHTML = val;
-      }
-    });
-  });
-
-  // 10. Rellenar referencias al nombre de la ciudad
-  const cityNameText = getValue('ciudad', 'title', 'nombre', 'ciudadName') || 'tu ciudad';
+  // 7. Rellenar referencias al nombre de la ciudad / tema
+  const cityNameText = cms.ciudad || cms.titlePagina || 'tu ciudad';
   const cityNames = document.querySelectorAll('[data-cms="city-name"]');
   cityNames.forEach(el => {
     el.textContent = cityNameText;
   });
 
-  // 11. Renderizado dinámico del Selector de Ciudades
+  // 8. Selector de Landings Dinámico (101 Opciones)
   const citySelect = document.querySelector('[data-cms="city-select"]');
   if (citySelect) {
     citySelect.innerHTML = landings.map(l => {
-      const lSlug = l.slug || l._id || l.ciudad;
-      const lName = l.ciudad || l.tituloPagina || l.title || l.nombre;
-      const isSelected = (lSlug.toLowerCase() === (currentLanding.slug || '').toLowerCase());
+      const lSlug = l.slug || l._id;
+      const lName = l.tituloPagina || l.titulo || l.title || l.slug;
+      const isSelected = (lSlug.toLowerCase() === (cms.slug || '').toLowerCase());
       return `<option value="${lSlug}" ${isSelected ? 'selected' : ''}>${lName}</option>`;
     }).join('');
 
@@ -384,23 +1454,13 @@ export async function initCityLanding() {
     };
   }
 
-  // 12. WhatsApp enlace y mensaje dinámico
-  const waMessage = getValue('whatsappMessage', 'mensajeWhatsapp', 'whatsappText') || `Hola, me interesa información de HausBox para condominios en ${cityNameText}`;
-  const encodedMsg = encodeURIComponent(waMessage);
-  const waUrl = `https://api.whatsapp.com/send/?phone=5215574374431&text=${encodedMsg}&type=phone_number&app_absent=0`;
-
-  const waLinks = document.querySelectorAll('a[href*="whatsapp.com"], [data-cms="whatsapp-link"]');
-  waLinks.forEach(link => {
-    link.href = waUrl;
-  });
-
-  // 13. Configurar variable global de ciudad actual para los formularios de leads
+  // 9. Configurar variable global de ciudad actual para los formularios de leads
   window.currentLandingCity = cityNameText;
-  console.log('[Wix CMS] Landing hidratada exitosamente (tituloPagina, excerptPagina, tituloSeo, descripcionSeo) para:', window.currentLandingCity);
+  console.log('[Wix CMS] Landing hidratada 100% dinámicamente desde Wix CMS para:', cms.slug);
 }
 
 /**
- * Renderiza dinámicamente el Hub de Zonas (zonas.html)
+ * Renderiza dinámicamente el Hub de Zonas (zonas.html con los 101 registros del CMS)
  */
 export async function renderZonesHub() {
   const container = document.getElementById('zones-grid') || document.querySelector('[data-cms="cities-grid"]');
@@ -412,7 +1472,7 @@ export async function renderZonesHub() {
   const landings = await fetchLandingsDeCiudad();
 
   if (countBadge) {
-    countBadge.textContent = `📍 ${landings.length} Zonas activas`;
+    countBadge.textContent = `📍 ${landings.length} Landings de Ciudad y Cobertura`;
   }
 
   function drawCards(itemsToDraw) {
@@ -420,36 +1480,31 @@ export async function renderZonesHub() {
       container.innerHTML = `
         <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#64748b">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;margin:0 auto 16px;opacity:0.5"><circle cx="12" cy="12" r="10"/><path d="m21 21-4.3-4.3"/></svg>
-          <h3 style="font-size:18px;font-weight:600;color:#0f172a;margin-bottom:8px">No se encontraron ciudades</h3>
+          <h3 style="font-size:18px;font-weight:600;color:#0f172a;margin-bottom:8px">No se encontraron landings</h3>
           <p style="font-size:14px">Intenta buscar con otro término de búsqueda.</p>
         </div>
       `;
       return;
     }
 
-    container.innerHTML = itemsToDraw.map(l => {
-      const slug = l.slug || l._id || l.ciudad;
-      const cName = l.ciudad || l.tituloPagina || l.title || l.nombre || 'Ciudad';
-      const cBadge = l.badge || l.insignia || '📍 Cobertura Activa';
-      const cDesc = l.excerptPagina || l.excerpt || l.extracto || l.descripcionSeo || l.metaDescription || `Software #1 para administración de condominios y privadas en ${cName}.`;
-      const cFeature = l.beneficioHero || l.content || 'Cobranza SPEI · Accesos QR · Amenidades';
+    container.innerHTML = itemsToDraw.map(raw => {
+      const cms = extractCmsFields(raw);
+      const title = cms.titlePagina || cms.slug;
+      const desc = cms.excerptPagina || cms.metadescripcionSeo || 'Solución #1 para administración de condominios.';
+      const badge = cms.badge;
 
       return `
         <div class="zone-card" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:24px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.25s ease, shadow 0.25s ease, border-color 0.25s ease;box-shadow:0 4px 20px rgba(0,0,0,0.03)" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#0DA3E2';this.style.boxShadow='0 12px 30px rgba(13,163,226,0.12)'" onmouseout="this.style.transform='none';this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.03)'">
           <div>
             <div style="display:inline-flex;align-items:center;gap:6px;background:#f0f9ff;border:1px solid #bae6fd;padding:6px 12px;border-radius:20px;color:#0284c7;font-size:12px;font-weight:600;margin-bottom:16px">
-              ${cBadge}
+              ${badge}
             </div>
-            <h3 style="font-size:22px;font-weight:600;color:#0f172a;margin-bottom:12px">${cName}</h3>
-            <p style="font-size:14px;line-height:1.6;color:#64748b;margin-bottom:20px">${cDesc}</p>
+            <h3 style="font-size:20px;font-weight:600;color:#0f172a;margin-bottom:12px;line-height:1.4">${title}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#64748b;margin-bottom:20px">${desc}</p>
           </div>
           <div>
-            <div style="font-size:12px;font-weight:500;color:#0DA3E2;margin-bottom:20px;display:flex;align-items:center;gap:6px">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>${cFeature}</span>
-            </div>
-            <a href="ciudad.html?slug=${encodeURIComponent(slug)}" class="btn-secondary-hero" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;border-radius:12px;background:#0f172a;color:#ffffff;font-size:14px;font-weight:500;text-decoration:none;transition:background 0.2s ease" onmouseover="this.style.background='#0DA3E2'" onmouseout="this.style.background='#0f172a'">
-              <span>Explorar ${cName}</span>
+            <a href="ciudad.html?slug=${encodeURIComponent(cms.slug)}" class="btn-secondary-hero" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;border-radius:12px;background:#0f172a;color:#ffffff;font-size:14px;font-weight:500;text-decoration:none;transition:background 0.2s ease" onmouseover="this.style.background='#0DA3E2'" onmouseout="this.style.background='#0f172a'">
+              <span>Ver Landing</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
@@ -463,8 +1518,9 @@ export async function renderZonesHub() {
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase().trim();
-      const filtered = landings.filter(l => {
-        const text = `${l.ciudad} ${l.tituloPagina || l.title} ${l.excerptPagina || l.excerpt} ${l.descripcionSeo || l.metaDescription} ${l.slug}`.toLowerCase();
+      const filtered = landings.filter(raw => {
+        const cms = extractCmsFields(raw);
+        const text = `${cms.titlePagina} ${cms.excerptPagina} ${cms.tituloSeo} ${cms.metadescripcionSeo} ${cms.slug}`.toLowerCase();
         return text.includes(q);
       });
       drawCards(filtered);
@@ -478,7 +1534,7 @@ window.initCityLanding = initCityLanding;
 window.renderZonesHub = renderZonesHub;
 window.resolveWixImage = resolveWixImage;
 
-console.log('[Wix Integration] Script Wix Headless inicializado correctamente.');
+console.log('[Wix Integration] Script Wix Headless inicializado correctamente con 101 Landings de Ciudad.');
 
 // Procesar cola de consultas pendientes
 if (window.wixInquiryQueue && Array.isArray(window.wixInquiryQueue)) {
