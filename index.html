@@ -294,7 +294,12 @@
 
       <!-- Hero text -->
       <div class="hero-content">
-        <h1 class="text-display" style="font-weight:300;color:#fff;max-width:22ch;margin:0 auto">
+        <!-- Badge for CMS -->
+        <div data-cms="badge" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);padding:8px 18px;border-radius:30px;color:#ffffff;font-size:14px;font-weight:500;margin-bottom:1.5rem">
+          📍 Software #1 para Administración de Condominios
+        </div>
+
+        <h1 class="text-display" data-cms="title" data-cms-title style="font-weight:300;color:#fff;max-width:22ch;margin:0 auto">
           <span class="text-reveal-wrap">
             <span class="text-reveal-inner hero-line-1">Administra tu <span class="serif">condominio.</span></span>
           </span>
@@ -304,7 +309,7 @@
         </h1>
 
         <div class="hero-fade hero-subtitle" style="transition-delay:1100ms">
-          <p
+          <p data-cms="excerpt" data-cms-excerpt
             style="margin-top:1.5rem;max-width:42rem;font-size:clamp(1rem,1.4vw,1.25rem);font-weight:300;line-height:1.625;color:rgba(255,255,255,0.8)">
             Comunicación con tus residentes, cobra a tiempo y mantén todo en orden. Así de simple es HausBox.
           </p>
