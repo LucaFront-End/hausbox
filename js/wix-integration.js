@@ -21,17 +21,86 @@
   var WIX_CLIENT_ID  = 'ad0088f3-624d-4205-aec9-590fd15e74dd';
   var WIX_COLLECTION = 'LandingsdeCiudad';
 
-  /* ─── CDN URLs del SDK de Wix (en orden de preferencia) ─── */
-  var SDK_CDNS = [
-    'https://cdn.jsdelivr.net/npm/@wix/sdk@latest/+esm',
-    'https://esm.sh/@wix/sdk@latest',
-    'https://esm.run/@wix/sdk'
-  ];
-  var DATA_CDNS = [
-    'https://cdn.jsdelivr.net/npm/@wix/data@latest/+esm',
-    'https://esm.sh/@wix/data@latest',
-    'https://esm.run/@wix/data'
-  ];
+  /* ─── API REST DE WIX (sin SDK, sin CDN) ─────────────────── */
+  var WIX_OAUTH_URL = 'https://www.wixapis.com/oauth2/token';
+  var WIX_DATA_URL  = 'https://www.wixapis.com/wix-data/v2/items/query';
+
+  /* Cache del token anónimo para no pedirlo en cada request */
+  var _cachedToken = null;
+  var _tokenExpiry = 0;
+
+  /**
+   * Obtiene un token de visitante anónimo via OAuth con el clientId.
+   * Wix permite acceso público a colecciones abiertas con este token.
+   */
+  function getWixToken() {
+    var now = Date.now();
+    if (_cachedToken && now < _tokenExpiry) {
+      return Promise.resolve(_cachedToken);
+    }
+    return fetch(WIX_OAUTH_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ clientId: WIX_CLIENT_ID, grantType: 'anonymous' })
+    })
+    .then(function(r) {
+      if (!r.ok) throw new Error('OAuth token error: ' + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      _cachedToken = data.access_token;
+      /* Wix tokens duran ~1 hora, refrescamos a los 50 min */
+      _tokenExpiry = now + 50 * 60 * 1000;
+      return _cachedToken;
+    });
+  }
+
+  /**
+   * Consulta la colección del CMS de Wix usando la API REST.
+   * Si targetSlug es truthy, filtra por ese slug (devuelve 1 item).
+   * Si targetSlug es falsy, devuelve todos los items (para el hub de zonas).
+   */
+  function fetchFromWixREST(targetSlug) {
+    return getWixToken().then(function(token) {
+      var body;
+      if (targetSlug) {
+        body = {
+          dataCollectionId: WIX_COLLECTION,
+          query: {
+            filter: { slug: { '$eq': targetSlug } },
+            paging: { limit: 1 }
+          },
+          includeReferencedItems: []
+        };
+      } else {
+        body = {
+          dataCollectionId: WIX_COLLECTION,
+          query: { paging: { limit: 1000 } },
+          includeReferencedItems: []
+        };
+      }
+
+      return fetch(WIX_DATA_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(body)
+      });
+    })
+    .then(function(r) {
+      if (!r.ok) throw new Error('Wix Data API error: ' + r.status);
+      return r.json();
+    })
+    .then(function(data) {
+      /* La API devuelve { dataItems: [{ id, data: {...} }, ...] } */
+      if (!data.dataItems || data.dataItems.length === 0) return [];
+      return data.dataItems.map(function(item) {
+        return item.data || item;
+      });
+    });
+  }
 
   /* ─── DATOS MOCK (idénticos al CMS exportado via CSV) ────── */
   /* Se usan como placeholder visual hasta que carguen los datos reales */
@@ -1345,57 +1414,8 @@
     return null;
   }
 
-  /* ─── CARGA SDK DE WIX CON FALLBACK ENTRE CDNs ──────────── */
-  function tryImport(cdnList, idx) {
-    if (idx >= cdnList.length) return Promise.reject(new Error('All CDNs failed'));
-    return import(cdnList[idx]).catch(function() {
-      return tryImport(cdnList, idx + 1);
-    });
-  }
 
-  /**
-   * Carga el SDK y obtiene datos reales del CMS de Wix.
-   * Devuelve una Promise con el array de items del CMS.
-   */
-  function fetchFromWixSDK(targetSlug) {
-    return Promise.all([
-      tryImport(SDK_CDNS, 0),
-      tryImport(DATA_CDNS, 0)
-    ]).then(function(modules) {
-      var sdkModule  = modules[0];
-      var dataModule = modules[1];
 
-      var createClient  = sdkModule.createClient;
-      var OAuthStrategy = sdkModule.OAuthStrategy;
-      var items         = dataModule.items;
-
-      var client = createClient({
-        modules: { items: items },
-        auth: OAuthStrategy({ clientId: WIX_CLIENT_ID })
-      });
-
-      // Si tenemos slug, traer solo ese item
-      if (targetSlug) {
-        return client.items
-          .queryDataItems({ dataCollectionId: WIX_COLLECTION })
-          .eq('slug', targetSlug)
-          .limit(1)
-          .find()
-          .then(function(res) {
-            return res.items && res.items.length > 0 ? [res.items[0].data] : null;
-          });
-      }
-
-      // Si no hay slug (hub de zonas), traer todos
-      return client.items
-        .queryDataItems({ dataCollectionId: WIX_COLLECTION })
-        .limit(1000)
-        .find()
-        .then(function(res) {
-          return (res.items || []).map(function(i) { return i.data || i; });
-        });
-    });
-  }
 
   /* ─── LANDING DINÁMICA (ciudad.html?slug=...) ───────────── */
   function initCityLanding() {
@@ -1415,8 +1435,8 @@
       console.log('[HausBox CMS] ⚡ Placeholder mock aplicado para:', targetSlug);
     }
 
-    /* PASO 2: Datos reales del CMS de Wix (asíncrono) */
-    fetchFromWixSDK(targetSlug)
+    /* PASO 2: Datos reales del CMS via REST API de Wix (asíncrono) */
+    fetchFromWixREST(targetSlug)
       .then(function(results) {
         if (!results || results.length === 0) {
           console.warn('[HausBox CMS] CMS no devolvió datos para:', targetSlug, '— usando mock.');
@@ -1427,7 +1447,7 @@
         console.log('[HausBox CMS] ✅ Datos REALES del CMS aplicados:', liveFields);
       })
       .catch(function(err) {
-        console.warn('[HausBox CMS] SDK no disponible, usando datos mock como fallback.', err.message || err);
+        console.warn('[HausBox CMS] API REST no disponible, usando datos mock como fallback.', err.message || err);
       });
   }
 
@@ -1483,27 +1503,23 @@
     renderZonesGrid(MOCK);
     console.log('[HausBox CMS] ⚡ Hub de zonas con datos mock:', MOCK.length, 'landings');
 
-    /* PASO 2: Actualizar con datos reales del CMS */
-    fetchFromWixSDK(null)
+    /* PASO 2: Actualizar con datos reales via REST API de Wix */
+    fetchFromWixREST(null)
       .then(function(liveItems) {
         if (!liveItems || liveItems.length === 0) return;
         renderZonesGrid(liveItems);
         console.log('[HausBox CMS] ✅ Hub de zonas actualizado con datos reales del CMS:', liveItems.length, 'items');
       })
       .catch(function(err) {
-        console.warn('[HausBox CMS] Hub usando datos mock (SDK no disponible).', err.message || err);
+        console.warn('[HausBox CMS] Hub usando datos mock (REST API no disponible).', err.message || err);
       });
   }
 
-  /* ─── ENVÍO DE CONSULTAS AL CMS ─────────────────────────── */
+  /* ─── ENVÍO DE CONSULTAS AL CMS (via REST API) ──────────── */
   window.submitInquiryToWix = function(data) {
-    tryImport(SDK_CDNS, 0).then(function(sdkModule) {
-      tryImport(DATA_CDNS, 0).then(function(dataModule) {
-        var client = sdkModule.createClient({
-          modules: { items: dataModule.items },
-          auth: sdkModule.OAuthStrategy({ clientId: WIX_CLIENT_ID })
-        });
-        return client.items.insertDataItem({
+    getWixToken()
+      .then(function(token) {
+        var payload = {
           dataCollectionId: 'ConsultasWeb',
           dataItem: {
             data: {
@@ -1518,13 +1534,23 @@
               origen:    data.formSource || ('Landing: ' + (window.currentLandingSlug || 'Web'))
             }
           }
+        };
+        return fetch('https://www.wixapis.com/wix-data/v2/items', {
+          method: 'POST',
+          headers: {
+            'Content-Type':  'application/json',
+            'Authorization': 'Bearer ' + token
+          },
+          body: JSON.stringify(payload)
         });
+      })
+      .then(function(r) {
+        if (!r.ok) throw new Error('Insert error: ' + r.status);
+        console.log('[HausBox CMS] ✅ Consulta enviada al CMS de Wix via REST.');
+      })
+      .catch(function(err) {
+        console.warn('[HausBox CMS] Error al enviar consulta:', err);
       });
-    }).then(function() {
-      console.log('[HausBox CMS] ✅ Consulta enviada al CMS de Wix.');
-    }).catch(function(err) {
-      console.warn('[HausBox CMS] Error al enviar consulta:', err);
-    });
     return true;
   };
 
