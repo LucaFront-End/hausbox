@@ -96,6 +96,7 @@
     .then(function(data) {
       /* La API devuelve { dataItems: [{ id, data: {...} }, ...] } */
       if (!data.dataItems || data.dataItems.length === 0) return [];
+      console.log('[HausBox CMS] 🔍 RAW data from Wix API (primer item):', JSON.stringify(data.dataItems[0]));
       return data.dataItems.map(function(item) {
         return item.data || item;
       });
