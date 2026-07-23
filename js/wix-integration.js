@@ -1361,16 +1361,22 @@
       if (m) m.setAttribute('content', f.metadescripcionSeo);
     }
 
-    /* 3. H1: Titulo página */
+    /* 3. H1: Titulo página — fade in al recibir el dato del CMS */
     if (f.tituloPagina) {
-      var n = setAll('[data-cms="tituloPagina"]', function(el) { el.innerHTML = f.tituloPagina; });
-      console.log('[HausBox CMS] ✓ tituloPagina →', f.tituloPagina, '(' + n + ' elem)');
+      setAll('[data-cms="tituloPagina"]', function(el) {
+        el.innerHTML = f.tituloPagina;
+        el.style.opacity = '1';
+      });
+      console.log('[HausBox CMS] ✓ tituloPagina →', f.tituloPagina);
     }
 
-    /* 4. Subtítulo: Excerpt Página */
+    /* 4. Excerpt Página — fade in al recibir el dato del CMS */
     if (f.excerptPagina) {
-      var n = setAll('[data-cms="excerptPagina"]', function(el) { el.innerHTML = f.excerptPagina; });
-      console.log('[HausBox CMS] ✓ excerptPagina →', f.excerptPagina, '(' + n + ' elem)');
+      setAll('[data-cms="excerptPagina"]', function(el) {
+        el.innerHTML = f.excerptPagina;
+        el.style.opacity = '1';
+      });
+      console.log('[HausBox CMS] ✓ excerptPagina →', f.excerptPagina);
     }
 
     /* 5. Badge */
