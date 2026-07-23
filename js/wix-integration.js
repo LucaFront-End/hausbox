@@ -1439,19 +1439,31 @@
       return;
     }
 
-    /* PASO 1: Placeholder inmediato desde datos mock */
-    var mockItem = findInMock(targetSlug);
+    var mockItem   = findInMock(targetSlug);
+    var apiFailed  = false;
+
+    /* PASO 1: Del mock, aplicar SOLO los datos NO visibles (SEO title, meta, whatsapp).
+       tituloPagina y excerptPagina se mantienen ocultos (opacity:0) hasta que llegue
+       el dato real del CMS — así nunca hay flash de contenido incorrecto. */
     if (mockItem) {
-      hydrateDOM(extractFields(mockItem));
-      renderSelector(MOCK, targetSlug);
-      console.log('[HausBox CMS] ⚡ Placeholder mock aplicado para:', targetSlug);
+      var mf = extractFields(mockItem);
+      if (mf.tituloSeo)          document.title = mf.tituloSeo;
+      if (mf.metadescripcionSeo) {
+        var meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute('content', mf.metadescripcionSeo);
+      }
+      if (mf.whatsapp) {
+        setAll('a[href*="whatsapp"], a[href*="wa.me"]', function(el) { el.href = mf.whatsapp; });
+      }
     }
 
-    /* PASO 2: Datos reales del CMS via REST API de Wix (asíncrono) */
+    /* PASO 2: Datos REALES del CMS (con el título y excerpt correctos) */
     fetchFromWixREST(targetSlug)
       .then(function(results) {
         if (!results || results.length === 0) {
-          console.warn('[HausBox CMS] CMS no devolvió datos para:', targetSlug, '— usando mock.');
+          console.warn('[HausBox CMS] API no devolvió datos para:', targetSlug, '— usando mock como fallback final.');
+          /* Fallback de último recurso: mostrar mock completo si API no tiene el item */
+          if (mockItem) hydrateDOM(extractFields(mockItem));
           return;
         }
         var liveFields = extractFields(results[0]);
@@ -1459,9 +1471,12 @@
         console.log('[HausBox CMS] ✅ Datos REALES del CMS aplicados:', liveFields);
       })
       .catch(function(err) {
-        console.warn('[HausBox CMS] API REST no disponible, usando datos mock como fallback.', err.message || err);
+        console.warn('[HausBox CMS] API REST no disponible, usando mock como fallback.', err.message || err);
+        /* Solo si la API falla totalmente, mostrar mock como último recurso */
+        if (mockItem) hydrateDOM(extractFields(mockItem));
       });
   }
+
 
   /* ─── HUB DE ZONAS (zonas.html) ─────────────────────────── */
   function renderZonesGrid(landings) {
