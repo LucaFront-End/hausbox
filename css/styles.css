@@ -236,12 +236,16 @@ textarea {
 .nav-logo img {
   height: 28px;
   width: auto;
-  transition: opacity 300ms ease;
+  transition: opacity 300ms ease, transform 300ms ease;
+  transform: scale(1.75);
+  transform-origin: left center;
 }
 
 @media (min-width: 768px) {
   .nav-logo img {
     height: 32px;
+    transform: scale(1.75);
+    transform-origin: left center;
   }
 }
 
@@ -4415,21 +4419,8 @@ textarea {
    ============================================================ */
 @media (max-width: 991px) {
   .nav-logo {
-    width: 32px !important;
-    height: 32px !important;
-    background-image: url('../favicon.png') !important;
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    display: inline-block !important;
-    padding: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-  .site-nav[data-theme] .nav-logo img,
-  .site-nav[data-theme] .nav-logo .logo-light,
-  .site-nav[data-theme] .nav-logo .logo-dark {
-    display: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 }
 
