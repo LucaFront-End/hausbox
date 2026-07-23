@@ -1283,39 +1283,69 @@ export function extractCmsFields(item) {
     return '';
   };
 
+  // Campos exactos del CMS de Wix (columnas del CSV exportado)
+  // IMPORTANTE: NO usar 'title' ni 'titulo' como fallback para tituloPagina,
+  // porque en Wix CMS el campo 'title' corresponde a la columna "Titulo" (la keyword/slug),
+  // no al campo "Titulo página" (el título visible de la landing).
   const titlePagina = get(
-    'tituloPagina', 'titulo_pagina', 'tituloPagina', 'Titulo página', 'Titulo pagina',
-    'title', 'titulo', 'Titulo', 'heroTitle', 'h1'
+    'tituloPagina',           // camelCase - nombre en el mock/fallback
+    'titulo_pagina',          // snake_case alternativo
+    'Titulo página',          // nombre exacto en Wix CMS con acento
+    'Titulo pagina',          // sin acento
+    'Titulo Página',          // con mayúsculas
+    'titulo-pagina'           // kebab-case
+    // NO incluir 'title', 'titulo' ni 'Titulo' — esos son la keyword del slug, no el título de página
   );
 
   const excerptPagina = get(
-    'excerptPagina', 'excerpt_pagina', 'excerptPagina', 'Excerpt Página', 'Excerpt Pagina',
-    'excerpt', 'extracto', 'resumen', 'heroSubtitle', 'subtitulo'
+    'excerptPagina',          // camelCase - nombre en el mock/fallback
+    'excerpt_pagina',         // snake_case alternativo
+    'Excerpt Página',         // nombre exacto en Wix CMS con acento
+    'Excerpt Pagina',         // sin acento
+    'Excerpt página',         // minúsculas
+    'excerpt-pagina'          // kebab-case
+    // NO incluir 'excerpt', 'resumen', 'subtitulo' genéricos
   );
 
   const tituloSeo = get(
-    'tituloSeo', 'titulo_seo', 'tituloSeo', 'Titulo SEO', 'Titulo Seo',
-    'seoTitle', 'metaTitle', 'meta_title'
+    'tituloSeo',
+    'titulo_seo',
+    'Titulo SEO',
+    'Titulo Seo',
+    'tituloseo',
+    'seoTitle',
+    'metaTitle'
   );
 
   const metadescripcionSeo = get(
-    'metadescripcionSeo', 'metadescripcion_seo', 'metaDescripcionSeo', 'Metadescripción SEO', 'Metadescripcion SEO',
-    'metaDescription', 'meta_description', 'seoDescription', 'descripcion'
+    'metadescripcionSeo',
+    'metadescripcion_seo',
+    'Metadescripción SEO',
+    'Metadescripcion SEO',
+    'MetadescripciónSeo',
+    'metaDescription'
   );
 
   const whatsapp = get(
-    'whatsappPersonalizado', 'whatsapp_personalizado', 'Whatsapp personalizado',
-    'whatsapp', 'mensajeWhatsapp'
+    'whatsappPersonalizado',
+    'whatsapp_personalizado',
+    'Whatsapp personalizado',
+    'WhatsApp personalizado',
+    'whatsapp'
   );
 
-  const ciudad = get('ciudadOEstado', 'ciudad_o_estado', 'Ciudad o Estado', 'ciudad', 'title', 'titulo');
+  // Para ciudad/label de la landing usamos el slug display o Ciudad o Estado
+  const ciudad = get('ciudadOEstado', 'ciudad_o_estado', 'Ciudad o Estado', 'ciudad');
+  // Keyword del tema (la columna "Titulo" del CMS, ej: "mejor software para condominios")
+  const keyword = get('titulo', 'Titulo', 'title');
   const slug = get('slug', '_id');
-  const badge = get('badge', 'insignia') || (ciudad ? `📍 Cobertura Activa · ${ciudad}` : '📍 Software #1 en México');
+  const badge = get('badge', 'insignia') || '📍 Software #1 en México';
 
   return {
     raw: item,
     slug,
     ciudad,
+    keyword,
     titlePagina,
     excerptPagina,
     tituloSeo,
@@ -1369,94 +1399,111 @@ window.submitInquiryToWix = async function(data) {
 };
 
 /**
- * Hidrata dinámicamente el DOM con 100% de los campos exactos del CMS (Titulo página, Excerpt Página, Titulo SEO, Metadescripción SEO, Whatsapp)
+ * Hidrata dinámicamente el DOM con los campos exactos del CMS de Wix.
+ * Campos: Titulo página → H1, Excerpt Página → subtítulo, Titulo SEO → <title>,
+ * Metadescripción SEO → meta description, Whatsapp personalizado → links WhatsApp.
  */
 export async function initCityLanding() {
   const urlParams = new URLSearchParams(window.location.search);
-  const rawSlug = urlParams.get('slug') || urlParams.get('c') || urlParams.get('ciudad') || 'software-para-conjuntos-habitacionales';
+  const rawSlug = urlParams.get('slug') || urlParams.get('c') || urlParams.get('ciudad') || '';
   const targetSlug = rawSlug.toLowerCase().trim();
+
+  // Si no hay slug en la URL, no hidratar (es la home estática)
+  if (!targetSlug) {
+    console.log('[Wix CMS] Sin parámetro slug en URL, no se hidrata la landing.');
+    return;
+  }
 
   const landings = await fetchLandingsDeCiudad();
 
-  // Buscar el item correspondiente por slug o título
+  // Buscar por slug exacto primero, luego parcial
   const rawItem = landings.find(l => {
-    const s = (l.slug || l.slug || l._id || l.title || l.titulo || '').toLowerCase();
-    return s === targetSlug || s.includes(targetSlug) || targetSlug.includes(s);
-  }) || landings[0];
+    return (l.slug || '').toLowerCase() === targetSlug;
+  }) || landings.find(l => {
+    const s = (l.slug || '').toLowerCase();
+    return s.includes(targetSlug) || targetSlug.includes(s);
+  });
 
-  if (!rawItem) return;
-
-  const cms = extractCmsFields(rawItem);
-
-  // 1. TÍTULO SEO (Titulo SEO -> <title>)
-  if (cms.tituloSeo) {
-    document.title = cms.tituloSeo;
+  if (!rawItem) {
+    console.warn('[Wix CMS] No se encontró landing para slug:', targetSlug);
+    return;
   }
 
-  // 2. METADESCRIPCIÓN SEO (Metadescripción SEO -> <meta name="description">)
+  const cms = extractCmsFields(rawItem);
+  console.log('[Wix CMS] Datos extraídos del CMS para slug:', cms.slug, cms);
+
+  // 1. TÍTULO SEO → <title> del navegador
+  if (cms.tituloSeo) {
+    document.title = cms.tituloSeo;
+    console.log('[Wix CMS] ✓ Titulo SEO aplicado:', cms.tituloSeo);
+  }
+
+  // 2. METADESCRIPCIÓN SEO → <meta name="description">
   if (cms.metadescripcionSeo) {
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', cms.metadescripcionSeo);
+    console.log('[Wix CMS] ✓ Metadescripcion SEO aplicada.');
   }
 
-  // 3. TÍTULO PÁGINA (Titulo página -> H1)
+  // 3. TITULO PÁGINA → todos los elementos con data-cms="tituloPagina"
+  // El HTML debe usar data-cms="tituloPagina" (no "title" ni "hero-title")
   if (cms.titlePagina) {
     const formattedTitle = formatTitleWithSerif(cms.titlePagina);
-    const titleElements = document.querySelectorAll('[data-cms="tituloPagina"], [data-cms="title"], [data-cms="hero-title"], [data-cms-title]');
-    titleElements.forEach(el => {
-      el.innerHTML = formattedTitle;
-    });
+    const titleEls = document.querySelectorAll('[data-cms="tituloPagina"]');
+    titleEls.forEach(el => { el.innerHTML = formattedTitle; });
+    console.log('[Wix CMS] ✓ Titulo Página aplicado a', titleEls.length, 'elemento(s):', cms.titlePagina);
   }
 
-  // 4. EXCERPT PÁGINA (Excerpt Página -> Subtítulo)
+  // 4. EXCERPT PÁGINA → todos los elementos con data-cms="excerptPagina"
   if (cms.excerptPagina) {
-    const excerptElements = document.querySelectorAll('[data-cms="excerptPagina"], [data-cms="excerpt"], [data-cms="hero-subtitle"], [data-cms-excerpt]');
-    excerptElements.forEach(el => {
-      el.innerHTML = cms.excerptPagina;
-    });
+    const excerptEls = document.querySelectorAll('[data-cms="excerptPagina"]');
+    excerptEls.forEach(el => { el.innerHTML = cms.excerptPagina; });
+    console.log('[Wix CMS] ✓ Excerpt Página aplicado a', excerptEls.length, 'elemento(s):', cms.excerptPagina);
   }
 
-  // 5. INSIGNIA / BADGE
+  // 5. BADGE → elementos con data-cms="badge"
   if (cms.badge) {
-    const badgeElements = document.querySelectorAll('[data-cms="badge"], [data-cms="insignia"], [data-cms="city-badge"]');
-    badgeElements.forEach(el => {
-      el.innerHTML = cms.badge;
-    });
+    const badgeEls = document.querySelectorAll('[data-cms="badge"]');
+    badgeEls.forEach(el => { el.innerHTML = cms.badge; });
   }
 
-  // 6. WHATSAPP PERSONALIZADO
+  // 6. WHATSAPP PERSONALIZADO → todos los links de WhatsApp
   if (cms.whatsapp) {
-    const waLinks = document.querySelectorAll('a[href*="whatsapp.com"], [data-cms="whatsapp-link"]');
-    waLinks.forEach(link => {
-      link.href = cms.whatsapp;
-    });
+    const waLinks = document.querySelectorAll('a[href*="whatsapp"], a[href*="wa.me"], [data-cms="whatsapp-link"]');
+    waLinks.forEach(link => { link.href = cms.whatsapp; });
+    console.log('[Wix CMS] ✓ WhatsApp personalizado aplicado a', waLinks.length, 'link(s).');
   }
 
-  // 7. Rellenar referencias al nombre de la ciudad / tema
-  const cityNameText = cms.ciudad || cms.titlePagina || 'tu ciudad';
-  const cityNames = document.querySelectorAll('[data-cms="city-name"]');
-  cityNames.forEach(el => {
-    el.textContent = cityNameText;
-  });
+  // 7. Keyword del tema → elementos con data-cms="keyword"
+  if (cms.keyword) {
+    const keyEls = document.querySelectorAll('[data-cms="keyword"]');
+    keyEls.forEach(el => { el.textContent = cms.keyword; });
+  }
 
-  // 8. Selector de Landings Dinámico (101 Opciones)
+  // 8. Selector de Landings Dinámico (101 Opciones del CMS)
   const citySelect = document.querySelector('[data-cms="city-select"]');
   if (citySelect) {
-    citySelect.innerHTML = landings.map(l => {
-      const lSlug = l.slug || l._id;
-      const lName = l.tituloPagina || l.titulo || l.title || l.slug;
-      const isSelected = (lSlug.toLowerCase() === (cms.slug || '').toLowerCase());
-      return `<option value="${lSlug}" ${isSelected ? 'selected' : ''}>${lName}</option>`;
-    }).join('');
+    citySelect.innerHTML = landings
+      .filter(l => l.slug)  // excluir items sin slug
+      .map(l => {
+        const lSlug = l.slug;
+        // Mostrar el tituloPagina en el dropdown si existe, si no el slug
+        const lName = l.tituloPagina || l.slug;
+        const isSelected = lSlug.toLowerCase() === cms.slug.toLowerCase();
+        return `<option value="${lSlug}" ${isSelected ? 'selected' : ''}>${lName}</option>`;
+      }).join('');
 
     citySelect.onchange = (e) => {
-      window.location.search = `?slug=${e.target.value}`;
+      const url = new URL(window.location.href);
+      url.searchParams.set('slug', e.target.value);
+      window.location.href = url.toString();
     };
   }
 
-  // 9. Configurar variable global de ciudad actual para los formularios de leads
-  window.currentLandingCity = cityNameText;
-  console.log('[Wix CMS] Landing hidratada 100% dinámicamente desde Wix CMS para:', cms.slug);
+  // 9. Variable global para formularios de leads
+  window.currentLandingCity = cms.keyword || cms.ciudad || cms.titlePagina || 'General';
+  window.currentLandingSlug = cms.slug;
+  console.log('[Wix CMS] ✓ Landing hidratada correctamente para slug:', cms.slug);
 }
 
 /**
