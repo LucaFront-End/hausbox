@@ -1325,15 +1325,20 @@
    * porque en Wix CMS esos corresponden a la keyword, no al título de la landing.
    */
   function extractFields(item) {
+    // IMPORTANTE: Wix elimina caracteres acentuados de los nombres de campo internos:
+    //   "Titulo página"      → tituloPgina      (la 'á' desaparece)
+    //   "Excerpt Página"     → excerptPgina     (la 'á' desaparece)
+    //   "Metadescripción SEO"→ metadescripcinSeo (la 'ó' desaparece)
+    // Los nombres sin acento (tituloSeo, whatsappPersonalizado) funcionan sin cambios.
     return {
       slug:               getField(item, 'slug', '_id'),
-      keyword:            getField(item, 'titulo', 'Titulo', 'title'),
-      tituloPagina:       getField(item, 'tituloPagina', 'titulo_pagina', 'Titulo página', 'Titulo pagina', 'Titulo Página'),
-      excerptPagina:      getField(item, 'excerptPagina', 'excerpt_pagina', 'Excerpt Página', 'Excerpt Pagina', 'Excerpt página'),
-      tituloSeo:          getField(item, 'tituloSeo', 'titulo_seo', 'Titulo SEO', 'Titulo Seo', 'seoTitle'),
-      metadescripcionSeo: getField(item, 'metadescripcionSeo', 'metadescripcion_seo', 'Metadescripción SEO', 'Metadescripcion SEO', 'metaDescription'),
-      whatsapp:           getField(item, 'whatsappPersonalizado', 'whatsapp_personalizado', 'Whatsapp personalizado', 'WhatsApp personalizado'),
-      ciudadOEstado:      getField(item, 'ciudadOEstado', 'ciudad_o_estado', 'Ciudad o Estado', 'ciudad'),
+      keyword:            getField(item, 'title', 'titulo', 'Titulo'),
+      tituloPagina:       getField(item, 'tituloPgina', 'tituloPagina', 'titulo_pagina'),
+      excerptPagina:      getField(item, 'excerptPgina', 'excerptPagina', 'excerpt_pagina'),
+      tituloSeo:          getField(item, 'tituloSeo', 'titulo_seo', 'Titulo SEO'),
+      metadescripcionSeo: getField(item, 'metadescripcinSeo', 'metadescripcionSeo', 'metadescripcion_seo'),
+      whatsapp:           getField(item, 'whatsappPersonalizado', 'whatsapp_personalizado', 'whatsapp'),
+      ciudadOEstado:      getField(item, 'ciudadOEstado', 'ciudad_o_estado', 'ciudad'),
     };
   }
 
