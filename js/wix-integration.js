@@ -1,23 +1,41 @@
 /**
- * HausBox — Wix CMS Hydration Engine (wix-integration.js)
+ * HausBox — Wix CMS Hydration Engine
  *
- * Este script es un script reguler (no ES module).
- * Hidrata el DOM con datos reales del CMS de Wix (LandingsdeCiudad).
- * Campos mapeados directamente desde el CSV exportado:
- *   - Titulo página       → data-cms="tituloPagina"
- *   - Excerpt Página      → data-cms="excerptPagina"
+ * Arquitectura:
+ *   1. Hidrata INMEDIATAMENTE con datos mock (placeholder visual, sin esperar red).
+ *   2. Carga el SDK de Wix via import() dinámico (no bloquea el script).
+ *   3. Cuando el SDK carga, obtiene datos REALES del CMS y re-hidrata.
+ *   4. Si el SDK o la red fallan, el mock queda como fallback.
+ *
+ * Campos mapeados del CMS de Wix (columnas del CSV exportado):
+ *   - Titulo página       → [data-cms="tituloPagina"]
+ *   - Excerpt Página      → [data-cms="excerptPagina"]
  *   - Titulo SEO          → <title>
  *   - Metadescripción SEO → <meta name="description">
  *   - Whatsapp personalizado → todos los links de WhatsApp
  */
-(function() {
+(function () {
   'use strict';
 
-  // ─────────────────────────────────────────────────────────────
-  // DATOS FALLBACK: 101 landings exportadas del CMS de Wix
-  // Se usan cuando el API de Wix no está disponible o tarda demasiado.
-  // ─────────────────────────────────────────────────────────────
-  var MOCK_LANDINGS = [
+  /* ─── CONFIG ─────────────────────────────────────────────── */
+  var WIX_CLIENT_ID  = 'ad0088f3-624d-4205-aec9-590fd15e74dd';
+  var WIX_COLLECTION = 'LandingsdeCiudad';
+
+  /* ─── CDN URLs del SDK de Wix (en orden de preferencia) ─── */
+  var SDK_CDNS = [
+    'https://cdn.jsdelivr.net/npm/@wix/sdk@latest/+esm',
+    'https://esm.sh/@wix/sdk@latest',
+    'https://esm.run/@wix/sdk'
+  ];
+  var DATA_CDNS = [
+    'https://cdn.jsdelivr.net/npm/@wix/data@latest/+esm',
+    'https://esm.sh/@wix/data@latest',
+    'https://esm.run/@wix/data'
+  ];
+
+  /* ─── DATOS MOCK (idénticos al CMS exportado via CSV) ────── */
+  /* Se usan como placeholder visual hasta que carguen los datos reales */
+  var MOCK = [
   {
     "_id": "005736d7-7039-43f8-9e4c-487f894e444d",
     "slug": "software-para-conjuntos-habitacionales",
@@ -1220,36 +1238,10 @@
   }
 ];
 
-  // ─────────────────────────────────────────────────────────────
-  // Configuración de Wix Headless
-  // ─────────────────────────────────────────────────────────────
-  var WIX_CLIENT_ID = 'ad0088f3-624d-4205-aec9-590fd15e74dd';
-  var WIX_COLLECTION = 'LandingsdeCiudad';
-
-  /**
-   * Resuelve una URI de Wix Media a URL pública HTTPS
-   */
-  function resolveWixImage(uri, width) {
-    width = width || 1200;
-    if (!uri) return '';
-    if (uri.indexOf('http') === 0 || uri.indexOf('/') === 0 || uri.indexOf('assets/') === 0) return uri;
-    if (uri.indexOf('wix:image://v1/') === 0) {
-      var match = uri.match(/wix:image:\/\/v1\/([^/]+)\/(.*?)(?:#|$)/);
-      if (match) {
-        return 'https://static.wixstatic.com/media/' + match[1] + '/v1/fill/w_' + width + ',q_85/' + match[2];
-      }
-    }
-    return uri;
-  }
-
-  /**
-   * Lee un campo de un objeto intentando múltiples nombres de clave.
-   * Devuelve el primero que encuentre con valor no vacío.
-   */
+  /* ─── UTILIDADES ─────────────────────────────────────────── */
   function getField(obj) {
-    var keys = Array.prototype.slice.call(arguments, 1);
-    for (var i = 0; i < keys.length; i++) {
-      var k = keys[i];
+    for (var i = 1; i < arguments.length; i++) {
+      var k = arguments[i];
       if (obj[k] !== undefined && obj[k] !== null && obj[k] !== '') {
         return obj[k];
       }
@@ -1258,100 +1250,72 @@
   }
 
   /**
-   * Extrae y normaliza los campos del CMS.
-   * IMPORTANTE: tituloPagina / excerptPagina NO deben tener 'title'/'titulo'
-   * como fallback, ya que en Wix ese campo corresponde a la keyword, no al
-   * título de la landing.
+   * Extrae campos del item del CMS.
+   * CRÍTICO: tituloPagina y excerptPagina NO tienen 'title'/'titulo' como fallback,
+   * porque en Wix CMS esos corresponden a la keyword, no al título de la landing.
    */
   function extractFields(item) {
     return {
-      slug:             getField(item, 'slug', '_id'),
-      keyword:          getField(item, 'titulo', 'Titulo', 'title'),
-      tituloPagina:     getField(item, 'tituloPagina', 'titulo_pagina', 'Titulo página', 'Titulo pagina', 'Titulo Página'),
-      excerptPagina:    getField(item, 'excerptPagina', 'excerpt_pagina', 'Excerpt Página', 'Excerpt Pagina', 'Excerpt página'),
-      tituloSeo:        getField(item, 'tituloSeo', 'titulo_seo', 'Titulo SEO', 'Titulo Seo', 'seoTitle', 'metaTitle'),
+      slug:               getField(item, 'slug', '_id'),
+      keyword:            getField(item, 'titulo', 'Titulo', 'title'),
+      tituloPagina:       getField(item, 'tituloPagina', 'titulo_pagina', 'Titulo página', 'Titulo pagina', 'Titulo Página'),
+      excerptPagina:      getField(item, 'excerptPagina', 'excerpt_pagina', 'Excerpt Página', 'Excerpt Pagina', 'Excerpt página'),
+      tituloSeo:          getField(item, 'tituloSeo', 'titulo_seo', 'Titulo SEO', 'Titulo Seo', 'seoTitle'),
       metadescripcionSeo: getField(item, 'metadescripcionSeo', 'metadescripcion_seo', 'Metadescripción SEO', 'Metadescripcion SEO', 'metaDescription'),
-      whatsapp:         getField(item, 'whatsappPersonalizado', 'whatsapp_personalizado', 'Whatsapp personalizado', 'WhatsApp personalizado', 'whatsapp'),
-      ciudadOEstado:    getField(item, 'ciudadOEstado', 'ciudad_o_estado', 'Ciudad o Estado', 'ciudad'),
-      imagen:           getField(item, 'imagen', 'image', 'heroImage', 'imagenHero')
+      whatsapp:           getField(item, 'whatsappPersonalizado', 'whatsapp_personalizado', 'Whatsapp personalizado', 'WhatsApp personalizado'),
+      ciudadOEstado:      getField(item, 'ciudadOEstado', 'ciudad_o_estado', 'Ciudad o Estado', 'ciudad'),
     };
+  }
+
+  function setAll(selector, fn) {
+    var els = document.querySelectorAll(selector);
+    for (var i = 0; i < els.length; i++) fn(els[i]);
+    return els.length;
   }
 
   /**
    * Aplica los datos del CMS al DOM.
-   * Usa selectores exactos con data-cms="tituloPagina" y data-cms="excerptPagina".
    */
-  function hydrateDOM(fields) {
-    // 1. Título SEO → <title>
-    if (fields.tituloSeo) {
-      document.title = fields.tituloSeo;
+  function hydrateDOM(f) {
+    /* 1. SEO: <title> */
+    if (f.tituloSeo) document.title = f.tituloSeo;
+
+    /* 2. SEO: meta description */
+    if (f.metadescripcionSeo) {
+      var m = document.querySelector('meta[name="description"]');
+      if (m) m.setAttribute('content', f.metadescripcionSeo);
     }
 
-    // 2. Metadescripción SEO → <meta name="description">
-    if (fields.metadescripcionSeo) {
-      var metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) metaDesc.setAttribute('content', fields.metadescripcionSeo);
+    /* 3. H1: Titulo página */
+    if (f.tituloPagina) {
+      var n = setAll('[data-cms="tituloPagina"]', function(el) { el.innerHTML = f.tituloPagina; });
+      console.log('[HausBox CMS] ✓ tituloPagina →', f.tituloPagina, '(' + n + ' elem)');
     }
 
-    // 3. Titulo página → [data-cms="tituloPagina"]
-    if (fields.tituloPagina) {
-      var titleEls = document.querySelectorAll('[data-cms="tituloPagina"]');
-      for (var i = 0; i < titleEls.length; i++) {
-        titleEls[i].innerHTML = fields.tituloPagina;
-      }
-      console.log('[HausBox CMS] ✓ Titulo Pagina →', fields.tituloPagina);
+    /* 4. Subtítulo: Excerpt Página */
+    if (f.excerptPagina) {
+      var n = setAll('[data-cms="excerptPagina"]', function(el) { el.innerHTML = f.excerptPagina; });
+      console.log('[HausBox CMS] ✓ excerptPagina →', f.excerptPagina, '(' + n + ' elem)');
     }
 
-    // 4. Excerpt Página → [data-cms="excerptPagina"]
-    if (fields.excerptPagina) {
-      var excerptEls = document.querySelectorAll('[data-cms="excerptPagina"]');
-      for (var i = 0; i < excerptEls.length; i++) {
-        excerptEls[i].innerHTML = fields.excerptPagina;
-      }
-      console.log('[HausBox CMS] ✓ Excerpt Pagina →', fields.excerptPagina);
+    /* 5. Badge */
+    var badge = f.ciudadOEstado ? ('📍 ' + f.ciudadOEstado) : '📍 Software #1 en México';
+    setAll('[data-cms="badge"]', function(el) { el.innerHTML = badge; });
+
+    /* 6. WhatsApp links */
+    if (f.whatsapp) {
+      var n = setAll('a[href*="whatsapp"], a[href*="wa.me"]', function(el) { el.href = f.whatsapp; });
+      console.log('[HausBox CMS] ✓ whatsapp →', f.whatsapp, '(' + n + ' links)');
     }
 
-    // 5. Badge → [data-cms="badge"]
-    var badgeVal = fields.ciudadOEstado ? ('📍 ' + fields.ciudadOEstado) : '📍 Software #1 en México';
-    var badgeEls = document.querySelectorAll('[data-cms="badge"]');
-    for (var i = 0; i < badgeEls.length; i++) {
-      badgeEls[i].innerHTML = badgeVal;
-    }
+    /* 7. Keyword */
+    if (f.keyword) setAll('[data-cms="keyword"]', function(el) { el.textContent = f.keyword; });
 
-    // 6. Imagen → [data-cms="imagen"] o [data-cms="image"]
-    if (fields.imagen) {
-      var imgEls = document.querySelectorAll('[data-cms="imagen"], [data-cms="image"]');
-      for (var i = 0; i < imgEls.length; i++) {
-        if (imgEls[i].tagName === 'IMG') {
-          imgEls[i].src = resolveWixImage(fields.imagen);
-        }
-      }
-    }
-
-    // 7. Keyword → [data-cms="keyword"]
-    if (fields.keyword) {
-      var kwEls = document.querySelectorAll('[data-cms="keyword"]');
-      for (var i = 0; i < kwEls.length; i++) {
-        kwEls[i].textContent = fields.keyword;
-      }
-    }
-
-    // 8. WhatsApp personalizado → todos los links de WhatsApp
-    if (fields.whatsapp) {
-      var waLinks = document.querySelectorAll('a[href*="whatsapp"], a[href*="wa.me"]');
-      for (var i = 0; i < waLinks.length; i++) {
-        waLinks[i].href = fields.whatsapp;
-      }
-      console.log('[HausBox CMS] ✓ WhatsApp →', fields.whatsapp, '(' + waLinks.length + ' links)');
-    }
-
-    window.currentLandingSlug = fields.slug;
-    window.currentLandingCity = fields.ciudadOEstado || fields.keyword || 'General';
+    /* Globales para formularios */
+    window.currentLandingSlug = f.slug;
+    window.currentLandingCity = f.ciudadOEstado || f.keyword || 'General';
   }
 
-  /**
-   * Renderiza el selector de landings en [data-cms="city-select"]
-   */
   function renderSelector(landings, currentSlug) {
     var sel = document.querySelector('[data-cms="city-select"]');
     if (!sel) return;
@@ -1371,10 +1335,104 @@
     };
   }
 
+  function findInMock(slug) {
+    for (var i = 0; i < MOCK.length; i++) {
+      if (MOCK[i].slug === slug) return MOCK[i];
+    }
+    for (var i = 0; i < MOCK.length; i++) {
+      if (MOCK[i].slug && MOCK[i].slug.indexOf(slug) > -1) return MOCK[i];
+    }
+    return null;
+  }
+
+  /* ─── CARGA SDK DE WIX CON FALLBACK ENTRE CDNs ──────────── */
+  function tryImport(cdnList, idx) {
+    if (idx >= cdnList.length) return Promise.reject(new Error('All CDNs failed'));
+    return import(cdnList[idx]).catch(function() {
+      return tryImport(cdnList, idx + 1);
+    });
+  }
+
   /**
-   * Renderiza las tarjetas del hub de zonas (zonas.html)
+   * Carga el SDK y obtiene datos reales del CMS de Wix.
+   * Devuelve una Promise con el array de items del CMS.
    */
-  function renderZonesHub(landings) {
+  function fetchFromWixSDK(targetSlug) {
+    return Promise.all([
+      tryImport(SDK_CDNS, 0),
+      tryImport(DATA_CDNS, 0)
+    ]).then(function(modules) {
+      var sdkModule  = modules[0];
+      var dataModule = modules[1];
+
+      var createClient  = sdkModule.createClient;
+      var OAuthStrategy = sdkModule.OAuthStrategy;
+      var items         = dataModule.items;
+
+      var client = createClient({
+        modules: { items: items },
+        auth: OAuthStrategy({ clientId: WIX_CLIENT_ID })
+      });
+
+      // Si tenemos slug, traer solo ese item
+      if (targetSlug) {
+        return client.items
+          .queryDataItems({ dataCollectionId: WIX_COLLECTION })
+          .eq('slug', targetSlug)
+          .limit(1)
+          .find()
+          .then(function(res) {
+            return res.items && res.items.length > 0 ? [res.items[0].data] : null;
+          });
+      }
+
+      // Si no hay slug (hub de zonas), traer todos
+      return client.items
+        .queryDataItems({ dataCollectionId: WIX_COLLECTION })
+        .limit(1000)
+        .find()
+        .then(function(res) {
+          return (res.items || []).map(function(i) { return i.data || i; });
+        });
+    });
+  }
+
+  /* ─── LANDING DINÁMICA (ciudad.html?slug=...) ───────────── */
+  function initCityLanding() {
+    var params     = new URLSearchParams(window.location.search);
+    var targetSlug = (params.get('slug') || params.get('c') || params.get('ciudad') || '').toLowerCase().trim();
+
+    if (!targetSlug) {
+      console.log('[HausBox CMS] Sin slug en URL, no se hidrata.');
+      return;
+    }
+
+    /* PASO 1: Placeholder inmediato desde datos mock */
+    var mockItem = findInMock(targetSlug);
+    if (mockItem) {
+      hydrateDOM(extractFields(mockItem));
+      renderSelector(MOCK, targetSlug);
+      console.log('[HausBox CMS] ⚡ Placeholder mock aplicado para:', targetSlug);
+    }
+
+    /* PASO 2: Datos reales del CMS de Wix (asíncrono) */
+    fetchFromWixSDK(targetSlug)
+      .then(function(results) {
+        if (!results || results.length === 0) {
+          console.warn('[HausBox CMS] CMS no devolvió datos para:', targetSlug, '— usando mock.');
+          return;
+        }
+        var liveFields = extractFields(results[0]);
+        hydrateDOM(liveFields);
+        console.log('[HausBox CMS] ✅ Datos REALES del CMS aplicados:', liveFields);
+      })
+      .catch(function(err) {
+        console.warn('[HausBox CMS] SDK no disponible, usando datos mock como fallback.', err.message || err);
+      });
+  }
+
+  /* ─── HUB DE ZONAS (zonas.html) ─────────────────────────── */
+  function renderZonesGrid(landings) {
     var container = document.getElementById('zones-grid');
     if (!container) return;
 
@@ -1383,218 +1441,109 @@
 
     function drawCards(list) {
       if (!list.length) {
-        container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px"><p>No se encontraron resultados.</p></div>';
+        container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px"><p>No se encontraron resultados.</p></div>';
         return;
       }
       var html = '';
       for (var i = 0; i < list.length; i++) {
-        var l = list[i];
-        var f = extractFields(l);
+        var f = extractFields(list[i]);
         if (!f.slug) continue;
-        html += '<div class="zone-card" style="background:#fff;border:1px solid #e2e8f0;border-radius:24px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 4px 20px rgba(0,0,0,0.03);transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s" onmouseover="this.style.transform=\'translateY(-6px)\';this.style.borderColor=\'#0DA3E2\';this.style.boxShadow=\'0 12px 30px rgba(13,163,226,0.12)\'" onmouseout="this.style.transform=\'\';this.style.borderColor=\'#e2e8f0\';this.style.boxShadow=\'0 4px 20px rgba(0,0,0,0.03)\'">';
-        html += '<div>';
-        html += '<div style="display:inline-flex;align-items:center;gap:6px;background:#f0f9ff;border:1px solid #bae6fd;padding:6px 12px;border-radius:20px;color:#0284c7;font-size:12px;font-weight:600;margin-bottom:16px">📍 Software #1 en México</div>';
-        html += '<h3 style="font-size:20px;font-weight:600;color:#0f172a;margin-bottom:12px;line-height:1.4">' + (f.tituloPagina || f.slug) + '</h3>';
-        html += '<p style="font-size:14px;line-height:1.6;color:#64748b;margin-bottom:20px">' + (f.excerptPagina || f.metadescripcionSeo || '') + '</p>';
-        html += '</div>';
-        html += '<a href="ciudad.html?slug=' + encodeURIComponent(f.slug) + '" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;border-radius:12px;background:#0f172a;color:#fff;font-size:14px;font-weight:500;text-decoration:none;transition:background 0.2s" onmouseover="this.style.background=\'#0DA3E2\'" onmouseout="this.style.background=\'#0f172a\'">Ver Landing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>';
-        html += '</div>';
+        html += '<div class="zone-card">'
+          + '<div>'
+          + '<div style="display:inline-flex;align-items:center;gap:6px;background:#f0f9ff;border:1px solid #bae6fd;padding:6px 12px;border-radius:20px;color:#0284c7;font-size:12px;font-weight:600;margin-bottom:16px">📍 Software #1 en México</div>'
+          + '<h3 style="font-size:20px;font-weight:600;color:#0f172a;margin-bottom:12px;line-height:1.4">' + (f.tituloPagina || f.slug) + '</h3>'
+          + '<p style="font-size:14px;line-height:1.6;color:#64748b;margin-bottom:20px">' + (f.excerptPagina || '') + '</p>'
+          + '</div>'
+          + '<a href="ciudad.html?slug=' + encodeURIComponent(f.slug) + '" class="zone-card-link">Ver Landing →</a>'
+          + '</div>';
       }
       container.innerHTML = html;
     }
 
     drawCards(landings);
 
-    var searchInput = document.getElementById('zones-search');
-    if (searchInput) {
-      searchInput.addEventListener('input', function(e) {
+    var search = document.getElementById('zones-search');
+    if (search) {
+      search.addEventListener('input', function(e) {
         var q = e.target.value.toLowerCase().trim();
         if (!q) { drawCards(landings); return; }
         var filtered = landings.filter(function(l) {
           var f = extractFields(l);
-          return (f.tituloPagina + ' ' + f.excerptPagina + ' ' + f.slug + ' ' + f.tituloSeo).toLowerCase().indexOf(q) > -1;
+          return (f.tituloPagina + ' ' + f.excerptPagina + ' ' + f.slug).toLowerCase().indexOf(q) > -1;
         });
         drawCards(filtered);
       });
     }
   }
 
-  /**
-   * Intenta cargar datos live desde la API de Wix (fetch REST).
-   * Si falla, usa los datos mock como fallback.
-   */
-  function fetchFromWix(targetSlug, callback) {
-    // Usar el API REST de Wix Data (no requiere SDK)
-    var url = 'https://www.wixapis.com/wix-data/v2/items/query';
-    var body = JSON.stringify({
-      dataCollectionId: WIX_COLLECTION,
-      query: {
-        filter: { slug: { $eq: targetSlug } },
-        paging: { limit: 1 }
-      }
-    });
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('wix-site-id', ''); // No requerido para colecciones públicas
-    xhr.timeout = 4000;
-
-    xhr.onload = function() {
-      try {
-        var data = JSON.parse(xhr.responseText);
-        if (data.dataItems && data.dataItems.length > 0) {
-          var raw = data.dataItems[0].data;
-          callback(null, raw);
-          return;
-        }
-      } catch(e) { }
-      callback(new Error('No data from API'));
-    };
-
-    xhr.onerror = xhr.ontimeout = function() {
-      callback(new Error('Wix API request failed'));
-    };
-
-    try {
-      xhr.send(body);
-    } catch(e) {
-      callback(e);
-    }
-  }
-
-  /**
-   * Función principal de hidratación de la landing
-   */
-  function initCityLanding() {
-    var params = new URLSearchParams(window.location.search);
-    var targetSlug = (params.get('slug') || params.get('c') || params.get('ciudad') || '').toLowerCase().trim();
-
-    if (!targetSlug) {
-      console.log('[HausBox CMS] Sin slug en URL, no se hidrata.');
-      return;
-    }
-
-    // Paso 1: Hidratar INMEDIATAMENTE con datos mock (sin esperar red)
-    var mockItem = null;
-    for (var i = 0; i < MOCK_LANDINGS.length; i++) {
-      if (MOCK_LANDINGS[i].slug === targetSlug) {
-        mockItem = MOCK_LANDINGS[i];
-        break;
-      }
-    }
-
-    if (!mockItem) {
-      // Búsqueda parcial
-      for (var i = 0; i < MOCK_LANDINGS.length; i++) {
-        if (MOCK_LANDINGS[i].slug && MOCK_LANDINGS[i].slug.indexOf(targetSlug) > -1) {
-          mockItem = MOCK_LANDINGS[i];
-          break;
-        }
-      }
-    }
-
-    if (mockItem) {
-      var mockFields = extractFields(mockItem);
-      hydrateDOM(mockFields);
-      renderSelector(MOCK_LANDINGS, targetSlug);
-      console.log('[HausBox CMS] ✓ Datos mock aplicados para:', targetSlug);
-    }
-
-    // Paso 2: Intentar actualizar con datos LIVE del API de Wix (en background)
-    fetchFromWix(targetSlug, function(err, liveItem) {
-      if (!err && liveItem) {
-        var liveFields = extractFields(liveItem);
-        hydrateDOM(liveFields);
-        console.log('[HausBox CMS] ✓ Datos live del CMS aplicados para:', targetSlug, liveFields);
-      } else {
-        console.log('[HausBox CMS] Usando datos mock (API no disponible):', err ? err.message : 'Sin datos');
-      }
-    });
-  }
-
-  /**
-   * Función principal del hub de zonas
-   */
   function initZonesHub() {
-    var container = document.getElementById('zones-grid');
-    if (!container) return;
+    if (!document.getElementById('zones-grid')) return;
 
-    renderZonesHub(MOCK_LANDINGS);
+    /* PASO 1: Renderizar inmediatamente con mock */
+    renderZonesGrid(MOCK);
+    console.log('[HausBox CMS] ⚡ Hub de zonas con datos mock:', MOCK.length, 'landings');
 
-    // Opcionalmente, cargar todos los items del CMS live
-    // (implementación básica - un request por colección completa)
-    console.log('[HausBox CMS] ✓ Hub de zonas renderizado con', MOCK_LANDINGS.length, 'landings.');
+    /* PASO 2: Actualizar con datos reales del CMS */
+    fetchFromWixSDK(null)
+      .then(function(liveItems) {
+        if (!liveItems || liveItems.length === 0) return;
+        renderZonesGrid(liveItems);
+        console.log('[HausBox CMS] ✅ Hub de zonas actualizado con datos reales del CMS:', liveItems.length, 'items');
+      })
+      .catch(function(err) {
+        console.warn('[HausBox CMS] Hub usando datos mock (SDK no disponible).', err.message || err);
+      });
   }
 
-  // Envío de consultas al CMS de Wix
+  /* ─── ENVÍO DE CONSULTAS AL CMS ─────────────────────────── */
   window.submitInquiryToWix = function(data) {
-    var payload = {
-      nombre: data.name || '',
-      correo: data.email || '',
-      telefono: data.phone || '',
-      propiedad: data.propertyType || '',
-      unidades: data.units ? parseInt(data.units, 10) : 0,
-      ciudad: data.city || window.currentLandingCity || '',
-      costo: data.estimatedCost || '',
-      moneda: data.currency || 'MXN',
-      origen: data.formSource || (window.currentLandingSlug ? ('Landing: ' + window.currentLandingSlug) : 'Web Principal')
-    };
-
-    var url = 'https://www.wixapis.com/wix-data/v2/items';
-    var body = JSON.stringify({
-      dataCollectionId: 'ConsultasWeb',
-      dataItem: { data: payload }
+    tryImport(SDK_CDNS, 0).then(function(sdkModule) {
+      tryImport(DATA_CDNS, 0).then(function(dataModule) {
+        var client = sdkModule.createClient({
+          modules: { items: dataModule.items },
+          auth: sdkModule.OAuthStrategy({ clientId: WIX_CLIENT_ID })
+        });
+        return client.items.insertDataItem({
+          dataCollectionId: 'ConsultasWeb',
+          dataItem: {
+            data: {
+              nombre:    data.name     || '',
+              correo:    data.email    || '',
+              telefono:  data.phone    || '',
+              propiedad: data.propertyType || '',
+              unidades:  data.units ? parseInt(data.units, 10) : 0,
+              ciudad:    data.city || window.currentLandingCity || '',
+              costo:     data.estimatedCost || '',
+              moneda:    data.currency || 'MXN',
+              origen:    data.formSource || ('Landing: ' + (window.currentLandingSlug || 'Web'))
+            }
+          }
+        });
+      });
+    }).then(function() {
+      console.log('[HausBox CMS] ✅ Consulta enviada al CMS de Wix.');
+    }).catch(function(err) {
+      console.warn('[HausBox CMS] Error al enviar consulta:', err);
     });
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.onload = function() {
-      console.log('[HausBox CMS] Consulta enviada al CMS.');
-    };
-    xhr.onerror = function() {
-      console.warn('[HausBox CMS] Error al enviar consulta al CMS.');
-    };
-    try {
-      xhr.send(body);
-    } catch(e) {
-      console.warn('[HausBox CMS] Consulta no enviada:', e);
-    }
     return true;
   };
 
-  // Procesar cola de consultas pendientes
-  if (window.wixInquiryQueue && Array.isArray(window.wixInquiryQueue)) {
-    for (var i = 0; i < window.wixInquiryQueue.length; i++) {
-      window.submitInquiryToWix(window.wixInquiryQueue[i]);
-    }
-    window.wixInquiryQueue = [];
-  }
-
-  // Exponer funciones globales
-  window.initCityLanding = initCityLanding;
-  window.initZonesHub = initZonesHub;
-  window.getLandingsDeCiudad = function() { return MOCK_LANDINGS; };
-
-  // Autoejecutar
-  function runOnReady(fn) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', fn);
-    } else {
-      fn();
-    }
-  }
-
-  runOnReady(function() {
+  /* ─── AUTOEJECUTAR ──────────────────────────────────────── */
+  function run() {
     var path = window.location.pathname;
-    if (path.indexOf('ciudad.html') > -1 || document.querySelector('[data-cms="tituloPagina"]')) {
+    if (path.indexOf('ciudad.html') > -1 || !!new URLSearchParams(window.location.search).get('slug')) {
       initCityLanding();
     }
     if (path.indexOf('zonas.html') > -1 || document.getElementById('zones-grid')) {
       initZonesHub();
     }
-    console.log('[HausBox CMS] Script inicializado.');
-  });
+    console.log('[HausBox CMS] ✅ Script inicializado.');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
 
 })();
