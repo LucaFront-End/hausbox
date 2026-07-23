@@ -10,7 +10,7 @@ const wixClient = createClient({
 });
 
 /**
- * Convierte URIs de Wix Media (wix:image://v1/...) a URLs HTTPS directas de static.wixstatic.com
+ * Convierte URIs de Wix Media (wix:image://v1/...) a URLs HTTPS directas
  */
 export function resolveWixImage(wixUri, width = 1200) {
   if (!wixUri) return '';
@@ -39,7 +39,7 @@ export const mockLandingsDeCiudad = [
     title: 'Software para Condominios en Ciudad de México | HausBox',
     metaTitle: 'Software para Condominios en CDMX | HausBox #1',
     metaDescription: 'La plataforma #1 para administración de condominios, edificios y privadas en Ciudad de México (CDMX). Cobranza, SPEI, accesos QR y contabilidad.',
-    badge: '📍 Software #1 en Ciudad de México',
+    badge: '📍 Cobertura Activa · CDMX',
     heroTitle: 'Transforma la administración de tu condominio en <span class="serif">CDMX.</span>',
     heroSubtitle: 'La solución líder en Ciudad de México para automatizar cobranza, generar accesos QR instantáneos y llevar contabilidad transparente sin complicaciones.',
     beneficioHero: 'Diseñado para condominios residenciales y torres corporativas en CDMX',
@@ -52,7 +52,7 @@ export const mockLandingsDeCiudad = [
     title: 'Software para Condominios en Guadalajara | HausBox',
     metaTitle: 'Software para Condominios en Guadalajara | HausBox #1',
     metaDescription: 'Administra tu condominio o coto residencial en Guadalajara con HausBox. Automatiza pagos, cuotas de mantenimiento y reservas de amenidades.',
-    badge: '📍 Software #1 en Guadalajara',
+    badge: '📍 Cobertura Activa · Guadalajara',
     heroTitle: 'Administración inteligente de cotos y condominios en <span class="serif">Guadalajara.</span>',
     heroSubtitle: 'Simplifica la gestión de cuotas de mantenimiento, concilia bancos al instante y mantén informados a todos tus residentes en la ZMG.',
     beneficioHero: 'Ideal para cotos y desarrollos residenciales en Zapopan y Guadalajara',
@@ -65,7 +65,7 @@ export const mockLandingsDeCiudad = [
     title: 'Software para Condominios en Monterrey | HausBox',
     metaTitle: 'Software para Condominios en Monterrey | HausBox #1',
     metaDescription: 'Plataforma de gestión condominal en Monterrey y San Pedro Garza García. Control de accesos, cobranza automática y reportes financieros.',
-    badge: '📍 Software #1 en Monterrey',
+    badge: '📍 Cobertura Activa · Monterrey',
     heroTitle: 'La plataforma de gestión condominal preferida en <span class="serif">Monterrey.</span>',
     heroSubtitle: 'Optimiza la operación de torres residenciales y fraccionamientos en la zona metropolitana de Monterrey con tecnología de vanguardia.',
     beneficioHero: 'Potencia la administración en San Pedro, Santa Catarina y Monterrey',
@@ -78,7 +78,7 @@ export const mockLandingsDeCiudad = [
     title: 'Software para Condominios en Querétaro | HausBox',
     metaTitle: 'Software para Condominios en Querétaro | HausBox #1',
     metaDescription: 'Gestión moderna de fraccionamientos y condominios en Querétaro. Cobranza inteligente, reservas de amenidades y avisos push.',
-    badge: '📍 Software #1 en Querétaro',
+    badge: '📍 Cobertura Activa · Querétaro',
     heroTitle: 'Gestión condominal eficiente y transparente en <span class="serif">Querétaro.</span>',
     heroSubtitle: 'Controla el flujo de caja, automatiza recordatorios de pago y brinda acceso rápido por QR a tus residentes en Querétaro.',
     beneficioHero: 'Adaptado a desarrollos de Juriquilla, Zibatá y El Marqués',
@@ -91,7 +91,7 @@ export const mockLandingsDeCiudad = [
     title: 'Software para Condominios en Puebla | HausBox',
     metaTitle: 'Software para Condominios en Puebla | HausBox #1',
     metaDescription: 'Software de administración de condominios en Puebla y Angelópolis. Reducción de morosidad, pagos SPEI y reportes contables.',
-    badge: '📍 Software #1 en Puebla',
+    badge: '📍 Cobertura Activa · Puebla',
     heroTitle: 'Digitaliza la administración de tu condominio en <span class="serif">Puebla.</span>',
     heroSubtitle: 'Ofrece a tus residentes la app más intuitiva para pagar mantenimientos, reservar amenidades y recibir comunicados oficiales.',
     beneficioHero: 'Diseñado para clústeres en Angelópolis y zona metropolitana de Puebla',
@@ -104,7 +104,7 @@ export const mockLandingsDeCiudad = [
     title: 'Software para Condominios y Rentas en Cancún | HausBox',
     metaTitle: 'Software para Condominios y Rentas Vacacionales en Cancún | HausBox',
     metaDescription: 'Administración de residenciales y rentas vacacionales en Cancún y Riviera Maya. Control de amenidades, pagos y comunicación.',
-    badge: '📍 Software #1 en Cancún y Riviera Maya',
+    badge: '📍 Cobertura Activa · Cancún',
     heroTitle: 'Gestión de condominios y residenciales en <span class="serif">Cancún.</span>',
     heroSubtitle: 'La herramienta perfecta para administradores y complejos vacacionales en Cancún. Control de accesos QR y cobranza en USD y MXN.',
     beneficioHero: 'Especializado en desarrollos turísticos y condominios en Riviera Maya',
@@ -117,7 +117,7 @@ export const mockLandingsDeCiudad = [
     title: 'Software para Condominios en Mérida | HausBox',
     metaTitle: 'Software para Condominios y Privadas en Mérida | HausBox #1',
     metaDescription: 'Plataforma para administración de privadas y condominios en Mérida. Pagos en línea, control de visitas e informes financieros.',
-    badge: '📍 Software #1 en Mérida',
+    badge: '📍 Cobertura Activa · Mérida',
     heroTitle: 'Administra tus privadas residenciales en <span class="serif">Mérida.</span>',
     heroSubtitle: 'Transforma la vivencia en comunidad con cobranza automatizada, accesos seguros y contabilidad al día en Yucatán.',
     beneficioHero: 'La solución número 1 para cerradas y privadas en Mérida',
@@ -209,7 +209,6 @@ export async function initCityLanding() {
     const val = currentLanding[key];
     if (!val) return;
 
-    // Buscar elementos marcados con data-cms="key" (ej. data-cms="badge", data-cms="heroTitle", etc.)
     const targets = document.querySelectorAll(`[data-cms="${key}"]`);
     targets.forEach(target => {
       if (target.tagName === 'IMG') {
@@ -250,7 +249,7 @@ export async function initCityLanding() {
     el.textContent = cityNameText;
   });
 
-  // 5. Renderizado 100% dinámico del Selector de Ciudades (Refleja altas, bajas y cambios en el CMS)
+  // 5. Renderizado 100% dinámico del Selector de Ciudades
   const citySelect = document.querySelector('[data-cms="city-select"]');
   if (citySelect) {
     citySelect.innerHTML = landings.map(l => {
@@ -280,9 +279,83 @@ export async function initCityLanding() {
   console.log('[Wix CMS] Landing hidratada 100% dinámicamente desde el CMS para:', window.currentLandingCity);
 }
 
+/**
+ * Renderiza dinámicamente el Hub de Zonas (zonas.html)
+ */
+export async function renderZonesHub() {
+  const container = document.getElementById('zones-grid') || document.querySelector('[data-cms="cities-grid"]');
+  if (!container) return;
+
+  const countBadge = document.getElementById('zones-count') || document.querySelector('[data-cms="zones-count"]');
+  const searchInput = document.getElementById('zones-search') || document.querySelector('[data-cms="zones-search"]');
+
+  const landings = await fetchLandingsDeCiudad();
+
+  if (countBadge) {
+    countBadge.textContent = `${landings.length} Zonas activas`;
+  }
+
+  function drawCards(itemsToDraw) {
+    if (itemsToDraw.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#64748b">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:48px;height:48px;margin:0 auto 16px;opacity:0.5"><circle cx="12" cy="12" r="10"/><path d="m21 21-4.3-4.3"/></svg>
+          <h3 style="font-size:18px;font-weight:600;color:#0f172a;margin-bottom:8px">No se encontraron ciudades</h3>
+          <p style="font-size:14px">Intenta buscar con otro término de búsqueda.</p>
+        </div>
+      `;
+      return;
+    }
+
+    container.innerHTML = itemsToDraw.map(l => {
+      const slug = l.slug || l._id || l.ciudad;
+      const cName = l.ciudad || l.title || l.nombre || 'Ciudad';
+      const cBadge = l.badge || l.insignia || '📍 Cobertura Activa';
+      const cDesc = l.metaDescription || l.heroSubtitle || l.subtituloHero || `Software #1 para administración de condominios y privadas en ${cName}.`;
+      const cFeature = l.beneficioHero || 'Cobranza SPEI · Accesos QR · Amenidades';
+
+      return `
+        <div class="zone-card" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:24px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.25s ease, shadow 0.25s ease, border-color 0.25s ease;box-shadow:0 4px 20px rgba(0,0,0,0.03)" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#0DA3E2';this.style.boxShadow='0 12px 30px rgba(13,163,226,0.12)'" onmouseout="this.style.transform='none';this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.03)'">
+          <div>
+            <div style="display:inline-flex;align-items:center;gap:6px;background:#f0f9ff;border:1px solid #bae6fd;padding:6px 12px;border-radius:20px;color:#0284c7;font-size:12px;font-weight:600;margin-bottom:16px">
+              ${cBadge}
+            </div>
+            <h3 style="font-size:22px;font-weight:600;color:#0f172a;margin-bottom:12px">${cName}</h3>
+            <p style="font-size:14px;line-height:1.6;color:#64748b;margin-bottom:20px">${cDesc}</p>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:500;color:#0DA3E2;margin-bottom:20px;display:flex;align-items:center;gap:6px">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>${cFeature}</span>
+            </div>
+            <a href="ciudad.html?slug=${encodeURIComponent(slug)}" class="btn-secondary-hero" style="display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 20px;border-radius:12px;background:#0f172a;color:#ffffff;font-size:14px;font-weight:500;text-decoration:none;transition:background 0.2s ease" onmouseover="this.style.background='#0DA3E2'" onmouseout="this.style.background='#0f172a'">
+              <span>Explorar ${cName}</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  drawCards(landings);
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = landings.filter(l => {
+        const text = `${l.ciudad} ${l.title} ${l.metaDescription} ${l.slug}`.toLowerCase();
+        return text.includes(q);
+      });
+      drawCards(filtered);
+    });
+  }
+}
+
 // Asignaciones globales
 window.getLandingsDeCiudad = fetchLandingsDeCiudad;
 window.initCityLanding = initCityLanding;
+window.renderZonesHub = renderZonesHub;
 window.resolveWixImage = resolveWixImage;
 
 console.log('[Wix Integration] Script Wix Headless inicializado correctamente.');
@@ -299,5 +372,8 @@ if (window.wixInquiryQueue && Array.isArray(window.wixInquiryQueue)) {
 document.addEventListener('DOMContentLoaded', () => {
   if (window.location.pathname.includes('ciudad.html') || document.querySelector('[data-cms]')) {
     initCityLanding();
+  }
+  if (window.location.pathname.includes('zonas.html') || document.getElementById('zones-grid')) {
+    renderZonesHub();
   }
 });
