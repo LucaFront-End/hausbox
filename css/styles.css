@@ -228,24 +228,20 @@ textarea {
   display: flex;
   align-items: center;
   justify-self: start;
-  padding: 6px 14px;
+  padding: 6px 18px;
   border-radius: 9999px;
   transition: color 300ms, background-color 300ms ease, box-shadow 300ms ease;
 }
 
 .nav-logo img {
-  height: 28px;
+  height: 40px;
   width: auto;
-  transition: opacity 300ms ease, transform 300ms ease;
-  transform: scale(1.75);
-  transform-origin: left center;
+  transition: opacity 300ms ease;
 }
 
 @media (min-width: 768px) {
   .nav-logo img {
-    height: 32px;
-    transform: scale(1.75);
-    transform-origin: left center;
+    height: 44px;
   }
 }
 
