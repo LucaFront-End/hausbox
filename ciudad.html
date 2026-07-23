@@ -293,7 +293,12 @@
 
       <!-- Hero text -->
       <div class="hero-content">
-        <h1 class="text-display" style="font-weight:300;color:#fff;max-width:22ch;margin:0 auto">
+        <!-- City Badge for CMS -->
+        <div data-cms="city-badge" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);padding:8px 18px;border-radius:30px;color:#ffffff;font-size:14px;font-weight:500;margin-bottom:1.5rem">
+          📍 Software #1 para Administración de Condominios
+        </div>
+
+        <h1 class="text-display" data-cms="hero-title" style="font-weight:300;color:#fff;max-width:22ch;margin:0 auto">
           <span class="text-reveal-wrap">
             <span class="text-reveal-inner hero-line-1">Administra tu <span class="serif">condominio.</span></span>
           </span>
@@ -302,7 +307,7 @@
           </span>
         </h1>
 
-        <div class="hero-fade hero-subtitle" style="transition-delay:1100ms">
+        <div class="hero-fade hero-subtitle" data-cms="hero-subtitle" style="transition-delay:1100ms">
           <p
             style="margin-top:1.5rem;max-width:42rem;font-size:clamp(1rem,1.4vw,1.25rem);font-weight:300;line-height:1.625;color:rgba(255,255,255,0.8)">
             Comunicación con tus residentes, cobra a tiempo y mantén todo en orden. Así de simple es HausBox.
@@ -2631,6 +2636,13 @@
               style="height:28px;width:auto" /></a>
 
           <div class="footer-links">
+            <div style="display:flex;align-items:center;gap:8px;margin-top:4px">
+              <span style="font-size:13px;color:rgba(255,255,255,0.7)">Ciudad:</span>
+              <select data-cms="city-select" style="background:#1e293b;color:#ffffff;border:1px solid rgba(255,255,255,0.2);padding:4px 10px;border-radius:6px;font-size:13px;outline:none;cursor:pointer">
+                <option value="cdmx">Ciudad de México</option>
+              </select>
+            </div>
+
             <a href="precios.html">Precios</a>
             <a href="politica-de-privacidad.html">Política de Privacidad</a>
             <a href="terminos-y-condiciones.html">Términos de Servicio</a>
