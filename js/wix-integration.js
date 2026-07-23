@@ -29,98 +29,119 @@ export function resolveWixImage(wixUri, width = 1200) {
 }
 
 /**
- * Base de datos local (fallback) para Landings de Ciudad en caso de desconexión
+ * Base de datos local (fallback) para Landings de Ciudad con todos los campos mapeados
  */
 export const mockLandingsDeCiudad = [
   {
     _id: 'cdmx',
     slug: 'cdmx',
     ciudad: 'Ciudad de México',
-    title: 'Software para Condominios en Ciudad de México | HausBox',
+    title: 'Transforma la administración de tu condominio en <span class="serif">CDMX.</span>',
+    excerpt: 'La solución líder en Ciudad de México para automatizar cobranza, generar accesos QR instantáneos y llevar contabilidad transparente sin complicaciones.',
+    badge: '📍 Cobertura Activa · CDMX',
+    image: 'assets/images/hero-bg-app.png',
     metaTitle: 'Software para Condominios en CDMX | HausBox #1',
     metaDescription: 'La plataforma #1 para administración de condominios, edificios y privadas en Ciudad de México (CDMX). Cobranza, SPEI, accesos QR y contabilidad.',
-    badge: '📍 Cobertura Activa · CDMX',
-    heroTitle: 'Transforma la administración de tu condominio en <span class="serif">CDMX.</span>',
-    heroSubtitle: 'La solución líder en Ciudad de México para automatizar cobranza, generar accesos QR instantáneos y llevar contabilidad transparente sin complicaciones.',
-    beneficioHero: 'Diseñado para condominios residenciales y torres corporativas en CDMX',
+    content: 'Proveedores, facturas, adeudos y gastos organizados. Administra pagos de forma ágil y profesional en la Ciudad de México.',
+    beneficio1: 'Todo el control. <br />En un solo <span class="serif">lugar.</span>',
+    beneficio2: 'Tu condominio <br />en tu <span class="serif">mano.</span>',
+    beneficio3: 'Cobra a tiempo en CDMX. <br />Sin <span class="serif">complicaciones.</span>',
     whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Ciudad de México'
   },
   {
     _id: 'guadalajara',
     slug: 'guadalajara',
     ciudad: 'Guadalajara',
-    title: 'Software para Condominios en Guadalajara | HausBox',
+    title: 'Administración inteligente de cotos y condominios en <span class="serif">Guadalajara.</span>',
+    excerpt: 'Simplifica la gestión de cuotas de mantenimiento, concilia bancos al instante y mantén informados a todos tus residentes en la ZMG.',
+    badge: '📍 Cobertura Activa · Guadalajara',
+    image: 'assets/images/hero-bg-app.png',
     metaTitle: 'Software para Condominios en Guadalajara | HausBox #1',
     metaDescription: 'Administra tu condominio o coto residencial en Guadalajara con HausBox. Automatiza pagos, cuotas de mantenimiento y reservas de amenidades.',
-    badge: '📍 Cobertura Activa · Guadalajara',
-    heroTitle: 'Administración inteligente de cotos y condominios en <span class="serif">Guadalajara.</span>',
-    heroSubtitle: 'Simplifica la gestión de cuotas de mantenimiento, concilia bancos al instante y mantén informados a todos tus residentes en la ZMG.',
-    beneficioHero: 'Ideal para cotos y desarrollos residenciales en Zapopan y Guadalajara',
+    content: 'Gestión especializada para cotos residenciales y desarrollos habitacionales en Zapopan y la Zona Metropolitana de Guadalajara.',
+    beneficio1: 'Control total de cotos <br />y <span class="serif">fraccionamientos.</span>',
+    beneficio2: 'App para residentes <br />en <span class="serif">Guadalajara.</span>',
+    beneficio3: 'Cobranza automática SPEI <br />en <span class="serif">Jalisco.</span>',
     whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Guadalajara'
   },
   {
     _id: 'monterrey',
     slug: 'monterrey',
     ciudad: 'Monterrey',
-    title: 'Software para Condominios en Monterrey | HausBox',
+    title: 'La plataforma de gestión condominal preferida en <span class="serif">Monterrey.</span>',
+    excerpt: 'Optimiza la operación de torres residenciales y fraccionamientos en la zona metropolitana de Monterrey con tecnología de vanguardia.',
+    badge: '📍 Cobertura Activa · Monterrey',
+    image: 'assets/images/hero-bg-app.png',
     metaTitle: 'Software para Condominios en Monterrey | HausBox #1',
     metaDescription: 'Plataforma de gestión condominal en Monterrey y San Pedro Garza García. Control de accesos, cobranza automática y reportes financieros.',
-    badge: '📍 Cobertura Activa · Monterrey',
-    heroTitle: 'La plataforma de gestión condominal preferida en <span class="serif">Monterrey.</span>',
-    heroSubtitle: 'Optimiza la operación de torres residenciales y fraccionamientos en la zona metropolitana de Monterrey con tecnología de vanguardia.',
-    beneficioHero: 'Potencia la administración en San Pedro, Santa Catarina y Monterrey',
+    content: 'Tecnología de alto rendimiento para torres de departamentos y residenciales en San Pedro Garza García y Monterrey.',
+    beneficio1: 'Gestión financiera <br />de alto <span class="serif">nivel.</span>',
+    beneficio2: 'Accesos QR <br />para torres en <span class="serif">Monterrey.</span>',
+    beneficio3: 'Cobranza inteligente <br />en <span class="serif">Nuevo León.</span>',
     whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Monterrey'
   },
   {
     _id: 'queretaro',
     slug: 'queretaro',
     ciudad: 'Querétaro',
-    title: 'Software para Condominios en Querétaro | HausBox',
+    title: 'Gestión condominal eficiente y transparente en <span class="serif">Querétaro.</span>',
+    excerpt: 'Controla el flujo de caja, automatiza recordatorios de pago y brinda acceso rápido por QR a tus residentes en Querétaro.',
+    badge: '📍 Cobertura Activa · Querétaro',
+    image: 'assets/images/hero-bg-app.png',
     metaTitle: 'Software para Condominios en Querétaro | HausBox #1',
     metaDescription: 'Gestión moderna de fraccionamientos y condominios en Querétaro. Cobranza inteligente, reservas de amenidades y avisos push.',
-    badge: '📍 Cobertura Activa · Querétaro',
-    heroTitle: 'Gestión condominal eficiente y transparente en <span class="serif">Querétaro.</span>',
-    heroSubtitle: 'Controla el flujo de caja, automatiza recordatorios de pago y brinda acceso rápido por QR a tus residentes en Querétaro.',
-    beneficioHero: 'Adaptado a desarrollos de Juriquilla, Zibatá y El Marqués',
+    content: 'Solución integral adaptada a desarrollos residenciales en Juriquilla, Zibatá, El Marqués y zona metropolitana de Querétaro.',
+    beneficio1: 'Transparencia total <br />en tus <span class="serif">finanzas.</span>',
+    beneficio2: 'Reservas de amenidades <br />en <span class="serif">Querétaro.</span>',
+    beneficio3: 'Reducción de morosidad <br />en <span class="serif">fraccionamientos.</span>',
     whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Querétaro'
   },
   {
     _id: 'puebla',
     slug: 'puebla',
     ciudad: 'Puebla',
-    title: 'Software para Condominios en Puebla | HausBox',
+    title: 'Digitaliza la administración de tu condominio en <span class="serif">Puebla.</span>',
+    excerpt: 'Ofrece a tus residentes la app más intuitiva para pagar mantenimientos, reservar amenidades y recibir comunicados oficiales.',
+    badge: '📍 Cobertura Activa · Puebla',
+    image: 'assets/images/hero-bg-app.png',
     metaTitle: 'Software para Condominios en Puebla | HausBox #1',
     metaDescription: 'Software de administración de condominios en Puebla y Angelópolis. Reducción de morosidad, pagos SPEI y reportes contables.',
-    badge: '📍 Cobertura Activa · Puebla',
-    heroTitle: 'Digitaliza la administración de tu condominio en <span class="serif">Puebla.</span>',
-    heroSubtitle: 'Ofrece a tus residentes la app más intuitiva para pagar mantenimientos, reservar amenidades y recibir comunicados oficiales.',
-    beneficioHero: 'Diseñado para clústeres en Angelópolis y zona metropolitana de Puebla',
+    content: 'Plataforma líder para clústeres residenciales y edificios en Angelópolis, Lomas de Angelópolis y Puebla.',
+    beneficio1: 'Control absoluto <br />para tu <span class="serif">clúster.</span>',
+    beneficio2: 'Comunicación oficial <br />en <span class="serif">Puebla.</span>',
+    beneficio3: 'Reportes financieros <br />al <span class="serif">instante.</span>',
     whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Puebla'
   },
   {
     _id: 'cancun',
     slug: 'cancun',
     ciudad: 'Cancún',
-    title: 'Software para Condominios y Rentas en Cancún | HausBox',
+    title: 'Gestión de condominios y residenciales en <span class="serif">Cancún.</span>',
+    excerpt: 'La herramienta perfecta para administradores y complejos vacacionales en Cancún. Control de accesos QR y cobranza en USD y MXN.',
+    badge: '📍 Cobertura Activa · Cancún',
+    image: 'assets/images/hero-bg-app.png',
     metaTitle: 'Software para Condominios y Rentas Vacacionales en Cancún | HausBox',
     metaDescription: 'Administración de residenciales y rentas vacacionales en Cancún y Riviera Maya. Control de amenidades, pagos y comunicación.',
-    badge: '📍 Cobertura Activa · Cancún',
-    heroTitle: 'Gestión de condominios y residenciales en <span class="serif">Cancún.</span>',
-    heroSubtitle: 'La herramienta perfecta para administradores y complejos vacacionales en Cancún. Control de accesos QR y cobranza en USD y MXN.',
-    beneficioHero: 'Especializado en desarrollos turísticos y condominios en Riviera Maya',
+    content: 'Plataforma especializada en administración de residenciales de lujo y desarrollos en Cancún y Riviera Maya.',
+    beneficio1: 'Gestión multimoneda <br />en <span class="serif">MXN y USD.</span>',
+    beneficio2: 'Accesos QR rápidos <br />para <span class="serif">visitas.</span>',
+    beneficio3: 'Cobranza transparente <br />en la <span class="serif">Riviera Maya.</span>',
     whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Cancún'
   },
   {
     _id: 'merida',
     slug: 'merida',
     ciudad: 'Mérida',
-    title: 'Software para Condominios en Mérida | HausBox',
+    title: 'Administra tus privadas residenciales en <span class="serif">Mérida.</span>',
+    excerpt: 'Transforma la vivencia en comunidad con cobranza automatizada, accesos seguros y contabilidad al día en Yucatán.',
+    badge: '📍 Cobertura Activa · Mérida',
+    image: 'assets/images/hero-bg-app.png',
     metaTitle: 'Software para Condominios y Privadas en Mérida | HausBox #1',
     metaDescription: 'Plataforma para administración de privadas y condominios en Mérida. Pagos en línea, control de visitas e informes financieros.',
-    badge: '📍 Cobertura Activa · Mérida',
-    heroTitle: 'Administra tus privadas residenciales en <span class="serif">Mérida.</span>',
-    heroSubtitle: 'Transforma la vivencia en comunidad con cobranza automatizada, accesos seguros y contabilidad al día en Yucatán.',
-    beneficioHero: 'La solución número 1 para cerradas y privadas en Mérida',
+    content: 'La solución número 1 para privadas residenciales y cotos cerrados en Mérida y el estado de Yucatán.',
+    beneficio1: 'Organización simple <br />para tus <span class="serif">privadas.</span>',
+    beneficio2: 'Pagos SPEI <br />y tarjeta en <span class="serif">Mérida.</span>',
+    beneficio3: 'Tranquilidad total <br />en <span class="serif">comunidad.</span>',
     whatsappMessage: 'Hola, me interesa información de HausBox para mi condominio en Mérida'
   }
 ];
@@ -175,7 +196,7 @@ window.submitInquiryToWix = async function(data) {
 };
 
 /**
- * Hidrata dinámicamente el DOM con 100% de los campos editables desde el CMS de Wix
+ * Hidrata dinámicamente el DOM con 100% de los campos del CMS de Wix (title, excerpt, badge, content, image, metaTitle, metaDescription, beneficios)
  */
 export async function initCityLanding() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -192,16 +213,26 @@ export async function initCityLanding() {
 
   if (!currentLanding) return;
 
+  // Helper para resolver valor probando múltiples alias de campo
+  const getValue = (...keys) => {
+    for (const key of keys) {
+      if (currentLanding[key] !== undefined && currentLanding[key] !== null && currentLanding[key] !== '') {
+        return currentLanding[key];
+      }
+    }
+    return '';
+  };
+
   // 1. Actualizar Metas de SEO (Title y Meta Description)
-  const titleText = currentLanding.metaTitle || currentLanding.title || currentLanding.titulo || currentLanding.nombre;
-  if (titleText) {
-    document.title = titleText;
+  const metaTitleVal = getValue('metaTitle', 'meta_title', 'seoTitle', 'seo_title', 'title', 'titulo', 'nombre');
+  if (metaTitleVal) {
+    document.title = metaTitleVal;
   }
 
-  const descText = currentLanding.metaDescription || currentLanding.meta_description || currentLanding.descripcion;
-  if (descText) {
+  const metaDescVal = getValue('metaDescription', 'meta_description', 'seoDescription', 'seo_description', 'excerpt', 'extracto', 'descripcion');
+  if (metaDescVal) {
     const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', descText);
+    if (metaDesc) metaDesc.setAttribute('content', metaDescVal);
   }
 
   // 2. Mapeo Genérico Dinámico de TODOS los campos devueltos por el CMS
@@ -221,29 +252,59 @@ export async function initCityLanding() {
     });
   });
 
-  // 3. Mapeos específicos de respaldo para alias comunes de campos
-  const cityBadge = document.querySelector('[data-cms="city-badge"]');
-  if (cityBadge && (currentLanding.badge || currentLanding.insignia)) {
-    cityBadge.innerHTML = currentLanding.badge || currentLanding.insignia;
+  // 3. Mapeo explícito para Title, Excerpt, Badge, Image, Content, Beneficios
+  const titleVal = getValue('title', 'titulo', 'heroTitle', 'tituloHero', 'nombre', 'h1');
+  if (titleVal) {
+    const titleElements = document.querySelectorAll('[data-cms="title"], [data-cms="hero-title"], [data-cms="titulo"]');
+    titleElements.forEach(el => el.innerHTML = titleVal);
   }
 
-  const heroTitle = document.querySelector('[data-cms="hero-title"]');
-  if (heroTitle && (currentLanding.heroTitle || currentLanding.tituloHero || currentLanding.titulo_hero)) {
-    heroTitle.innerHTML = currentLanding.heroTitle || currentLanding.tituloHero || currentLanding.titulo_hero;
+  const excerptVal = getValue('excerpt', 'extracto', 'resumen', 'heroSubtitle', 'subtituloHero', 'subtitulo');
+  if (excerptVal) {
+    const excerptElements = document.querySelectorAll('[data-cms="excerpt"], [data-cms="hero-subtitle"], [data-cms="extracto"], [data-cms="resumen"]');
+    excerptElements.forEach(el => el.innerHTML = excerptVal);
   }
 
-  const heroSubtitle = document.querySelector('[data-cms="hero-subtitle"]');
-  if (heroSubtitle && (currentLanding.heroSubtitle || currentLanding.subtituloHero || currentLanding.subtitulo_hero)) {
-    heroSubtitle.innerHTML = currentLanding.heroSubtitle || currentLanding.subtituloHero || currentLanding.subtitulo_hero;
+  const badgeVal = getValue('badge', 'insignia', 'cityBadge', 'etiqueta');
+  if (badgeVal) {
+    const badgeElements = document.querySelectorAll('[data-cms="badge"], [data-cms="insignia"], [data-cms="city-badge"]');
+    badgeElements.forEach(el => el.innerHTML = badgeVal);
   }
 
-  const heroImage = document.querySelector('[data-cms="hero-image"]');
-  if (heroImage && (currentLanding.heroImage || currentLanding.imagenHero || currentLanding.imagen)) {
-    heroImage.src = resolveWixImage(currentLanding.heroImage || currentLanding.imagenHero || currentLanding.imagen);
+  const imageVal = getValue('image', 'imagen', 'heroImage', 'imagenHero', 'photo', 'foto');
+  if (imageVal) {
+    const imageElements = document.querySelectorAll('[data-cms="image"], [data-cms="imagen"], [data-cms="hero-image"]');
+    imageElements.forEach(el => {
+      if (el.tagName === 'IMG') el.src = resolveWixImage(imageVal);
+    });
+  }
+
+  const contentVal = getValue('content', 'contenido', 'descripcion', 'body', 'texto');
+  if (contentVal) {
+    const contentElements = document.querySelectorAll('[data-cms="content"], [data-cms="contenido"], [data-cms="descripcion"]');
+    contentElements.forEach(el => el.innerHTML = contentVal);
+  }
+
+  const ben1 = getValue('beneficio1', 'beneficio_1', 'feature1');
+  if (ben1) {
+    const el1 = document.querySelector('[data-cms="beneficio1"]');
+    if (el1) el1.innerHTML = ben1;
+  }
+
+  const ben2 = getValue('beneficio2', 'beneficio_2', 'feature2');
+  if (ben2) {
+    const el2 = document.querySelector('[data-cms="beneficio2"]');
+    if (el2) el2.innerHTML = ben2;
+  }
+
+  const ben3 = getValue('beneficio3', 'beneficio_3', 'feature3');
+  if (ben3) {
+    const el3 = document.querySelector('[data-cms="beneficio3"]');
+    if (el3) el3.innerHTML = ben3;
   }
 
   // 4. Rellenar referencias globales al nombre de la ciudad
-  const cityNameText = currentLanding.ciudad || currentLanding.title || currentLanding.nombre || 'tu ciudad';
+  const cityNameText = getValue('ciudad', 'title', 'nombre', 'ciudadName') || 'tu ciudad';
   const cityNames = document.querySelectorAll('[data-cms="city-name"]');
   cityNames.forEach(el => {
     el.textContent = cityNameText;
@@ -265,7 +326,7 @@ export async function initCityLanding() {
   }
 
   // 6. WhatsApp enlace y mensaje dinámico
-  const waMessage = currentLanding.whatsappMessage || currentLanding.mensajeWhatsapp || `Hola, me interesa información de HausBox para condominios en ${cityNameText}`;
+  const waMessage = getValue('whatsappMessage', 'mensajeWhatsapp', 'whatsappText') || `Hola, me interesa información de HausBox para condominios en ${cityNameText}`;
   const encodedMsg = encodeURIComponent(waMessage);
   const waUrl = `https://api.whatsapp.com/send/?phone=5215574374431&text=${encodedMsg}&type=phone_number&app_absent=0`;
 
@@ -276,7 +337,7 @@ export async function initCityLanding() {
 
   // 7. Configurar variable global de ciudad actual para los formularios de leads
   window.currentLandingCity = cityNameText;
-  console.log('[Wix CMS] Landing hidratada 100% dinámicamente desde el CMS para:', window.currentLandingCity);
+  console.log('[Wix CMS] Landing hidratada 100% dinámicamente con todos los campos mapeados para:', window.currentLandingCity);
 }
 
 /**
@@ -292,7 +353,7 @@ export async function renderZonesHub() {
   const landings = await fetchLandingsDeCiudad();
 
   if (countBadge) {
-    countBadge.textContent = `${landings.length} Zonas activas`;
+    countBadge.textContent = `📍 ${landings.length} Zonas activas`;
   }
 
   function drawCards(itemsToDraw) {
@@ -311,8 +372,8 @@ export async function renderZonesHub() {
       const slug = l.slug || l._id || l.ciudad;
       const cName = l.ciudad || l.title || l.nombre || 'Ciudad';
       const cBadge = l.badge || l.insignia || '📍 Cobertura Activa';
-      const cDesc = l.metaDescription || l.heroSubtitle || l.subtituloHero || `Software #1 para administración de condominios y privadas en ${cName}.`;
-      const cFeature = l.beneficioHero || 'Cobranza SPEI · Accesos QR · Amenidades';
+      const cDesc = l.excerpt || l.extracto || l.metaDescription || l.heroSubtitle || l.subtituloHero || `Software #1 para administración de condominios y privadas en ${cName}.`;
+      const cFeature = l.beneficioHero || l.content || 'Cobranza SPEI · Accesos QR · Amenidades';
 
       return `
         <div class="zone-card" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:24px;padding:32px;display:flex;flex-direction:column;justify-content:space-between;transition:transform 0.25s ease, shadow 0.25s ease, border-color 0.25s ease;box-shadow:0 4px 20px rgba(0,0,0,0.03)" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='#0DA3E2';this.style.boxShadow='0 12px 30px rgba(13,163,226,0.12)'" onmouseout="this.style.transform='none';this.style.borderColor='#e2e8f0';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.03)'">
@@ -344,7 +405,7 @@ export async function renderZonesHub() {
     searchInput.addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase().trim();
       const filtered = landings.filter(l => {
-        const text = `${l.ciudad} ${l.title} ${l.metaDescription} ${l.slug}`.toLowerCase();
+        const text = `${l.ciudad} ${l.title} ${l.excerpt} ${l.metaDescription} ${l.slug}`.toLowerCase();
         return text.includes(q);
       });
       drawCards(filtered);
