@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hausbox.app/sitemap.xml
+Sitemap: https://hausbox.app/sitemap-static.xml
+Sitemap: https://hausbox.app/sitemap-landings.xml
