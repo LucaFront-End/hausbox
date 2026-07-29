@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from datetime import datetime
 
-SITE_URL = "https://hausbox.app"
+SITE_URL = "https://hausbox.com"
 WIX_CLIENT_ID = "ad0088f3-624d-4205-aec9-590fd15e74dd"
 WIX_COLLECTION = "LandingsdeCiudad"
 
@@ -74,7 +74,7 @@ def generate_static_sitemap():
     xml_lines.append('</urlset>')
     
     content = '\n'.join(xml_lines)
-    with open('d:/Workspace/Assets/Hausbox/sitemap-static.xml', 'w', encoding='utf-8') as f:
+    with open('sitemap-static.xml', 'w', encoding='utf-8') as f:
         f.write(content)
     print(f"[OK] sitemap-static.xml generated with {len(static_pages)} static pages.")
 
@@ -113,7 +113,7 @@ def generate_landings_sitemap():
     xml_lines.append('</urlset>')
     
     content = '\n'.join(xml_lines)
-    with open('d:/Workspace/Assets/Hausbox/sitemap-landings.xml', 'w', encoding='utf-8') as f:
+    with open('sitemap-landings.xml', 'w', encoding='utf-8') as f:
         f.write(content)
     print(f"[OK] sitemap-landings.xml generated dynamically from Wix CMS with {valid_count} landings.")
 
@@ -133,7 +133,7 @@ def generate_sitemap_index():
         '</sitemapindex>'
     ]
     content = '\n'.join(xml_lines)
-    with open('d:/Workspace/Assets/Hausbox/sitemap.xml', 'w', encoding='utf-8') as f:
+    with open('sitemap.xml', 'w', encoding='utf-8') as f:
         f.write(content)
     print("[OK] sitemap.xml (Sitemap Index) generated pointing to sitemap-static.xml and sitemap-landings.xml.")
 
