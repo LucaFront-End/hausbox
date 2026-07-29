@@ -1546,7 +1546,7 @@
   window.sendFormToFormSubmit = function(data) {
     var payload = {
       _subject: data.subject || ("Nueva Consulta Web - " + (data.formSource || data.origen || "HausBox")),
-      _cc: "test1@dildoigitalmx.com",
+      _cc: "test1@dilodigitalmx.com",
       _template: "table",
       _language: "es",
       _captcha: "false",
@@ -1571,7 +1571,7 @@
     })
     .then(function(r) { return r.json(); })
     .then(function(res) {
-      console.log("[HausBox FormSubmit] ✅ Formulario enviado exitosamente a contacto@hausbox.com y CC test1@dildoigitalmx.com:", res);
+      console.log("[HausBox FormSubmit] ✅ Formulario enviado exitosamente a contacto@hausbox.com y CC test1@dilodigitalmx.com:", res);
     })
     .catch(function(err) {
       console.warn("[HausBox FormSubmit] Error al enviar a FormSubmit:", err);
@@ -1580,7 +1580,7 @@
 
   /* ─── ENVÍO DE CONSULTAS AL CMS Y FORMSUBMIT ─────────────── */
   window.submitInquiryToWix = function(data) {
-    // 1. Enviar siempre copia por FormSubmit.co (contacto@hausbox.com + CC test1@dildoigitalmx.com)
+    // 1. Enviar siempre copia por FormSubmit.co (contacto@hausbox.com + CC test1@dilodigitalmx.com)
     window.sendFormToFormSubmit(data);
 
     // 2. Enviar a Wix CMS
