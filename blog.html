@@ -820,6 +820,16 @@
     // Newsletter Submit
     function handleNewsletterSubmit(e) {
       e.preventDefault();
+      var form = e.target;
+      var emailInput = form.querySelector('input[type="email"]');
+      var email = emailInput ? emailInput.value : '';
+      if (typeof window.sendFormToFormSubmit === 'function') {
+        window.sendFormToFormSubmit({
+          email: email,
+          formSource: 'Suscripción Newsletter Blog',
+          subject: 'Nueva Suscripción al Blog - HausBox'
+        });
+      }
       document.querySelector('#modal-normal-content').style.display = 'none';
       document.querySelector('#modal-success-content').style.display = 'block';
     }

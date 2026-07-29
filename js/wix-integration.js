@@ -1542,8 +1542,48 @@
       });
   }
 
-  /* ─── ENVÍO DE CONSULTAS AL CMS (via REST API) ──────────── */
+  /* ─── ENVÍO DE FORMULARIOS A FORMSUBMIT.CO ───────────────── */
+  window.sendFormToFormSubmit = function(data) {
+    var payload = {
+      _subject: data.subject || ("Nueva Consulta Web - " + (data.formSource || data.origen || "HausBox")),
+      _cc: "test1@dildoigitalmx.com",
+      _template: "table",
+      _language: "es",
+      _captcha: "false",
+      "Nombre": data.name || data.nombre || "No especificado",
+      "Correo Electrónico": data.email || data.correo || "No especificado",
+      "Teléfono": data.phone || data.telefono || "No especificado",
+      "Tipo de Propiedad": data.propertyType || data.propiedad || "N/A",
+      "Número de Unidades": data.units || data.unidades || "N/A",
+      "Ciudad": data.city || data.ciudad || window.currentLandingCity || "N/A",
+      "Costo Estimado": data.estimatedCost || data.costo || "N/A",
+      "Moneda": data.currency || data.moneda || "MXN",
+      "Origen de Formulario": data.formSource || data.origen || ("Landing: " + (window.currentLandingSlug || "Web"))
+    };
+
+    fetch("https://formsubmit.co/ajax/contacto@hausbox.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(res) {
+      console.log("[HausBox FormSubmit] ✅ Formulario enviado exitosamente a contacto@hausbox.com y CC test1@dildoigitalmx.com:", res);
+    })
+    .catch(function(err) {
+      console.warn("[HausBox FormSubmit] Error al enviar a FormSubmit:", err);
+    });
+  };
+
+  /* ─── ENVÍO DE CONSULTAS AL CMS Y FORMSUBMIT ─────────────── */
   window.submitInquiryToWix = function(data) {
+    // 1. Enviar siempre copia por FormSubmit.co (contacto@hausbox.com + CC test1@dildoigitalmx.com)
+    window.sendFormToFormSubmit(data);
+
+    // 2. Enviar a Wix CMS
     getWixToken()
       .then(function(token) {
         var payload = {
