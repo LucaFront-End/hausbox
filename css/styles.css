@@ -252,6 +252,9 @@ textarea {
 .logo-dark {
   display: none !important;
 }
+.logo-mobile {
+  display: none !important;
+}
 
 .site-nav[data-theme="dark"] .logo-light {
   display: block !important;
@@ -264,6 +267,24 @@ textarea {
 }
 .site-nav[data-theme="light"] .logo-dark {
   display: block !important;
+}
+
+/* Mobile Nav Logo (Sphere Icon) */
+@media (max-width: 767px) {
+  .site-nav .logo-light,
+  .site-nav .logo-dark,
+  .site-nav[data-theme="dark"] .logo-light,
+  .site-nav[data-theme="dark"] .logo-dark,
+  .site-nav[data-theme="light"] .logo-light,
+  .site-nav[data-theme="light"] .logo-dark {
+    display: none !important;
+  }
+
+  .site-nav .logo-mobile {
+    display: block !important;
+    height: 38px !important;
+    width: auto !important;
+  }
 }
 
 /* Nav pills (floating circular menu container) */
