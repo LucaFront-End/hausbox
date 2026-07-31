@@ -1816,10 +1816,11 @@ textarea {
 .site-footer {
   position: relative;
   z-index: 20;
-  background: transparent;
+  background: #050c14;
   color: #fff;
-  padding: 3rem 1.25rem;
-  padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+  padding: 3.5rem 1.25rem;
+  padding-bottom: max(env(safe-area-inset-bottom), 1.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (min-width: 768px) {
