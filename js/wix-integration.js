@@ -1337,7 +1337,7 @@
       excerptPagina:      getField(item, 'excerptPgina', 'excerptPagina', 'excerpt_pagina'),
       tituloSeo:          getField(item, 'tituloSeo', 'titulo_seo', 'Titulo SEO'),
       metadescripcionSeo: getField(item, 'metadescripcinSeo', 'metadescripcionSeo', 'metadescripcion_seo'),
-      whatsapp:           getField(item, 'whatsappPersonalizado', 'whatsapp_personalizado', 'whatsapp'),
+      whatsapp:           getField(item, 'urlDeWhatsapp', 'urlDeWhatsApp', 'url_de_whatsapp', 'urlwhatsapp', 'urlWhatsApp', 'whatsappPersonalizado', 'whatsapp_personalizado', 'whatsapp'),
       ciudadOEstado:      getField(item, 'ciudadOEstado', 'ciudad_o_estado', 'ciudad'),
     };
   }
@@ -1383,10 +1383,13 @@
     var badge = f.ciudadOEstado ? ('📍 ' + f.ciudadOEstado) : '📍 Software #1 en México';
     setAll('[data-cms="badge"]', function(el) { el.innerHTML = badge; });
 
-    /* 6. WhatsApp links */
+    /* 6. WhatsApp links — actualiza escritorio y MÓVIL */
     if (f.whatsapp) {
-      var n = setAll('a[href*="whatsapp"], a[href*="wa.me"]', function(el) { el.href = f.whatsapp; });
-      console.log('[HausBox CMS] ✓ whatsapp →', f.whatsapp, '(' + n + ' links)');
+      window.currentLandingWhatsapp = f.whatsapp;
+      var n = setAll('a[href*="whatsapp"], a[href*="wa.me"], a.floating-whatsapp, .floating-whatsapp-container a, .mobile-cta-btn, .nav-mobile-cta a', function(el) { 
+        el.href = f.whatsapp; 
+      });
+      console.log('[HausBox CMS] ✓ whatsapp →', f.whatsapp, '(' + n + ' links actualizados en escritorio y móvil)');
     }
 
     /* 7. Keyword */
