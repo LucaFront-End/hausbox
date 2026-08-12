@@ -471,6 +471,12 @@ function initPricingCalcWidget() {
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.open-calc-btn, #calc-open-btn');
     if (btn) {
+      if (window.innerWidth < 1024) {
+        e.preventDefault();
+        var waUrl = window.currentLandingWhatsapp || "https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+Quisiera+m%C3%A1s+informaci%C3%B3n+de+su+Software+para+administraci%C3%B3n+de+condominios+de+Hausbox&type=phone_number&app_absent=0";
+        window.open(waUrl, '_blank');
+        return;
+      }
       e.preventDefault();
       openModal();
     }
