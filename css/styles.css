@@ -4631,9 +4631,6 @@ textarea {
 }
 
 @media (max-width: 1023px) {
-  .floating-calc-btn {
-    display: none !important;
-  }
   .floating-whatsapp-container {
     bottom: 20px !important;
     right: 20px !important;

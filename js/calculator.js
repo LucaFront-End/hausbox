@@ -469,8 +469,13 @@ function initPricingCalcWidget() {
 
   // Bind triggers via event delegation so dynamically added .open-calc-btn buttons work instantly
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.open-calc-btn, #calc-open-btn');
+    const btn = e.target.closest('#calc-open-btn, .open-calc-btn');
     if (btn) {
+      if (btn.id === 'calc-open-btn' || btn.classList.contains('floating-calc-btn')) {
+        e.preventDefault();
+        openModal();
+        return;
+      }
       if (window.innerWidth < 1024) {
         e.preventDefault();
         var waUrl = window.currentLandingWhatsapp || "https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+Quisiera+m%C3%A1s+informaci%C3%B3n+de+su+Software+para+administraci%C3%B3n+de+condominios+de+Hausbox&type=phone_number&app_absent=0";
