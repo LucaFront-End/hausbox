@@ -689,7 +689,7 @@ function initMobileMenu() {
       </div>
       <div class="mobile-menu-actions">
         <a href="https://app.hausbox.com" class="mobile-login-btn">Ingresar</a>
-        <a href="#" class="mobile-cta-btn open-calc-btn">Solicitar Demo</a>
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=Hola%21+Quiero+informaci%C3%B3n+de+HausBox&type=phone_number&app_absent=0" class="mobile-cta-btn" target="_blank" rel="noopener noreferrer">Solicitar Demo</a>
       </div>
     </div>
   `;

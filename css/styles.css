@@ -646,7 +646,22 @@ textarea {
 
 /* Mobile CTA */
 .nav-mobile-cta {
-  display: none !important;
+  display: flex !important;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .nav-mobile-cta .btn-cta-nav {
+    height: 42px !important;
+    padding: 0 1.1rem !important;
+    font-size: 13.5px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav-mobile-cta {
+    display: none !important;
+  }
 }
 
 .nav-spacer {
