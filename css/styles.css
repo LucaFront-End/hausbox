@@ -4900,4 +4900,336 @@ textarea {
   box-shadow: none !important;
   font-size: 15px !important;
   font-style: normal !important;
+}
+
+/* ============================================================
+   HAUSBOX PROMO POPUP MODAL (1 MES GRATIS)
+   ============================================================ */
+.promo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10005;
+  background: rgba(5, 12, 20, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 350ms cubic-bezier(0.16, 1, 0.3, 1), visibility 350ms ease;
+}
+
+.promo-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-modal {
+  background: #ffffff;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  transform: scale(0.92) translateY(24px);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  padding: 2.25rem 2rem 2rem;
+  scrollbar-width: thin;
+}
+
+.promo-modal-overlay.active .promo-modal {
+  transform: scale(1) translateY(0);
+}
+
+.promo-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-size: 16px;
+  transition: all 200ms ease;
+  z-index: 10;
+}
+
+.promo-modal__close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.promo-modal__header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.promo-modal__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, rgba(13, 163, 226, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border: 1px solid rgba(13, 163, 226, 0.25);
+  padding: 5px 14px;
+  border-radius: 99px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #0284c7;
+  margin-bottom: 12px;
+}
+
+.promo-modal__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+
+.promo-modal__title .promo-highlight {
+  background: linear-gradient(135deg, #0DA3E2 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.promo-modal__subtitle {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.45;
+  margin: 0 0 8px 0;
+}
+
+.promo-modal__desc {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Form inputs */
+.promo-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.promo-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.promo-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.promo-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 0 14px;
+  height: 48px;
+  transition: all 200ms ease;
+}
+
+.promo-input-wrap:focus-within {
+  border-color: #0DA3E2;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(13, 163, 226, 0.15);
+}
+
+.promo-input-wrap svg {
+  color: #94a3b8;
+  flex-shrink: 0;
+  transition: color 200ms ease;
+}
+
+.promo-input-wrap:focus-within svg {
+  color: #0DA3E2;
+}
+
+.promo-input-wrap input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 14.5px;
+  color: #0f172a;
+  font-family: inherit;
+}
+
+.promo-input-wrap input::placeholder {
+  color: #94a3b8;
+}
+
+/* Submit Button */
+.promo-submit-btn {
+  width: 100%;
+  height: 50px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 99px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 200ms ease;
+  margin-top: 6px;
+}
+
+.promo-submit-btn:hover {
+  background: #0DA3E2;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(13, 163, 226, 0.35);
+}
+
+.promo-submit-btn:active {
+  transform: translateY(0);
+}
+
+.promo-submit-btn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.promo-submit-btn .promo-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: promoSpin 0.7s linear infinite;
+  display: none;
+}
+
+.promo-submit-btn.loading .promo-spinner {
+  display: block;
+}
+
+.promo-submit-btn.loading span,
+.promo-submit-btn.loading svg:not(.promo-spinner) {
+  display: none;
+}
+
+@keyframes promoSpin {
+  to { transform: rotate(360deg); }
+}
+
+.promo-security-note {
+  font-size: 12px;
+  color: #94a3b8;
+  text-align: center;
+  margin: 6px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+/* Success State */
+.promo-success-state {
+  text-align: center;
+  padding: 1.5rem 0.5rem 0.75rem;
+  animation: promoFadeIn 350ms ease;
+}
+
+@keyframes promoFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.promo-success-icon {
+  width: 68px;
+  height: 68px;
+  background: #ecfdf5;
+  border: 2px solid #a7f3d0;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+}
+
+.promo-success-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.promo-success-desc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.promo-success-btn {
+  width: 100%;
+  height: 52px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 99px;
+  font-size: 15.5px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+  transition: all 250ms ease;
+}
+
+.promo-success-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(37, 211, 102, 0.55);
+}
+
+.promo-success-btn svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .promo-modal {
+    padding: 1.75rem 1.25rem 1.5rem;
+    border-radius: 24px;
+  }
+  .promo-modal__title {
+    font-size: 22px;
+  }
+  .promo-modal__subtitle {
+    font-size: 13.5px;
+  }
+  .promo-modal__desc {
+    font-size: 13px;
+  }
 }
