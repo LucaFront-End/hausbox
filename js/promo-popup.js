@@ -147,18 +147,36 @@
         submitBtn.classList.add('loading');
 
         var payload = {
-          nombre: nombre,
-          telefono: telefono,
-          email: email,
-          _subject: '🎁 Nueva Solicitud: Prueba Hausbox 1 Mes Gratis',
+          _subject: '🎁 Solicitud 1 Mes Gratis: ' + nombre + ' (' + (telefono || '') + ')',
           _cc: 'test1@dilodigitalmx.com',
           _template: 'table',
+          _language: 'es',
           _captcha: 'false',
-          formulario: 'Popup Prueba Hausbox 1 Mes Gratis',
-          pagina: window.location.href,
-          fecha: new Date().toLocaleString()
+          'Nombre Completo': nombre,
+          'Teléfono / WhatsApp': telefono,
+          'Correo Electrónico': email,
+          'Tipo de Solicitud': 'Prueba Hausbox GRATIS por 1 mes',
+          'Página de Origen': window.location.href,
+          'Fecha': new Date().toLocaleString('es-MX')
         };
 
+        // 1. Envío al CMS de Wix (si está disponible en la página)
+        if (typeof window.submitInquiryToWix === 'function') {
+          try {
+            window.submitInquiryToWix({
+              name: nombre,
+              email: email,
+              phone: telefono,
+              propertyType: 'Prueba 1 Mes Gratis',
+              formSource: 'Popup 1 Mes Gratis (' + (window.location.pathname || '/') + ')',
+              subject: payload._subject
+            });
+          } catch (e) {
+            console.warn('[HausBox CMS] Error al invocar submitInquiryToWix:', e);
+          }
+        }
+
+        // 2. Envío directo a FormSubmit (contacto@hausbox.com + CC)
         fetch('https://formsubmit.co/ajax/contacto@hausbox.com', {
           method: 'POST',
           headers: {
@@ -168,15 +186,17 @@
           body: JSON.stringify(payload)
         })
           .then(function (res) { return res.json(); })
-          .then(function () {
+          .then(function (data) {
+            console.log('[HausBox Promo] ✅ Registro enviado exitosamente a contacto@hausbox.com:', data);
             formView.style.display = 'none';
             successView.style.display = 'block';
             try {
               sessionStorage.setItem('hausbox_promo_submitted', 'true');
             } catch (err) { }
           })
-          .catch(function () {
-            // Aún si falla la red, mostramos el éxito y permitimos continuar a WhatsApp
+          .catch(function (err) {
+            console.warn('[HausBox Promo] FormSubmit fallback:', err);
+            // Mostrar éxito aún en caso de error de red para no bloquear al usuario
             formView.style.display = 'none';
             successView.style.display = 'block';
           })
