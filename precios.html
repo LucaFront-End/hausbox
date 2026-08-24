@@ -297,45 +297,259 @@
 
         <div class="pricing-grid">
           
-          <!-- LEFT COLUMN: Simulator + Advantages -->
+          <!-- LEFT COLUMN: Multi-Stage Wizard Simulator + Advantages -->
           <div class="pricing-left">
             
-            <!-- Simulator Panel -->
-            <div class="pricing-panel">
-              <h3 class="panel-title">Calculadora de Plan</h3>
-              <p class="panel-desc">Usa el simulador para estimar el costo mensual en base a tus unidades.</p>
+            <!-- Wizard Simulator Panel -->
+            <div class="pricing-panel pricing-panel--wizard" id="page-calc-panel">
               
-              <!-- Currency Toggle -->
-              <div class="pricing-currency-toggle">
-                <div class="currency-toggle-group">
-                  <button type="button" class="currency-btn active" id="page-curr-mxn">Pesos MXN</button>
-                  <button type="button" class="currency-btn" id="page-curr-usd">Dólares USD</button>
+              <!-- Progress Bar -->
+              <div class="calc-steps-bar">
+                <div class="calc-step-dot active" id="page-dot-1"><span>1</span></div>
+                <div class="calc-step-line"><div class="calc-step-line__fill" id="page-line-fill-1"></div></div>
+                <div class="calc-step-dot" id="page-dot-2"><span>2</span></div>
+                <div class="calc-step-line"><div class="calc-step-line__fill" id="page-line-fill-2"></div></div>
+                <div class="calc-step-dot" id="page-dot-3"><span>3</span></div>
+              </div>
+
+              <!-- ======== STEP 1 — Datos Personales ======== -->
+              <div class="calc-step active" id="page-calc-step-1">
+                <div class="calc-modal__header">
+                  <h3>Tus <span class="serif" style="color:#0DA3E2;">datos de contacto</span></h3>
+                  <p>Cuéntanos sobre ti para personalizar y guardar tu cotización.</p>
+                </div>
+                <div class="calc-form" id="page-calc-form-step1">
+                  <div class="calc-form__row">
+                    <div class="calc-form__group">
+                      <label for="page-calc-name">Nombre completo</label>
+                      <input type="text" id="page-calc-name" placeholder="Ej: Juan Pérez" required />
+                    </div>
+                    <div class="calc-form__group">
+                      <label for="page-calc-phone">Teléfono / WhatsApp</label>
+                      <div class="phone-input-group" id="page-calc-phone-group">
+                        <div class="country-picker">
+                          <button type="button" class="country-picker-trigger">
+                            <span class="country-picker-flag"><img src="https://flagcdn.com/mx.svg" alt="México" class="picker-flag-img" /></span>
+                            <span class="country-picker-code">+52</span>
+                            <svg class="country-picker-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                          </button>
+                          <div class="country-picker-dropdown">
+                            <div class="country-option active" data-value="+52" data-digits="10" data-placeholder="55 1234 5678">
+                              <span class="option-flag"><img src="https://flagcdn.com/mx.svg" alt="México" class="picker-flag-img" /></span>
+                              <span class="option-name">México</span>
+                              <span class="option-code">+52</span>
+                            </div>
+                            <div class="country-option" data-value="+57" data-digits="10" data-placeholder="300 123 4567">
+                              <span class="option-flag"><img src="https://flagcdn.com/co.svg" alt="Colombia" class="picker-flag-img" /></span>
+                              <span class="option-name">Colombia</span>
+                              <span class="option-code">+57</span>
+                            </div>
+                            <div class="country-option" data-value="+51" data-digits="9" data-placeholder="912 345 678">
+                              <span class="option-flag"><img src="https://flagcdn.com/pe.svg" alt="Perú" class="picker-flag-img" /></span>
+                              <span class="option-name">Perú</span>
+                              <span class="option-code">+51</span>
+                            </div>
+                            <div class="country-option" data-value="+56" data-digits="9" data-placeholder="9 1234 5678">
+                              <span class="option-flag"><img src="https://flagcdn.com/cl.svg" alt="Chile" class="picker-flag-img" /></span>
+                              <span class="option-name">Chile</span>
+                              <span class="option-code">+56</span>
+                            </div>
+                            <div class="country-option" data-value="+507" data-digits="8" data-placeholder="6123 4567">
+                              <span class="option-flag"><img src="https://flagcdn.com/pa.svg" alt="Panamá" class="picker-flag-img" /></span>
+                              <span class="option-name">Panamá</span>
+                              <span class="option-code">+507</span>
+                            </div>
+                            <div class="country-option" data-value="+593" data-digits="9" data-placeholder="9 1234 5678">
+                              <span class="option-flag"><img src="https://flagcdn.com/ec.svg" alt="Ecuador" class="picker-flag-img" /></span>
+                              <span class="option-name">Ecuador</span>
+                              <span class="option-code">+593</span>
+                            </div>
+                            <div class="country-option" data-value="+506" data-digits="8" data-placeholder="8123 4567">
+                              <span class="option-flag"><img src="https://flagcdn.com/cr.svg" alt="Costa Rica" class="picker-flag-img" /></span>
+                              <span class="option-name">Costa Rica</span>
+                              <span class="option-code">+506</span>
+                            </div>
+                            <div class="country-option" data-value="+1" data-digits="10" data-placeholder="809 123 4567">
+                              <span class="option-flag"><img src="https://flagcdn.com/do.svg" alt="República Dominicana" class="picker-flag-img" /></span>
+                              <span class="option-name">República Dominicana</span>
+                              <span class="option-code">+1</span>
+                            </div>
+                            <div class="country-option" data-value="other" data-digits="any" data-placeholder="Número completo con lada">
+                              <span class="option-flag">
+                                <svg class="picker-flag-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                              </span>
+                              <span class="option-name">Otro</span>
+                              <span class="option-code"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <input type="tel" id="page-calc-phone" placeholder="55 1234 5678" required />
+                        <input type="hidden" id="page-calc-phone-full" name="page-calc-phone-full" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc-form__row">
+                    <div class="calc-form__group">
+                      <label for="page-calc-email">Correo electrónico</label>
+                      <input type="email" id="page-calc-email" placeholder="tu@email.com" required />
+                    </div>
+                    <div class="calc-form__group">
+                      <label for="page-calc-city">Ciudad <span style="opacity:0.5;font-weight:400;">(opcional)</span></label>
+                      <input type="text" id="page-calc-city" placeholder="Ej: CDMX, Guadalajara..." />
+                    </div>
+                  </div>
+                  <button type="button" class="calc-form__submit" id="page-calc-step1-next">
+                    <span>Avanzar</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </button>
                 </div>
               </div>
 
-              <!-- Units Slider -->
-              <div class="pricing-slider-group">
-                <div class="pricing-slider-header">
-                  <label>Número de unidades</label>
-                  <div class="pricing-slider-value" id="page-units-display">50 <span>unidades</span></div>
+              <!-- ======== STEP 2 — Tipo de Propiedad ======== -->
+              <div class="calc-step" id="page-calc-step-2">
+                <div class="calc-modal__header">
+                  <h3>Tipo de <span class="serif" style="color:#0DA3E2;">propiedad</span></h3>
+                  <p>Selecciona el tipo de comunidad o desarrollo que administras.</p>
                 </div>
-                <input type="range" class="pricing-range" id="page-units-slider" min="5" max="1000" value="50" step="5" />
+                <div class="calc-form" id="page-calc-form-step2">
+                  <div class="calc-prop-grid" id="page-calc-prop-grid" style="margin-bottom: 1.5rem;">
+                    <label class="calc-prop-card" data-prop="condominio">
+                      <input type="radio" name="page-prop-type" value="Condominio Residencial" />
+                      <div class="calc-prop-card__img">
+                        <svg viewBox="0 0 24 24"><path d="M2 10l6-5 6 5v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M6 22v-5h4v5" /><path d="M12 10l5-4 5 4v11a1 1 0 0 1-1 1h-6" /><path d="M16 22v-4h3" /></svg>
+                      </div>
+                      <span class="calc-prop-card__label">Condominio Residencial</span>
+                      <span class="calc-prop-card__check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    </label>
+
+                    <label class="calc-prop-card" data-prop="vertical">
+                      <input type="radio" name="page-prop-type" value="Condominio Vertical" />
+                      <div class="calc-prop-card__img">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="2" width="7" height="20" rx="1" /><rect x="13" y="6" width="8" height="16" rx="1" /><line x1="6" y1="6" x2="7" y2="6" /><line x1="6" y1="10" x2="7" y2="10" /><line x1="6" y1="14" x2="7" y2="14" /><line x1="6" y1="18" x2="7" y2="18" /><line x1="16" y1="10" x2="18" y2="10" /><line x1="16" y1="14" x2="18" y2="14" /><line x1="16" y1="18" x2="18" y2="18" /></svg>
+                      </div>
+                      <span class="calc-prop-card__label">Condominio Vertical</span>
+                      <span class="calc-prop-card__check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    </label>
+
+                    <label class="calc-prop-card" data-prop="vacacional">
+                      <input type="radio" name="page-prop-type" value="Renta Vacacional" />
+                      <div class="calc-prop-card__img">
+                        <svg viewBox="0 0 24 24"><path d="M2 13l6-5 6 5v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" /><path d="M18 22c-.5-4 1.5-6.5 2.5-8" /><path d="M20 14c-1.5-.5-2.5.5-3 1.5" /><path d="M20 14c1.5-.5 2.5.5 3 1.5" /><path d="M20 14c-.5-1.5.5-2.5 1.5-3" /><circle cx="16" cy="5" r="2" /></svg>
+                      </div>
+                      <span class="calc-prop-card__label">Renta Vacacional</span>
+                      <span class="calc-prop-card__check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    </label>
+
+                    <label class="calc-prop-card" data-prop="desarrollo">
+                      <input type="radio" name="page-prop-type" value="Desarrollo Inmobiliario" />
+                      <div class="calc-prop-card__img">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="8" width="8" height="14" rx="1" /><line x1="7" y1="12" x2="7" y2="18" /><path d="M16 22V2l6 3H16" /><path d="M11 5h5" /><line x1="20" y1="5" x2="20" y2="10" /><rect x="19" y="10" width="2" height="2" /></svg>
+                      </div>
+                      <span class="calc-prop-card__label">Desarrollo Inmobiliario</span>
+                      <span class="calc-prop-card__check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    </label>
+
+                    <label class="calc-prop-card" data-prop="oficinas">
+                      <input type="radio" name="page-prop-type" value="Oficinas" />
+                      <div class="calc-prop-card__img">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="6" width="10" height="16" rx="1" /><rect x="12" y="2" width="10" height="20" rx="1" /><line x1="5" y1="10" x2="9" y2="10" /><line x1="5" y1="14" x2="9" y2="14" /><line x1="5" y1="18" x2="9" y2="18" /><line x1="15" y1="6" x2="19" y2="6" /><line x1="15" y1="10" x2="19" y2="10" /><line x1="15" y1="14" x2="19" y2="14" /><line x1="15" y1="18" x2="19" y2="18" /></svg>
+                      </div>
+                      <span class="calc-prop-card__label">Oficinas</span>
+                      <span class="calc-prop-card__check">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      </span>
+                    </label>
+                  </div>
+
+                  <div class="calc-form__actions">
+                    <button type="button" class="calc-form__back" id="page-calc-step2-back">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                      <span>Atrás</span>
+                    </button>
+                    <button type="button" class="calc-form__submit" id="page-calc-step2-next" disabled>
+                      <span>Avanzar</span>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </button>
+                  </div>
+                </div>
               </div>
 
-              <!-- Dynamic Price Preview -->
-              <div class="pricing-price-preview">
-                <div class="price-label">Costo mensual estimado</div>
-                <div class="price-amount" id="page-price-display">$645 <small>MXN / mes</small></div>
-                <div class="price-promo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                  Paga 11 meses y obtén 1 mes gratis (12 meses en total)
+              <!-- ======== STEP 3 — Unidades & Cotización ======== -->
+              <div class="calc-step" id="page-calc-step-3">
+                <div class="calc-modal__header">
+                  <h3>Tus <span class="serif" style="color:#0DA3E2;">unidades</span></h3>
+                  <p>Ajusta el número de unidades para calcular tu inversión mensual.</p>
+                </div>
+                <div class="calc-form" id="page-calc-form-step3">
+                  <!-- Currency Selector -->
+                  <div class="calc-currency-toggle">
+                    <span class="currency-toggle-label">Moneda de cotización</span>
+                    <div class="currency-toggle-group">
+                      <button type="button" class="currency-btn active" id="page-curr-btn-mxn" data-currency="MXN">Pesos MXN</button>
+                      <button type="button" class="currency-btn" id="page-curr-btn-usd" data-currency="USD">Dólares USD</button>
+                    </div>
+                  </div>
+
+                  <!-- Slider -->
+                  <div class="calc-slider-group" style="margin-bottom: 1.5rem;">
+                    <div class="calc-slider-header">
+                      <label>Número de unidades</label>
+                      <div class="calc-slider-value" id="page-calc-units-display">50 <span>unidades</span></div>
+                    </div>
+                    <input type="range" class="calc-range" id="page-calc-units-slider" min="5" max="1000" value="50" step="5" />
+                  </div>
+
+                  <!-- Price Preview -->
+                  <div class="calc-price-preview" style="margin-bottom: 1.5rem; text-align: center;">
+                    <div class="price-label">Costo mensual estimado</div>
+                    <div class="price-amount" id="page-calc-price-display">$645 <small>MXN / mes</small></div>
+                    <div class="price-promo" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; margin-top:8px; font-size:12.5px; font-weight:600; color:#059669; background:rgba(5,150,105,0.08); padding:5px 14px; border-radius:99px;">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                      Paga 11 meses y obtén 1 mes gratis (12 meses en total)
+                    </div>
+                  </div>
+
+                  <div class="calc-form__actions">
+                    <button type="button" class="calc-form__back" id="page-calc-step3-back">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                      <span>Atrás</span>
+                    </button>
+                    <button type="button" class="calc-form__submit calc-form__submit--wa" id="page-calc-submit-btn">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                      <span>Cotizar este plan por WhatsApp</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ======== RESULTS VIEW ======== -->
+              <div class="calc-results" id="page-calc-results" style="display:none; text-align:center; padding:1rem 0;">
+                <div class="calc-results__icon" style="width:64px; height:64px; border-radius:50%; background:#ecfdf5; border:2px solid #a7f3d0; display:inline-flex; align-items:center; justify-content:center; margin-bottom:1rem; box-shadow: 0 8px 20px rgba(16,185,129,0.2);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h3 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:4px;">¡Cotización lista!</h3>
+                <p style="font-size:13.5px; color:#64748b; margin-bottom:1.25rem;">Hemos registrado tus datos. Haz clic abajo para abrir tu cotización personalizada en WhatsApp.</p>
+                
+                <div class="calc-results__summary" id="page-calc-results-summary" style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:16px; padding:1.25rem; margin-bottom:1.5rem; text-align:left;">
+                  <!-- summary details -->
                 </div>
 
-                <a href="#pricing-quote-form" class="btn-scroll-to-quote">
-                  <span>Cotizar este plan</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+                <a href="#" class="direct-contact-btn--wa" id="page-calc-results-wa-link" target="_blank" rel="noopener noreferrer" style="height:50px; font-size:15.5px;">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                  <span>Abrir Cotización en WhatsApp</span>
                 </a>
+
+                <button type="button" class="success-back-btn" id="page-calc-restart-btn">Calcular de nuevo</button>
               </div>
+
             </div>
 
             <!-- Advantages Section -->
@@ -417,114 +631,76 @@
 
           </div>
 
-          <!-- RIGHT COLUMN: Sticky Form following scroll -->
+          <!-- RIGHT COLUMN: Sticky Direct Contact & Benefits Card -->
           <div class="pricing-right-col">
-            <div class="pricing-sticky-card">
-              <div class="sticky-card-header">
-                <h3>Solicita tu Cotización</h3>
-                <p>Completa tus datos para recibir una propuesta formal adaptada a tu desarrollo.</p>
+            <div class="pricing-contact-card">
+              <div class="contact-card-badge">✨ Atención Directa</div>
+              <div class="contact-card-header">
+                <h3>¿Prefieres atención personalizada?</h3>
+                <p>Contáctanos directamente por el canal de tu preferencia y resuelve tus dudas al instante.</p>
               </div>
-              
-              <form class="sticky-quote-form" id="pricing-quote-form">
-                <div class="form-group">
-                  <label for="quote-name">Nombre completo</label>
-                  <input type="text" id="quote-name" placeholder="Ej. Alejandra Gómez" required />
-                </div>
-                
-                <div class="form-group">
-                  <label for="quote-email">Correo electrónico</label>
-                  <input type="email" id="quote-email" placeholder="tu@email.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Ingresa un correo válido (ej. usuario@dominio.com)" required />
-                </div>
-                
-                 <div class="form-group">
-                   <label for="quote-phone">Teléfono</label>
-                   <div class="phone-input-group" id="quote-phone-group">
-                     <div class="country-picker">
-                       <button type="button" class="country-picker-trigger">
-                         <span class="country-picker-flag"><img src="https://flagcdn.com/mx.svg" alt="México" class="picker-flag-img" /></span>
-                         <span class="country-picker-code">+52</span>
-                         <svg class="country-picker-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                       </button>
-                       <div class="country-picker-dropdown">
-                         <div class="country-option active" data-value="+52" data-digits="10" data-placeholder="55 1234 5678">
-                           <span class="option-flag"><img src="https://flagcdn.com/mx.svg" alt="México" class="picker-flag-img" /></span>
-                           <span class="option-name">México</span>
-                           <span class="option-code">+52</span>
-                         </div>
-                         <div class="country-option" data-value="+57" data-digits="10" data-placeholder="300 123 4567">
-                           <span class="option-flag"><img src="https://flagcdn.com/co.svg" alt="Colombia" class="picker-flag-img" /></span>
-                           <span class="option-name">Colombia</span>
-                           <span class="option-code">+57</span>
-                         </div>
-                         <div class="country-option" data-value="+51" data-digits="9" data-placeholder="912 345 678">
-                           <span class="option-flag"><img src="https://flagcdn.com/pe.svg" alt="Perú" class="picker-flag-img" /></span>
-                           <span class="option-name">Perú</span>
-                           <span class="option-code">+51</span>
-                         </div>
-                         <div class="country-option" data-value="+56" data-digits="9" data-placeholder="9 1234 5678">
-                           <span class="option-flag"><img src="https://flagcdn.com/cl.svg" alt="Chile" class="picker-flag-img" /></span>
-                           <span class="option-name">Chile</span>
-                           <span class="option-code">+56</span>
-                         </div>
-                         <div class="country-option" data-value="+507" data-digits="8" data-placeholder="6123 4567">
-                           <span class="option-flag"><img src="https://flagcdn.com/pa.svg" alt="Panamá" class="picker-flag-img" /></span>
-                           <span class="option-name">Panamá</span>
-                           <span class="option-code">+507</span>
-                         </div>
-                         <div class="country-option" data-value="+593" data-digits="9" data-placeholder="9 1234 5678">
-                           <span class="option-flag"><img src="https://flagcdn.com/ec.svg" alt="Ecuador" class="picker-flag-img" /></span>
-                           <span class="option-name">Ecuador</span>
-                           <span class="option-code">+593</span>
-                         </div>
-                         <div class="country-option" data-value="+506" data-digits="8" data-placeholder="8123 4567">
-                           <span class="option-flag"><img src="https://flagcdn.com/cr.svg" alt="Costa Rica" class="picker-flag-img" /></span>
-                           <span class="option-name">Costa Rica</span>
-                           <span class="option-code">+506</span>
-                         </div>
-                         <div class="country-option" data-value="+1" data-digits="10" data-placeholder="809 123 4567">
-                           <span class="option-flag"><img src="https://flagcdn.com/do.svg" alt="República Dominicana" class="picker-flag-img" /></span>
-                           <span class="option-name">República Dominicana</span>
-                           <span class="option-code">+1</span>
-                         </div>
-                         <div class="country-option" data-value="other" data-digits="any" data-placeholder="Número completo con lada">
-                           <span class="option-flag">
-                             <svg class="picker-flag-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                           </span>
-                           <span class="option-name">Otro</span>
-                           <span class="option-code"></span>
-                         </div>
-                       </div>
-                     </div>
-                     <input type="tel" id="quote-phone" placeholder="55 1234 5678" required />
-                     <input type="hidden" id="quote-phone-full" name="quote-phone-full" />
-                   </div>
-                 </div>
-                
-                <input type="hidden" id="quote-units" value="50" />
 
-                <div class="form-group">
-                  <label for="quote-city">Ciudad <span style="opacity:0.6;font-weight:400;">(opcional)</span></label>
-                  <input type="text" id="quote-city" placeholder="Ej. CDMX" />
-                </div>
+              <!-- WhatsApp Direct Button -->
+              <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola%21+Quiero+asesor%C3%ADa+personalizada+sobre+los+planes+de+Hausbox&type=phone_number&app_absent=0" 
+                 class="direct-contact-btn--wa" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                <span>Chatear por WhatsApp</span>
+              </a>
 
-                <button type="submit" class="btn-quote-submit">
-                  <span>Solicitar Propuesta</span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </button>
-              </form>
-
-              <!-- Success State -->
-              <div class="quote-success-state" id="quote-success-view" style="display:none;">
-                <div class="success-icon">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                </div>
-                <h3>¡Propuesta Solicitada!</h3>
-                <p class="success-desc">Hemos recibido tus datos y te contactaremos a la brevedad con tu cotización formal.</p>
-                <a class="success-wa-btn" id="success-wa-link" href="#" target="_blank">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.546 20.2a1 1 0 001.254 1.254l3.032-.892A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-                  Enviar por WhatsApp
+              <!-- Direct Channels List -->
+              <div class="direct-channels-list">
+                <a href="tel:+525574374431" class="direct-channel-item">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </div>
+                  <div>
+                    <span class="channel-label">Teléfono directo</span>
+                    <span class="channel-value">+52 55 7437 4431</span>
+                  </div>
                 </a>
-                <button type="button" class="success-back-btn" id="success-back-btn">Hacer otra solicitud</button>
+
+                <a href="mailto:contacto@hausbox.com" class="direct-channel-item">
+                  <div class="channel-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <div>
+                    <span class="channel-label">Correo electrónico</span>
+                    <span class="channel-value">contacto@hausbox.com</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Schedule Note -->
+              <div class="direct-schedule-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Lun a Vie · 9:00 AM a 6:00 PM (CDMX)</span>
+              </div>
+
+              <!-- 5 Bullets Section -->
+              <div class="pricing-bullets-card">
+                <div class="bullets-card-title">Todo lo que incluye tu plan:</div>
+                <ul class="pricing-bullets-list">
+                  <li>
+                    <span class="bullet-check">✓</span>
+                    <div><strong>1 Mes de Prueba GRATIS</strong> sin compromiso ni tarjeta de crédito.</div>
+                  </li>
+                  <li>
+                    <span class="bullet-check">✓</span>
+                    <div><strong>Migración y configuración 100% incluida</strong> sin costos extras.</div>
+                  </li>
+                  <li>
+                    <span class="bullet-check">✓</span>
+                    <div><strong>Usuarios y administradores ilimitados</strong> para todo tu comité.</div>
+                  </li>
+                  <li>
+                    <span class="bullet-check">✓</span>
+                    <div><strong>App móvil para residentes 100% gratis</strong> en iOS y Android.</div>
+                  </li>
+                  <li>
+                    <span class="bullet-check">✓</span>
+                    <div><strong>Soporte prioritario personalizado</strong> con tu asesor asignado.</div>
+                  </li>
+                </ul>
               </div>
 
             </div>
@@ -585,8 +761,10 @@
           </a>
         </div>
       </div>
+
       <div class="footer-bottom">
-        <p>&copy; 2025 HausBox. Todos los derechos reservados.</p>
+        <p>&copy; 2026 HausBox. Todos los derechos reservados.</p>
+        <p>Software para administración de condominios y residenciales.</p>
       </div>
     </div>
   </footer>
@@ -610,7 +788,8 @@
   <!-- Interactive page logic for precios.html -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // MXN / USD tiers logic
+      const WA_PHONE = '5215574374431';
+
       const MXN_TIERS = [
         { max: 25, price: 13.90 },
         { max: 50, price: 12.90 },
@@ -640,22 +819,49 @@
         return tiers[tiers.length - 1].price;
       }
 
-      // DOM elements
-      const slider = document.getElementById('page-units-slider');
-      const unitsDisplay = document.getElementById('page-units-display');
-      const priceDisplay = document.getElementById('page-price-display');
-      const currMxnBtn = document.getElementById('page-curr-mxn');
-      const currUsdBtn = document.getElementById('page-curr-usd');
-      
-      const form = document.getElementById('pricing-quote-form');
-      const successView = document.getElementById('quote-success-view');
-      const successBackBtn = document.getElementById('success-back-btn');
-      
-      const inputUnits = document.getElementById('quote-units');
-      const inputPhone = document.getElementById('quote-phone');
+      // Step Elements
+      const step1 = document.getElementById('page-calc-step-1');
+      const step2 = document.getElementById('page-calc-step-2');
+      const step3 = document.getElementById('page-calc-step-3');
+      const resultsView = document.getElementById('page-calc-results');
 
+      const dot1 = document.getElementById('page-dot-1');
+      const dot2 = document.getElementById('page-dot-2');
+      const dot3 = document.getElementById('page-dot-3');
+      const lineFill1 = document.getElementById('page-line-fill-1');
+      const lineFill2 = document.getElementById('page-line-fill-2');
+
+      const step1NextBtn = document.getElementById('page-calc-step1-next');
+      const step2BackBtn = document.getElementById('page-calc-step2-back');
+      const step2NextBtn = document.getElementById('page-calc-step2-next');
+      const step3BackBtn = document.getElementById('page-calc-step3-back');
+      const submitBtn = document.getElementById('page-calc-submit-btn');
+      const restartBtn = document.getElementById('page-calc-restart-btn');
+
+      // Inputs
+      const inputName = document.getElementById('page-calc-name');
+      const inputPhone = document.getElementById('page-calc-phone');
+      const inputPhoneFull = document.getElementById('page-calc-phone-full');
+      const phoneGroup = document.getElementById('page-calc-phone-group');
+      const inputEmail = document.getElementById('page-calc-email');
+      const inputCity = document.getElementById('page-calc-city');
+
+      const propCards = document.querySelectorAll('#page-calc-prop-grid .calc-prop-card');
+      const slider = document.getElementById('page-calc-units-slider');
+      const unitsDisplay = document.getElementById('page-calc-units-display');
+      const priceDisplay = document.getElementById('page-calc-price-display');
+      const currBtnMxn = document.getElementById('page-curr-btn-mxn');
+      const currBtnUsd = document.getElementById('page-curr-btn-usd');
+
+      let selectedPropType = '';
       let selectedCurrency = 'MXN';
 
+      // Setup country picker for phone input
+      if (inputPhone && typeof setupPhoneCountryPicker === 'function') {
+        setupPhoneCountryPicker('page-calc-phone');
+      }
+
+      // Slider calculation
       function updateCalculation() {
         const val = parseInt(slider.value, 10);
         const pct = ((val - 5) / (1000 - 5)) * 100;
@@ -667,46 +873,59 @@
         unitsDisplay.innerHTML = val + ' <span>unidades</span>';
         const formattedTotal = '$' + total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
         priceDisplay.innerHTML = formattedTotal + ' <small>' + selectedCurrency + ' / mes</small>';
+      }
 
-        // Sync to form hidden input
-        if (inputUnits) {
-          inputUnits.value = val;
+      if (slider) {
+        slider.addEventListener('input', updateCalculation);
+        updateCalculation();
+      }
+
+      // Currency toggle
+      if (currBtnMxn && currBtnUsd) {
+        currBtnMxn.addEventListener('click', () => {
+          currBtnMxn.classList.add('active');
+          currBtnUsd.classList.remove('active');
+          selectedCurrency = 'MXN';
+          updateCalculation();
+        });
+        currBtnUsd.addEventListener('click', () => {
+          currBtnUsd.classList.add('active');
+          currBtnMxn.classList.remove('active');
+          selectedCurrency = 'USD';
+          updateCalculation();
+        });
+      }
+
+      // Property Selection
+      propCards.forEach(card => {
+        card.addEventListener('click', () => {
+          propCards.forEach(c => {
+            c.classList.remove('selected');
+            const r = c.querySelector('input');
+            if (r) r.checked = false;
+          });
+          card.classList.add('selected');
+          const radio = card.querySelector('input');
+          if (radio) {
+            radio.checked = true;
+            selectedPropType = radio.value;
+          }
+          step2NextBtn.disabled = false;
+        });
+      });
+
+      // Step 1 -> Step 2
+      step1NextBtn.addEventListener('click', () => {
+        const name = inputName.value.trim();
+        const email = inputEmail.value.trim();
+        const phone = (inputPhoneFull.value.trim() || inputPhone.value.trim());
+
+        if (!name) {
+          inputName.focus();
+          return;
         }
-      }
 
-      // Slider listener
-      slider.addEventListener('input', () => {
-        updateCalculation();
-      });
-
-      // Phone input country picker initialization
-      if (inputPhone) {
-        setupPhoneCountryPicker('quote-phone');
-      }
-
-      // Currency Toggles
-      currMxnBtn.addEventListener('click', () => {
-        currMxnBtn.classList.add('active');
-        currUsdBtn.classList.remove('active');
-        selectedCurrency = 'MXN';
-        updateCalculation();
-      });
-      currUsdBtn.addEventListener('click', () => {
-        currUsdBtn.classList.add('active');
-        currMxnBtn.classList.remove('active');
-        selectedCurrency = 'USD';
-        updateCalculation();
-      });
-
-      // Initial calculation run
-      updateCalculation();
-
-      // Form submit
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Custom phone validation
-        const phoneGroup = document.getElementById('quote-phone-group');
+        // Phone validation
         let isPhoneValid = true;
         if (phoneGroup) {
           const activeOption = phoneGroup.querySelector('.country-option.active');
@@ -719,57 +938,160 @@
           }
           phoneGroup.classList.toggle('error', !isPhoneValid);
         }
-        if (!isPhoneValid) {
+        if (!isPhoneValid || !phone) {
           inputPhone.focus();
           return;
         }
 
-        const name = document.getElementById('quote-name').value.trim();
-        const email = document.getElementById('quote-email').value.trim();
-        const phone = document.getElementById('quote-phone-full').value.trim() || inputPhone.value.trim();
-        const city = document.getElementById('quote-city').value.trim();
+        // Email validation
+        if (!email || !inputEmail.checkValidity()) {
+          inputEmail.focus();
+          return;
+        }
+
+        step1.classList.remove('active');
+        step2.classList.add('active');
+        dot1.classList.add('completed');
+        dot2.classList.add('active');
+        lineFill1.style.width = '100%';
+      });
+
+      // Step 2 -> Step 1
+      step2BackBtn.addEventListener('click', () => {
+        step2.classList.remove('active');
+        step1.classList.add('active');
+        dot2.classList.remove('active');
+        lineFill1.style.width = '0%';
+      });
+
+      // Step 2 -> Step 3
+      step2NextBtn.addEventListener('click', () => {
+        if (!selectedPropType) return;
+        step2.classList.remove('active');
+        step3.classList.add('active');
+        dot2.classList.add('completed');
+        dot3.classList.add('active');
+        lineFill2.style.width = '100%';
+      });
+
+      // Step 3 -> Step 2
+      step3BackBtn.addEventListener('click', () => {
+        step3.classList.remove('active');
+        step2.classList.add('active');
+        dot3.classList.remove('active');
+        lineFill2.style.width = '0%';
+      });
+
+      // Submit and Generate WhatsApp Link + Send to FormSubmit & Wix CMS
+      submitBtn.addEventListener('click', () => {
+        const name = inputName.value.trim();
+        const email = inputEmail.value.trim();
+        const phone = (inputPhoneFull.value.trim() || inputPhone.value.trim());
+        const city = inputCity.value.trim();
         const units = parseInt(slider.value, 10);
-        
         const unitPrice = getPricePerUnit(units, selectedCurrency);
         const total = units * unitPrice;
-        
+
+        const summaryContainer = document.getElementById('page-calc-results-summary');
+        summaryContainer.innerHTML = `
+          <div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Nombre:</span><strong>${name}</strong></div>
+          <div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Tipo de propiedad:</span><strong>${selectedPropType}</strong></div>
+          <div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Unidades:</span><strong>${units} unidades</strong></div>
+          <div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Precio por unidad:</span><strong>$${unitPrice.toFixed(2)} ${selectedCurrency}</strong></div>
+          ${city ? `<div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Ciudad:</span><strong>${city}</strong></div>` : ''}
+          <div class="result-total" style="display:flex; justify-content:space-between; padding:10px 0 4px; border-top:1px solid #e2e8f0; margin-top:8px; font-size:16px; color:#0f172a;"><span style="font-weight:600;">Total mensual estimado:</span><strong style="color:#0DA3E2; font-size:18px;">$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}</strong></div>
+          <div style="margin-top: 6px; font-weight: 600; color: #059669; font-size: 12px;">🎁 Promoción activa: Paga 11 meses y obtén 1 mes gratis</div>
+        `;
+
         const waMsg = encodeURIComponent(
-          `Hola! Soy ${name}.\n` +
-          `Quiero solicitar una cotización formal para HausBox.\n\n` +
-          `📋 Plan simulado:\n` +
+          `SW- Hola! Soy ${name}.\n` +
+          `Quiero más información sobre la cotización de HausBox.\n\n` +
+          `📋 Mi plan calculado:\n` +
+          `• Tipo: ${selectedPropType}\n` +
           `• Unidades: ${units}\n` +
-          `• Costo estimado: $${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes\n` +
+          `• Total mensual: $${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}\n` +
+          `• Promoción: Paga 11 meses y obtén 1 mes gratis (12 meses en total)\n` +
           (city ? `• Ciudad: ${city}\n` : '') +
           `\n📧 Correo: ${email}\n📱 Teléfono: ${phone}`
         );
-        
-        const waLink = `https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+${waMsg}&type=phone_number&app_absent=0`;
-        document.getElementById('success-wa-link').href = waLink;
-        
-        // Submit to Wix CMS
+
+        const waUrl = `https://api.whatsapp.com/send/?phone=${WA_PHONE}&text=${waMsg}&type=phone_number&app_absent=0`;
+        const waBtn = document.getElementById('page-calc-results-wa-link');
+        waBtn.href = waUrl;
+
+        // 1. Submit to FormSubmit (contacto@hausbox.com + CC)
+        const emailPayload = {
+          _subject: `💰 Cotización Web Hausbox: ${name} - ${units} unidades (${selectedPropType})`,
+          _cc: 'test1@dilodigitalmx.com',
+          _template: 'table',
+          _language: 'es',
+          _captcha: 'false',
+          'Nombre Completo': name,
+          'Teléfono': phone,
+          'Correo': email,
+          'Ciudad': city || 'No especificada',
+          'Tipo de Propiedad': selectedPropType,
+          'Número de Unidades': units,
+          'Costo Mensual Estimado': `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
+          'Moneda': selectedCurrency,
+          'Página': window.location.href,
+          'Fecha': new Date().toLocaleString('es-MX')
+        };
+
+        fetch('https://formsubmit.co/ajax/contacto@hausbox.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(emailPayload)
+        }).catch(err => console.warn('[HausBox FormSubmit] Error:', err));
+
+        // 2. Submit to Wix CMS
         if (typeof window.submitInquiryToWix === 'function') {
           window.submitInquiryToWix({
             name,
             email,
             phone,
-            propertyType: 'Condominio',
+            propertyType: selectedPropType,
             units,
             city,
             estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
             currency: selectedCurrency,
-            formSource: 'Formulario de Precios'
+            formSource: 'Calculadora Página de Precios'
           });
         }
 
-        // Hide form fields, show success view inside the sticky card
-        form.style.display = 'none';
-        successView.style.display = 'flex';
+        // 3. Switch to Results view
+        step1.classList.remove('active');
+        step2.classList.remove('active');
+        step3.classList.remove('active');
+        resultsView.style.display = 'block';
+
+        dot1.classList.add('completed');
+        dot2.classList.add('completed');
+        dot3.classList.add('completed');
+        lineFill1.style.width = '100%';
+        lineFill2.style.width = '100%';
+
+        // Open WhatsApp automatically
+        window.open(waUrl, '_blank');
       });
 
-      successBackBtn.addEventListener('click', () => {
-        form.reset();
-        successView.style.display = 'none';
-        form.style.display = 'flex';
+      // Restart calculation
+      restartBtn.addEventListener('click', () => {
+        resultsView.style.display = 'none';
+        step1.classList.add('active');
+        dot1.className = 'calc-step-dot active';
+        dot2.className = 'calc-step-dot';
+        dot3.className = 'calc-step-dot';
+        lineFill1.style.width = '0%';
+        lineFill2.style.width = '0%';
+
+        selectedPropType = '';
+        propCards.forEach(c => {
+          c.classList.remove('selected');
+          const r = c.querySelector('input');
+          if (r) r.checked = false;
+        });
+        step2NextBtn.disabled = true;
         slider.value = 50;
         updateCalculation();
       });
