@@ -5169,39 +5169,16 @@ input[type="range"].pricing-range::-webkit-slider-thumb:hover {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 }
 
 .pricing-panel--wizard .calc-form__back {
-  height: 48px;
-  padding: 0 1.25rem;
+  height: 52px;
+  padding: 0 1.5rem;
   border-radius: 99px;
   border: 1.5px solid #e2e8f0;
   background: #ffffff;
   color: #475569;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 200ms ease;
-}
-
-.pricing-panel--wizard .calc-form__back:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-  color: #0f172a;
-}
-
-.pricing-panel--wizard .calc-form__submit {
-  flex: 1;
-  height: 48px;
-  padding: 0 1.5rem;
-  border-radius: 99px;
-  border: none;
-  background: linear-gradient(135deg, #0DA3E2 0%, #0b7fb4 100%);
-  color: #ffffff;
   font-size: 14.5px;
   font-weight: 600;
   cursor: pointer;
@@ -5209,28 +5186,71 @@ input[type="range"].pricing-range::-webkit-slider-thumb:hover {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 14px rgba(13, 163, 226, 0.25);
-  transition: all 250ms ease;
+  transition: all 200ms ease;
+  flex-shrink: 0;
+}
+
+.pricing-panel--wizard .calc-form__back:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.pricing-panel--wizard .calc-form__submit {
+  flex: 1;
+  width: 100%;
+  height: 52px;
+  padding: 0 1.75rem;
+  border-radius: 99px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 1.25rem;
+}
+
+.pricing-panel--wizard .calc-form__actions .calc-form__submit {
+  margin-top: 0;
 }
 
 .pricing-panel--wizard .calc-form__submit:hover:not(:disabled) {
+  background: #0DA3E2;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(13, 163, 226, 0.35);
+  box-shadow: 0 12px 30px rgba(13, 163, 226, 0.35);
+}
+
+.pricing-panel--wizard .calc-form__submit:active {
+  transform: translateY(0);
 }
 
 .pricing-panel--wizard .calc-form__submit:disabled {
-  opacity: 0.5;
+  background: #f1f5f9;
+  color: #94a3b8;
+  opacity: 0.8;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
 .pricing-panel--wizard .calc-form__submit--wa {
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
 }
 
 .pricing-panel--wizard .calc-form__submit--wa:hover:not(:disabled) {
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+  background: linear-gradient(135deg, #20bd5a 0%, #0e7065 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.45);
 }
 
 /* Pricing Page Direct Contact Card (Right Sticky Column) */
