@@ -5427,6 +5427,47 @@ input[type="range"].pricing-range::-webkit-slider-thumb:hover {
   margin-top: 1px;
 }
 
+@media (max-width: 991px) {
+  .pricing-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .pricing-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 1. Subir la sección de ventajas ("¿Por qué HausBox te da más por menos?") */
+  .pricing-left .advantages-section {
+    order: 1;
+    margin-bottom: 2.5rem;
+  }
+
+  /* 2. Subir la lista de funcionalidades ("Todas las funcionalidades, siempre incluidas") */
+  .pricing-left .features-checklist {
+    order: 2;
+    margin-bottom: 2.5rem;
+  }
+
+  /* 3. Colocar el formulario / calculadora de cotización más abajo */
+  .pricing-left .pricing-panel--wizard {
+    order: 3;
+    margin-bottom: 0;
+  }
+
+  /* 4. Tarjeta de contacto directo */
+  .pricing-right-col {
+    order: 4;
+  }
+
+  .pricing-contact-card {
+    position: static;
+    top: auto;
+  }
+}
+
 @media (max-width: 640px) {
   .pricing-panel--wizard {
     padding: 1.5rem 1.25rem;
