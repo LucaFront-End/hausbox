@@ -4544,14 +4544,23 @@ body.wix-chat-active .floating-calc-btn {
 .pricing-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
-  gap: 4rem;
+  grid-template-areas:
+    "calc contact"
+    "extra contact";
+  gap: 3.5rem;
+  align-items: start;
 }
 
-@media (max-width: 1023px) {
-  .pricing-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+.pricing-left {
+  grid-area: calc;
+}
+
+.pricing-right-col {
+  grid-area: contact;
+}
+
+.pricing-extra-info {
+  grid-area: extra;
 }
 
 .pricing-panel {
@@ -5434,37 +5443,31 @@ input[type="range"].pricing-range::-webkit-slider-thumb:hover {
     gap: 2.5rem;
   }
 
+  /* 1º Primero: Calculadora por etapas */
   .pricing-left {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* 1. Subir la sección de ventajas ("¿Por qué HausBox te da más por menos?") */
-  .pricing-left .advantages-section {
     order: 1;
-    margin-bottom: 2.5rem;
+    width: 100%;
   }
 
-  /* 2. Subir la lista de funcionalidades ("Todas las funcionalidades, siempre incluidas") */
-  .pricing-left .features-checklist {
-    order: 2;
-    margin-bottom: 2.5rem;
-  }
-
-  /* 3. Colocar el formulario / calculadora de cotización más abajo */
   .pricing-left .pricing-panel--wizard {
-    order: 3;
     margin-bottom: 0;
   }
 
-  /* 4. Tarjeta de contacto directo */
+  /* 2º Después: Contenedor de Contacto Directo WhatsApp y 5 bullets */
   .pricing-right-col {
-    order: 4;
+    order: 2;
+    width: 100%;
   }
 
   .pricing-contact-card {
     position: static;
     top: auto;
+  }
+
+  /* 3º Al final: Información Extra (Ventajas + Funcionalidades) */
+  .pricing-extra-info {
+    order: 3;
+    width: 100%;
   }
 }
 
