@@ -127,9 +127,14 @@
     var subtitleEl = document.getElementById('promo-modal-subtitle');
 
     function openModal(isExitIntent) {
-      if (isExitIntent && badgeText && subtitleEl) {
-        badgeText.textContent = '¡Espera! No te vayas sin tu regalo';
-        subtitleEl.textContent = 'Antes de salir, descubre cómo HausBox te ayuda a administrar tu condominio 100% gratis por 30 días.';
+      if (badgeText && subtitleEl) {
+        if (isExitIntent) {
+          badgeText.textContent = '¡Espera! No te vayas sin tu regalo';
+          subtitleEl.textContent = 'Antes de salir, descubre cómo HausBox te ayuda a administrar tu condominio 100% gratis por 30 días.';
+        } else {
+          badgeText.textContent = '1 Mes Totalmente Gratis';
+          subtitleEl.textContent = 'Administra tu condominio de forma más fácil, rápida y transparente.';
+        }
       }
       overlay.classList.add('active');
       floatingTrigger.classList.add('hidden');
@@ -239,62 +244,48 @@
       });
     }
 
-    // --- Control de Triggers Inteligentes (Scroll a la mitad & Exit-Intent) ---
-    var hasTriggered = false;
+    // --- Control de Triggers Inteligentes (1 vez scroll + 1 vez salida) ---
+    var scrollTriggered = false;
+    var exitTriggered = false;
 
     function triggerPromo(triggerSource) {
-      if (hasTriggered || overlay.classList.contains('active')) return;
-      hasTriggered = true;
-      console.log('[HausBox Promo] 🎯 Pop-up activado por:', triggerSource);
-      var isExit = triggerSource.indexOf('scroll') === -1;
+      // Si ya está abierto, no hacer nada
+      if (overlay.classList.contains('active')) return;
+
+      var isExit = (triggerSource !== 'scroll_halfway');
+
+      if (isExit) {
+        if (exitTriggered) return;
+        exitTriggered = true;
+      } else {
+        if (scrollTriggered) return;
+        scrollTriggered = true;
+      }
+
+      console.log('[HausBox Promo] 🎯 Pop-up por:', triggerSource);
       openModal(isExit);
     }
 
-    // 1. Disparador automático a mitad de scroll (45% - 50%)
+    // 1. Scroll a mitad de página (45%) — solo 1 vez por sesión
     function handleScroll() {
-      if (hasTriggered) return;
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      var scrollHeight = (document.documentElement.scrollHeight || document.body.scrollHeight || 0) - (document.documentElement.clientHeight || window.innerHeight || 0);
-      if (scrollHeight > 0) {
-        var scrollPercent = (scrollTop / scrollHeight) * 100;
-        if (scrollPercent >= 45) {
-          triggerPromo('scroll_halfway');
-        }
+      if (scrollTriggered) return;
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (scrollHeight > 0 && (scrollTop / scrollHeight) * 100 >= 45) {
+        triggerPromo('scroll_halfway');
       }
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // 2. Detección por movimiento de mouse hacia la parte superior (<= 50px de la pantalla)
-    document.addEventListener('mousemove', function (e) {
-      if (hasTriggered) return;
-      if (e.clientY <= 50) {
-        triggerPromo('mousemove_top_50');
-      }
-    }, { passive: true });
-
-    // 3. Detección cuando el cursor sale del documento hacia arriba
+    // 2. Exit-intent: el cursor sale del documento (hacia la barra de pestañas/cerrar) — solo 1 vez
+    // Usamos 'mouseleave' en document que es el evento más fiable para detectar que el usuario
+    // mueve el cursor FUERA del viewport hacia el chrome del navegador.
     document.addEventListener('mouseleave', function (e) {
-      if (hasTriggered) return;
-      if (!e || e.clientY <= 80) {
-        triggerPromo('document_mouseleave');
-      }
-    });
-
-    if (document.documentElement) {
-      document.documentElement.addEventListener('mouseleave', function (e) {
-        if (hasTriggered) return;
-        if (!e || e.clientY <= 80) {
-          triggerPromo('documentElement_mouseleave');
-        }
-      });
-    }
-
-    // 4. Detección de mouseout de la ventana
-    window.addEventListener('mouseout', function (e) {
-      if (hasTriggered) return;
-      var from = e.relatedTarget || e.toElement;
-      if (!from && (e.clientY <= 80 || e.clientX <= 0 || e.clientX >= window.innerWidth)) {
-        triggerPromo('window_mouseout');
+      if (exitTriggered) return;
+      if (overlay.classList.contains('active')) return;
+      // Solo disparar si sale por el borde superior (hacia barra de tabs/X del browser)
+      if (e.clientY <= 0) {
+        triggerPromo('exit_mouseleave');
       }
     });
   }
