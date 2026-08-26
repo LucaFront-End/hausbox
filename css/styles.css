@@ -5234,72 +5234,12 @@ textarea {
   }
 }
 
-/* ─── Floating Gift Wrapper & Teaser Bubble (Bottom-Left) ────────── */
-.promo-floating-wrapper {
+/* ─── Floating Gift Trigger (Bottom-Left White Pill) ─────────────────── */
+.promo-floating-trigger {
   position: fixed;
   bottom: 24px;
   left: 24px;
   z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  pointer-events: auto;
-  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.promo-floating-wrapper.hidden {
-  opacity: 0;
-  transform: scale(0.7) translateY(20px);
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.promo-teaser-bubble {
-  background: #0c0d12;
-  color: #ffffff;
-  font-size: 12.5px;
-  font-weight: 700;
-  padding: 7px 15px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), 0 2px 6px rgba(0, 0, 0, 0.1);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  animation: promoTeaserFloat 3s infinite ease-in-out;
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.promo-teaser-bubble:hover {
-  transform: translateY(-2px) scale(1.03);
-  background: #000000;
-  border-color: #0DA3E2;
-}
-
-.promo-teaser-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 24px;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid #0c0d12;
-}
-
-@keyframes promoTeaserFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-.promo-floating-trigger {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -5324,6 +5264,13 @@ textarea {
 
 .promo-floating-trigger:active {
   transform: translateY(-1px) scale(0.98);
+}
+
+.promo-floating-trigger.hidden {
+  opacity: 0;
+  transform: scale(0.7) translateY(20px);
+  pointer-events: none;
+  visibility: hidden;
 }
 
 .promo-floating-gift-icon {
@@ -5360,28 +5307,10 @@ textarea {
   80% { transform: translateY(0) rotate(0deg); }
 }
 
-/* Invisible Top Exit Intent Sensor Barrier */
-.promo-exit-sensor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 25px;
-  z-index: 999990;
-  pointer-events: auto;
-  background: transparent;
-}
-
 @media (max-width: 640px) {
-  .promo-floating-wrapper {
+  .promo-floating-trigger {
     bottom: 84px;
     left: 16px;
-  }
-  .promo-teaser-bubble {
-    font-size: 11.5px;
-    padding: 5px 12px;
-  }
-  .promo-floating-trigger {
     padding: 8px 14px;
   }
   .promo-floating-gift-icon {

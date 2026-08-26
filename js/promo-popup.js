@@ -1,30 +1,14 @@
 /**
  * HausBox - Pop-up Promocional 1 Mes Gratis & Botón Flotante de Regalo
  * Incluye:
- * - Smart Exit-Intent Sensor Barrier + Multi-Event Detection (Top Sensor, Mouseleave, Velocity, Mouseout).
- * - Wrapper con Burbuja Teaser animada y Botón de regalo flotante en la esquina inferior izquierda.
- * - Activación inteligente al intentar salir de la página o cerrar.
- * - Control de sesión para no ser invasivo.
+ * - Detección instantánea de intento de salida (Exit Intent al mover cursor hacia arriba <= 50px).
+ * - Botón de regalo flotante limpio (píldora blanca en esquina inferior izquierda).
+ * - Formulario con integración a WhatsApp, FormSubmit y Wix CMS.
  */
 (function () {
   'use strict';
 
   var WA_URL = "https://api.whatsapp.com/send/?phone=5215574374431&text=SWP-+Hola+quisiera+comenzar+mis+30+d%C3%ADas+de+prueba+gratis&type=phone_number&app_absent=0";
-  var SESSION_KEY = 'hausbox_promo_exit_seen_v7';
-
-  function isSessionDone() {
-    try {
-      return sessionStorage.getItem(SESSION_KEY) === 'true';
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function markSessionDone() {
-    try {
-      sessionStorage.setItem(SESSION_KEY, 'true');
-    } catch (e) {}
-  }
 
   function createPromoModal() {
     if (document.getElementById('promo-modal-overlay')) return;
@@ -119,30 +103,19 @@
 
     document.body.appendChild(overlay);
 
-    // 2. Crear Wrapper con Burbuja Teaser y Botón Flotante de Regalo
-    var floatingWrapper = document.createElement('div');
-    floatingWrapper.className = 'promo-floating-wrapper';
-    floatingWrapper.id = 'promo-floating-wrapper';
-
-    floatingWrapper.innerHTML = `
-      <div class="promo-teaser-bubble" id="promo-teaser-bubble" title="Clic para ver la promoción">
-        <span>🎁</span>
-        <span>¡Prueba 30 días GRATIS!</span>
-      </div>
-      <button class="promo-floating-trigger" id="promo-floating-trigger" type="button" aria-label="1 Mes de Prueba Gratis de Hausbox">
-        <span class="promo-floating-gift-icon">🎁</span>
-        <span class="promo-floating-gift-text">1 Mes Gratis</span>
-        <span class="promo-floating-gift-badge">Promo</span>
-      </button>
+    // 2. Crear Únicamente el Botón Flotante de Regalo (Píldora Blanca Elegante)
+    var floatingTrigger = document.createElement('button');
+    floatingTrigger.className = 'promo-floating-trigger';
+    floatingTrigger.id = 'promo-floating-trigger';
+    floatingTrigger.setAttribute('type', 'button');
+    floatingTrigger.setAttribute('aria-label', '1 Mes de Prueba Gratis de Hausbox');
+    floatingTrigger.innerHTML = `
+      <span class="promo-floating-gift-icon">🎁</span>
+      <span class="promo-floating-gift-text">1 Mes Gratis</span>
+      <span class="promo-floating-gift-badge">Promo</span>
     `;
 
-    document.body.appendChild(floatingWrapper);
-
-    // 3. Crear Sensor Invisible de Salida en la Parte Superior
-    var exitSensor = document.createElement('div');
-    exitSensor.className = 'promo-exit-sensor';
-    exitSensor.id = 'promo-exit-sensor';
-    document.body.appendChild(exitSensor);
+    document.body.appendChild(floatingTrigger);
 
     // Elementos y Control
     var closeBtn = document.getElementById('promo-modal-close');
@@ -152,8 +125,6 @@
     var submitBtn = document.getElementById('promo-submit-btn');
     var badgeText = document.getElementById('promo-modal-badge-text');
     var subtitleEl = document.getElementById('promo-modal-subtitle');
-    var teaserBubble = document.getElementById('promo-teaser-bubble');
-    var floatingTrigger = document.getElementById('promo-floating-trigger');
 
     function openModal(isExitIntent) {
       if (isExitIntent && badgeText && subtitleEl) {
@@ -161,14 +132,13 @@
         subtitleEl.textContent = 'Antes de salir, descubre cómo HausBox te ayuda a administrar tu condominio 100% gratis por 30 días.';
       }
       overlay.classList.add('active');
-      floatingWrapper.classList.add('hidden');
-      if (exitSensor) exitSensor.style.display = 'none';
+      floatingTrigger.classList.add('hidden');
       document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
       overlay.classList.remove('active');
-      floatingWrapper.classList.remove('hidden');
+      floatingTrigger.classList.remove('hidden');
       document.body.style.overflow = '';
     }
 
@@ -177,35 +147,23 @@
     };
     window.closeHausboxPromoModal = closeModal;
 
-    if (floatingTrigger) {
-      floatingTrigger.addEventListener('click', function () {
-        openModal(false);
-      });
-    }
-    if (teaserBubble) {
-      teaserBubble.addEventListener('click', function () {
-        openModal(false);
-      });
-    }
+    floatingTrigger.addEventListener('click', function () {
+      openModal(false);
+    });
 
     if (closeBtn) {
-      closeBtn.addEventListener('click', function () {
-        closeModal();
-        markSessionDone();
-      });
+      closeBtn.addEventListener('click', closeModal);
     }
 
     overlay.addEventListener('click', function (e) {
       if (e.target === overlay) {
         closeModal();
-        markSessionDone();
       }
     });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && overlay.classList.contains('active')) {
         closeModal();
-        markSessionDone();
       }
     });
 
@@ -269,13 +227,11 @@
             console.log('[HausBox Promo] ✅ Registro enviado exitosamente a contacto@hausbox.com:', data);
             formView.style.display = 'none';
             successView.style.display = 'block';
-            markSessionDone();
           })
           .catch(function (err) {
             console.warn('[HausBox Promo] FormSubmit fallback:', err);
             formView.style.display = 'none';
             successView.style.display = 'block';
-            markSessionDone();
           })
           .finally(function () {
             submitBtn.classList.remove('loading');
@@ -283,95 +239,49 @@
       });
     }
 
-    // --- Control de Triggers de Salida (Exit-Intent Failsafe) ---
-    if (isSessionDone()) {
-      return; // Ya se mostró automáticamente en esta sesión
-    }
-
+    // --- Control de Triggers de Salida (Instant Exit-Intent) ---
     var hasTriggered = false;
-    var lastClientY = null;
-    var lastTimestamp = null;
-
-    function cleanupTriggers() {
-      if (exitSensor && exitSensor.parentNode) {
-        exitSensor.parentNode.removeChild(exitSensor);
-      }
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseout', handleMouseOut);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      if (document.documentElement) {
-        document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
-      }
-    }
 
     function triggerExitModal(triggerSource) {
-      if (hasTriggered || isSessionDone()) return;
+      if (hasTriggered || overlay.classList.contains('active')) return;
       hasTriggered = true;
-      markSessionDone();
-      cleanupTriggers();
       console.log('[HausBox Promo] 🎯 Exit Intent activado por:', triggerSource);
       openModal(true);
     }
 
-    // 1. Barrera Sensor Superior (Cualquier mouse que cruce los primeros 25px hacia las pestañas o X)
-    if (exitSensor) {
-      exitSensor.addEventListener('mouseenter', function () {
-        triggerExitModal('top_sensor_mouseenter');
-      });
-      exitSensor.addEventListener('mouseover', function () {
-        triggerExitModal('top_sensor_mouseover');
-      });
-    }
-
-    // 2. Disparador por Velocidad y Posición del Mouse
-    function handleMouseMove(e) {
+    // 1. Detección por movimiento de mouse hacia la parte superior (<= 50px de la pantalla)
+    document.addEventListener('mousemove', function (e) {
       if (hasTriggered) return;
-      var y = e.clientY;
-      var now = Date.now();
-
-      // Si el cursor está en la zona superior (<= 35px)
-      if (y <= 35) {
-        triggerExitModal('mouse_top_y');
-        return;
+      if (e.clientY <= 50) {
+        triggerExitModal('mousemove_top_50');
       }
+    }, { passive: true });
 
-      // Si el cursor se desplaza rápido hacia arriba
-      if (lastClientY !== null && lastTimestamp !== null) {
-        var deltaY = lastClientY - y;
-        var deltaTime = now - lastTimestamp;
-        if (y <= 80 && deltaY > 8 && deltaTime < 100) {
-          triggerExitModal('mouse_upward_velocity');
-          return;
-        }
-      }
-
-      lastClientY = y;
-      lastTimestamp = now;
-    }
-
-    // 3. Mouseout de la ventana del navegador
-    function handleMouseOut(e) {
+    // 2. Detección cuando el cursor sale del documento hacia arriba
+    document.addEventListener('mouseleave', function (e) {
       if (hasTriggered) return;
-      var from = e.relatedTarget || e.toElement;
-      if (!from && (e.clientY <= 50 || e.clientX <= 0 || e.clientX >= window.innerWidth)) {
-        triggerExitModal('window_mouseout');
-      }
-    }
-
-    // 4. Mouseleave del documento
-    function handleMouseLeave(e) {
-      if (hasTriggered) return;
-      if (!e || e.clientY <= 50) {
+      if (!e || e.clientY <= 80) {
         triggerExitModal('document_mouseleave');
       }
+    });
+
+    if (document.documentElement) {
+      document.documentElement.addEventListener('mouseleave', function (e) {
+        if (hasTriggered) return;
+        if (!e || e.clientY <= 80) {
+          triggerExitModal('documentElement_mouseleave');
+        }
+      });
     }
 
-    document.addEventListener('mousemove', handleMouseMove, { passive: true });
-    document.addEventListener('mouseout', handleMouseOut);
-    document.addEventListener('mouseleave', handleMouseLeave);
-    if (document.documentElement) {
-      document.documentElement.addEventListener('mouseleave', handleMouseLeave);
-    }
+    // 3. Detección de mouseout de la ventana
+    window.addEventListener('mouseout', function (e) {
+      if (hasTriggered) return;
+      var from = e.relatedTarget || e.toElement;
+      if (!from && (e.clientY <= 80 || e.clientX <= 0 || e.clientX >= window.innerWidth)) {
+        triggerExitModal('window_mouseout');
+      }
+    });
   }
 
   if (document.readyState === 'loading') {
