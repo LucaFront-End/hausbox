@@ -239,29 +239,44 @@
       });
     }
 
-    // --- Control de Triggers de Salida (Instant Exit-Intent) ---
+    // --- Control de Triggers Inteligentes (Scroll a la mitad & Exit-Intent) ---
     var hasTriggered = false;
 
-    function triggerExitModal(triggerSource) {
+    function triggerPromo(triggerSource) {
       if (hasTriggered || overlay.classList.contains('active')) return;
       hasTriggered = true;
-      console.log('[HausBox Promo] 🎯 Exit Intent activado por:', triggerSource);
-      openModal(true);
+      console.log('[HausBox Promo] 🎯 Pop-up activado por:', triggerSource);
+      var isExit = triggerSource.indexOf('scroll') === -1;
+      openModal(isExit);
     }
 
-    // 1. Detección por movimiento de mouse hacia la parte superior (<= 50px de la pantalla)
+    // 1. Disparador automático a mitad de scroll (45% - 50%)
+    function handleScroll() {
+      if (hasTriggered) return;
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      var scrollHeight = (document.documentElement.scrollHeight || document.body.scrollHeight || 0) - (document.documentElement.clientHeight || window.innerHeight || 0);
+      if (scrollHeight > 0) {
+        var scrollPercent = (scrollTop / scrollHeight) * 100;
+        if (scrollPercent >= 45) {
+          triggerPromo('scroll_halfway');
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // 2. Detección por movimiento de mouse hacia la parte superior (<= 50px de la pantalla)
     document.addEventListener('mousemove', function (e) {
       if (hasTriggered) return;
       if (e.clientY <= 50) {
-        triggerExitModal('mousemove_top_50');
+        triggerPromo('mousemove_top_50');
       }
     }, { passive: true });
 
-    // 2. Detección cuando el cursor sale del documento hacia arriba
+    // 3. Detección cuando el cursor sale del documento hacia arriba
     document.addEventListener('mouseleave', function (e) {
       if (hasTriggered) return;
       if (!e || e.clientY <= 80) {
-        triggerExitModal('document_mouseleave');
+        triggerPromo('document_mouseleave');
       }
     });
 
@@ -269,17 +284,17 @@
       document.documentElement.addEventListener('mouseleave', function (e) {
         if (hasTriggered) return;
         if (!e || e.clientY <= 80) {
-          triggerExitModal('documentElement_mouseleave');
+          triggerPromo('documentElement_mouseleave');
         }
       });
     }
 
-    // 3. Detección de mouseout de la ventana
+    // 4. Detección de mouseout de la ventana
     window.addEventListener('mouseout', function (e) {
       if (hasTriggered) return;
       var from = e.relatedTarget || e.toElement;
       if (!from && (e.clientY <= 80 || e.clientX <= 0 || e.clientX >= window.innerWidth)) {
-        triggerExitModal('window_mouseout');
+        triggerPromo('window_mouseout');
       }
     });
   }
