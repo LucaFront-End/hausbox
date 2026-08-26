@@ -1,11 +1,29 @@
 /**
  * HausBox - Pop-up Promocional 1 Mes Gratis
- * Abre automáticamente en todas las páginas.
+ * Activación por sesión (1 vez por ventana/pestaña):
+ * 1. Al llegar al 50% de scroll (medio scroll).
+ * 2. Después de 15 segundos en la página.
+ * 3. Al intentar salir/cerrar la página (Exit Intent).
  */
 (function () {
   'use strict';
 
   var WA_URL = "https://api.whatsapp.com/send/?phone=5215574374431&text=SWP-+Hola+quisiera+comenzar+mis+30+d%C3%ADas+de+prueba+gratis&type=phone_number&app_absent=0";
+  var SESSION_KEY = 'hausbox_promo_seen';
+
+  function isSessionDone() {
+    try {
+      return sessionStorage.getItem(SESSION_KEY) === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function markSessionDone() {
+    try {
+      sessionStorage.setItem(SESSION_KEY, 'true');
+    } catch (e) {}
+  }
 
   function createPromoModal() {
     if (document.getElementById('promo-modal-overlay')) return;
@@ -99,7 +117,6 @@
 
     document.body.appendChild(overlay);
 
-    // Eventos
     var closeBtn = document.getElementById('promo-modal-close');
     var form = document.getElementById('promo-modal-form');
     var formView = document.getElementById('promo-form-view');
@@ -119,14 +136,24 @@
     window.openHausboxPromoModal = openModal;
     window.closeHausboxPromoModal = closeModal;
 
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        closeModal();
+        markSessionDone();
+      });
+    }
+
     overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) closeModal();
+      if (e.target === overlay) {
+        closeModal();
+        markSessionDone();
+      }
     });
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && overlay.classList.contains('active')) {
         closeModal();
+        markSessionDone();
       }
     });
 
@@ -171,8 +198,8 @@
               formSource: 'Popup 1 Mes Gratis (' + (window.location.pathname || '/') + ')',
               subject: payload._subject
             });
-          } catch (e) {
-            console.warn('[HausBox CMS] Error al invocar submitInquiryToWix:', e);
+          } catch (err) {
+            console.warn('[HausBox CMS] Error al invocar submitInquiryToWix:', err);
           }
         }
 
@@ -190,15 +217,14 @@
             console.log('[HausBox Promo] ✅ Registro enviado exitosamente a contacto@hausbox.com:', data);
             formView.style.display = 'none';
             successView.style.display = 'block';
-            try {
-              sessionStorage.setItem('hausbox_promo_submitted', 'true');
-            } catch (err) { }
+            markSessionDone();
           })
           .catch(function (err) {
             console.warn('[HausBox Promo] FormSubmit fallback:', err);
             // Mostrar éxito aún en caso de error de red para no bloquear al usuario
             formView.style.display = 'none';
             successView.style.display = 'block';
+            markSessionDone();
           })
           .finally(function () {
             submitBtn.classList.remove('loading');
@@ -206,17 +232,57 @@
       });
     }
 
-    // Auto-apertura con retardo de 2.5 segundos
-    var alreadySubmitted = false;
-    try {
-      alreadySubmitted = sessionStorage.getItem('hausbox_promo_submitted') === 'true';
-    } catch (e) { }
-
-    if (!alreadySubmitted) {
-      setTimeout(function () {
-        openModal();
-      }, 2500);
+    // --- Control de Triggers Inteligentes (1 vez por ventana/sesión) ---
+    if (isSessionDone()) {
+      return; // Ya se mostró o se completó en esta ventana/pestaña
     }
+
+    var hasTriggered = false;
+    var timer15s = null;
+
+    function cleanupTriggers() {
+      if (timer15s) clearTimeout(timer15s);
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    }
+
+    function triggerModal(triggerSource) {
+      if (hasTriggered || isSessionDone()) return;
+      hasTriggered = true;
+      markSessionDone();
+      cleanupTriggers();
+      console.log('[HausBox Promo] Popup activado por:', triggerSource);
+      openModal();
+    }
+
+    // Trigger 1: Después de 15 segundos
+    timer15s = setTimeout(function () {
+      triggerModal('timer_15s');
+    }, 15000);
+
+    // Trigger 2: Al llegar a medio scroll (50%)
+    function handleScroll() {
+      if (hasTriggered) return;
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (scrollHeight > 0) {
+        var scrollPercent = (scrollTop / scrollHeight) * 100;
+        if (scrollPercent >= 50) {
+          triggerModal('scroll_50_percent');
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // Trigger 3: Intento de salida / cerrar la página (Exit Intent)
+    function handleMouseLeave(e) {
+      if (hasTriggered) return;
+      // Si el cursor sale por la parte superior de la ventana (hacia la barra de pestañas / cerrar)
+      if (e.clientY <= 15) {
+        triggerModal('exit_intent');
+      }
+    }
+    document.addEventListener('mouseleave', handleMouseLeave);
   }
 
   if (document.readyState === 'loading') {
