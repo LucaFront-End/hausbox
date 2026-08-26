@@ -1,8 +1,9 @@
 /**
  * HausBox - Pop-up Promocional 1 Mes Gratis & Botón Flotante de Regalo
  * Incluye:
+ * - Smart Exit-Intent / Mouse Velocity Tracker (detecta cuando el usuario va a cerrar la web).
  * - Botón de regalo flotante en la esquina inferior izquierda.
- * - Activación automática inteligente (15s, medio scroll 50%, exit intent).
+ * - Activación inteligente (Exit Intent, 15s, medio scroll 50%).
  * - Control de sesión para no interrumpir al usuario en cada cambio de URL.
  */
 (function () {
@@ -42,14 +43,14 @@
 
         <div id="promo-form-view">
           <div class="promo-modal__header">
-            <div class="promo-modal__badge">
+            <div class="promo-modal__badge" id="promo-modal-badge">
               <span>🎁</span>
-              <span>1 Mes Totalmente Gratis</span>
+              <span id="promo-modal-badge-text">1 Mes Totalmente Gratis</span>
             </div>
             <h2 class="promo-modal__title" id="promo-modal-title">
               Prueba Hausbox <span class="promo-highlight">GRATIS por 1 mes</span>
             </h2>
-            <p class="promo-modal__subtitle">
+            <p class="promo-modal__subtitle" id="promo-modal-subtitle">
               Administra tu condominio de forma más fácil, rápida y transparente.
             </p>
             <p class="promo-modal__desc">
@@ -138,8 +139,14 @@
     var formView = document.getElementById('promo-form-view');
     var successView = document.getElementById('promo-success-view');
     var submitBtn = document.getElementById('promo-submit-btn');
+    var badgeText = document.getElementById('promo-modal-badge-text');
+    var subtitleEl = document.getElementById('promo-modal-subtitle');
 
-    function openModal() {
+    function openModal(isExitIntent) {
+      if (isExitIntent && badgeText && subtitleEl) {
+        badgeText.textContent = '¡Espera! No te vayas sin tu regalo';
+        subtitleEl.textContent = 'Antes de salir, descubre cómo HausBox te ayuda a administrar tu condominio 100% gratis por 30 días.';
+      }
       overlay.classList.add('active');
       floatingTrigger.classList.add('hidden');
       document.body.style.overflow = 'hidden';
@@ -151,11 +158,13 @@
       document.body.style.overflow = '';
     }
 
-    window.openHausboxPromoModal = openModal;
+    window.openHausboxPromoModal = function () {
+      openModal(false);
+    };
     window.closeHausboxPromoModal = closeModal;
 
     floatingTrigger.addEventListener('click', function () {
-      openModal();
+      openModal(false);
     });
 
     if (closeBtn) {
@@ -260,10 +269,14 @@
 
     var hasTriggered = false;
     var timer15s = null;
+    var lastClientY = null;
+    var lastTimestamp = null;
 
     function cleanupTriggers() {
       if (timer15s) clearTimeout(timer15s);
       window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseout', handleMouseOut);
       document.removeEventListener('mouseleave', handleMouseLeave);
     }
 
@@ -272,16 +285,17 @@
       hasTriggered = true;
       markSessionDone();
       cleanupTriggers();
-      console.log('[HausBox Promo] Popup activado por:', triggerSource);
-      openModal();
+      console.log('[HausBox Promo] 🎯 Popup activado por:', triggerSource);
+      var isExit = triggerSource.indexOf('exit_intent') !== -1;
+      openModal(isExit);
     }
 
-    // Trigger 1: Después de 15 segundos
+    // 1. Disparador por tiempo: 15 segundos
     timer15s = setTimeout(function () {
       triggerModal('timer_15s');
     }, 15000);
 
-    // Trigger 2: Al llegar a medio scroll (50%)
+    // 2. Disparador por scroll: 50% de la página
     function handleScroll() {
       if (hasTriggered) return;
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -295,13 +309,39 @@
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Trigger 3: Intento de salida / cerrar la página (Exit Intent)
-    function handleMouseLeave(e) {
+    // 3. Disparador por Exit Intent & Mouse Velocity (al intentar cerrar o salir hacia arriba)
+    function handleMouseMove(e) {
       if (hasTriggered) return;
-      if (e.clientY <= 15) {
-        triggerModal('exit_intent');
+      var now = Date.now();
+      if (lastClientY !== null && lastTimestamp !== null) {
+        var deltaY = lastClientY - e.clientY;
+        var deltaTime = now - lastTimestamp;
+        // Si el cursor está en la parte superior (zona de pestañas/cierre) y se mueve rápido hacia arriba
+        if (e.clientY <= 60 && deltaY > 10 && deltaTime < 100) {
+          triggerModal('exit_intent_velocity');
+          return;
+        }
+      }
+      lastClientY = e.clientY;
+      lastTimestamp = now;
+    }
+
+    function handleMouseOut(e) {
+      if (hasTriggered) return;
+      if (!e.relatedTarget && e.clientY <= 40) {
+        triggerModal('exit_intent_mouseout');
       }
     }
+
+    function handleMouseLeave(e) {
+      if (hasTriggered) return;
+      if (e.clientY <= 40) {
+        triggerModal('exit_intent_mouseleave');
+      }
+    }
+
+    document.addEventListener('mousemove', handleMouseMove, { passive: true });
+    document.addEventListener('mouseout', handleMouseOut);
     document.addEventListener('mouseleave', handleMouseLeave);
   }
 
