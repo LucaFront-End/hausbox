@@ -1,9 +1,9 @@
 /**
- * HausBox - Pop-up Promocional 1 Mes Gratis
- * Activación por sesión (1 vez por ventana/pestaña):
- * 1. Al llegar al 50% de scroll (medio scroll).
- * 2. Después de 15 segundos en la página.
- * 3. Al intentar salir/cerrar la página (Exit Intent).
+ * HausBox - Pop-up Promocional 1 Mes Gratis & Botón Flotante de Regalo
+ * Incluye:
+ * - Botón de regalo flotante en la esquina inferior izquierda.
+ * - Activación automática inteligente (15s, medio scroll 50%, exit intent).
+ * - Control de sesión para no interrumpir al usuario en cada cambio de URL.
  */
 (function () {
   'use strict';
@@ -28,6 +28,7 @@
   function createPromoModal() {
     if (document.getElementById('promo-modal-overlay')) return;
 
+    // 1. Crear Overlay y Modal
     var overlay = document.createElement('div');
     overlay.className = 'promo-modal-overlay';
     overlay.id = 'promo-modal-overlay';
@@ -117,6 +118,21 @@
 
     document.body.appendChild(overlay);
 
+    // 2. Crear Botón Flotante de Regalo (Esquina Inferior Izquierda)
+    var floatingTrigger = document.createElement('button');
+    floatingTrigger.className = 'promo-floating-trigger';
+    floatingTrigger.id = 'promo-floating-trigger';
+    floatingTrigger.setAttribute('type', 'button');
+    floatingTrigger.setAttribute('aria-label', '1 Mes de Prueba Gratis de Hausbox');
+    floatingTrigger.innerHTML = `
+      <span class="promo-floating-gift-icon">🎁</span>
+      <span class="promo-floating-gift-text">1 Mes Gratis</span>
+      <span class="promo-floating-gift-badge">Promo</span>
+    `;
+
+    document.body.appendChild(floatingTrigger);
+
+    // Elementos y Control
     var closeBtn = document.getElementById('promo-modal-close');
     var form = document.getElementById('promo-modal-form');
     var formView = document.getElementById('promo-form-view');
@@ -125,16 +141,22 @@
 
     function openModal() {
       overlay.classList.add('active');
+      floatingTrigger.classList.add('hidden');
       document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
       overlay.classList.remove('active');
+      floatingTrigger.classList.remove('hidden');
       document.body.style.overflow = '';
     }
 
     window.openHausboxPromoModal = openModal;
     window.closeHausboxPromoModal = closeModal;
+
+    floatingTrigger.addEventListener('click', function () {
+      openModal();
+    });
 
     if (closeBtn) {
       closeBtn.addEventListener('click', function () {
@@ -187,7 +209,7 @@
           'Fecha': new Date().toLocaleString('es-MX')
         };
 
-        // 1. Envío al CMS de Wix (si está disponible en la página)
+        // 1. Envío al CMS de Wix
         if (typeof window.submitInquiryToWix === 'function') {
           try {
             window.submitInquiryToWix({
@@ -221,7 +243,6 @@
           })
           .catch(function (err) {
             console.warn('[HausBox Promo] FormSubmit fallback:', err);
-            // Mostrar éxito aún en caso de error de red para no bloquear al usuario
             formView.style.display = 'none';
             successView.style.display = 'block';
             markSessionDone();
@@ -234,7 +255,7 @@
 
     // --- Control de Triggers Inteligentes (1 vez por ventana/sesión) ---
     if (isSessionDone()) {
-      return; // Ya se mostró o se completó en esta ventana/pestaña
+      return; // Ya se mostró automáticamente en esta ventana/pestaña
     }
 
     var hasTriggered = false;
@@ -277,7 +298,6 @@
     // Trigger 3: Intento de salida / cerrar la página (Exit Intent)
     function handleMouseLeave(e) {
       if (hasTriggered) return;
-      // Si el cursor sale por la parte superior de la ventana (hacia la barra de pestañas / cerrar)
       if (e.clientY <= 15) {
         triggerModal('exit_intent');
       }
