@@ -1,16 +1,16 @@
 /**
  * HausBox - Pop-up Promocional 1 Mes Gratis & Botón Flotante de Regalo
  * Incluye:
- * - Smart Exit-Intent / Mouse Velocity Tracker (detecta cuando el usuario va a cerrar la web).
+ * - Smart Exit-Intent / Mouse View & Velocity Tracker (detecta cuando el usuario va a cerrar la pestaña o ventana).
  * - Botón de regalo flotante en la esquina inferior izquierda.
  * - Activación inteligente (Exit Intent, 15s, medio scroll 50%).
- * - Control de sesión para no interrumpir al usuario en cada cambio de URL.
+ * - Control de sesión (1 sola vez por pestaña/sesión para no ser invasivo).
  */
 (function () {
   'use strict';
 
   var WA_URL = "https://api.whatsapp.com/send/?phone=5215574374431&text=SWP-+Hola+quisiera+comenzar+mis+30+d%C3%ADas+de+prueba+gratis&type=phone_number&app_absent=0";
-  var SESSION_KEY = 'hausbox_promo_seen';
+  var SESSION_KEY = 'hausbox_promo_session_v3';
 
   function isSessionDone() {
     try {
@@ -262,7 +262,7 @@
       });
     }
 
-    // --- Control de Triggers Inteligentes (1 vez por ventana/sesión) ---
+    // --- Control de Triggers Inteligentes (1 sola vez por pestaña/sesión) ---
     if (isSessionDone()) {
       return; // Ya se mostró automáticamente en esta ventana/pestaña
     }
@@ -278,6 +278,9 @@
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseout', handleMouseOut);
       document.removeEventListener('mouseleave', handleMouseLeave);
+      if (document.documentElement) {
+        document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
+      }
     }
 
     function triggerModal(triggerSource) {
@@ -286,7 +289,7 @@
       markSessionDone();
       cleanupTriggers();
       console.log('[HausBox Promo] 🎯 Popup activado por:', triggerSource);
-      var isExit = triggerSource.indexOf('exit_intent') !== -1;
+      var isExit = triggerSource.indexOf('exit') !== -1;
       openModal(isExit);
     }
 
@@ -309,33 +312,43 @@
     }
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // 3. Disparador por Exit Intent & Mouse Velocity (al intentar cerrar o salir hacia arriba)
+    // 3. Disparador por Exit Intent & Mouse Tracker (Detecta intento de cierre hacia la barra de pestañas / cerrar)
     function handleMouseMove(e) {
       if (hasTriggered) return;
+      var y = e.clientY;
       var now = Date.now();
+
+      // Disparo inmediato si el cursor llega a los primeros 20px superiores (zona de pestañas o X)
+      if (y <= 20) {
+        triggerModal('exit_intent_top_y');
+        return;
+      }
+
+      // Disparo por velocidad si el cursor se desplaza rápido hacia arriba cerca del tope (zona <= 70px)
       if (lastClientY !== null && lastTimestamp !== null) {
-        var deltaY = lastClientY - e.clientY;
+        var deltaY = lastClientY - y;
         var deltaTime = now - lastTimestamp;
-        // Si el cursor está en la parte superior (zona de pestañas/cierre) y se mueve rápido hacia arriba
-        if (e.clientY <= 60 && deltaY > 10 && deltaTime < 100) {
+        if (y <= 70 && deltaY > 6 && deltaTime < 100) {
           triggerModal('exit_intent_velocity');
           return;
         }
       }
-      lastClientY = e.clientY;
+
+      lastClientY = y;
       lastTimestamp = now;
     }
 
     function handleMouseOut(e) {
       if (hasTriggered) return;
-      if (!e.relatedTarget && e.clientY <= 40) {
+      var from = e.relatedTarget || e.toElement;
+      if (!from && (e.clientY <= 35 || e.clientX <= 0 || e.clientX >= window.innerWidth)) {
         triggerModal('exit_intent_mouseout');
       }
     }
 
     function handleMouseLeave(e) {
       if (hasTriggered) return;
-      if (e.clientY <= 40) {
+      if (!e || e.clientY <= 35) {
         triggerModal('exit_intent_mouseleave');
       }
     }
@@ -343,6 +356,9 @@
     document.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseout', handleMouseOut);
     document.addEventListener('mouseleave', handleMouseLeave);
+    if (document.documentElement) {
+      document.documentElement.addEventListener('mouseleave', handleMouseLeave);
+    }
   }
 
   if (document.readyState === 'loading') {
