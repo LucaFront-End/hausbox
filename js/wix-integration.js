@@ -1,5 +1,5 @@
 /**
- * HausBox — Wix CMS Hydration Engine
+ * Hagash — Wix CMS Hydration Engine
  *
  * Arquitectura:
  *   1. Hidrata INMEDIATAMENTE con datos mock (placeholder visual, sin esperar red).
@@ -96,7 +96,7 @@
     .then(function(data) {
       /* La API devuelve { dataItems: [{ id, data: {...} }, ...] } */
       if (!data.dataItems || data.dataItems.length === 0) return [];
-      console.log('[HausBox CMS] 🔍 RAW data from Wix API (primer item):', JSON.stringify(data.dataItems[0]));
+      console.log('[Hagash CMS] 🔍 RAW data from Wix API (primer item):', JSON.stringify(data.dataItems[0]));
       return data.dataItems.map(function(item) {
         return item.data || item;
       });
@@ -112,10 +112,10 @@
     "titulo": "software para conjuntos habitacionales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para conjuntos habitacionales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para conjuntos habitacionales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Conjuntos Habitacionales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para conjuntos habitacionales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para conjuntos habitacionales con Hagash.",
+    "excerptPagina": "Hagash simplifica software para conjuntos habitacionales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Conjuntos Habitacionales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para conjuntos habitacionales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20conjuntos%20habitacionales"
   },
   {
@@ -124,10 +124,10 @@
     "titulo": "software para pagos de mantenimiento",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para pagos de mantenimiento con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para pagos de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Pagos De Mantenimiento | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para pagos de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para pagos de mantenimiento con Hagash.",
+    "excerptPagina": "Hagash simplifica software para pagos de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Pagos De Mantenimiento | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para pagos de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20pagos%20de%20mantenimiento"
   },
   {
@@ -136,10 +136,10 @@
     "titulo": "software de administración residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software de administración residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software de administración residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software De Administración Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software de administración residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica software de administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Administración Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software de administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20administraci%C3%B3n%20residencial"
   },
   {
@@ -148,10 +148,10 @@
     "titulo": "mejores herramientas para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma mejores herramientas para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica mejores herramientas para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Mejores Herramientas Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza mejores herramientas para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma mejores herramientas para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica mejores herramientas para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Mejores Herramientas Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza mejores herramientas para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20mejores%20herramientas%20para%20condominios"
   },
   {
@@ -160,10 +160,10 @@
     "titulo": "software para edificios pequeños",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para edificios pequeños con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para edificios pequeños con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Edificios Pequeños | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para edificios pequeños, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para edificios pequeños con Hagash.",
+    "excerptPagina": "Hagash simplifica software para edificios pequeños con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Edificios Pequeños | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para edificios pequeños, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20edificios%20peque%C3%B1os"
   },
   {
@@ -172,10 +172,10 @@
     "titulo": "app para cuotas de mantenimiento",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app para cuotas de mantenimiento con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app para cuotas de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Para Cuotas De Mantenimiento | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para cuotas de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app para cuotas de mantenimiento con Hagash.",
+    "excerptPagina": "Hagash simplifica app para cuotas de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Cuotas De Mantenimiento | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app para cuotas de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20cuotas%20de%20mantenimiento"
   },
   {
@@ -184,10 +184,10 @@
     "titulo": "software para administrar condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para administrar condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para administrar condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Administrar Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para administrar condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para administrar condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica software para administrar condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Administrar Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para administrar condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20administrar%20condominios"
   },
   {
@@ -196,10 +196,10 @@
     "titulo": "control de acceso para privadas",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma control de acceso para privadas con Hausbox.",
-    "excerptPagina": "Hausbox simplifica control de acceso para privadas con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Control De Acceso Para Privadas | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control de acceso para privadas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma control de acceso para privadas con Hagash.",
+    "excerptPagina": "Hagash simplifica control de acceso para privadas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control De Acceso Para Privadas | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza control de acceso para privadas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20de%20acceso%20para%20privadas"
   },
   {
@@ -208,10 +208,10 @@
     "titulo": "cómo administrar condominios mejor",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo administrar condominios mejor con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo administrar condominios mejor con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Administrar Condominios Mejor | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar condominios mejor, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo administrar condominios mejor con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo administrar condominios mejor con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Condominios Mejor | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo administrar condominios mejor, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20condominios%20mejor"
   },
   {
@@ -220,10 +220,10 @@
     "titulo": "administración moderna de condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma administración moderna de condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica administración moderna de condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Administración Moderna De Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración moderna de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma administración moderna de condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica administración moderna de condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Moderna De Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza administración moderna de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20moderna%20de%20condominios"
   },
   {
@@ -232,10 +232,10 @@
     "titulo": "sistema de acceso residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema de acceso residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema de acceso residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema De Acceso Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de acceso residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema de acceso residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema de acceso residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Acceso Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema de acceso residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20acceso%20residencial"
   },
   {
@@ -244,10 +244,10 @@
     "titulo": "sistema para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20condominios"
   },
   {
@@ -256,10 +256,10 @@
     "titulo": "plataforma de pagos residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma de pagos residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma de pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma De Pagos Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma de pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma de pagos residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma de pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma De Pagos Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma de pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20de%20pagos%20residenciales"
   },
   {
@@ -268,10 +268,10 @@
     "titulo": "sistema de pagos residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema de pagos residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema de pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema De Pagos Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema de pagos residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema de pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Pagos Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema de pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20pagos%20residenciales"
   },
   {
@@ -280,10 +280,10 @@
     "titulo": "automatización de pagos condominales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma automatización de pagos condominales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica automatización de pagos condominales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Automatización De Pagos Condominales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza automatización de pagos condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma automatización de pagos condominales con Hagash.",
+    "excerptPagina": "Hagash simplifica automatización de pagos condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Automatización De Pagos Condominales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza automatización de pagos condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20automatizaci%C3%B3n%20de%20pagos%20condominales"
   },
   {
@@ -292,10 +292,10 @@
     "titulo": "cómo mejorar la administración residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo mejorar la administración residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo mejorar la administración residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Mejorar La Administración Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo mejorar la administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo mejorar la administración residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo mejorar la administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Mejorar La Administración Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo mejorar la administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20mejorar%20la%20administraci%C3%B3n%20residencial"
   },
   {
@@ -304,10 +304,10 @@
     "titulo": "control vehicular residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma control vehicular residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica control vehicular residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Control Vehicular Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control vehicular residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma control vehicular residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica control vehicular residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control Vehicular Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza control vehicular residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20vehicular%20residencial"
   },
   {
@@ -316,10 +316,10 @@
     "titulo": "plataforma simple residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma simple residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma simple residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Simple Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma simple residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma simple residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma simple residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Simple Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma simple residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20simple%20residencial"
   },
   {
@@ -328,10 +328,10 @@
     "titulo": "administración digital de fraccionamientos",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma administración digital de fraccionamientos con Hausbox.",
-    "excerptPagina": "Hausbox simplifica administración digital de fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Administración Digital De Fraccionamientos | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración digital de fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma administración digital de fraccionamientos con Hagash.",
+    "excerptPagina": "Hagash simplifica administración digital de fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Digital De Fraccionamientos | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza administración digital de fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20digital%20de%20fraccionamientos"
   },
   {
@@ -340,10 +340,10 @@
     "titulo": "app profesional para residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app profesional para residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app profesional para residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Profesional Para Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app profesional para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app profesional para residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica app profesional para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Profesional Para Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app profesional para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20profesional%20para%20residentes"
   },
   {
@@ -352,10 +352,10 @@
     "titulo": "plataforma para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20condominios"
   },
   {
@@ -364,10 +364,10 @@
     "titulo": "cómo cobrar cuotas condominales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo cobrar cuotas condominales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo cobrar cuotas condominales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Cobrar Cuotas Condominales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo cobrar cuotas condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo cobrar cuotas condominales con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo cobrar cuotas condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Cobrar Cuotas Condominales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo cobrar cuotas condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20cobrar%20cuotas%20condominales"
   },
   {
@@ -376,10 +376,10 @@
     "titulo": "sistema profesional residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema profesional residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema profesional residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Profesional Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema profesional residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema profesional residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema profesional residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Profesional Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema profesional residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20profesional%20residencial"
   },
   {
@@ -388,10 +388,10 @@
     "titulo": "app mexicana para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app mexicana para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app mexicana para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Mexicana Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app mexicana para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app mexicana para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica app mexicana para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Mexicana Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app mexicana para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20mexicana%20para%20condominios"
   },
   {
@@ -400,10 +400,10 @@
     "titulo": "sistema integral para residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema integral para residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema integral para residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Integral Para Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema integral para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema integral para residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema integral para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Integral Para Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema integral para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20integral%20para%20residentes"
   },
   {
@@ -412,10 +412,10 @@
     "titulo": "cómo administrar edificios residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo administrar edificios residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo administrar edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Administrar Edificios Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo administrar edificios residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo administrar edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Edificios Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo administrar edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20edificios%20residenciales"
   },
   {
@@ -424,10 +424,10 @@
     "titulo": "cómo organizar pagos de mantenimiento",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo organizar pagos de mantenimiento con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo organizar pagos de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Organizar Pagos De Mantenimiento | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo organizar pagos de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo organizar pagos de mantenimiento con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo organizar pagos de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Organizar Pagos De Mantenimiento | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo organizar pagos de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20organizar%20pagos%20de%20mantenimiento"
   },
   {
@@ -436,10 +436,10 @@
     "titulo": "sistema para edificios residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema para edificios residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema para edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Para Edificios Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema para edificios residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema para edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Edificios Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema para edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20edificios%20residenciales"
   },
   {
@@ -448,10 +448,10 @@
     "titulo": "software de operación condominal",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software de operación condominal con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software de operación condominal con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software De Operación Condominal | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de operación condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software de operación condominal con Hagash.",
+    "excerptPagina": "Hagash simplifica software de operación condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Operación Condominal | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software de operación condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20operaci%C3%B3n%20condominal"
   },
   {
@@ -460,10 +460,10 @@
     "titulo": "sistema automatizado residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema automatizado residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema automatizado residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Automatizado Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema automatizado residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema automatizado residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema automatizado residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Automatizado Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema automatizado residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20automatizado%20residencial"
   },
   {
@@ -472,10 +472,10 @@
     "titulo": "plataforma para fraccionamientos",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma para fraccionamientos con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma para fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Para Fraccionamientos | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma para fraccionamientos con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma para fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Fraccionamientos | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma para fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20fraccionamientos"
   },
   {
@@ -484,10 +484,10 @@
     "titulo": "app para privadas residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app para privadas residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app para privadas residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Para Privadas Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para privadas residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app para privadas residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica app para privadas residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Privadas Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app para privadas residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20privadas%20residenciales"
   },
   {
@@ -496,10 +496,10 @@
     "titulo": "cómo organizar cuotas de mantenimiento",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo organizar cuotas de mantenimiento con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo organizar cuotas de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Organizar Cuotas De Mantenimiento | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo organizar cuotas de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo organizar cuotas de mantenimiento con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo organizar cuotas de mantenimiento con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Organizar Cuotas De Mantenimiento | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo organizar cuotas de mantenimiento, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20organizar%20cuotas%20de%20mantenimiento"
   },
   {
@@ -508,10 +508,10 @@
     "titulo": "administración inteligente residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma administración inteligente residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica administración inteligente residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Administración Inteligente Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración inteligente residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma administración inteligente residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica administración inteligente residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Inteligente Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza administración inteligente residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20inteligente%20residencial"
   },
   {
@@ -520,10 +520,10 @@
     "titulo": "administración digital de condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma administración digital de condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica administración digital de condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Administración Digital De Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración digital de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma administración digital de condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica administración digital de condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Digital De Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza administración digital de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20digital%20de%20condominios"
   },
   {
@@ -532,10 +532,10 @@
     "titulo": "contratar software para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma contratar software para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica contratar software para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Contratar Software Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza contratar software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma contratar software para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica contratar software para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Contratar Software Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza contratar software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20contratar%20software%20para%20condominios"
   },
   {
@@ -544,10 +544,10 @@
     "titulo": "pagos en línea para residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma pagos en línea para residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica pagos en línea para residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Pagos En Línea Para Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza pagos en línea para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma pagos en línea para residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica pagos en línea para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Pagos En Línea Para Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza pagos en línea para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20pagos%20en%20l%C3%ADnea%20para%20residentes"
   },
   {
@@ -556,10 +556,10 @@
     "titulo": "digitalizar administración residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma digitalizar administración residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica digitalizar administración residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Digitalizar Administración Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza digitalizar administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma digitalizar administración residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica digitalizar administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Digitalizar Administración Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza digitalizar administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20digitalizar%20administraci%C3%B3n%20residencial"
   },
   {
@@ -568,10 +568,10 @@
     "titulo": "app para edificios residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app para edificios residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app para edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Para Edificios Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app para edificios residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica app para edificios residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Edificios Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app para edificios residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20edificios%20residenciales"
   },
   {
@@ -580,10 +580,10 @@
     "titulo": "demo software condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma demo software condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica demo software condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Demo Software Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza demo software condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma demo software condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica demo software condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Demo Software Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza demo software condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20demo%20software%20condominios"
   },
   {
@@ -592,10 +592,10 @@
     "titulo": "plataforma para vecinos",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma para vecinos con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma para vecinos con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Para Vecinos | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para vecinos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma para vecinos con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma para vecinos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Vecinos | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma para vecinos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20vecinos"
   },
   {
@@ -604,10 +604,10 @@
     "titulo": "app de gestión residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app de gestión residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app de gestión residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App De Gestión Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app de gestión residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app de gestión residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica app de gestión residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App De Gestión Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app de gestión residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20de%20gesti%C3%B3n%20residencial"
   },
   {
@@ -616,10 +616,10 @@
     "titulo": "cómo evitar morosidad en condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo evitar morosidad en condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo evitar morosidad en condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Evitar Morosidad En Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo evitar morosidad en condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo evitar morosidad en condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo evitar morosidad en condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Evitar Morosidad En Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo evitar morosidad en condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20evitar%20morosidad%20en%20condominios"
   },
   {
@@ -628,10 +628,10 @@
     "titulo": "mejor software para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma mejor software para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica mejor software para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Mejor Software Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza mejor software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma mejor software para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica mejor software para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Mejor Software Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza mejor software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20mejor%20software%20para%20condominios"
   },
   {
@@ -640,10 +640,10 @@
     "titulo": "automatización de condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma automatización de condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica automatización de condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Automatización De Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza automatización de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma automatización de condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica automatización de condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Automatización De Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza automatización de condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20automatizaci%C3%B3n%20de%20condominios"
   },
   {
@@ -652,10 +652,10 @@
     "titulo": "plataforma para residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma para residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma para residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Para Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma para residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20residentes"
   },
   {
@@ -664,10 +664,10 @@
     "titulo": "automatizar pagos condominales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma automatizar pagos condominales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica automatizar pagos condominales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Automatizar Pagos Condominales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza automatizar pagos condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma automatizar pagos condominales con Hagash.",
+    "excerptPagina": "Hagash simplifica automatizar pagos condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Automatizar Pagos Condominales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza automatizar pagos condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20automatizar%20pagos%20condominales"
   },
   {
@@ -676,10 +676,10 @@
     "titulo": "plataforma de acceso condominal",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma de acceso condominal con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma de acceso condominal con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma De Acceso Condominal | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma de acceso condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma de acceso condominal con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma de acceso condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma De Acceso Condominal | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma de acceso condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20de%20acceso%20condominal"
   },
   {
@@ -688,10 +688,10 @@
     "titulo": "software para estados de cuenta",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para estados de cuenta con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para estados de cuenta con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Estados De Cuenta | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para estados de cuenta, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para estados de cuenta con Hagash.",
+    "excerptPagina": "Hagash simplifica software para estados de cuenta con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Estados De Cuenta | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para estados de cuenta, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20estados%20de%20cuenta"
   },
   {
@@ -700,10 +700,10 @@
     "titulo": "sistema de avisos residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema de avisos residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema de avisos residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema De Avisos Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de avisos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema de avisos residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema de avisos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Avisos Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema de avisos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20avisos%20residenciales"
   },
   {
@@ -712,10 +712,10 @@
     "titulo": "software para automatizar cobranza",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para automatizar cobranza con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para automatizar cobranza con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Automatizar Cobranza | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para automatizar cobranza, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para automatizar cobranza con Hagash.",
+    "excerptPagina": "Hagash simplifica software para automatizar cobranza con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Automatizar Cobranza | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para automatizar cobranza, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20automatizar%20cobranza"
   },
   {
@@ -724,10 +724,10 @@
     "titulo": "software de seguridad condominal",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software de seguridad condominal con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software de seguridad condominal con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software De Seguridad Condominal | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de seguridad condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software de seguridad condominal con Hagash.",
+    "excerptPagina": "Hagash simplifica software de seguridad condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Seguridad Condominal | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software de seguridad condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20seguridad%20condominal"
   },
   {
@@ -736,10 +736,10 @@
     "titulo": "sistema de pagos para vecinos",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema de pagos para vecinos con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema de pagos para vecinos con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema De Pagos Para Vecinos | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de pagos para vecinos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema de pagos para vecinos con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema de pagos para vecinos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Pagos Para Vecinos | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema de pagos para vecinos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20pagos%20para%20vecinos"
   },
   {
@@ -748,10 +748,10 @@
     "titulo": "plataforma profesional para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma profesional para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma profesional para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Profesional Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma profesional para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma profesional para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma profesional para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Profesional Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma profesional para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20profesional%20para%20condominios"
   },
   {
@@ -760,10 +760,10 @@
     "titulo": "cómo administrar fraccionamientos",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo administrar fraccionamientos con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo administrar fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Administrar Fraccionamientos | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo administrar fraccionamientos con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo administrar fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Fraccionamientos | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo administrar fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20fraccionamientos"
   },
   {
@@ -772,10 +772,10 @@
     "titulo": "software para caseta residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para caseta residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para caseta residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Caseta Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para caseta residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para caseta residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica software para caseta residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Caseta Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para caseta residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20caseta%20residencial"
   },
   {
@@ -784,10 +784,10 @@
     "titulo": "precio software para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma precio software para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica precio software para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Precio Software Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza precio software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma precio software para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica precio software para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Precio Software Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza precio software para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20precio%20software%20para%20condominios"
   },
   {
@@ -796,10 +796,10 @@
     "titulo": "sistema sencillo para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema sencillo para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema sencillo para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Sencillo Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema sencillo para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema sencillo para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema sencillo para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Sencillo Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema sencillo para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20sencillo%20para%20condominios"
   },
   {
@@ -808,10 +808,10 @@
     "titulo": "sistema para administración online",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema para administración online con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema para administración online con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Para Administración Online | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para administración online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema para administración online con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema para administración online con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Administración Online | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema para administración online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20administraci%C3%B3n%20online"
   },
   {
@@ -820,10 +820,10 @@
     "titulo": "sistema QR para visitas",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema QR para visitas con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema QR para visitas con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Qr Para Visitas | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema QR para visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema QR para visitas con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema QR para visitas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Qr Para Visitas | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema QR para visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20QR%20para%20visitas"
   },
   {
@@ -832,10 +832,10 @@
     "titulo": "software económico para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software económico para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software económico para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Económico Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software económico para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software económico para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica software económico para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Económico Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software económico para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20econ%C3%B3mico%20para%20condominios"
   },
   {
@@ -844,10 +844,10 @@
     "titulo": "herramienta para administrar edificios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma herramienta para administrar edificios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica herramienta para administrar edificios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Herramienta Para Administrar Edificios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza herramienta para administrar edificios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma herramienta para administrar edificios con Hagash.",
+    "excerptPagina": "Hagash simplifica herramienta para administrar edificios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Herramienta Para Administrar Edificios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza herramienta para administrar edificios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20herramienta%20para%20administrar%20edificios"
   },
   {
@@ -856,10 +856,10 @@
     "titulo": "administración residencial online",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma administración residencial online con Hausbox.",
-    "excerptPagina": "Hausbox simplifica administración residencial online con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Administración Residencial Online | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración residencial online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma administración residencial online con Hagash.",
+    "excerptPagina": "Hagash simplifica administración residencial online con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración Residencial Online | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza administración residencial online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20residencial%20online"
   },
   {
@@ -868,10 +868,10 @@
     "titulo": "app de comunicación para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app de comunicación para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app de comunicación para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App De Comunicación Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app de comunicación para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app de comunicación para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica app de comunicación para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App De Comunicación Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app de comunicación para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20de%20comunicaci%C3%B3n%20para%20condominios"
   },
   {
@@ -880,10 +880,10 @@
     "titulo": "cómo controlar acceso de visitas",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo controlar acceso de visitas con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo controlar acceso de visitas con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Controlar Acceso De Visitas | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo controlar acceso de visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo controlar acceso de visitas con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo controlar acceso de visitas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Controlar Acceso De Visitas | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo controlar acceso de visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20controlar%20acceso%20de%20visitas"
   },
   {
@@ -892,10 +892,10 @@
     "titulo": "sistema de cobranza condominal",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema de cobranza condominal con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema de cobranza condominal con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema De Cobranza Condominal | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de cobranza condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema de cobranza condominal con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema de cobranza condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Cobranza Condominal | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema de cobranza condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20cobranza%20condominal"
   },
   {
@@ -904,10 +904,10 @@
     "titulo": "sistema de cobranza para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema de cobranza para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema de cobranza para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema De Cobranza Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de cobranza para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema de cobranza para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema de cobranza para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Cobranza Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema de cobranza para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20cobranza%20para%20condominios"
   },
   {
@@ -916,10 +916,10 @@
     "titulo": "cómo controlar pagos residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo controlar pagos residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo controlar pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Controlar Pagos Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo controlar pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo controlar pagos residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo controlar pagos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Controlar Pagos Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo controlar pagos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20controlar%20pagos%20residenciales"
   },
   {
@@ -928,10 +928,10 @@
     "titulo": "software para fraccionamientos",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para fraccionamientos con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Fraccionamientos | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para fraccionamientos con Hagash.",
+    "excerptPagina": "Hagash simplifica software para fraccionamientos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Fraccionamientos | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para fraccionamientos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20fraccionamientos"
   },
   {
@@ -940,10 +940,10 @@
     "titulo": "control digital de residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma control digital de residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica control digital de residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Control Digital De Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control digital de residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma control digital de residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica control digital de residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control Digital De Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza control digital de residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20digital%20de%20residentes"
   },
   {
@@ -952,10 +952,10 @@
     "titulo": "cómo reducir morosidad en condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo reducir morosidad en condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo reducir morosidad en condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Reducir Morosidad En Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo reducir morosidad en condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo reducir morosidad en condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo reducir morosidad en condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Reducir Morosidad En Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo reducir morosidad en condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20reducir%20morosidad%20en%20condominios"
   },
   {
@@ -964,10 +964,10 @@
     "titulo": "software para privadas residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para privadas residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para privadas residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Privadas Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para privadas residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para privadas residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica software para privadas residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Privadas Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para privadas residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20privadas%20residenciales"
   },
   {
@@ -976,10 +976,10 @@
     "titulo": "software para conjuntos residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para conjuntos residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para conjuntos residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Conjuntos Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para conjuntos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para conjuntos residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica software para conjuntos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Conjuntos Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para conjuntos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20conjuntos%20residenciales"
   },
   {
@@ -988,10 +988,10 @@
     "titulo": "sistema de gestión residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema de gestión residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema de gestión residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema De Gestión Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema de gestión residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema de gestión residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema de gestión residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema De Gestión Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema de gestión residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20de%20gesti%C3%B3n%20residencial"
   },
   {
@@ -1000,10 +1000,10 @@
     "titulo": "sistema residencial privado",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema residencial privado con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema residencial privado con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Residencial Privado | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema residencial privado, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema residencial privado con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema residencial privado con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Residencial Privado | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema residencial privado, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20residencial%20privado"
   },
   {
@@ -1012,10 +1012,10 @@
     "titulo": "control de pagos vecinales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma control de pagos vecinales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica control de pagos vecinales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Control De Pagos Vecinales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control de pagos vecinales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma control de pagos vecinales con Hagash.",
+    "excerptPagina": "Hagash simplifica control de pagos vecinales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control De Pagos Vecinales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza control de pagos vecinales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20de%20pagos%20vecinales"
   },
   {
@@ -1024,10 +1024,10 @@
     "titulo": "plataforma de administración online",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma de administración online con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma de administración online con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma De Administración Online | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma de administración online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma de administración online con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma de administración online con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma De Administración Online | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma de administración online, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20de%20administraci%C3%B3n%20online"
   },
   {
@@ -1036,10 +1036,10 @@
     "titulo": "cómo mejorar cobranza residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo mejorar cobranza residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo mejorar cobranza residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Mejorar Cobranza Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo mejorar cobranza residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo mejorar cobranza residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo mejorar cobranza residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Mejorar Cobranza Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo mejorar cobranza residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20mejorar%20cobranza%20residencial"
   },
   {
@@ -1048,10 +1048,10 @@
     "titulo": "herramientas para administradores",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma herramientas para administradores con Hausbox.",
-    "excerptPagina": "Hausbox simplifica herramientas para administradores con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Herramientas Para Administradores | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza herramientas para administradores, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma herramientas para administradores con Hagash.",
+    "excerptPagina": "Hagash simplifica herramientas para administradores con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Herramientas Para Administradores | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza herramientas para administradores, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20herramientas%20para%20administradores"
   },
   {
@@ -1060,10 +1060,10 @@
     "titulo": "software de control administrativo",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software de control administrativo con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software de control administrativo con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software De Control Administrativo | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software de control administrativo, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software de control administrativo con Hagash.",
+    "excerptPagina": "Hagash simplifica software de control administrativo con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software De Control Administrativo | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software de control administrativo, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20de%20control%20administrativo"
   },
   {
@@ -1072,10 +1072,10 @@
     "titulo": "software para comunicación residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para comunicación residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para comunicación residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Comunicación Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para comunicación residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para comunicación residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica software para comunicación residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Comunicación Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para comunicación residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20comunicaci%C3%B3n%20residencial"
   },
   {
@@ -1084,10 +1084,10 @@
     "titulo": "sistema para cobrar cuotas condominales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema para cobrar cuotas condominales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema para cobrar cuotas condominales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Para Cobrar Cuotas Condominales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para cobrar cuotas condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema para cobrar cuotas condominales con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema para cobrar cuotas condominales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Cobrar Cuotas Condominales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema para cobrar cuotas condominales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20cobrar%20cuotas%20condominales"
   },
   {
@@ -1096,10 +1096,10 @@
     "titulo": "administración de privadas",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma administración de privadas con Hausbox.",
-    "excerptPagina": "Hausbox simplifica administración de privadas con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Administración De Privadas | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza administración de privadas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma administración de privadas con Hagash.",
+    "excerptPagina": "Hagash simplifica administración de privadas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Administración De Privadas | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza administración de privadas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20administraci%C3%B3n%20de%20privadas"
   },
   {
@@ -1108,10 +1108,10 @@
     "titulo": "software para administración moderna",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para administración moderna con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para administración moderna con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Administración Moderna | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para administración moderna, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para administración moderna con Hagash.",
+    "excerptPagina": "Hagash simplifica software para administración moderna con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Administración Moderna | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para administración moderna, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20administraci%C3%B3n%20moderna"
   },
   {
@@ -1120,10 +1120,10 @@
     "titulo": "software para comités vecinales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software para comités vecinales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software para comités vecinales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Para Comités Vecinales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software para comités vecinales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software para comités vecinales con Hagash.",
+    "excerptPagina": "Hagash simplifica software para comités vecinales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Para Comités Vecinales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software para comités vecinales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20para%20comit%C3%A9s%20vecinales"
   },
   {
@@ -1132,10 +1132,10 @@
     "titulo": "problemas en administración condominal",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma problemas en administración condominal con Hausbox.",
-    "excerptPagina": "Hausbox simplifica problemas en administración condominal con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Problemas En Administración Condominal | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza problemas en administración condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma problemas en administración condominal con Hagash.",
+    "excerptPagina": "Hagash simplifica problemas en administración condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Problemas En Administración Condominal | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza problemas en administración condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20problemas%20en%20administraci%C3%B3n%20condominal"
   },
   {
@@ -1144,10 +1144,10 @@
     "titulo": "plataforma residencial inteligente",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma residencial inteligente con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma residencial inteligente con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Residencial Inteligente | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma residencial inteligente, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma residencial inteligente con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma residencial inteligente con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Residencial Inteligente | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma residencial inteligente, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20residencial%20inteligente"
   },
   {
@@ -1156,10 +1156,10 @@
     "titulo": "sistema para evitar adeudos",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma sistema para evitar adeudos con Hausbox.",
-    "excerptPagina": "Hausbox simplifica sistema para evitar adeudos con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Sistema Para Evitar Adeudos | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza sistema para evitar adeudos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma sistema para evitar adeudos con Hagash.",
+    "excerptPagina": "Hagash simplifica sistema para evitar adeudos con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Sistema Para Evitar Adeudos | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza sistema para evitar adeudos, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20sistema%20para%20evitar%20adeudos"
   },
   {
@@ -1168,10 +1168,10 @@
     "titulo": "cómo digitalizar un condominio",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo digitalizar un condominio con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo digitalizar un condominio con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Digitalizar Un Condominio | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo digitalizar un condominio, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo digitalizar un condominio con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo digitalizar un condominio con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Digitalizar Un Condominio | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo digitalizar un condominio, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20digitalizar%20un%20condominio"
   },
   {
@@ -1180,10 +1180,10 @@
     "titulo": "app de seguridad residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app de seguridad residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app de seguridad residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App De Seguridad Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app de seguridad residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app de seguridad residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica app de seguridad residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App De Seguridad Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app de seguridad residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20de%20seguridad%20residencial"
   },
   {
@@ -1192,10 +1192,10 @@
     "titulo": "app para administración vecinal",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app para administración vecinal con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app para administración vecinal con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Para Administración Vecinal | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para administración vecinal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app para administración vecinal con Hagash.",
+    "excerptPagina": "Hagash simplifica app para administración vecinal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Administración Vecinal | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app para administración vecinal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20administraci%C3%B3n%20vecinal"
   },
   {
@@ -1204,10 +1204,10 @@
     "titulo": "cómo administrar residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo administrar residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo administrar residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Administrar Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo administrar residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo administrar residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo administrar residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Administrar Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo administrar residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20administrar%20residentes"
   },
   {
@@ -1216,10 +1216,10 @@
     "titulo": "control de cuotas de residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma control de cuotas de residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica control de cuotas de residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Control De Cuotas De Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza control de cuotas de residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma control de cuotas de residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica control de cuotas de residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Control De Cuotas De Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza control de cuotas de residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20control%20de%20cuotas%20de%20residentes"
   },
   {
@@ -1228,10 +1228,10 @@
     "titulo": "app fácil para residentes",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app fácil para residentes con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app fácil para residentes con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Fácil Para Residentes | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app fácil para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app fácil para residentes con Hagash.",
+    "excerptPagina": "Hagash simplifica app fácil para residentes con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Fácil Para Residentes | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app fácil para residentes, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20f%C3%A1cil%20para%20residentes"
   },
   {
@@ -1240,10 +1240,10 @@
     "titulo": "cómo digitalizar administración residencial",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma cómo digitalizar administración residencial con Hausbox.",
-    "excerptPagina": "Hausbox simplifica cómo digitalizar administración residencial con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Cómo Digitalizar Administración Residencial | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza cómo digitalizar administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma cómo digitalizar administración residencial con Hagash.",
+    "excerptPagina": "Hagash simplifica cómo digitalizar administración residencial con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Cómo Digitalizar Administración Residencial | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza cómo digitalizar administración residencial, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20c%C3%B3mo%20digitalizar%20administraci%C3%B3n%20residencial"
   },
   {
@@ -1252,10 +1252,10 @@
     "titulo": "app para control de visitas",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app para control de visitas con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app para control de visitas con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Para Control De Visitas | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para control de visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app para control de visitas con Hagash.",
+    "excerptPagina": "Hagash simplifica app para control de visitas con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Control De Visitas | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app para control de visitas, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20control%20de%20visitas"
   },
   {
@@ -1264,10 +1264,10 @@
     "titulo": "plataforma para accesos residenciales",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma plataforma para accesos residenciales con Hausbox.",
-    "excerptPagina": "Hausbox simplifica plataforma para accesos residenciales con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Plataforma Para Accesos Residenciales | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza plataforma para accesos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma plataforma para accesos residenciales con Hagash.",
+    "excerptPagina": "Hagash simplifica plataforma para accesos residenciales con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Plataforma Para Accesos Residenciales | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza plataforma para accesos residenciales, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20plataforma%20para%20accesos%20residenciales"
   },
   {
@@ -1276,10 +1276,10 @@
     "titulo": "software simple para condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma software simple para condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica software simple para condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Software Simple Para Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza software simple para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma software simple para condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica software simple para condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Software Simple Para Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza software simple para condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20software%20simple%20para%20condominios"
   },
   {
@@ -1288,10 +1288,10 @@
     "titulo": "solución para administración condominal",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma solución para administración condominal con Hausbox.",
-    "excerptPagina": "Hausbox simplifica solución para administración condominal con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "Solución Para Administración Condominal | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza solución para administración condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma solución para administración condominal con Hagash.",
+    "excerptPagina": "Hagash simplifica solución para administración condominal con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "Solución Para Administración Condominal | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza solución para administración condominal, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20soluci%C3%B3n%20para%20administraci%C3%B3n%20condominal"
   },
   {
@@ -1300,10 +1300,10 @@
     "titulo": "app para administrar condominios",
     "ciudadOEstado": "",
     "pais": "México",
-    "tituloPagina": "Transforma app para administrar condominios con Hausbox.",
-    "excerptPagina": "Hausbox simplifica app para administrar condominios con automatización, pagos en línea y control residencial inteligente.",
-    "tituloSeo": "App Para Administrar Condominios | Hausbox Software para Condominios",
-    "metadescripcionSeo": "Hausbox, el Software para Condominios #1 en México. Optimiza app para administrar condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
+    "tituloPagina": "Transforma app para administrar condominios con Hagash.",
+    "excerptPagina": "Hagash simplifica app para administrar condominios con automatización, pagos en línea y control residencial inteligente.",
+    "tituloSeo": "App Para Administrar Condominios | Hagash Software para Condominios",
+    "metadescripcionSeo": "Hagash, el Software para Condominios #1 en México. Optimiza app para administrar condominios, automatiza procesos, mejora la cobranza y digitaliza la administración residencial con una plataforma moderna y eficiente.",
     "whatsappPersonalizado": "https://wa.me/525574374431?text=SW-%20Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20de%20app%20para%20administrar%20condominios"
   }
 ];
@@ -1367,7 +1367,7 @@
         el.innerHTML = f.tituloPagina;
         el.style.opacity = '1';
       });
-      console.log('[HausBox CMS] ✓ tituloPagina →', f.tituloPagina);
+      console.log('[Hagash CMS] ✓ tituloPagina →', f.tituloPagina);
     }
 
     /* 4. Excerpt Página — fade in al recibir el dato del CMS */
@@ -1376,7 +1376,7 @@
         el.innerHTML = f.excerptPagina;
         el.style.opacity = '1';
       });
-      console.log('[HausBox CMS] ✓ excerptPagina →', f.excerptPagina);
+      console.log('[Hagash CMS] ✓ excerptPagina →', f.excerptPagina);
     }
 
     /* 5. Badge */
@@ -1389,7 +1389,7 @@
       var n = setAll('a[href*="whatsapp"], a[href*="wa.me"], a.floating-whatsapp, .floating-whatsapp-container a, .mobile-cta-btn, .nav-mobile-cta a', function(el) { 
         el.href = f.whatsapp; 
       });
-      console.log('[HausBox CMS] ✓ whatsapp →', f.whatsapp, '(' + n + ' links actualizados en escritorio y móvil)');
+      console.log('[Hagash CMS] ✓ whatsapp →', f.whatsapp, '(' + n + ' links actualizados en escritorio y móvil)');
     }
 
     /* 7. Keyword */
@@ -1438,7 +1438,7 @@
     var targetSlug = (params.get('slug') || params.get('c') || params.get('ciudad') || '').toLowerCase().trim();
 
     if (!targetSlug) {
-      console.log('[HausBox CMS] Sin slug en URL, no se hidrata.');
+      console.log('[Hagash CMS] Sin slug en URL, no se hidrata.');
       return;
     }
 
@@ -1464,17 +1464,17 @@
     fetchFromWixREST(targetSlug)
       .then(function(results) {
         if (!results || results.length === 0) {
-          console.warn('[HausBox CMS] API no devolvió datos para:', targetSlug, '— usando mock como fallback final.');
+          console.warn('[Hagash CMS] API no devolvió datos para:', targetSlug, '— usando mock como fallback final.');
           /* Fallback de último recurso: mostrar mock completo si API no tiene el item */
           if (mockItem) hydrateDOM(extractFields(mockItem));
           return;
         }
         var liveFields = extractFields(results[0]);
         hydrateDOM(liveFields);
-        console.log('[HausBox CMS] ✅ Datos REALES del CMS aplicados:', liveFields);
+        console.log('[Hagash CMS] ✅ Datos REALES del CMS aplicados:', liveFields);
       })
       .catch(function(err) {
-        console.warn('[HausBox CMS] API REST no disponible, usando mock como fallback.', err.message || err);
+        console.warn('[Hagash CMS] API REST no disponible, usando mock como fallback.', err.message || err);
         /* Solo si la API falla totalmente, mostrar mock como último recurso */
         if (mockItem) hydrateDOM(extractFields(mockItem));
       });
@@ -1531,24 +1531,24 @@
 
     /* PASO 1: Renderizar inmediatamente con mock */
     renderZonesGrid(MOCK);
-    console.log('[HausBox CMS] ⚡ Hub de zonas con datos mock:', MOCK.length, 'landings');
+    console.log('[Hagash CMS] ⚡ Hub de zonas con datos mock:', MOCK.length, 'landings');
 
     /* PASO 2: Actualizar con datos reales via REST API de Wix */
     fetchFromWixREST(null)
       .then(function(liveItems) {
         if (!liveItems || liveItems.length === 0) return;
         renderZonesGrid(liveItems);
-        console.log('[HausBox CMS] ✅ Hub de zonas actualizado con datos reales del CMS:', liveItems.length, 'items');
+        console.log('[Hagash CMS] ✅ Hub de zonas actualizado con datos reales del CMS:', liveItems.length, 'items');
       })
       .catch(function(err) {
-        console.warn('[HausBox CMS] Hub usando datos mock (REST API no disponible).', err.message || err);
+        console.warn('[Hagash CMS] Hub usando datos mock (REST API no disponible).', err.message || err);
       });
   }
 
   /* ─── ENVÍO DE FORMULARIOS A FORMSUBMIT.CO ───────────────── */
   window.sendFormToFormSubmit = function(data) {
     var payload = {
-      _subject: data.subject || ("Nueva Consulta Web - " + (data.formSource || data.origen || "HausBox")),
+      _subject: data.subject || ("Nueva Consulta Web - " + (data.formSource || data.origen || "Hagash")),
       _cc: "test1@dilodigitalmx.com",
       _template: "table",
       _language: "es",
@@ -1564,7 +1564,7 @@
       "Origen de Formulario": data.formSource || data.origen || ("Landing: " + (window.currentLandingSlug || "Web"))
     };
 
-    fetch("https://formsubmit.co/ajax/contacto@hausbox.com", {
+    fetch("https://formsubmit.co/ajax/contacto@hagash.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -1574,16 +1574,16 @@
     })
     .then(function(r) { return r.json(); })
     .then(function(res) {
-      console.log("[HausBox FormSubmit] ✅ Formulario enviado exitosamente a contacto@hausbox.com y CC test1@dilodigitalmx.com:", res);
+      console.log("[Hagash FormSubmit] ✅ Formulario enviado exitosamente a contacto@hagash.com y CC test1@dilodigitalmx.com:", res);
     })
     .catch(function(err) {
-      console.warn("[HausBox FormSubmit] Error al enviar a FormSubmit:", err);
+      console.warn("[Hagash FormSubmit] Error al enviar a FormSubmit:", err);
     });
   };
 
   /* ─── ENVÍO DE CONSULTAS AL CMS Y FORMSUBMIT ─────────────── */
   window.submitInquiryToWix = function(data) {
-    // 1. Enviar siempre copia por FormSubmit.co (contacto@hausbox.com + CC test1@dilodigitalmx.com)
+    // 1. Enviar siempre copia por FormSubmit.co (contacto@hagash.com + CC test1@dilodigitalmx.com)
     window.sendFormToFormSubmit(data);
 
     // 2. Enviar a Wix CMS
@@ -1616,10 +1616,10 @@
       })
       .then(function(r) {
         if (!r.ok) throw new Error('Insert error: ' + r.status);
-        console.log('[HausBox CMS] ✅ Consulta enviada al CMS de Wix via REST.');
+        console.log('[Hagash CMS] ✅ Consulta enviada al CMS de Wix via REST.');
       })
       .catch(function(err) {
-        console.warn('[HausBox CMS] Error al enviar consulta:', err);
+        console.warn('[Hagash CMS] Error al enviar consulta:', err);
       });
     return true;
   };
@@ -1633,7 +1633,7 @@
     if (path.indexOf('zonas.html') > -1 || document.getElementById('zones-grid')) {
       initZonesHub();
     }
-    console.log('[HausBox CMS] ✅ Script inicializado.');
+    console.log('[Hagash CMS] ✅ Script inicializado.');
   }
 
   if (document.readyState === 'loading') {

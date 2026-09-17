@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 3789 596" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-278.296,-4167.11)">
+        <g transform="matrix(1,0,0,1,-77.3402,3545.72)">
+            <g>
+                <g>
+                    <g>
+                        <text x="312.303px" y="1153.04px" style="font-family:'PirulenRg-Regular', 'Pirulen', sans-serif;font-style:italic;font-size:666.667px;fill:rgb(236,236,236);">ha<tspan x="1618.3px " y="1153.04px ">g</tspan></text>
+                        <g transform="matrix(666.667,0,0,666.667,4187.64,1153.04)">
+                        </g>
+                        <text x="2905.64px" y="1153.04px" style="font-family:'PirulenRg-Regular', 'Pirulen', sans-serif;font-style:italic;font-size:666.667px;fill:rgb(236,236,236);">sh</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g transform="matrix(0.219149,0,0,0.219149,2492.78,4464.79)">
+            <g transform="matrix(1,0,0,1,-1825,-1358.33)">
+                <g transform="matrix(4.16667,0,0,4.16667,0,0)">
+                    <path id="a-mark" d="M106,499L386.181,75.669C393.515,65.669 400,67 414,67L464,67C477.333,67 485.199,65.81 492.532,75.81L810,582L745,582C722.333,582 705.333,572.667 694,554L438,173C432.667,164.333 427.333,164.333 422,173L259,434C235.667,437.333 213.667,444.333 193,455C161,467.667 132,482.333 106,499Z" style="fill:rgb(236,236,236);fill-rule:nonzero;"/>
+                    <path id="wave-mark" d="M67,560C114,512 172,467 226,457C282,446 331,464 378,492C438,528 493,566 562,575C588,578 614,577 638,570C613,591 581,600 545,598C472,594 416,556 361,526C307,497 267,486 226,493C171,502 118,535 67,560Z" style="fill:rgb(236,236,236);fill-rule:nonzero;"/>
+                </g>
+                <g transform="matrix(4.16667,0,0,4.16667,10,0)">
+                    <g id="window">
+                        <g>
+                            <g id="pane-1" transform="matrix(1.10119,0,0,1.10119,-49.0784,-45.739)">
+                                <rect x="379" y="347" width="48" height="48" style="fill:rgb(221,221,221);"/>
+                            </g>
+                            <g id="pane-2" transform="matrix(1.10119,0,0,1.10119,-49.0784,-45.739)">
+                                <rect x="437" y="347" width="48" height="48" style="fill:rgb(221,221,221);"/>
+                            </g>
+                            <g id="pane-3" transform="matrix(1.10119,0,0,1.10119,-49.0784,-45.739)">
+                                <rect x="379" y="404" width="48" height="48" style="fill:rgb(221,221,221);"/>
+                            </g>
+                            <g id="pane-4" transform="matrix(1.10119,0,0,1.10119,-49.0784,-45.739)">
+                                <rect x="437" y="404" width="48" height="48" style="fill:rgb(221,221,221);"/>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

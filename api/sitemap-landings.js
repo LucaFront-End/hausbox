@@ -1,4 +1,4 @@
-const SITE_URL = "https://hausbox.com";
+const SITE_URL = "https://hagash.com";
 const WIX_CLIENT_ID = "ad0088f3-624d-4205-aec9-590fd15e74dd";
 const WIX_COLLECTION = "LandingsdeCiudad";
 

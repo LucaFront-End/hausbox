@@ -1,5 +1,5 @@
 /**
- * HausBox - Pop-up Promocional 1 Mes Gratis & Botón Flotante de Regalo
+ * Hagash - Pop-up Promocional 1 Mes Gratis & Botón Flotante de Regalo
  * Incluye:
  * - Detección instantánea de intento de salida (Exit Intent al mover cursor hacia arriba <= 50px).
  * - Botón de regalo flotante limpio (píldora blanca en esquina inferior izquierda).
@@ -32,13 +32,13 @@
               <span id="promo-modal-badge-text">1 Mes Totalmente Gratis</span>
             </div>
             <h2 class="promo-modal__title" id="promo-modal-title">
-              Prueba Hausbox <span class="promo-highlight">GRATIS por 1 mes</span>
+              Prueba Hagash <span class="promo-highlight">GRATIS por 1 mes</span>
             </h2>
             <p class="promo-modal__subtitle" id="promo-modal-subtitle">
               Administra tu condominio de forma más fácil, rápida y transparente.
             </p>
             <p class="promo-modal__desc">
-              Regístrate hoy y disfruta de 1 mes GRATIS de Hausbox para conocer todo lo que puedes hacer con nuestra plataforma.
+              Regístrate hoy y disfruta de 1 mes GRATIS de Hagash para conocer todo lo que puedes hacer con nuestra plataforma.
             </p>
           </div>
 
@@ -108,7 +108,7 @@
     floatingTrigger.className = 'promo-floating-trigger';
     floatingTrigger.id = 'promo-floating-trigger';
     floatingTrigger.setAttribute('type', 'button');
-    floatingTrigger.setAttribute('aria-label', '1 Mes de Prueba Gratis de Hausbox');
+    floatingTrigger.setAttribute('aria-label', '1 Mes de Prueba Gratis de Hagash');
     floatingTrigger.innerHTML = `
       <span class="promo-floating-gift-icon">🎁</span>
       <span class="promo-floating-gift-text">1 Mes Gratis</span>
@@ -130,7 +130,7 @@
       if (badgeText && subtitleEl) {
         if (isExitIntent) {
           badgeText.textContent = '¡Espera! No te vayas sin tu regalo';
-          subtitleEl.textContent = 'Antes de salir, descubre cómo HausBox te ayuda a administrar tu condominio 100% gratis por 30 días.';
+          subtitleEl.textContent = 'Antes de salir, descubre cómo Hagash te ayuda a administrar tu condominio 100% gratis por 30 días.';
         } else {
           badgeText.textContent = '1 Mes Totalmente Gratis';
           subtitleEl.textContent = 'Administra tu condominio de forma más fácil, rápida y transparente.';
@@ -147,10 +147,10 @@
       document.body.style.overflow = '';
     }
 
-    window.openHausboxPromoModal = function () {
+    window.openHagashPromoModal = function () {
       openModal(false);
     };
-    window.closeHausboxPromoModal = closeModal;
+    window.closeHagashPromoModal = closeModal;
 
     floatingTrigger.addEventListener('click', function () {
       openModal(false);
@@ -197,7 +197,7 @@
           'Nombre Completo': nombre,
           'Teléfono / WhatsApp': telefono,
           'Correo Electrónico': email,
-          'Tipo de Solicitud': 'Prueba Hausbox GRATIS por 1 mes',
+          'Tipo de Solicitud': 'Prueba Hagash GRATIS por 1 mes',
           'Página de Origen': window.location.href,
           'Fecha': new Date().toLocaleString('es-MX')
         };
@@ -214,12 +214,12 @@
               subject: payload._subject
             });
           } catch (err) {
-            console.warn('[HausBox CMS] Error al invocar submitInquiryToWix:', err);
+            console.warn('[Hagash CMS] Error al invocar submitInquiryToWix:', err);
           }
         }
 
-        // 2. Envío directo a FormSubmit (contacto@hausbox.com + CC)
-        fetch('https://formsubmit.co/ajax/contacto@hausbox.com', {
+        // 2. Envío directo a FormSubmit (contacto@hagash.com + CC)
+        fetch('https://formsubmit.co/ajax/contacto@hagash.com', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -229,12 +229,12 @@
         })
           .then(function (res) { return res.json(); })
           .then(function (data) {
-            console.log('[HausBox Promo] ✅ Registro enviado exitosamente a contacto@hausbox.com:', data);
+            console.log('[Hagash Promo] ✅ Registro enviado exitosamente a contacto@hagash.com:', data);
             formView.style.display = 'none';
             successView.style.display = 'block';
           })
           .catch(function (err) {
-            console.warn('[HausBox Promo] FormSubmit fallback:', err);
+            console.warn('[Hagash Promo] FormSubmit fallback:', err);
             formView.style.display = 'none';
             successView.style.display = 'block';
           })
@@ -262,7 +262,7 @@
         scrollTriggered = true;
       }
 
-      console.log('[HausBox Promo] 🎯 Pop-up por:', triggerSource);
+      console.log('[Hagash Promo] 🎯 Pop-up por:', triggerSource);
       openModal(isExit);
     }
 

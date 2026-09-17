@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hausbox.com/sitemap.xml
-Sitemap: https://hausbox.com/sitemap-static.xml
-Sitemap: https://hausbox.com/sitemap-landings.xml
+Sitemap: https://hagash.com/sitemap.xml
+Sitemap: https://hagash.com/sitemap-static.xml
+Sitemap: https://hagash.com/sitemap-landings.xml

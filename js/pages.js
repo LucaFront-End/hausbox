@@ -1,5 +1,5 @@
 /* ============================================================
-   HAUSBOX — INNER PAGES SHARED INTERACTIONS
+   HAGASH — INNER PAGES SHARED INTERACTIONS
    Scroll reveals, parallax, counters, tilt, timeline
    ============================================================ */
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       item.fn();
     } catch (e) {
-      console.warn(`[HausBox] Failed to initialize ${item.name}:`, e);
+      console.warn(`[Hagash] Failed to initialize ${item.name}:`, e);
     }
   });
 });
@@ -688,8 +688,8 @@ function initMobileMenu() {
         <a href="precios.html" class="menu-highlight">Precios</a>
       </div>
       <div class="mobile-menu-actions">
-        <a href="https://app.hausbox.com" class="mobile-login-btn">Ingresar</a>
-        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+Quisiera+m%C3%A1s+informaci%C3%B3n+de+su+Software+para+administraci%C3%B3n+de+condominios+de+Hausbox&type=phone_number&app_absent=0" class="mobile-cta-btn" target="_blank" rel="noopener noreferrer">Solicitar Demo</a>
+        <a href="https://app.hagash.com" class="mobile-login-btn">Ingresar</a>
+        <a href="https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+Quisiera+m%C3%A1s+informaci%C3%B3n+de+su+Software+para+administraci%C3%B3n+de+condominios+de+Hagash&type=phone_number&app_absent=0" class="mobile-cta-btn" target="_blank" rel="noopener noreferrer">Solicitar Demo</a>
       </div>
     </div>
   `;
@@ -721,8 +721,8 @@ function initMobileMenu() {
       closeMenu();
       if (link.classList.contains('open-calc-btn')) {
         e.preventDefault();
-        if (typeof window.openHausboxCalcModal === 'function') {
-          window.openHausboxCalcModal();
+        if (typeof window.openHagashCalcModal === 'function') {
+          window.openHagashCalcModal();
         }
       }
     });
@@ -758,8 +758,8 @@ function initMobileMenu() {
       link.addEventListener('click', (e) => {
         if (link.classList.contains('open-calc-btn')) {
           e.preventDefault();
-          if (typeof window.openHausboxCalcModal === 'function') {
-            window.openHausboxCalcModal();
+          if (typeof window.openHagashCalcModal === 'function') {
+            window.openHagashCalcModal();
           }
         }
       });

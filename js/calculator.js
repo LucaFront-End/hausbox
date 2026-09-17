@@ -1,10 +1,10 @@
 /* ============================================================
-   HAUSBOX — PRICING CALCULATOR (Standalone Widget)
+   HAGASH — PRICING CALCULATOR (Standalone Widget)
    2-Step Wizard: Datos → Cotización → Resultado WhatsApp
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
-  try { initPricingCalcWidget(); } catch(e) { console.warn('[HausBox] Calculator widget error:', e); }
-  try { initWixChatObserver(); } catch(e) { console.warn('[HausBox] Wix Chat observer error:', e); }
+  try { initPricingCalcWidget(); } catch(e) { console.warn('[Hagash] Calculator widget error:', e); }
+  try { initWixChatObserver(); } catch(e) { console.warn('[Hagash] Wix Chat observer error:', e); }
 });
 
 function injectWixScript() {
@@ -284,7 +284,7 @@ function initPricingCalcWidget() {
           <div class="calc-results__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
           </div>
-          <h3>Tu plan HausBox</h3>
+          <h3>Tu plan Hagash</h3>
           <p class="result-summary" id="calc-result-summary"></p>
           <div class="calc-result-card" id="calc-result-card"></div>
           <a class="calc-results__wa-btn" id="calc-wa-link" href="#" target="_blank">
@@ -464,8 +464,8 @@ function initPricingCalcWidget() {
     document.body.style.overflow = '';
   }
 
-  window.openHausboxCalcModal = openModal;
-  window.closeHausboxCalcModal = closeModal;
+  window.openHagashCalcModal = openModal;
+  window.closeHagashCalcModal = closeModal;
 
   // Bind triggers via event delegation so dynamically added .open-calc-btn buttons work instantly
   document.addEventListener('click', (e) => {
@@ -478,7 +478,7 @@ function initPricingCalcWidget() {
       }
       if (window.innerWidth < 1024) {
         e.preventDefault();
-        var waUrl = window.currentLandingWhatsapp || "https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+Quisiera+m%C3%A1s+informaci%C3%B3n+de+su+Software+para+administraci%C3%B3n+de+condominios+de+Hausbox&type=phone_number&app_absent=0";
+        var waUrl = window.currentLandingWhatsapp || "https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+Quisiera+m%C3%A1s+informaci%C3%B3n+de+su+Software+para+administraci%C3%B3n+de+condominios+de+Hagash&type=phone_number&app_absent=0";
         window.open(waUrl, '_blank');
         return;
       }
@@ -527,7 +527,7 @@ function initPricingCalcWidget() {
 
     const waMsg = encodeURIComponent(
       `SW- Hola! Soy ${name}.\n` +
-      `Quiero más información sobre HausBox.\n\n` +
+      `Quiero más información sobre Hagash.\n\n` +
       `📋 Mi plan calculado:\n` +
       `• Tipo: ${selectedPropType}\n` +
       `• Unidades: ${units}\n` +

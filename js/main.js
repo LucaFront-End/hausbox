@@ -641,7 +641,7 @@ function initCardAnimations() {
         particle.style.setProperty('--tx', `${tx}px`);
         particle.style.setProperty('--ty', `${ty}px`);
         
-        // Green and accent blue colors matching HausBox
+        // Green and accent blue colors matching Hagash
         const colors = ['#06d6a0', '#0DA3E2', '#38bdf8', '#34d399'];
         particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
@@ -1106,7 +1106,7 @@ function initMobileMenu() {
         <a href="precios.html" class="menu-highlight">Precios</a>
       </div>
       <div class="mobile-menu-actions">
-        <a href="https://app.hausbox.com" class="mobile-login-btn">Ingresar</a>
+        <a href="https://app.hagash.com" class="mobile-login-btn">Ingresar</a>
         <a href="#" class="mobile-cta-btn open-calc-btn">Solicitar Demo</a>
       </div>
     </div>
@@ -1139,8 +1139,8 @@ function initMobileMenu() {
       closeMenu();
       if (link.classList.contains('open-calc-btn')) {
         e.preventDefault();
-        if (typeof window.openHausboxCalcModal === 'function') {
-          window.openHausboxCalcModal();
+        if (typeof window.openHagashCalcModal === 'function') {
+          window.openHagashCalcModal();
         }
       }
     });
@@ -1170,8 +1170,8 @@ function initMobileMenu() {
       
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        if (typeof window.openHausboxCalcModal === 'function') {
-          window.openHausboxCalcModal();
+        if (typeof window.openHagashCalcModal === 'function') {
+          window.openHagashCalcModal();
         }
       });
     }
