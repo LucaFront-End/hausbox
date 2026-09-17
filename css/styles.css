@@ -234,14 +234,14 @@ textarea {
 }
 
 .nav-logo img {
-  height: 49px !important;
+  height: 32px !important;
   width: auto !important;
   transition: opacity 300ms ease;
 }
 
 @media (min-width: 768px) {
   .nav-logo img {
-    height: 56px !important;
+    height: 38px !important;
   }
 }
 
