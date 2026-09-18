@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from datetime import datetime
 
-SITE_URL = "https://hausbox.com"
+SITE_URL = "https://www.hagash.com"
 WIX_CLIENT_ID = "ad0088f3-624d-4205-aec9-590fd15e74dd"
 WIX_COLLECTION = "LandingsdeCiudad"
 
