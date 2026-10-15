@@ -2286,7 +2286,7 @@ textarea {
 
 /* ========== CRAFTED / BEVEL EXACT REPLICA ========== */
 .crafted-section {
-  padding-top: clamp(5rem, 7.143vw + 3.571rem, 10rem);
+  padding-top: clamp(2rem, 3.5vw, 3.5rem);
   padding-bottom: 0;
   overflow: hidden;
   background-color: #ffffff;
@@ -2300,7 +2300,6 @@ textarea {
   max-width: 90rem;
   margin-left: auto;
   margin-right: auto;
-  transform: translateY(11%);
 }
 
 /* Row & Col grid (Bevel-style) */
@@ -2738,13 +2737,14 @@ textarea {
   position: relative;
   background-color: #050505;
   color: #ffffff;
-  padding: 6rem 1.25rem;
+  padding: clamp(3.5rem, 5vw, 5rem) 1.25rem;
   overflow: hidden;
+  scroll-margin-top: 90px;
 }
 
 @media (min-width: 768px) {
   .roles-tabs-section {
-    padding: 8rem 2rem;
+    padding: clamp(4rem, 6vw, 5.5rem) 2rem;
   }
 }
 
@@ -2755,24 +2755,24 @@ textarea {
 
 .roles-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
 }
 
 .roles-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .roles-tabs-section h2 {
-  font-size: clamp(2rem, 3.5vw + 1.2rem, 4.5rem);
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.02em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .roles-tabs-section h2 .serif {
@@ -2782,19 +2782,19 @@ textarea {
 }
 
 .roles-subtitle {
-  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
   font-weight: 300;
   color: rgba(255, 255, 255, 0.65);
   max-width: 38rem;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Tabs Switcher Pill */
 .tabs-selector-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
 }
 
 .tabs-selector {
@@ -2989,8 +2989,8 @@ textarea {
 }
 
 .role-phone {
-  width: 310px;
-  height: 610px;
+  width: 300px;
+  height: 550px;
   max-width: 100%;
 }
 
@@ -3003,7 +3003,7 @@ textarea {
   font-family: 'Inter', sans-serif;
   display: flex;
   flex-direction: column;
-  padding: 20px 16px;
+  padding: 16px 14px;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -3012,7 +3012,7 @@ textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .app-logo {
@@ -3036,7 +3036,7 @@ textarea {
 }
 
 .app-welcome-card {
-  margin-bottom: 22px;
+  margin-bottom: 12px;
 }
 
 .user-greeting {
@@ -3054,13 +3054,13 @@ textarea {
 .qr-scan-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 20px 16px;
+  border-radius: 16px;
+  padding: 14px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 
 .qr-scan-title {
@@ -3072,17 +3072,17 @@ textarea {
 .qr-scan-subtitle {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 18px;
+  margin-bottom: 10px;
 }
 
 /* QR Wrapper & Animations */
 .qr-wrapper {
   position: relative;
-  width: 144px;
-  height: 144px;
+  width: 124px;
+  height: 124px;
   background: #ffffff;
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: 10px;
+  padding: 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -3148,7 +3148,7 @@ textarea {
 
 @keyframes qr-scan-laser {
   0% {
-    top: 10px;
+    top: 8px;
     opacity: 0.1;
   }
   10% {
@@ -3158,7 +3158,7 @@ textarea {
     opacity: 1;
   }
   100% {
-    top: 130px;
+    top: 112px;
     opacity: 0.1;
   }
 }
@@ -3183,10 +3183,10 @@ textarea {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.05);
-  padding: 6px 12px;
+  padding: 5px 12px;
   border-radius: 99px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  margin-top: 18px;
+  margin-top: 10px;
 }
 
 .pulse-green-dot {
