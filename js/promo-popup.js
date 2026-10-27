@@ -1,9 +1,9 @@
 /**
  * Hagash - Pop-up Promocional 1 Mes Gratis & Botón Flotante de Regalo
  * Incluye:
- * - Detección instantánea de intento de salida (Exit Intent al mover cursor hacia arriba <= 50px).
  * - Botón de regalo flotante limpio (píldora blanca en esquina inferior izquierda).
  * - Formulario con integración a WhatsApp, FormSubmit y Wix CMS.
+ * - Desactivados popups automáticos (scroll a la mitad, exit-intent y timer al inicio).
  */
 (function () {
   'use strict';
@@ -244,50 +244,8 @@
       });
     }
 
-    // --- Control de Triggers Inteligentes (1 vez scroll + 1 vez salida) ---
-    var scrollTriggered = false;
-    var exitTriggered = false;
-
-    function triggerPromo(triggerSource) {
-      // Si ya está abierto, no hacer nada
-      if (overlay.classList.contains('active')) return;
-
-      var isExit = (triggerSource !== 'scroll_halfway');
-
-      if (isExit) {
-        if (exitTriggered) return;
-        exitTriggered = true;
-      } else {
-        if (scrollTriggered) return;
-        scrollTriggered = true;
-      }
-
-      console.log('[Hagash Promo] 🎯 Pop-up por:', triggerSource);
-      openModal(isExit);
-    }
-
-    // 1. Scroll a mitad de página (45%) — solo 1 vez por sesión
-    function handleScroll() {
-      if (scrollTriggered) return;
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
-      var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      if (scrollHeight > 0 && (scrollTop / scrollHeight) * 100 >= 45) {
-        triggerPromo('scroll_halfway');
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // 2. Exit-intent: el cursor sale del documento (hacia la barra de pestañas/cerrar) — solo 1 vez
-    // Usamos 'mouseleave' en document que es el evento más fiable para detectar que el usuario
-    // mueve el cursor FUERA del viewport hacia el chrome del navegador.
-    document.addEventListener('mouseleave', function (e) {
-      if (exitTriggered) return;
-      if (overlay.classList.contains('active')) return;
-      // Solo disparar si sale por el borde superior (hacia barra de tabs/X del browser)
-      if (e.clientY <= 0) {
-        triggerPromo('exit_mouseleave');
-      }
-    });
+    // Pop-ups automáticos desactivados (scroll a la mitad, exit-intent y timer al inicio).
+    // El modal únicamente se abre mediante interacción explícita del usuario (clic en botón flotante de regalo).
   }
 
   if (document.readyState === 'loading') {

@@ -1,0 +1,8 @@
+# Temporary migration assets and archives
+logos-hagash-temp/
+logos-hagash.zip
+rename_hausbox.py
+
+# System files
+.DS_Store
+Thumbs.db
