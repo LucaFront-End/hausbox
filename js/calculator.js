@@ -324,10 +324,74 @@ function initPricingCalcWidget() {
 
   if (!overlay) return;
 
-  // ---- State ----
+  // ---- State & Session Tracking (Registro único por etapas) ----
   let currentStep = 1;
   let selectedPropType = '';
   let selectedCurrency = 'MXN';
+  let calcSessionId = getCalcUUID();
+  let hasSavedStep1 = false;
+
+  function getCalcUUID() {
+    if (typeof window.generateUUID === 'function') {
+      try { return window.generateUUID(); } catch (e) {}
+    }
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      try { return crypto.randomUUID(); } catch (e) {}
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
+  function getStep1Values() {
+    const nameInput  = document.getElementById('calc-name');
+    const phoneInput = document.getElementById('calc-phone');
+    const emailInput = document.getElementById('calc-email');
+    const cityInput  = document.getElementById('calc-city');
+    const phoneFull  = document.getElementById('calc-phone-full');
+    
+    return {
+      name:  nameInput ? nameInput.value.trim() : '',
+      phone: (phoneFull && phoneFull.value ? phoneFull.value : (phoneInput ? phoneInput.value : '')).trim(),
+      email: emailInput ? emailInput.value.trim() : '',
+      city:  cityInput ? cityInput.value.trim() : ''
+    };
+  }
+
+  function saveStep1Lead(opts) {
+    const vals = getStep1Values();
+    if (!vals.name || !vals.email) return;
+
+    if (!calcSessionId) {
+      calcSessionId = getCalcUUID();
+    }
+
+    const payload = {
+      id: calcSessionId,
+      isUpdate: hasSavedStep1,
+      name: vals.name,
+      email: vals.email,
+      phone: vals.phone,
+      city: vals.city,
+      propertyType: selectedPropType || '',
+      units: 0,
+      estimatedCost: '',
+      currency: selectedCurrency,
+      formSource: 'Calculadora Modal (Paso 1: Datos)',
+      subject: 'Nuevo Prospecto Calculadora (Paso 1) - ' + vals.name,
+      skipEmail: (opts && opts.skipEmail !== undefined) ? opts.skipEmail : hasSavedStep1
+    };
+
+    console.log('[Hagash Calculator] 💾 Guardando datos del Paso 1 en Wix CMS (ID ' + calcSessionId + ')...');
+    if (typeof window.submitInquiryToWix === 'function') {
+      window.submitInquiryToWix(payload);
+    } else {
+      window.wixInquiryQueue = window.wixInquiryQueue || [];
+      window.wixInquiryQueue.push(payload);
+    }
+    hasSavedStep1 = true;
+  }
 
   // ---- Slider ----
   function updateSlider() {
@@ -491,26 +555,88 @@ function initPricingCalcWidget() {
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal(); });
 
+  // ---- Auto-guardado en Paso 1 (desenfoque o tras escribir datos válidos) ----
+  let autoSaveStep1Timer = null;
+  function triggerStep1AutoSave() {
+    clearTimeout(autoSaveStep1Timer);
+    autoSaveStep1Timer = setTimeout(() => {
+      const vals = getStep1Values();
+      if (vals.name && vals.email && validateStep1()) {
+        saveStep1Lead({ skipEmail: hasSavedStep1 });
+      }
+    }, 1200);
+  }
+
+  ['calc-name', 'calc-phone', 'calc-email', 'calc-city'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('blur', () => {
+        const vals = getStep1Values();
+        if (!hasSavedStep1 && vals.name && vals.email && validateStep1()) {
+          saveStep1Lead();
+        }
+      });
+      el.addEventListener('input', triggerStep1AutoSave);
+    }
+  });
+
   // ---- Step Buttons ----
   nextBtn.addEventListener('click', () => {
-    if (validateStep1()) goToStep(2);
+    if (validateStep1()) {
+      saveStep1Lead({ skipEmail: hasSavedStep1 });
+      goToStep(2);
+    }
   });
+
   step2BackBtn.addEventListener('click', () => goToStep(1));
-  step2NextBtn.addEventListener('click', () => goToStep(3));
+
+  step2NextBtn.addEventListener('click', () => {
+    if (!selectedPropType) return;
+
+    // Actualizar el mismo registro en Wix CMS con el tipo de propiedad seleccionado
+    const vals = getStep1Values();
+    if (!calcSessionId) calcSessionId = getCalcUUID();
+
+    const payload = {
+      id: calcSessionId,
+      isUpdate: true,
+      name: vals.name,
+      email: vals.email,
+      phone: vals.phone,
+      city: vals.city,
+      propertyType: selectedPropType,
+      currency: selectedCurrency,
+      formSource: 'Calculadora Modal (Paso 2: ' + selectedPropType + ')',
+      skipEmail: true
+    };
+
+    console.log('[Hagash Calculator] 🔄 Actualizando propiedad en Wix CMS (Paso 2)...');
+    if (typeof window.submitInquiryToWix === 'function') {
+      window.submitInquiryToWix(payload);
+    } else {
+      window.wixInquiryQueue = window.wixInquiryQueue || [];
+      window.wixInquiryQueue.push(payload);
+    }
+
+    goToStep(3);
+  });
+
   step3BackBtn.addEventListener('click', () => goToStep(2));
 
   // ---- Quote (Submit) ----
   quoteBtn.addEventListener('click', () => {
     if (!selectedPropType) return;
 
-    const name    = document.getElementById('calc-name').value.trim();
-    const email   = document.getElementById('calc-email').value.trim();
-    const phone   = (document.getElementById('calc-phone-full').value || document.getElementById('calc-phone').value).trim();
-    const city    = document.getElementById('calc-city').value.trim();
+    const vals = getStep1Values();
+    const name    = vals.name;
+    const email   = vals.email;
+    const phone   = vals.phone;
+    const city    = vals.city;
     const units   = parseInt(slider.value, 10);
     
     const unitPrice = getPricePerUnit(units, selectedCurrency);
     const total = units * unitPrice;
+    const formattedCost = `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`;
 
     // Results
     document.getElementById('calc-result-summary').textContent =
@@ -531,7 +657,7 @@ function initPricingCalcWidget() {
       `📋 Mi plan calculado:\n` +
       `• Tipo: ${selectedPropType}\n` +
       `• Unidades: ${units}\n` +
-      `• Total mensual: $${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}\n` +
+      `• Total mensual: ${formattedCost}\n` +
       `• Promoción: Paga 11 meses y obtén 1 mes gratis (12 meses en total)\n` +
       (city ? `• Ciudad: ${city}\n` : '') +
       `\n📧 ${email}\n📱 ${phone}`
@@ -539,18 +665,26 @@ function initPricingCalcWidget() {
     document.getElementById('calc-wa-link').href =
       `https://api.whatsapp.com/send/?phone=${WA_PHONE}&text=${waMsg}&type=phone_number&app_absent=0`;
 
-    // Submit to Wix CMS
+    if (!calcSessionId) calcSessionId = getCalcUUID();
+
+    // Actualizar el mismo registro en Wix CMS con unidades y cotización final
     const inquiryData = {
+      id: calcSessionId,
+      isUpdate: true,
       name,
       email,
       phone,
       propertyType: selectedPropType,
       units,
       city,
-      estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
+      estimatedCost: formattedCost,
       currency: selectedCurrency,
-      formSource: 'Calculadora Modal'
+      formSource: 'Calculadora Modal (Cotizado)',
+      subject: 'Cotización Calculadora Completa - ' + name,
+      skipEmail: false
     };
+
+    console.log('[Hagash Calculator] 🚀 Actualizando cotización completa en Wix CMS (Paso 3)...');
     if (typeof window.submitInquiryToWix === 'function') {
       window.submitInquiryToWix(inquiryData);
     } else {
@@ -571,7 +705,25 @@ function initPricingCalcWidget() {
     if (lineFill2) lineFill2.style.width = '100%';
   });
 
-  // ---- Restart ----
+  // ---- WhatsApp CTA Click (actualiza origen a WhatsApp en el mismo registro) ----
+  const waLink = document.getElementById('calc-wa-link');
+  if (waLink) {
+    waLink.addEventListener('click', () => {
+      if (calcSessionId) {
+        const payload = {
+          id: calcSessionId,
+          isUpdate: true,
+          formSource: 'Calculadora Modal (Cotizado + WhatsApp)',
+          skipEmail: true
+        };
+        if (typeof window.submitInquiryToWix === 'function') {
+          window.submitInquiryToWix(payload);
+        }
+      }
+    });
+  }
+
+  // ---- Restart (Reinicia con un nuevo ID único para otra cotización) ----
   restartBtn.addEventListener('click', () => {
     resultsView.classList.remove('active');
     selectedPropType = '';
@@ -579,6 +731,11 @@ function initPricingCalcWidget() {
     step2NextBtn.disabled = true;
     slider.value = 5;
     updateSlider();
+
+    // Nuevo ID único para la nueva cotización
+    calcSessionId = getCalcUUID();
+    hasSavedStep1 = false;
+
     goToStep(1);
   });
 

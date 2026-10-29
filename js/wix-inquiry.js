@@ -4,8 +4,9 @@
  *
  * Características:
  *  - Pre-carga y cachea el token OAuth anónimo de Wix al iniciar la página.
+ *  - Soporta persistencia por etapas actualizando el MISMO registro (Item) mediante ID único (UUID).
  *  - Usa `keepalive: true` para garantizar que la solicitud no se aborte al abrir WhatsApp o cambiar de pestaña.
- *  - Guarda en la colección 'ConsultasWeb' del CMS de Wix.
+ *  - Guarda y actualiza en la colección 'ConsultasWeb' del CMS de Wix (POST al inicio, PUT en etapas posteriores con fallback automático).
  *  - Envía respaldo a contacto@hagash.com (con CC a test1@dilodigitalmx.com) vía FormSubmit.
  *  - Procesa automáticamente cualquier consulta encolada en `window.wixInquiryQueue`.
  */
@@ -20,6 +21,22 @@
   var _cachedToken = null;
   var _tokenExpiry = 0;
   var _tokenPromise = null;
+
+  var _inquiryCache = {};
+  var _persistedItems = {};
+
+  /**
+   * Generador de UUID v4 compatible con navegadores antiguos y modernos
+   */
+  function generateUUID() {
+    if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+      try { return crypto.randomUUID(); } catch (e) {}
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
 
   function getWixToken() {
     var now = Date.now();
@@ -65,19 +82,30 @@
    * Respaldo por FormSubmit a contacto@hagash.com (+ CC)
    */
   function sendFormToFormSubmit(data) {
+    if (data.skipEmail) {
+      console.log('[Hagash FormSubmit] ⏩ Envío de correo omitido (etapa intermedia).');
+      return Promise.resolve({ skipped: true });
+    }
+
+    var defaultSubject = 'Nueva Cotización Web - ' + (data.formSource || data.origen || 'Hagash');
+    if (data.formSource && data.formSource.indexOf('Paso 1') !== -1) {
+      defaultSubject = 'Nuevo Prospecto Calculadora (Paso 1) - ' + (data.name || data.nombre || 'Hagash');
+    }
+
     var payload = {
-      _subject: data.subject || ('Nueva Cotización Web - ' + (data.formSource || data.origen || 'Hagash')),
+      _subject: data.subject || defaultSubject,
       _cc: 'test1@dilodigitalmx.com',
       _template: 'table',
       _language: 'es',
       _captcha: 'false',
+      'ID Registro': data.id || 'N/A',
       'Nombre': data.name || data.nombre || 'No especificado',
       'Correo Electrónico': data.email || data.correo || 'No especificado',
       'Teléfono': data.phone || data.telefono || 'No especificado',
-      'Tipo de Propiedad': data.propertyType || data.propiedad || 'N/A',
-      'Número de Unidades': data.units || data.unidades || 'N/A',
+      'Tipo de Propiedad': data.propertyType || data.propiedad || 'Pendiente (Paso 1)',
+      'Número de Unidades': (data.units !== undefined && data.units !== '') ? data.units : ((data.unidades !== undefined && data.unidades !== '') ? data.unidades : 'Pendiente (Paso 1)'),
       'Ciudad': data.city || data.ciudad || window.currentLandingCity || 'N/A',
-      'Costo Estimado': data.estimatedCost || data.costo || 'N/A',
+      'Costo Estimado': data.estimatedCost || data.costo || 'Pendiente (Paso 1)',
       'Moneda': data.currency || data.moneda || 'MXN',
       'Origen de Formulario': data.formSource || data.origen || ('Landing: ' + (window.currentLandingSlug || 'Web')),
       'Fecha': new Date().toLocaleString('es-MX')
@@ -103,64 +131,126 @@
   }
 
   /**
-   * Envía la consulta a Wix CMS (ConsultasWeb) y a FormSubmit
+   * Envía o actualiza la consulta en Wix CMS (ConsultasWeb) y en FormSubmit
+   * Soporta actualización incremental de etapas mediante ID único
    */
   function submitInquiryToWix(data) {
     if (!data) return Promise.resolve();
-    console.log('[Hagash CMS] 📤 Procesando consulta para guardar en Wix CMS...', data);
 
-    // 1. Respaldo por correo
-    sendFormToFormSubmit(data);
+    // Asegurar ID único persistente para este registro
+    var itemId = data.id || data._id || data.itemId;
+    if (!itemId) {
+      itemId = generateUUID();
+      data.id = itemId;
+    } else {
+      data.id = itemId;
+    }
 
-    // 2. Inserción directa en ConsultasWeb de Wix CMS
+    // Mezclar con los datos acumulados para no sobreescribir campos de pasos previos
+    _inquiryCache[itemId] = Object.assign(_inquiryCache[itemId] || {}, data);
+    var fullData = _inquiryCache[itemId];
+
+    // Determinar si es una actualización de un registro ya iniciado
+    var isUpdate = Boolean(data.isUpdate || _persistedItems[itemId]);
+
+    console.log('[Hagash CMS] 📤 ' + (isUpdate ? 'Actualizando' : 'Creando') + ' registro en Wix CMS (' + itemId + ')...', fullData);
+
+    // 1. Respaldo por correo (solo si no está explícitamente omitido)
+    if (!data.skipEmail) {
+      sendFormToFormSubmit(fullData);
+    }
+
+    // 2. Persistencia en ConsultasWeb de Wix CMS
     var parsedUnits = 0;
-    if (data.units) parsedUnits = parseInt(data.units, 10) || 0;
-    else if (data.unidades) parsedUnits = parseInt(data.unidades, 10) || 0;
+    if (fullData.units !== undefined && fullData.units !== null && fullData.units !== '') {
+      parsedUnits = parseInt(fullData.units, 10) || 0;
+    } else if (fullData.unidades !== undefined && fullData.unidades !== null && fullData.unidades !== '') {
+      parsedUnits = parseInt(fullData.unidades, 10) || 0;
+    }
 
     return getWixToken()
       .then(function (token) {
+        var itemData = {
+          _id:       itemId,
+          nombre:    (fullData.name || fullData.nombre || '').trim(),
+          correo:    (fullData.email || fullData.correo || '').trim(),
+          telefono:  (fullData.phone || fullData.telefono || '').trim(),
+          propiedad: (fullData.propertyType || fullData.propiedad || '').trim(),
+          unidades:  parsedUnits,
+          ciudad:    (fullData.city || fullData.ciudad || window.currentLandingCity || '').trim(),
+          costo:     (fullData.estimatedCost || fullData.costo || '').trim(),
+          moneda:    (fullData.currency || fullData.moneda || 'MXN').trim(),
+          origen:    (fullData.formSource || fullData.origen || ('Landing: ' + (window.currentLandingSlug || 'Web'))).trim()
+        };
+
         var payload = {
           dataCollectionId: WIX_COLLECTION,
           dataItem: {
-            data: {
-              nombre:    (data.name || data.nombre || '').trim(),
-              correo:    (data.email || data.correo || '').trim(),
-              telefono:  (data.phone || data.telefono || '').trim(),
-              propiedad: data.propertyType || data.propiedad || '',
-              unidades:  parsedUnits,
-              ciudad:    data.city || data.ciudad || window.currentLandingCity || '',
-              costo:     data.estimatedCost || data.costo || '',
-              moneda:    data.currency || data.moneda || 'MXN',
-              origen:    data.formSource || data.origen || ('Landing: ' + (window.currentLandingSlug || 'Web'))
-            }
+            id: itemId,
+            data: itemData
           }
         };
 
-        return fetch(WIX_DATA_URL, {
-          method: 'POST',
+        var targetUrl = isUpdate ? (WIX_DATA_URL + '/' + encodeURIComponent(itemId)) : WIX_DATA_URL;
+        var method = isUpdate ? 'PUT' : 'POST';
+
+        return fetch(targetUrl, {
+          method: method,
           headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
           },
           body: JSON.stringify(payload),
           keepalive: true
+        })
+        .then(function (r) {
+          // Si intentamos PUT y el item no existía (404), fallback automático a POST
+          if (isUpdate && r.status === 404) {
+            console.warn('[Hagash CMS] Item ' + itemId + ' no encontrado con PUT (404), insertando vía POST...');
+            return fetch(WIX_DATA_URL, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+              },
+              body: JSON.stringify(payload),
+              keepalive: true
+            });
+          }
+          // Si intentamos POST y ya existía (409), fallback automático a PUT
+          if (!isUpdate && r.status === 409) {
+            console.warn('[Hagash CMS] Item ' + itemId + ' ya existía con POST (409), actualizando vía PUT...');
+            return fetch(WIX_DATA_URL + '/' + encodeURIComponent(itemId), {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+              },
+              body: JSON.stringify(payload),
+              keepalive: true
+            });
+          }
+          return r;
         });
       })
       .then(function (r) {
-        if (!r.ok) throw new Error('Wix Insert Error: ' + r.status);
+        if (!r.ok) throw new Error('Wix API Error: HTTP ' + r.status);
         return r.json();
       })
       .then(function (res) {
-        console.log('[Hagash CMS] ✅ ¡Consulta guardada con éxito en Wix CMS (ConsultasWeb)! ID:', res && res.dataItem ? res.dataItem.id : 'OK');
-        return res;
+        _persistedItems[itemId] = true;
+        console.log('[Hagash CMS] ✅ ¡Item ' + (isUpdate ? 'actualizado' : 'guardado') + ' con éxito en Wix CMS (ConsultasWeb)! ID:', itemId);
+        return { success: true, id: itemId, dataItem: res && res.dataItem ? res.dataItem : null };
       })
       .catch(function (err) {
-        console.error('[Hagash CMS] ❌ Error al guardar consulta en Wix:', err);
+        console.error('[Hagash CMS] ❌ Error al guardar/actualizar consulta en Wix:', err);
+        return { success: false, id: itemId, error: err };
       });
   }
 
   // Publicar funciones en window
   window.submitInquiryToWix = submitInquiryToWix;
+  window.generateUUID = generateUUID;
   window.sendFormToFormSubmit = sendFormToFormSubmit;
   window.getWixToken = getWixToken;
 

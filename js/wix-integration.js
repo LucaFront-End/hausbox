@@ -1583,47 +1583,103 @@
 
   /* ─── ENVÍO DE CONSULTAS AL CMS Y FORMSUBMIT ─────────────── */
   if (!window.submitInquiryToWix) {
+    var _fallbackInquiryCache = {};
+    var _fallbackPersisted = {};
+
+    function _fallbackUUID() {
+      if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+        try { return crypto.randomUUID(); } catch (e) {}
+      }
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
     window.submitInquiryToWix = function(data) {
-      // 1. Enviar siempre copia por FormSubmit.co (contacto@hagash.com + CC test1@dilodigitalmx.com)
-      if (typeof window.sendFormToFormSubmit === 'function') {
-        window.sendFormToFormSubmit(data);
+      if (!data) return Promise.resolve();
+      var itemId = data.id || data._id || data.itemId || _fallbackUUID();
+      data.id = itemId;
+
+      _fallbackInquiryCache[itemId] = Object.assign(_fallbackInquiryCache[itemId] || {}, data);
+      var fullData = _fallbackInquiryCache[itemId];
+      var isUpdate = Boolean(data.isUpdate || _fallbackPersisted[itemId]);
+
+      // 1. Enviar copia por FormSubmit si no se omite
+      if (!data.skipEmail && typeof window.sendFormToFormSubmit === 'function') {
+        window.sendFormToFormSubmit(fullData);
       }
 
-      // 2. Enviar a Wix CMS
+      // 2. Enviar a Wix CMS (crear o actualizar)
       return getWixToken()
         .then(function(token) {
+          var parsedUnits = 0;
+          if (fullData.units !== undefined && fullData.units !== null && fullData.units !== '') {
+            parsedUnits = parseInt(fullData.units, 10) || 0;
+          } else if (fullData.unidades !== undefined && fullData.unidades !== null && fullData.unidades !== '') {
+            parsedUnits = parseInt(fullData.unidades, 10) || 0;
+          }
+
           var payload = {
             dataCollectionId: 'ConsultasWeb',
             dataItem: {
+              id: itemId,
               data: {
-                nombre:    (data.name || data.nombre || '').trim(),
-                correo:    (data.email || data.correo || '').trim(),
-                telefono:  (data.phone || data.telefono || '').trim(),
-                propiedad: data.propertyType || data.propiedad || '',
-                unidades:  data.units ? parseInt(data.units, 10) : 0,
-                ciudad:    data.city || window.currentLandingCity || '',
-                costo:     data.estimatedCost || '',
-                moneda:    data.currency || 'MXN',
-                origen:    data.formSource || ('Landing: ' + (window.currentLandingSlug || 'Web'))
+                _id:       itemId,
+                nombre:    (fullData.name || fullData.nombre || '').trim(),
+                correo:    (fullData.email || fullData.correo || '').trim(),
+                telefono:  (fullData.phone || fullData.telefono || '').trim(),
+                propiedad: (fullData.propertyType || fullData.propiedad || '').trim(),
+                unidades:  parsedUnits,
+                ciudad:    (fullData.city || fullData.ciudad || window.currentLandingCity || '').trim(),
+                costo:     (fullData.estimatedCost || fullData.costo || '').trim(),
+                moneda:    (fullData.currency || fullData.moneda || 'MXN').trim(),
+                origen:    (fullData.formSource || fullData.origen || ('Landing: ' + (window.currentLandingSlug || 'Web'))).trim()
               }
             }
           };
-          return fetch('https://www.wixapis.com/wix-data/v2/items', {
-            method: 'POST',
+
+          var targetUrl = isUpdate ? ('https://www.wixapis.com/wix-data/v2/items/' + encodeURIComponent(itemId)) : 'https://www.wixapis.com/wix-data/v2/items';
+          var method = isUpdate ? 'PUT' : 'POST';
+
+          return fetch(targetUrl, {
+            method: method,
             headers: {
               'Content-Type':  'application/json',
               'Authorization': 'Bearer ' + token
             },
             body: JSON.stringify(payload),
             keepalive: true
+          })
+          .then(function(r) {
+            if (isUpdate && r.status === 404) {
+              return fetch('https://www.wixapis.com/wix-data/v2/items', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify(payload),
+                keepalive: true
+              });
+            }
+            if (!isUpdate && r.status === 409) {
+              return fetch('https://www.wixapis.com/wix-data/v2/items/' + encodeURIComponent(itemId), {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+                body: JSON.stringify(payload),
+                keepalive: true
+              });
+            }
+            return r;
           });
         })
         .then(function(r) {
-          if (!r.ok) throw new Error('Insert error: ' + r.status);
-          console.log('[Hagash CMS] ✅ Consulta enviada al CMS de Wix via REST.');
+          if (!r.ok) throw new Error('Insert/Update error: ' + r.status);
+          _fallbackPersisted[itemId] = true;
+          console.log('[Hagash CMS] ✅ Consulta ' + (isUpdate ? 'actualizada' : 'creada') + ' en el CMS de Wix via REST. ID:', itemId);
+          return { success: true, id: itemId };
         })
         .catch(function(err) {
           console.warn('[Hagash CMS] Error al enviar consulta:', err);
+          return { success: false, id: itemId, error: err };
         });
     };
   }

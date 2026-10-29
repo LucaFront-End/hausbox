@@ -2,6 +2,8 @@
 logos-hagash-temp/
 logos-hagash.zip
 rename_hausbox.py
+node_modules/
+package-lock.json
 
 # System files
 .DS_Store

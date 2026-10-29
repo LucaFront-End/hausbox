@@ -785,9 +785,9 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/wix-inquiry.js?v=1.0.0"></script>
+  <script src="js/wix-inquiry.js?v=1.1.0"></script>
   <script src="js/main.js"></script>
-  <script src="js/calculator.js?v=1.2.0"></script>
+  <script src="js/calculator.js?v=1.3.0"></script>
   
   <!-- Interactive page logic for precios.html -->
   <script>
@@ -859,6 +859,62 @@
 
       let selectedPropType = '';
       let selectedCurrency = 'MXN';
+      let pageCalcSessionId = getPageCalcUUID();
+      let pageCalcSavedStep1 = false;
+
+      function getPageCalcUUID() {
+        if (typeof window.generateUUID === 'function') {
+          try { return window.generateUUID(); } catch (e) {}
+        }
+        if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+          try { return crypto.randomUUID(); } catch (e) {}
+        }
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+      }
+
+      function getPageStep1Values() {
+        return {
+          name: inputName ? inputName.value.trim() : '',
+          email: inputEmail ? inputEmail.value.trim() : '',
+          phone: ((inputPhoneFull && inputPhoneFull.value.trim()) || (inputPhone && inputPhone.value.trim()) || ''),
+          city: inputCity ? inputCity.value.trim() : ''
+        };
+      }
+
+      function savePageStep1Lead(opts) {
+        const vals = getPageStep1Values();
+        if (!vals.name || !vals.email) return;
+
+        if (!pageCalcSessionId) pageCalcSessionId = getPageCalcUUID();
+
+        const payload = {
+          id: pageCalcSessionId,
+          isUpdate: pageCalcSavedStep1,
+          name: vals.name,
+          email: vals.email,
+          phone: vals.phone,
+          city: vals.city,
+          propertyType: selectedPropType || '',
+          units: 0,
+          estimatedCost: '',
+          currency: selectedCurrency,
+          formSource: 'Calculadora Página de Precios (Paso 1: Datos)',
+          subject: 'Nuevo Prospecto Calculadora Precios (Paso 1) - ' + vals.name,
+          skipEmail: (opts && opts.skipEmail !== undefined) ? opts.skipEmail : pageCalcSavedStep1
+        };
+
+        console.log('[Hagash Precios] 💾 Guardando datos del Paso 1 en Wix CMS (ID ' + pageCalcSessionId + ')...');
+        if (typeof window.submitInquiryToWix === 'function') {
+          window.submitInquiryToWix(payload);
+        } else {
+          window.wixInquiryQueue = window.wixInquiryQueue || [];
+          window.wixInquiryQueue.push(payload);
+        }
+        pageCalcSavedStep1 = true;
+      }
 
       // Setup country picker for phone input
       if (inputPhone && typeof setupPhoneCountryPicker === 'function') {
@@ -918,6 +974,30 @@
         });
       });
 
+      // Auto-guardado en Paso 1 (desenfoque o tras escribir datos válidos)
+      let pageAutoSaveTimer = null;
+      function triggerPageAutoSave() {
+        clearTimeout(pageAutoSaveTimer);
+        pageAutoSaveTimer = setTimeout(() => {
+          const vals = getPageStep1Values();
+          if (vals.name && vals.email && inputEmail.checkValidity()) {
+            savePageStep1Lead({ skipEmail: pageCalcSavedStep1 });
+          }
+        }, 1200);
+      }
+
+      [inputName, inputPhone, inputEmail, inputCity].forEach(el => {
+        if (el) {
+          el.addEventListener('blur', () => {
+            const vals = getPageStep1Values();
+            if (!pageCalcSavedStep1 && vals.name && vals.email && inputEmail.checkValidity()) {
+              savePageStep1Lead();
+            }
+          });
+          el.addEventListener('input', triggerPageAutoSave);
+        }
+      });
+
       // Step 1 -> Step 2
       step1NextBtn.addEventListener('click', () => {
         const name = inputName.value.trim();
@@ -953,6 +1033,9 @@
           return;
         }
 
+        // Guardar inmediatamente el lead del Paso 1
+        savePageStep1Lead({ skipEmail: pageCalcSavedStep1 });
+
         step1.classList.remove('active');
         step2.classList.add('active');
         dot1.classList.add('completed');
@@ -971,6 +1054,32 @@
       // Step 2 -> Step 3
       step2NextBtn.addEventListener('click', () => {
         if (!selectedPropType) return;
+
+        // Actualizar el mismo registro con el tipo de propiedad seleccionado
+        const vals = getPageStep1Values();
+        if (!pageCalcSessionId) pageCalcSessionId = getPageCalcUUID();
+
+        const payload = {
+          id: pageCalcSessionId,
+          isUpdate: true,
+          name: vals.name,
+          email: vals.email,
+          phone: vals.phone,
+          city: vals.city,
+          propertyType: selectedPropType,
+          currency: selectedCurrency,
+          formSource: 'Calculadora Página de Precios (Paso 2: ' + selectedPropType + ')',
+          skipEmail: true
+        };
+
+        console.log('[Hagash Precios] 🔄 Actualizando propiedad en Wix CMS (Paso 2)...');
+        if (typeof window.submitInquiryToWix === 'function') {
+          window.submitInquiryToWix(payload);
+        } else {
+          window.wixInquiryQueue = window.wixInquiryQueue || [];
+          window.wixInquiryQueue.push(payload);
+        }
+
         step2.classList.remove('active');
         step3.classList.add('active');
         dot2.classList.add('completed');
@@ -988,13 +1097,15 @@
 
       // Submit and Generate WhatsApp Link + Send to FormSubmit & Wix CMS
       submitBtn.addEventListener('click', () => {
-        const name = inputName.value.trim();
-        const email = inputEmail.value.trim();
-        const phone = (inputPhoneFull.value.trim() || inputPhone.value.trim());
-        const city = inputCity.value.trim();
+        const vals = getPageStep1Values();
+        const name = vals.name;
+        const email = vals.email;
+        const phone = vals.phone;
+        const city = vals.city;
         const units = parseInt(slider.value, 10);
         const unitPrice = getPricePerUnit(units, selectedCurrency);
         const total = units * unitPrice;
+        const formattedCost = `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`;
 
         const summaryContainer = document.getElementById('page-calc-results-summary');
         summaryContainer.innerHTML = `
@@ -1003,7 +1114,7 @@
           <div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Unidades:</span><strong>${units} unidades</strong></div>
           <div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Precio por unidad:</span><strong>$${unitPrice.toFixed(2)} ${selectedCurrency}</strong></div>
           ${city ? `<div class="result-row" style="display:flex; justify-content:space-between; padding:4px 0; font-size:13.5px; color:#334155;"><span style="color:#64748b;">Ciudad:</span><strong>${city}</strong></div>` : ''}
-          <div class="result-total" style="display:flex; justify-content:space-between; padding:10px 0 4px; border-top:1px solid #e2e8f0; margin-top:8px; font-size:16px; color:#0f172a;"><span style="font-weight:600;">Total mensual estimado:</span><strong style="color:#0DA3E2; font-size:18px;">$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}</strong></div>
+          <div class="result-total" style="display:flex; justify-content:space-between; padding:10px 0 4px; border-top:1px solid #e2e8f0; margin-top:8px; font-size:16px; color:#0f172a;"><span style="font-weight:600;">Total mensual estimado:</span><strong style="color:#0DA3E2; font-size:18px;">${formattedCost}</strong></div>
           <div style="margin-top: 6px; font-weight: 600; color: #059669; font-size: 12px;">🎁 Promoción activa: Paga 11 meses y obtén 1 mes gratis</div>
         `;
 
@@ -1013,7 +1124,7 @@
           `📋 Mi plan calculado:\n` +
           `• Tipo: ${selectedPropType}\n` +
           `• Unidades: ${units}\n` +
-          `• Total mensual: $${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}\n` +
+          `• Total mensual: ${formattedCost}\n` +
           `• Promoción: Paga 11 meses y obtén 1 mes gratis (12 meses en total)\n` +
           (city ? `• Ciudad: ${city}\n` : '') +
           `\n📧 Correo: ${email}\n📱 Teléfono: ${phone}`
@@ -1023,27 +1134,31 @@
         const waBtn = document.getElementById('page-calc-results-wa-link');
         waBtn.href = waUrl;
 
-        // 1. Guardar en Wix CMS (ConsultasWeb) y enviar respaldo a FormSubmit
+        if (!pageCalcSessionId) pageCalcSessionId = getPageCalcUUID();
+
+        // 1. Guardar en Wix CMS (ConsultasWeb) y enviar respaldo a FormSubmit actualizando el mismo registro
         const inquiryData = {
+          id: pageCalcSessionId,
+          isUpdate: true,
           name: name,
           email: email,
           phone: phone,
           propertyType: selectedPropType,
           units: units,
           city: city || 'No especificada',
-          estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
+          estimatedCost: formattedCost,
           currency: selectedCurrency,
-          formSource: 'Calculadora Página de Precios'
+          formSource: 'Calculadora Página de Precios (Cotizado)',
+          subject: 'Cotización Calculadora Precios Completa - ' + name,
+          skipEmail: false
         };
 
+        console.log('[Hagash Precios] 🚀 Actualizando cotización completa en Wix CMS (Paso 3)...');
         if (typeof window.submitInquiryToWix === 'function') {
           window.submitInquiryToWix(inquiryData);
         } else {
           window.wixInquiryQueue = window.wixInquiryQueue || [];
           window.wixInquiryQueue.push(inquiryData);
-          if (typeof window.sendFormToFormSubmit === 'function') {
-            window.sendFormToFormSubmit(inquiryData);
-          }
         }
 
         // 3. Switch to Results view
@@ -1061,6 +1176,24 @@
         // Open WhatsApp automatically
         window.open(waUrl, '_blank');
       });
+
+      // WhatsApp link click
+      const pageWaBtn = document.getElementById('page-calc-results-wa-link');
+      if (pageWaBtn) {
+        pageWaBtn.addEventListener('click', () => {
+          if (pageCalcSessionId) {
+            const payload = {
+              id: pageCalcSessionId,
+              isUpdate: true,
+              formSource: 'Calculadora Página de Precios (Cotizado + WhatsApp)',
+              skipEmail: true
+            };
+            if (typeof window.submitInquiryToWix === 'function') {
+              window.submitInquiryToWix(payload);
+            }
+          }
+        });
+      }
 
       // Restart calculation
       restartBtn.addEventListener('click', () => {
@@ -1081,8 +1214,11 @@
         step2NextBtn.disabled = true;
         slider.value = 50;
         updateCalculation();
-      });
 
+        // Reiniciar ID único para la nueva cotización independiente
+        pageCalcSessionId = getPageCalcUUID();
+        pageCalcSavedStep1 = false;
+      });
     });
   </script>
 
