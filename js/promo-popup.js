@@ -8,7 +8,7 @@
 (function () {
   'use strict';
 
-  var WA_URL = "https://api.whatsapp.com/send/?phone=5215574374431&text=SWP-+Hola+quisiera+comenzar+mis+30+d%C3%ADas+de+prueba+gratis&type=phone_number&app_absent=0";
+  var WA_URL = "https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+quisiera+comenzar+mis+30+d%C3%ADas+de+prueba+gratis&type=phone_number&app_absent=0";
 
   function createPromoModal() {
     if (document.getElementById('promo-modal-overlay')) return;
