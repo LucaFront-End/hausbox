@@ -785,6 +785,7 @@
   </div>
 
   <!-- Scripts -->
+  <script src="js/wix-inquiry.js?v=1.0.0"></script>
   <script src="js/main.js"></script>
   <script src="js/calculator.js?v=1.2.0"></script>
   
@@ -1022,44 +1023,27 @@
         const waBtn = document.getElementById('page-calc-results-wa-link');
         waBtn.href = waUrl;
 
-        // 1. Submit to FormSubmit (contacto@hagash.com + CC)
-        const emailPayload = {
-          _subject: `💰 Cotización Web Hagash: ${name} - ${units} unidades (${selectedPropType})`,
-          _cc: 'test1@dilodigitalmx.com',
-          _template: 'table',
-          _language: 'es',
-          _captcha: 'false',
-          'Nombre Completo': name,
-          'Teléfono': phone,
-          'Correo': email,
-          'Ciudad': city || 'No especificada',
-          'Tipo de Propiedad': selectedPropType,
-          'Número de Unidades': units,
-          'Costo Mensual Estimado': `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
-          'Moneda': selectedCurrency,
-          'Página': window.location.href,
-          'Fecha': new Date().toLocaleString('es-MX')
+        // 1. Guardar en Wix CMS (ConsultasWeb) y enviar respaldo a FormSubmit
+        const inquiryData = {
+          name: name,
+          email: email,
+          phone: phone,
+          propertyType: selectedPropType,
+          units: units,
+          city: city || 'No especificada',
+          estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
+          currency: selectedCurrency,
+          formSource: 'Calculadora Página de Precios'
         };
 
-        fetch('https://formsubmit.co/ajax/contacto@hagash.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(emailPayload)
-        }).catch(err => console.warn('[Hagash FormSubmit] Error:', err));
-
-        // 2. Submit to Wix CMS
         if (typeof window.submitInquiryToWix === 'function') {
-          window.submitInquiryToWix({
-            name,
-            email,
-            phone,
-            propertyType: selectedPropType,
-            units,
-            city,
-            estimatedCost: `$${total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} ${selectedCurrency}/mes`,
-            currency: selectedCurrency,
-            formSource: 'Calculadora Página de Precios'
-          });
+          window.submitInquiryToWix(inquiryData);
+        } else {
+          window.wixInquiryQueue = window.wixInquiryQueue || [];
+          window.wixInquiryQueue.push(inquiryData);
+          if (typeof window.sendFormToFormSubmit === 'function') {
+            window.sendFormToFormSubmit(inquiryData);
+          }
         }
 
         // 3. Switch to Results view

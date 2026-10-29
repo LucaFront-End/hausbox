@@ -203,19 +203,23 @@
         };
 
         // 1. Envío al CMS de Wix
+        var promoData = {
+          name: nombre,
+          email: email,
+          phone: telefono,
+          propertyType: 'Prueba 1 Mes Gratis',
+          formSource: 'Popup 1 Mes Gratis (' + (window.location.pathname || '/') + ')',
+          subject: payload._subject
+        };
         if (typeof window.submitInquiryToWix === 'function') {
           try {
-            window.submitInquiryToWix({
-              name: nombre,
-              email: email,
-              phone: telefono,
-              propertyType: 'Prueba 1 Mes Gratis',
-              formSource: 'Popup 1 Mes Gratis (' + (window.location.pathname || '/') + ')',
-              subject: payload._subject
-            });
+            window.submitInquiryToWix(promoData);
           } catch (err) {
             console.warn('[Hagash CMS] Error al invocar submitInquiryToWix:', err);
           }
+        } else {
+          window.wixInquiryQueue = window.wixInquiryQueue || [];
+          window.wixInquiryQueue.push(promoData);
         }
 
         // 2. Envío directo a FormSubmit (contacto@hagash.com + CC)

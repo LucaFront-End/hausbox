@@ -1582,47 +1582,51 @@
   };
 
   /* ─── ENVÍO DE CONSULTAS AL CMS Y FORMSUBMIT ─────────────── */
-  window.submitInquiryToWix = function(data) {
-    // 1. Enviar siempre copia por FormSubmit.co (contacto@hagash.com + CC test1@dilodigitalmx.com)
-    window.sendFormToFormSubmit(data);
+  if (!window.submitInquiryToWix) {
+    window.submitInquiryToWix = function(data) {
+      // 1. Enviar siempre copia por FormSubmit.co (contacto@hagash.com + CC test1@dilodigitalmx.com)
+      if (typeof window.sendFormToFormSubmit === 'function') {
+        window.sendFormToFormSubmit(data);
+      }
 
-    // 2. Enviar a Wix CMS
-    getWixToken()
-      .then(function(token) {
-        var payload = {
-          dataCollectionId: 'ConsultasWeb',
-          dataItem: {
-            data: {
-              nombre:    data.name     || '',
-              correo:    data.email    || '',
-              telefono:  data.phone    || '',
-              propiedad: data.propertyType || '',
-              unidades:  data.units ? parseInt(data.units, 10) : 0,
-              ciudad:    data.city || window.currentLandingCity || '',
-              costo:     data.estimatedCost || '',
-              moneda:    data.currency || 'MXN',
-              origen:    data.formSource || ('Landing: ' + (window.currentLandingSlug || 'Web'))
+      // 2. Enviar a Wix CMS
+      return getWixToken()
+        .then(function(token) {
+          var payload = {
+            dataCollectionId: 'ConsultasWeb',
+            dataItem: {
+              data: {
+                nombre:    (data.name || data.nombre || '').trim(),
+                correo:    (data.email || data.correo || '').trim(),
+                telefono:  (data.phone || data.telefono || '').trim(),
+                propiedad: data.propertyType || data.propiedad || '',
+                unidades:  data.units ? parseInt(data.units, 10) : 0,
+                ciudad:    data.city || window.currentLandingCity || '',
+                costo:     data.estimatedCost || '',
+                moneda:    data.currency || 'MXN',
+                origen:    data.formSource || ('Landing: ' + (window.currentLandingSlug || 'Web'))
+              }
             }
-          }
-        };
-        return fetch('https://www.wixapis.com/wix-data/v2/items', {
-          method: 'POST',
-          headers: {
-            'Content-Type':  'application/json',
-            'Authorization': 'Bearer ' + token
-          },
-          body: JSON.stringify(payload)
+          };
+          return fetch('https://www.wixapis.com/wix-data/v2/items', {
+            method: 'POST',
+            headers: {
+              'Content-Type':  'application/json',
+              'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify(payload),
+            keepalive: true
+          });
+        })
+        .then(function(r) {
+          if (!r.ok) throw new Error('Insert error: ' + r.status);
+          console.log('[Hagash CMS] ✅ Consulta enviada al CMS de Wix via REST.');
+        })
+        .catch(function(err) {
+          console.warn('[Hagash CMS] Error al enviar consulta:', err);
         });
-      })
-      .then(function(r) {
-        if (!r.ok) throw new Error('Insert error: ' + r.status);
-        console.log('[Hagash CMS] ✅ Consulta enviada al CMS de Wix via REST.');
-      })
-      .catch(function(err) {
-        console.warn('[Hagash CMS] Error al enviar consulta:', err);
-      });
-    return true;
-  };
+    };
+  }
 
   /* ─── AUTOEJECUTAR ──────────────────────────────────────── */
   function run() {

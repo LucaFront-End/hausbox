@@ -831,10 +831,10 @@ function initRolesTabs() {
    SIMPLE MULTI-STEP FORM — Wizard steps and validation
    ============================================================ */
 function injectWixScript() {
-  if (document.querySelector('script[src*="wix-integration.js"]')) return;
+  if (typeof window.submitInquiryToWix === 'function') return;
+  if (document.querySelector('script[src*="wix-inquiry.js"]')) return;
   const script = document.createElement('script');
-  script.type = 'module';
-  script.src = 'js/wix-integration.js';
+  script.src = 'js/wix-inquiry.js';
   document.head.appendChild(script);
 }
 
