@@ -3,12 +3,42 @@
  * Incluye:
  * - Botón de regalo flotante limpio (píldora blanca en esquina inferior izquierda).
  * - Formulario con integración a WhatsApp, FormSubmit y Wix CMS.
- * - Desactivados popups automáticos (scroll a la mitad, exit-intent y timer al inicio).
+ * - Pop-up promocional normal automático a los 15 segundos (1 sola vez, persistido en localStorage).
  */
 (function () {
   'use strict';
 
   var WA_URL = "https://api.whatsapp.com/send/?phone=5215574374431&text=SW-+Hola+quisiera+comenzar+mis+30+d%C3%ADas+de+prueba+gratis&type=phone_number&app_absent=0";
+
+  var PROMO_SEEN_KEY = 'hagash_promo_shown_once_v1';
+  var PROMO_DELAY_MS = 15000;
+  var memorySeen = false;
+  var autoOpenTimer = null;
+
+  function hasPromoBeenShown() {
+    if (memorySeen) return true;
+    try {
+      if (window.localStorage && window.localStorage.getItem(PROMO_SEEN_KEY) === '1') return true;
+    } catch (e) {}
+    try {
+      if (window.sessionStorage && window.sessionStorage.getItem(PROMO_SEEN_KEY) === '1') return true;
+    } catch (e) {}
+    return false;
+  }
+
+  function markPromoAsShown() {
+    memorySeen = true;
+    if (autoOpenTimer) {
+      clearTimeout(autoOpenTimer);
+      autoOpenTimer = null;
+    }
+    try {
+      if (window.localStorage) window.localStorage.setItem(PROMO_SEEN_KEY, '1');
+    } catch (e) {}
+    try {
+      if (window.sessionStorage) window.sessionStorage.setItem(PROMO_SEEN_KEY, '1');
+    } catch (e) {}
+  }
 
   function createPromoModal() {
     if (document.getElementById('promo-modal-overlay')) return;
@@ -127,6 +157,7 @@
     var subtitleEl = document.getElementById('promo-modal-subtitle');
 
     function openModal(isExitIntent) {
+      markPromoAsShown();
       if (badgeText && subtitleEl) {
         if (isExitIntent) {
           badgeText.textContent = '¡Espera! No te vayas sin tu regalo';
@@ -248,8 +279,19 @@
       });
     }
 
-    // Pop-ups automáticos desactivados (scroll a la mitad, exit-intent y timer al inicio).
-    // El modal únicamente se abre mediante interacción explícita del usuario (clic en botón flotante de regalo).
+    // Auto-apertura del pop-up normal a los 15 segundos (solo 1 vez; si ya apareció no vuelve a aparecer)
+    if (!hasPromoBeenShown()) {
+      var attemptAutoOpen = function () {
+        if (hasPromoBeenShown() || overlay.classList.contains('active')) return;
+        var calcOverlay = document.getElementById('calc-modal-overlay');
+        if (calcOverlay && calcOverlay.classList.contains('active')) {
+          autoOpenTimer = setTimeout(attemptAutoOpen, 2000);
+          return;
+        }
+        openModal(false);
+      };
+      autoOpenTimer = setTimeout(attemptAutoOpen, PROMO_DELAY_MS);
+    }
   }
 
   if (document.readyState === 'loading') {

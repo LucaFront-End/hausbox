@@ -23,8 +23,25 @@ const MIME_TYPES = {
 
 function createStaticServer() {
   return http.createServer((req, res) => {
-    let reqPath = req.url.split('?')[0];
+    const qIdx = req.url.indexOf('?');
+    let reqPath = qIdx === -1 ? req.url : req.url.slice(0, qIdx);
+    const query = qIdx === -1 ? '' : req.url.slice(qIdx);
+
+    if (reqPath.endsWith('.html')) {
+      const cleanPath = reqPath === '/index.html' ? '/' : reqPath.slice(0, -5);
+      res.writeHead(308, { 'Location': cleanPath + query });
+      res.end();
+      return;
+    }
+
     if (reqPath === '/') reqPath = '/index.html';
+    else if (!path.extname(reqPath)) {
+      const htmlCandidate = path.join(__dirname, reqPath + '.html');
+      if (fs.existsSync(htmlCandidate)) {
+        reqPath += '.html';
+      }
+    }
+
     const filePath = path.join(__dirname, reqPath);
     
     fs.readFile(filePath, (err, data) => {
@@ -165,7 +182,7 @@ async function runE2E() {
   if (!cdpAvailable) throw new Error('No se pudo conectar a Chrome CDP en el puerto 9222');
 
   // 3. Crear nueva pestaña navegando a la web local
-  const newTabRes = await fetch(`http://127.0.0.1:9222/json/new?http://127.0.0.1:${PORT}/index.html`, { method: 'PUT' });
+  const newTabRes = await fetch(`http://127.0.0.1:9222/json/new?http://127.0.0.1:${PORT}/`, { method: 'PUT' });
   const tabData = await newTabRes.json();
   const cdp = new CDPClient(tabData.webSocketDebuggerUrl);
   await cdp.connect();

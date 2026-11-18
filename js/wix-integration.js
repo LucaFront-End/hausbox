@@ -1504,7 +1504,7 @@
           + '<h3 style="font-size:20px;font-weight:600;color:#0f172a;margin-bottom:12px;line-height:1.4">' + (f.tituloPagina || f.slug) + '</h3>'
           + '<p style="font-size:14px;line-height:1.6;color:#64748b;margin-bottom:20px">' + (f.excerptPagina || '') + '</p>'
           + '</div>'
-          + '<a href="ciudad.html?slug=' + encodeURIComponent(f.slug) + '" class="zone-card-link">Ver Landing →</a>'
+          + '<a href="/ciudad?slug=' + encodeURIComponent(f.slug) + '" class="zone-card-link">Ver Landing →</a>'
           + '</div>';
       }
       container.innerHTML = html;
@@ -1687,10 +1687,10 @@
   /* ─── AUTOEJECUTAR ──────────────────────────────────────── */
   function run() {
     var path = window.location.pathname;
-    if (path.indexOf('ciudad.html') > -1 || !!new URLSearchParams(window.location.search).get('slug')) {
+    if (path === '/ciudad' || path.indexOf('/ciudad/') === 0 || path.indexOf('ciudad.html') > -1 || !!new URLSearchParams(window.location.search).get('slug')) {
       initCityLanding();
     }
-    if (path.indexOf('zonas.html') > -1 || document.getElementById('zones-grid')) {
+    if (path === '/zonas' || path.indexOf('/zonas/') === 0 || path.indexOf('zonas.html') > -1 || document.getElementById('zones-grid')) {
       initZonesHub();
     }
     console.log('[Hagash CMS] ✅ Script inicializado.');

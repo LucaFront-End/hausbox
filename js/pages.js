@@ -665,27 +665,27 @@ function initMobileMenu() {
       <button class="mobile-menu-close" aria-label="Cerrar menú">✕</button>
       <div class="mobile-menu-section">
         <h4>Nosotros</h4>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="casos-de-exito.html">Casos de éxito</a>
+        <a href="/nosotros">Nosotros</a>
+        <a href="/casos-de-exito">Casos de éxito</a>
       </div>
       <div class="mobile-menu-section">
         <h4>Funcionalidades</h4>
-        <a href="acceso-express.html">Acceso Express QR</a>
-        <a href="reserva-amenidades.html">Reserva de Amenidades</a>
-        <a href="pago-mantenimiento.html">Pago de Mantenimiento</a>
-        <a href="comunicacion-avisos.html">Comunicación y Avisos</a>
-        <a href="cobranza-inteligente.html">Cobranza Inteligente</a>
-        <a href="conciliacion-automatizada.html">Conciliación Automatizada</a>
-        <a href="contabilidad-profesional.html">Contabilidad Profesional</a>
-        <a href="mensajeria-multicanal.html">Mensajería Multicanal</a>
+        <a href="/acceso-express">Acceso Express QR</a>
+        <a href="/reserva-amenidades">Reserva de Amenidades</a>
+        <a href="/pago-mantenimiento">Pago de Mantenimiento</a>
+        <a href="/comunicacion-avisos">Comunicación y Avisos</a>
+        <a href="/cobranza-inteligente">Cobranza Inteligente</a>
+        <a href="/conciliacion-automatizada">Conciliación Automatizada</a>
+        <a href="/contabilidad-profesional">Contabilidad Profesional</a>
+        <a href="/mensajeria-multicanal">Mensajería Multicanal</a>
       </div>
       <div class="mobile-menu-section">
         <h4>Comunidad</h4>
-        <a href="blog.html">Blog</a>
-        <a href="comunidad.html">Comunidad</a>
+        <a href="/blog">Blog</a>
+        <a href="/comunidad">Comunidad</a>
       </div>
       <div class="mobile-menu-section">
-        <a href="precios.html" class="menu-highlight">Precios</a>
+        <a href="/precios" class="menu-highlight">Precios</a>
       </div>
       <div class="mobile-menu-actions">
         <a href="https://app.hagash.com" class="mobile-login-btn">Ingresar</a>

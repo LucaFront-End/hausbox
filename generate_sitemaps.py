@@ -37,22 +37,22 @@ def fetch_all_cms_landings(token):
 def generate_static_sitemap():
     static_pages = [
         {"path": "/", "priority": "1.0", "changefreq": "daily"},
-        {"path": "/nosotros.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/precios.html", "priority": "0.9", "changefreq": "weekly"},
-        {"path": "/zonas.html", "priority": "0.9", "changefreq": "daily"},
-        {"path": "/casos-de-exito.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/blog.html", "priority": "0.8", "changefreq": "weekly"},
-        {"path": "/acceso-express.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/cobranza-inteligente.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/comunicacion-avisos.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/comunidad.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/conciliacion-automatizada.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/contabilidad-profesional.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/mensajeria-multicanal.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/pago-mantenimiento.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/reserva-amenidades.html", "priority": "0.8", "changefreq": "monthly"},
-        {"path": "/politica-de-privacidad.html", "priority": "0.3", "changefreq": "yearly"},
-        {"path": "/terminos-y-condiciones.html", "priority": "0.3", "changefreq": "yearly"}
+        {"path": "/nosotros", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/precios", "priority": "0.9", "changefreq": "weekly"},
+        {"path": "/zonas", "priority": "0.9", "changefreq": "daily"},
+        {"path": "/casos-de-exito", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/blog", "priority": "0.8", "changefreq": "weekly"},
+        {"path": "/acceso-express", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/cobranza-inteligente", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/comunicacion-avisos", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/comunidad", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/conciliacion-automatizada", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/contabilidad-profesional", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/mensajeria-multicanal", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/pago-mantenimiento", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/reserva-amenidades", "priority": "0.8", "changefreq": "monthly"},
+        {"path": "/politica-de-privacidad", "priority": "0.3", "changefreq": "yearly"},
+        {"path": "/terminos-y-condiciones", "priority": "0.3", "changefreq": "yearly"}
     ]
     
     today = datetime.now().strftime('%Y-%m-%d')
@@ -101,7 +101,7 @@ def generate_landings_sitemap():
         updated = l.get('_updatedDate', {}).get('$date') if isinstance(l.get('_updatedDate'), dict) else None
         lastmod = updated[:10] if updated else today
         
-        loc = f"{SITE_URL}/ciudad.html?slug={slug}"
+        loc = f"{SITE_URL}/ciudad?slug={slug}"
         xml_lines.append('  <url>')
         xml_lines.append(f'    <loc>{loc}</loc>')
         xml_lines.append(f'    <lastmod>{lastmod}</lastmod>')

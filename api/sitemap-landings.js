@@ -1,4 +1,4 @@
-const SITE_URL = "https://hagash.com";
+const SITE_URL = "https://www.hagash.com";
 const WIX_CLIENT_ID = "ad0088f3-624d-4205-aec9-590fd15e74dd";
 const WIX_COLLECTION = "LandingsdeCiudad";
 
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     for (const l of landings) {
       if (!l.slug) continue;
       const updated = l._updatedDate && l._updatedDate.$date ? l._updatedDate.$date.split("T")[0] : today;
-      xml += `  <url>\n    <loc>${SITE_URL}/ciudad.html?slug=${encodeURIComponent(l.slug)}</loc>\n    <lastmod>${updated}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+      xml += `  <url>\n    <loc>${SITE_URL}/ciudad?slug=${encodeURIComponent(l.slug)}</loc>\n    <lastmod>${updated}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
     }
 
     xml += `</urlset>`;
